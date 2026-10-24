@@ -1,0 +1,217 @@
+Agentic Observability Pricing | Logz.io
+Smarter Pricing, Built for Your Needs
+Flexible pricing and data optimization to cut costs
+Schedule Demo
+Start Free Trial
+Your browser does not support the video tag. I suggest you upgrade your browser
+Pick Your Pricing
+Consumption
+Subscription
+$ 0.92
+Per ingested GB, per day
+7 days retention
+Schedule a Demo
+$ 0.40
+Per 1000 time series metrics How does this work? per day
+18 months retention
+6 DPM per time series
+Get 50% off using consumption pricing
+$ 0.16
+Per 1 million spans, per day
+10 days retention
+$ 10
+Per 1M tokens
+or AI Agent workflow/invocation
+Additional retention
+Hot Retention Extension – $0.03 per additional day
+Warm Retention Extension – $0.015 per additional day
+Cold Retention – $0.001 per additional day
+50% off
+$0.40
+$ 0.20
+New Metrics pricing starts Oct. 1, 2026
+for new consumption plans only.
+Existing plans keep their current rate.
+Additional information
+Agent pricing may vary based on the specific agent and usage
+Contact us for volume discounts
+*Billed annually (or monthly for 1.2x the cost).
+*See the On-Demand plan details for overage pricing
+Log Management
+Infrastructure Monitoring
+Distributed Tracing
+Pro
+Enterprise
+Free Trial
+Get a Quote
+Admin
+Daily Data Volume
+Unlimited
+Data Retention
+On Demand Pricing How
+does this work?
+Billed annually or monthly for 1.2x the cost
+Users
+No limit
+API
+24/7 Customer Support
+Dedicated Customer Success Engineer
+Dark Mode
+Security, availability & compliance
+Public Cloud Availability
+AWS
+Multi Region
+Audit Trail
+SSO / SAML
+SOC-2, GDPR, HIPAA Compliance
+PCI Level 1 Compliance
+MFA
+IP Login Restrictions
+Role Based Access Control
+Data Token Management How
+Data and cost management
+Data Optimization Hub How
+Warm Tier How
+Cold Tier How
+LogMetrics How
+Telemetry Collector How
+300+ Integrations
+Sub Accounts How
+Drop Filters How
+Archive + Restore How
+Volume & Cost Analysis
+Log Parsing-as-a-Service How
+Custom Log Parser How
+Data Trends Reporting How
+Incident Report
+Field Mapping Editor How
+Export Logs
+Product Search Bar How
+Analysis features
+K8s 360 How
+App 360 How
+Service Overview How
+Service Map How
+Search Filters
+Saved Searches
+Timestamp Graph
+Dynamic Field Display How
+Data Visualization and Dashboarding
+Alerting
+Bulk Alert Management
+Correlate with Metrics/Traces
+Exceptions How
+Log Patterns How
+Prebuilt Dashboards
+Live Tail How
+18 months
+Multi Region Availability
+Data Filtering Service How
+Data analysis capabilities
+PromQL-Supported Search
+PromQL-Supported Visualizations
+Out-of-the-box Monitoring Dashboards How
+Production Event Correlation How
+Alert Manager How
+Alert Rules How
+Alert Conditions How
+Correlate with Logs & Traces
+30+ Integrations
+10 days
+OpenTelemetry Sampling Configuration How
+Data analysis
+Trace Search
+Trace Visualization Graph
+Service Performance Monitoring How
+Trace Compare
+System Architecture View
+Correlation With Logs & Metrics
+The smartest and easiest observability pricing on the market today – pay only for what you use, eliminate overages, and tailor costs to your needs for flexible, efficient cost management.
+Eliminate the need for upfront guesswork.
+Pay only for the data you ingest and use.
+Roll over unused capacity to the next billing cycle.
+Prevent costly overages and optimize your budget.
+Scale observability efforts according to business cycles.
+Manage seasonal spikes or daily fluctuations seamlessly.
+Ensure payment only for necessary observability data.
+Expand observability practices without new contract negotiations.
+Support all forms of telemetry with a single pricing model.
+Evolve usage without incurring additional costs.
+Is consumption-based pricing right for you?
+Logz.io is an AWS Advanced Technology Partner with AWS Competency designations for Security, DevOps, Data & Analytics and SMB. With integrations to every relevant AWS service, Logz.io offers the most easy-to-use, cost-effective observability platform, purpose-built for monitoring microservices running in the cloud. We are available in the AWS Marketplace.
+Advanced observability
+for AWS-native applications
+Try Free with AWS
+How is Log Management priced?
+Log Management is priced on the amount of log data you send (measured in GBs) and how long you decide to keep it. Most of our customers retain their log data anywhere from 3-90 days. Learn how to reduce your log management costs with Data Optimization Hub , Cold Tier , LogMetrics , and Archive & Restore .
+How is Infrastructure Monitoring priced? What is a time-series metric?
+Infrastructure Monitoring is priced on the average amount of unique time-series metrics you send to Logz.io per day. The metric data retention is fixed at 18 months by default.
+A unique time-series metric is a distinct and individual measurement that is continuously monitored over time. CPU and memory measurements for one VM represent two time-series metrics, while CPU and memory for five VMs represent 10 time-series metrics. Learn how to reduce your metrics volume – and therefore Logz.io costs – with Logz.io’s Data Optimization Hub .
+How is Distributed Tracing priced?
+Distributed Tracing is priced on the amount of spans (spans are the building blocks of traces) you ingest in Logz.io every month. Use the Tracing Sampling Wizard to easily configure sampling rules in OpenTelemetry to control the volume of data ingested into Logz.io.
+The span data retention is fixed at ten days by default.
+How is Cloud SIEM priced?
+Like Log Management, Cloud SIEM is priced on the amount of log data you send (measured in GBs) and how long you decide to keep it. Most of our customers retain their log data anywhere from 7-120 days. Learn how to reduce your Cloud SIEM costs with the Data Optimization Hub .
+What can Logz.io’s Data Optimization capabilities do and how can they reduce my costs?
+Logz.io reduces customer costs by aligning the price of data with its value. Useless data can easily be removed with Data Optimization Hub . On average, our customers remove 32% of their data and costs with this feature. For the data you keep, you can reduce storage costs with Multi-tiered Storage , LogMetrics , and Archive and Restore depending on the data’s use case.
+Does Logz.io’s cost vary per region?
+Yes. The prices on this page represent Logz.io’s costs for the aws-us-east region. If you’d like to have your data hosted in other AWS regions or with other cloud providers, the cost will vary. See our docs to view a complete list of our supported cloud providers and regions. Contact us for pricing in other cloud regions.
+Is there a monthly plan or annual plan?
+Both. The monthly plan is 1.2x the cost of the annual plan.
+Are custom metrics priced differently from system metrics?
+No. Custom metrics and system metrics are priced the same.
+What happens if I send more data than my plan permits?
+Customers who ingest more data than their subscription plan permits will be charged On Demand pricing for the excess data. The On Demand plan is 1.4x the cost of your subscription plan.
+The customer’s subscription plan will be measured against the actual data volume ingested to Logz.io every day, and the total difference will be calculated at the end of the month.
+For example: if a customer commits to ingesting 5GBs of log data per day with their Logz.io account, but they ingest 10GBs one of the days, then 5GB will be charged via On Demand pricing accordingly.
+How can I monitor and control costs per team?
+Logz.io makes it easy to segregate your data across teams and provides a single view to monitor and control costs across every team. Set data caps to prevent specific teams from exceeding your organization&#8217;s data and cost commitments.
+How are log-based metrics billed?
+LogMetrics significantly reduce the cost of logs that provide their value through visualization (as opposed to search). LogMetrics are billed as normal time-series metrics. See the Infrastructure Monitoring pricing for LogMetrics costs.
+Logz.io Log Management: You will have the ability to ship your data in excess of the above subscription plan(s), subject to an additional payment of 1.4x the cost of your subscription.
+Logz.io SIEM: You will have the ability to scan your data in excess of the above subscription plan(s), subject to an additional payment of 1.4x the cost of your subscription.
+Logz.io Distributed Tracing: You will have the ability to ship your data in excess of the above subscription plan(s), subject to an additional payment of 1.4x the cost of your subscription.
+Logz.io Infrastructure Monitoring: You will have the ability to ship unique metrics in excess of the above subscription plan(s), subject to an additional payment, as follows:
+At the end of each calendar month, Logz.io will calculate the daily overages (based on the difference between the Actual Daily Unique Metrics Usage as defined below and the Number of Unique Metrics per Day as stated above), and multiply it by the On Demand fees, which are 1.4x the cost of your subscription costs.
+Actual Daily Unique Metrics Usage: Logz.io shall calculate the actual number of unique metrics that were shipped to the Logz.io Platform on an hourly basis, as measured by the Logz.io Platform. At the end of each day (measured from 00:00 UTC to 23:59:999 UTC), Logz.io shall average the number of unique metrics per hour and that average will be the &#8220;Actual Daily Unique Metrics Usage&#8221;.
+At the end of each calendar month, Logz.io will calculate the On Demand fees that are due for that month, which will be invoiced at the end of the month.
+Can I reallocate my Logz.io costs across different products?
+Yes! Once per calendar month, you may provide a 7 days written notice to your account manager notifying them that you wish to re-distribute capacity allocation across Logz.io products (Log Management, Distributed Tracing, Infrastructure Monitoring, and Cloud SIEM) within your subscription plan. Capacity reallocation has no impact on the total net price of your Logz.io plan.
+Capacity reallocation is only available for paying customers on an annual subscription.
+Do you provide a high usage volume discount?
+Yes. We offer tailored pricing for high-volume usage. Contact our Sales team to discuss your needs and explore available discounts.
+Why would I choose consumption-based pricing over subscription-based pricing?
+We believe the impact of consumption-based pricing is, in a word, monumental. It eliminates the upfront guesswork necessary to estimate and control observability costs. By paying for only the data you ingest into the platform and what’s needed to support your critical observability processes, you no longer run the risk of paying for overages when conditions change. From seasonality to evolving architecture, you’re covered.
+Moreover, the greatest benefit of consumption-based pricing is that you only pay for what you use, giving your team full control over spending and the ability to set hard limits. We know that while most organizations do not review spending on a daily basis, some days require more data than others. By adopting the consumption model, inevitable spikes in your data will not incur costly on-demand fees &#8211; with overall utilization measured across the entire term of your contract.
+How does consumption-based pricing help enable full observability?
+As organizations seek to expand their observability practices, traditional pricing can serve as a hurdle to adopting additional data streams and unified use cases. Logz.io’s consumption-based pricing removes these obstacles, allowing organizations to adopt a single model for every form of telemetry and evolve their spending to support their current requirements.
+Compared to traditional subscription pricing &#8211; where you have to assess the unique utilization of logs, metrics and traces, and face limits if you want to start sending more metrics and traces, and fewer logs &#8211; now you have the flexibility to adjust your use to suit your immediate requirements. With consumption based pricing, you commit to a single figure upfront, allowing you to decide however you want to leverage that budget across the different telemetry types.
+Are there additional costs for support?
+Never. Logz.io’s 24/7 in-app free customer support applies, as always. Our support team is available worldwide at all hours and every customer, no matter how big or how small, has someone assigned to guarantee success at all times.
+How can we monitor and limit our data usage?
+Logz.io provides in-depth data utilization monitoring within the platform. Detailed dashboards document every element of your data consumption and related costs. And don’t forget our Data Optimization Hub which provides hands-on capabilities to actively reduce your data consumption and spending at any time. In this way, Logz.io gives you the ability to continuously control spending and ensure you always stay within your budget.
+Can we scale up or down easily?
+Always. If your team utilizes all of the data they have been provided upfront, you can always add capacity to your existing contract without incurring any overage or on-demand type charges; early renewal is also an option. Just reach out to us.
+What happens if we need more data?
+We’re here to support your growing requirements. Customers can upgrade their parameters at any time based on their changing requirements. Additional data can be added quickly to your contract at any time.
+What happens if we exceed our original data consumption levels?
+Again, we’re here to make sure that your unique requirements are always being supported. If you need additional data, Logz.io can support this in a number of ways, from adding data on a pay-as-you-go basis, to negotiating a change to your initial contract. It’s also worth noting that you can closely limit your data utilization to stay within your desired range, and budget.
+What data retention options are available?
+Logz.io offers a range of data retention and storage alternatives, from our Hot Tier to our low cost Cold Tier which reduces the budgetary impact of compliance logs or aging logs without significantly impacting query speed.
+Does Logz.io help determine how much data/budget we’d need?
+Yes. Our account team is uniquely qualified to work with you to help determine the specific level of data you need to support your existing and future requirements. We’ll work closely with you to ensure that you’ve created the best scenario to optimize your use of the platform and data, and ensure alignment with your budget.
+Can I switch to subscription-based pricing if I start with consumption-based pricing?
+Yes. While we rarely see customers make this change after realizing the benefits of consumption-based pricing, we are here to support your evolving vision at any time.
+What is the AWS unit price for Logz.io Open 360 using Consumption-Based Pricing?
+Using the AWS Marketplace for Logz.io, one unit is equal to $0.01 USD. This means that Logz.io reports your monitory consumption to AWS and your cost is calculated in this manner.
+Learn more about how consumption pricing works with AWS.
+What is a "Token"?
+Tokens are the building blocks of AI processing (roughly 750 words per 1,000 tokens). We bill in units of 1 million tokens to provide transparent and scalable pricing for high-volume users. This includes both the prompt you send (input) and the AI&#8217;s response (output).
+What is an "Invocation"?
+An invocation is counted every time an AI Agent (like the RCA Agent) is triggered—whether via an automated alert or an API call.
+Completely free for 14 days, no strings attached.
+Close Popup
+Which plan is right
+for you?
+We'll walk you through each plan and answer your questions
+Talk to Our Team

@@ -1,0 +1,232 @@
+The outage visibility you've been missing
+No credit card required
+Free for 14 days
+Try all features
+Business
+Enterprise
+Education
+Annually
+Save up to 20%
+Monthly
+Free
+Free forever
+Sign up
+Monitors
+A monitor represents an item on your status page
+Boards
+Each board can have one status page
+Users
+People who sign in to StatusGator to configure monitors
+100 Status page subscribers
+People who can subscribe to your status page updates
+1 month of data
+See historical data about vendor reliability
+Admin SSO
+Secure StatusGator dashboard admin access with SAML SSO
+10 notifications per month
+Maximum outage alerts each month
+Monthly or annual credit card billing
+Pay by credit card on a monthly or annual basis
+Chat integrations
+Includes Discord, Google Chat, Microsoft Teams, Slack, and Webex
+Embed integrations
+Includes Iframe, Status Embed, and Status Modal
+Help desk integrations
+Includes Freshdesk, Freshservice, Incident IQ, and Zendesk
+Third-party status page integrations
+Includes Atlassian Statuspage and StatusHub
+Monitoring integrations
+Includes Datadog, Meraki, Neat Pulse, TrackSSL, and Zoom Rooms
+Incident management integrations
+Includes Better Uptime, FireHydrant, Opsgenie, and PagerDuty
+Private status integrations
+Includes AWS status, Azure status, Google Cloud status, Microsoft 365 status, and Zendesk status
+Authenticated status page
+Restrict your status page to specific users
+See all features
+Starter
+$72
+$79
+USD
+per month/paid annually
+$864
+per year
+per month
+Start trial
+25
+500 Status page subscribers
+3 months of data
+Unlimited notifications
+Team
+Top plan
+$137
+$149
+$1,644
+75
+1,000 Status page subscribers
+6 months of data
+Corporate
+$274
+$299
+$3,288
+150
+10
+12 months of data
+View plans comparison
+Rated on Capterra, GetApp, Software Advice
+Schedule a free 30-min demo
+We'll show how StatusGator can benefit your team. No strings attached
+Schedule a demo
+14-day free trial
+Experience the full power of StatusGator free for 14 days!
+No credit card
+No credit card required during free trial.
+Cancel anytime
+Cancel anytime before the trial ends without being charged.
+All paid features are available during the trial.
+Compare plan features
+Plan features
+$72/mo
+$79/mo
+$137/mo
+$149/mo
+$274/mo
+$299/mo
+Custom
+Schedule demo
+General
+More
+Status page subscribers
+100
+500
+1,000
+Notifications
+Unlimited
+Historical data limit
+Pull reports and do analysis about vendor reliability
+1 month
+3 months
+6 months
+12 months
+24 months
+Public status pages
+Publish your status page publicly
+Private status pages
+Protect your status page with a password
+Custom domains
+Host your status page on your own custom domain
+Hide StatusGator branding
+Remove StatusGator from your status page footer
+Early Warning Signals
+Get notified before providers acknowledge outages
+Two-factor auth
+Require two-factor authentication for security
+API limits
+Get detailed status data and history via API
+15 req/min
+30 req/min
+60 req/min
+120 req/min
+Authenticated status pages
+Custom email sender
+Send emails from your own domain
+Advanced privacy controls
+Prevent analysis and training on your data
+Priority support
+Direct access to our engineering team
+Custom enterprise agreements
+Contract readlines, security audit forms
+Integrations
+Chat
+Discord
+Send notifications to a Discord channel.
+Google Chat
+Send notifications to a Google Chat channel.
+Microsoft Teams
+Send notifications to a Microsoft Teams channel.
+Slack
+Get notifications and report issues in Slack.
+Webex
+Send notifications to a Webex space.
+Embeds
+Iframe
+Embed your status page on your website.
+Status Embed
+Embed a summary and link to your status page.
+Status Modal
+Digital signage
+OptiSigns
+Show your status page on OptiSigns digital signage.
+Rise Vision
+Show your status page on Rise Vision digital signage.
+TV
+Display your status page on a TV.
+Knowledge base
+Confluence
+Embed StatusGator dashboards directly into Confluence pages.
+Notion
+Embed StatusGator dashboards directly into Notion using embed blocks.
+SharePoint
+Embed StatusGator dashboards directly into SharePoint.
+Email
+Send email notifications to your team.
+SMS
+Send SMS notifications to your team.
+Help desk
+Freshdesk
+Create tickets in Freshdesk for outage reports.
+Freshservice
+Create tickets in Freshservice for outage reports.
+Incident IQ
+Update your Incident IQ status board automatically.
+Zendesk
+Send outage reports to your Zendesk help desk.
+Monitoring
+Datadog
+Embed StatusGator dashboards directly into Datadog using iframe widgets.
+Meraki
+Monitor connectivity to your Cisco Meraki devices.
+Neat Pulse
+Monitor connectivity to your Neat meeting room devices.
+TrackSSL
+Monitor SSL certificate expiration
+Zoom Rooms
+Monitor connectivity to your Zoom Rooms devices.
+Third-party status pages
+Atlassian Statuspage
+Show StatusGator data on your Atlassian Statuspage.
+StatusHub
+Integrate StatusGator with you StatusHub status page.
+Incident management
+Better Uptime
+Open and resolve incidents at Better Uptime.
+FireHydrant
+Open and resolve incidents at FireHydrant.
+Opsgenie
+Open and resolve incidents at Opsgenie.
+PagerDuty
+Open and resolve incidents at PagerDuty.
+Private status
+AWS status
+Get notified about AWS outages affecting your infrastructure.
+Azure status
+Monitor your Azure infrastructure health and receive status updates about your resources.
+Google Cloud status
+Ingest the status of your specific infrastructure, instead of the public status.
+Microsoft 365 status
+Get alerts about outages affecting your specific tenant.
+Zendesk status
+Get notified about Zendesk outages affecting your instance.
+Advanced
+Firehose
+Realtime stream of every outage worldwide.
+MCP Server
+Integrate StatusGator with your AI agents.
+REST API
+Programmatic access to your StatusGator dashboard.
+Webhook
+Realtime status data to your own webhook URL.
+Frequently asked questions
+Can't find your question?
+Email us
+to arrange a time to discuss. We'd love to chat!

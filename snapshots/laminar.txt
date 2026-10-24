@@ -1,0 +1,113 @@
+Introducing flow-1 Introducing flow-1 , frontier trace intelligence at 1/20th of the cost
+Watch the video
+Free
+$0 / month
+1 GB data
+no overage
+No Signals
+7 day data access
+1 project
+1 seat
+Community support
+Get Started
+Starter
+$30 / month
+3 GB data included
+then $2 / GB
+$5 one-time Signals credit
+30 day data access
+Unlimited projects
+Unlimited seats
+Email support
+Pro
+$150 / month
+10 GB data included
+then $1.50 / GB
+6 month data access
+Slack support
+Enterprise
+Custom
+Custom limits
+On-premise
+Dedicated support
+Contact us
+Pricing calculator
+Tokens per agent run
+100K
+× Agent runs per month
+1,000
+= Tokens per month
+100M
+Agent runs analyzed by Signals 100 %
+Base
+$0.00
+$30.00
+$150.00
+Data
+Included 0.2 GB / 1 GB
+Included 0.2 GB / 3 GB
+Included 0.2 GB / 10 GB
+Signals
+Not included
+$3.50
+Estimated monthly total
+Not available
+$33.50 /mo
+$153.50 /mo
+Prices above are estimates only. Storage costs are not proportional to token count due to trace compression. Signals are billed by tokens used during analysis by our internal Signals Agent. Signal estimates use measured median flow-1 costs for each trace-size bucket and exclude the one-time $5 sign-up credit; actual billing costs may differ.
+Usage limits
+Data included
+1 GB
+3 GB
+10 GB
+Data overage rate
+$2 / GB
+$1.50 / GB
+One-time Signals credits
+$5
+$0.05 / input Mtok
+$0.01 / cached Mtok
+$0.30 / output Mtok Billed by tokens used by our Signals to analyze your traces, not your agent's tokens directly.
+Data access
+7 days
+30 days
+6 months
+Projects
+Unlimited
+Seats
+Custom usage limits & alerts
+Platform
+Trace ingestion (OTLP)
+Full-text trace search
+Custom dashboards
+SQL editor
+Signal event clusters
+Evaluations
+Datasets
+Labeling queues
+Browser session recording
+Agent debugger
+MCP access
+Slack alerts
+Email alerts
+Security & compliance
+OAuth sign-in
+SOC 2 Type II
+HIPAA
+Server-side PII Removal
+DPA
+Support
+Discord
+Frequently asked questions
+How is data usage calculated?
+How is Signals usage priced?
+Is this 1-to-1 with my agent's token usage?
+When is Signals usage consumed?
+What happens if I exceed my plan's included usage?
+Integrations
+Claude Agent SDK OpenAI Agents SDK Mastra Pydantic AI AI SDK LangChain OpenHands SDK
+Browser Use Stagehand Playwright Anthropic OpenAI LiteLLM
+Connect
+Contact Book demo Github Discord LinkedIn X
+More
+Privacy Policy Terms of Service Data Use Status Y-Combinator

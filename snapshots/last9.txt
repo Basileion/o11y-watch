@@ -1,0 +1,137 @@
+Data Insights at scale
+Triage smarter, faster and remediate across your stack with AI.
+Last9 makes sense of noisy telemetry data for the whole team.
+Book demo
+Last9 platform use cases
+*]:col-start-1 md:[&>*]:row-start-1"> Control plane
+A single control plane to manage telemetry pipelines across logs, metrics, and traces — route, transform, and apply cost controls before data hits storage.
+Agentic DX
+An AI-native developer experience with an MCP server, so coding agents and SREs can query telemetry, triage incidents, and remediate issues directly from their IDE or chat.
+Logs & traces
+Correlated logs and distributed traces with full OpenTelemetry support — jump from a slow span to the exact log lines that explain it, with no sampling on errors.
+Dashboards
+High-cardinality dashboards backed by a Prometheus-compatible query engine — slice by any label without pre-aggregation, and share views across teams.
+User monitoring
+Real user monitoring (RUM) for web and mobile — capture Core Web Vitals, session replays, and frontend errors, then correlate them with backend traces.
+Alerting
+Real-time alerting with deduplication, routing, and on-call integrations — define rules in PromQL or our UI and send to Slack, PagerDuty, OpsGenie, and more.
+Control plane Agentic DX Logs & traces Dashboards User monitoring Alerting
+An adaptable platform that works for you
+High cardinality data optimized for AI. Complete control over costs.
+Last9 adapts to the way you work—it's the only observability solution
+you'll ever need.
+Customer stories
+What customers say about Last9
+Matt Iselin Head of SRE at Replit
+Replit With Last9, we just eliminated the toil. No more worrying about failing dashboards or alerts — we can finally use our metrics. It just works.
+Rahul Mahale Principal DevOps Engineer at Circle
+Circle Last9 helped us forget all the different observability tools and consolidate every dashboard into one single place.
+With Last9, we just eliminated the toil. No more worrying about failing dashboards or alerts — we can finally use our metrics. It just works.
+Replit
+Last9 helped us forget all the different observability tools and consolidate every dashboard into one single place.
+Circle
+Using Last9's high cardinality workflows, we measured SLAs accurately, extracted system insights, and tracked customer impact proactively.
+Ranjeet Walunj SVP Engineering at CleverTap
+CleverTap
+Last9 removed the toil of setting up scalable, high cardinality monitoring— letting us focus on serving our users, not our dashboards.
+Ashish Garg CTO at Probo
+Probo
+Last9 has been very helpful to our team. We've been making proactive fixes to our own platform based off what we see in Last9, before clients even tell us about it.
+Senior DevOps Engineer WhoYou at WhoYou
+WhoYou
+Companies using Last9 for observability
+GaragePlug
+InCred
+Pine Labs
+SpryHealth
+Jubilant FoodWorks
+Open
+Evergent
+Mobile Premier League
+Tazapay
+Baylor Genetics
+CometChat
+Tata 1mg
+Foosh
+Plug-and-play with your existing stack
+No lock-in. No guesswork. Last9 natively integrates with common open
+standards across apps, infra, CDNs and cloud.
+All integrations
+Last9 natively integrates with common observability tools, cloud
+providers, and data sources, including:
+Grafana
+Kubernetes
+PostgreSQL
+Datadog
+AWS
+Azure
+New Relic
+Google Cloud
+Slack
+Docker
+Prometheus
+MySQL
+See the full list of 100+ integrations .
+Last9 platform features
+Trace anything, fast.
+It's all correlated and queryable. Switch between logs, traces and metrics in one click. Query however you prefer—you're in control.
+Unified, high-cardinality observability.
+Track database calls, deployments and user flows in real time. Even at 20M+ cardinality per metric.
+Fine-tune telemetry before it hits storage.
+Drop noise, route critical signals, and monitor costs in real time without black boxes.
+Unified observability made fun & easy
+It's embarrassingly simple to get actionable insights from your data. Just
+plug in existing sources to get alerts and see correlated metrics, logs and
+traces on a single pane.
+How Last9 unifies your telemetry
+Last9 ingests every telemetry signal — metrics, logs, traces, and
+profiles — and routes them through an AI Control Plane, Context Store,
+and Unified Telemetry layer to power three outputs: dashboards,
+alerts, and AI agents.
+Inputs: Metrics, Logs, Traces, Profiles
+Processing: AI Control Plane, Context Store, Unified Telemetry
+Outputs: Dashboards, Alerts, AI agents
+AI-native triage.
+Plug in to Claude, Cursor or Slack and let AI co-pilots explain alerts, errors and traces.
+Use your own stack.
+No agents. No rip-and-replace. Just point your existing telemetry sources to Last9.
+Granular context.
+Monitor every request, tenant and user in full fidelity. Never drop labels or sample data again.
+Minutes to value.
+Start with one config. Last9 auto-detects services and instantly generates dashboards.
+*]:col-start-1 [&>*]:row-start-1">
+Works for every role in the room
+Developers
+Debug contextually across metrics, logs & traces. Get RCA guides right in your IDE, ask natural language questions and ship faster.
+SRE & Platform Engineers
+Get important alerts, increase reliability & integrate with existing tools. Improve cost-efficiency using real-time ingestion control.
+Engineering Leaders
+Move fast and pay only for what you use, without losing signal. Last9 is proven reliable at scale even with 60M users and 50K alerts/sec.
+Optimized for scale & security
+When millions tune in at once, we keep the lights on—helping teams of all
+sizes do more with their telemetry data.
+Events ingested per minute 545 Million
+Concurrent users monitored 61.2 Million
+Alert evaluations per minute 100,000
+Largest streaming events monitored 12 of the world's 20 largest
+CNCF
+Silver Member
+AWS Partner
+Qualified S/W
+End-to-End Encryption.
+All data encrypted in transit and at rest using industry standards. Private by design.
+Multi-Factor Auth.
+Enterprise SSO integration, along with advanced MFA requirements for all access.
+Role-Based Access.
+Granular permissions and audit trails for complete access control and compliance.
+Zero Trust Architecture.
+Every request verified and authenticated with no implicit trust assumptions.
+Start observing for free. No lock-in.
+OpenTelemetry · Prometheus
+Just update your config. Start seeing data on Last9 in seconds.
+Datadog · New Relic · Others
+We've got you covered. Bring over your dashboards & alerts in one click.
+Built on Open Standards
+100+ integrations. OTel native, works with your existing stack.
+4.8/5
+G2 Reviews

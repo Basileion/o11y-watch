@@ -1,0 +1,118 @@
+Take Charge of Your Data Take Control of Your Costs
+Flexible pricing that adapts to your business growth.
+Free Forever
+$0
+Free access to all features with monthly limits.
+Sign Up Now
+Up to 100GB Data
+Up to 1k RUM Sessions
+Up to 20k Synthetic Checks
+10 Browser Test Runs
+2 million OpsAI Tokens
+Unlimited Users
+Community Based Support
+14 day retention
+Pay As You Go
+$0.3 GB of metrics, logs, traces
+Pay only for what you use.
+Error solving with OpsAI
+$1 per 1K RUM Sessions
+$1 per 5K Synthetic Checks
+$10 per 1K Browser Test Runs
+Ingestion Control & Data Pipeline
+Default 30 day retention
+SSO and Security Features
+Dedicated Slack/MS Teams Channel
+BYOC
+Custom Pricing
+Enjoy volume discounts and premium support.
+Contact Us
+Dedicated Account Team
+Multi-year Contract Discounts
+Custom Data Retention
+Bring Your Own Cloud
+24x7 Support
+OpsAI
+Root Cause Analysis
+Faster Issue Solving
+Automatic Issue Detection
+Automatic PR Generation
+View Detailed Pricing
+Calculate The Price Based On Your Usage
+Let's Find a Plan that Suits You
+Estimated Data Volume
+GB
+TB
+PB
+Estimated Real User Monitoring Sessions
+Estimated Synthetic Checks
+Estimated Browser Test Runs
+Estimated OpsAI Issue Fixes*
+Data volume is the sum total of uncompressed logs, metrics, and traces.
+*Average token consumption per issue is for reference only and may vary based on issue type and complexity.
+Congrats!
+Considering your estimation, Free Forever plan will be a better fit for you.
+Free Tier Usage
+Data Volume 100GB $0
+RUM Sessions 1000 $0
+Synthetic Checks 20000 $0
+Browser Test Runs 10 $0
+Additional Usage
+Data Volume 0GB $ 0.00
+RUM Sessions 0 $ 0.00
+Synthetic Checks 0 $ 0.00
+Browser Test Runs 0 $ 0.00
+OpsAI Token 0 $ 0.00
+Total
+$ 0.00
+Logs
+Infrastructure
+Application Performance Monitoring
+Synthetic Testing
+Browser Testing
+Real User Monitoring
+Live Alerting
+Custom Dashboards
+User Facing Status Page
+Pricing
+$0.3 per GB Logs
+Any Source
+Long-Term Querying
+Real-Time Live View
+Attribute Matching Search
+Fuzzy Matching
+Regex Search
+Correlate Traces & Metrics
+Log Anomaly Detection
+Log Patterns
+Any JSON Format
+Manage ingestion volume
+Log Explorer
+Sensitive Data Masking
+Custom Log Attributes
+Unlimited Queries & Search
+Only Ingest What You Need
+Custom Log Directories
+Custom Log Attribute Extraction
+FAQs
+Everything you want to know about Middleware's pricing
+Is Middleware free to use?
+We provide 14 days free trial with unlimited data ingestion.
+Are there different pricing tiers?
+Middleware offers three tiers: Free trial , pay as you go, and custom. Free trial is to use Middleware for 14 days with unlimited data ingestion for free . Pay-as-you-go is a flat rate for data volume and best to get started. Contracted is for longer term commitments, retention rates and discounts.
+How is the data usage calculated?
+We measure your data on a daily basis, and per data type and source. For example, a 10GB per day in a 30 day month would be 300GB for the month. Note that this is based on the amount of data actually stored on Middleware, not necessarily everything that's sent to the platform. Meaning you will not be charged for data that you decide to drop by using Middleware's data pipeline.
+Do you have discounts for startups and nonprofits?
+We do! Contact us to learn more about discount options.
+Is Middleware just a wrapper for Otel?
+We leverage Otel as a framework for our agents because there is no point in creating another blackbox collector. That being said, we have built many components in our stack that handle the streaming, compression, storage, and querying, and of course a UI that brings it all together. We also support many other data collectors and origins like Prometheus, databases, etc. and are not restricted to type of data.
+What are your data retention options?
+Our free tier is 14 days, pay-as-you-go is 30, and custom contracts have custom retention rates. Contact us to learn more.
+What about data security?
+Middleware works tirelessly to ensure the protection of customer data and is committed to continuous improvements to our information security management practices. We aim to ensure the appropriate confidentiality, privacy, integrity, and availability practices are maintained in accordance with the requirements of data security standards as outlined by the SOC2 Trust Service Principles. We ensure that its security commitments are well documented and illustrated to user entities through our website, contract agreement, or in a service level agreement. Read more about our security policies here.
+Can I cancel my account?
+Yes, you can cancel anytime with the pay-as-you-go option. We keep your data for 30 days from the cancellation date so you can download them.
+How much does OpsAI cost?
+Error detection is free, allowing you to see all detected issues without any additional cost. For root cause analysis and automated fixes using opsAI, we charge based on token used. You can use above pricing calculator to calculate estimate pricing based on token used.
+Optimize More. Worry Less. With Middleware.
+Get Started Book a Demo

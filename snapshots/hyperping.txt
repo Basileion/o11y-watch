@@ -1,0 +1,231 @@
+Peace of mind. At every stage.
+Monitoring, status pages and incident management.
+Start free and scale as you grow. No credit card required.
+Monthly Yearly 2 months free
+Yearly billing selected. USD. Essentials $24, Pro $74, Business $249 per month.
+Essentials
+$24 /month
+$290 billed yearly
+For young startups with advanced monitoring needs.
+3 seats included +$7/mo per additional user
+Free, plus:
+Monitoring
+50 monitors
+5 server monitoring agents
+3 browser checks
+5 GB of logs a month
+Status pages
+1 status page with custom domain
+100 subscribers
+Platform
+On-call & escalation policies
+Phone call alerts
+All integrations
+Ask Hyperping AI (alpha)
+Try for free ↗
+Pro
+$74 /month
+$890 billed yearly
+Monitor every service, together with your team.
+10 seats included +$9/mo per additional user
+Essentials, plus:
+250 monitors
+20 server monitoring agents
+10 browser checks
+20 GB of logs a month
+3 public or private status pages
+1,000 subscribers
+SMS subscribers
+Email access codes
+Multilingual status pages
+Account SAML SSO
+Business
+Best value
+$249 /month
+$2,990 billed yearly
+For scaling teams with business-critical services.
+20 seats included +$12/mo per additional user
+Pro, plus:
+1,000 monitors
+100 server monitoring agents
+25 browser checks
+50 GB of logs a month
+10 status pages
+Unlimited subscribers
+White labeling
+Custom email domain
+Priority support
+Audit logs
+Additional SAML providers & IP allowlisting
+Enterprise
+Custom
+Quote based on your needs.
+Dedicated support for large-scale organizations.
+Custom seats For every team in your company
+Business, plus:
+Custom monitors & server agents
+Custom status pages
+SAML SSO on status pages
+Custom contract & invoicing
+White-glove migration service
+Dedicated support
+Contact sales ↗
+Free
+For personal projects and trying out Hyperping.
+Get started ↗
+20 monitors
+5-minute checks
+1 server monitoring agent
+1 basic status page
+HTTP, port, ping & keyword checks
+1 seat included
+Alpha AI included on every paid plan.
+Ask Hyperping answers questions and investigates incidents: 10 questions and 3 investigations a month on our AI, unlimited with your own OpenAI, Anthropic, Gemini or OpenRouter key. No add-on to buy.
+See how it works → Compare every feature ↓
+Logs Usage-based
+Pay for the logs you send. Nothing else.
+Logs are metered on top of any paid plan. Each plan includes a monthly volume, and you pay per GB beyond it.
+$0.25 /GB ingested
+Billed monthly on the GB you send, after your plan's included volume.
+30 days of search included
+No per-seat or query fees
+OpenTelemetry, Vercel, syslog and HTTP sources
+The matching logs inside every incident
+Dashboards and MCP access to your logs
+Logs you send per month 50 GB Estimated logs bill per plan for 50 GB a month Plan Included Logs bill
+Essentials 5 GB/mo $11.25 /mo
+Pro 20 GB/mo $7.50 /mo
+Business 50 GB/mo Included
+Counted as uncompressed GB accepted. Rejected lines are never billed. Logs are in alpha and free until metered billing starts.
+Trusted by teams that put uptime first.
+Read customer stories
+We’re on watch
+Checks run today 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 28,480,000
+Active monitors 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 19,600
+Outages caught today 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 6,100
+Alerts sent today 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 24,400
+Heartbeats received today 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 160,000
+Live status pages 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 , 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 1,700
+Compare every feature.
+All prices in USD Collapse all −
+Swipe to compare all plans ↔
+Hyperping plan comparison. Prices in USD, billed yearly. Find your fit Billed yearly Free $0 /forever Get started ↗ Essentials $24 /mo Get started ↗ Pro $74 /mo Get started ↗ Business $249 /mo Get started ↗
+account 7 features −
+Projects Unlimited Unlimited Unlimited Unlimited
+Seats 1 3 then +$7/seat 10 then +$9/seat 20 then +$12/seat
+Google SSO Included Included Included Included
+Okta, Azure AD — Not included — Not included Included Included
+SAML SSO — Not included — Not included Included Included
+Priority support — Not included — Not included — Not included Included
+Audit logs — Not included — Not included — Not included Included
+monitoring 15 features −
+Monitors 20 50 250 1,000
+Check interval 5 min 30 sec 30 sec 20 sec
+Maintenance windows Included Included Included Included
+SSL monitoring Included Included Included Included
+DNS monitoring — Not included Included Included Included
+Email, Slack, Teams Included Included Included Included
+OpsGenie, PagerDuty — Not included Included Included Included
+SMS credits — Not included 20 75 200
+Phone calls — Not included Included Included Included
+Healthchecks Included Included Included Included
+Weekly reports Included Included Included Included
+Regions 18 18 18 18
+Browser checks — Not included 3 10 25
+Browser check interval — Not included 5 min 5 min 5 min
+Uptime SLA reporting — Not included Included Included Included
+server monitoring 5 features −
+Server agents 1 5 20 100
+Additional server — Not included +$2/mo +$2/mo +$1.50/mo
+Metric history 2 days 7 days 14 days 30 days
+CPU, memory, disk, network Included Included Included Included
+Server alerting — Not included Included Included Included
+incident management 4 features −
+On-call schedules — Not included 1 3 Unlimited
+Escalation policies — Not included Included Included Included
+Manual incidents — Not included Included Included Included
+Acknowledge & escalate — Not included Included Included Included
+AI 4 features −
+Ask Hyperping — Not included 10/mo 10/mo 10/mo
+Incident investigations — Not included 3/mo 3/mo 3/mo
+Your own AI key — Not included Included Included Included
+MCP server — Not included Included Included Included
+status page 19 features −
+Status pages 1 1 3 10
+(HTTPS) Custom Domain — Not included 1 3 10
+Hyperping-hosted domain Included Included Included Included
+Embedded charts & metrics Included Included Included Included
+Manual components — Not included Included Included Included
+Subscribers — Not included 100 1,000 Unlimited
+SMS subscribers — Not included — Not included Included Included
+Incident & maintenance — Not included Included Included Included
+Intercom integration — Not included — Not included Included Included
+Protected/Private — Not included — Not included Included Included
+Email access codes — Not included — Not included Included Included
+Google Analytics — Not included — Not included — Not included Included
+Auto refresh/TV mode — Not included — Not included — Not included Included
+Multi-languages — Not included — Not included Included Included
+Hide from search engines — Not included — Not included — Not included Included
+White labeling — Not included — Not included — Not included Included
+Custom domain emails — Not included — Not included — Not included Included
+SSO (Entra ID, Okta, Google...) — Not included — Not included — Not included $49/mo per conn.
+SSO (JumpCloud, OneLogin...) — Not included — Not included — Not included $99/mo per conn.
+reporting 3 features −
+Reporting dashboard — Not included Included Included Included
+Export to CSV — Not included Included Included Included
+MTTA, MTTR and other KPIs — Not included Included Included Included
+Need something beyond these plans? Let’s build your Enterprise plan ↗
+USD · Monthly billing for every plan
+The tool mix
+Three subscriptions to keep it all running.
+Example stack
+Pingdom 100 uptime + 20 advanced checks
+$149 /mo
+Statuspage Public Startup + private Growth
+$348 /mo
+PagerDuty Professional · 10 users × $25
+$250 /mo
+Combined cost $747 /month
+$8,964 over 12 months
+Everything connected, from the first check.
+20 team members
+On-call & escalations
+20-second checks
+One platform. One subscription. $299 /month
+$3,588 over 12 months
+60% less Save $5,376 a year with this mix.
+Choose your plan
+Pricing sources & assumptions Reviewed September 16, 2026 . All amounts are USD; local currency prices may differ.
+Pingdom Synthetic Monitoring : $149/month for 100 uptime checks, 20 advanced checks and 350 SMS credits. USD rate from our August 17, 2026 review ; the live calculator served EUR during this check, so the USD rate was not independently reverified today.
+Statuspage : one public Startup page ($99/month, 1,000 subscribers, 10 team members) and one private Growth page ($249/month, 300 authenticated subscribers, 15 team members).
+PagerDuty Professional : $25/user/month on monthly billing, for 10 users. Its $21 rate requires annual billing.
+Hyperping Business : $299/month on monthly billing. The advertised $249/month is a rounded annual equivalent of $2,990/year and is not used in this comparison.
+This is one example of a three-tool stack, not the cheapest possible setup or a feature-for-feature match. Pingdom and PagerDuty also include status-page features; a separate Statuspage subscription may not be needed by every team. Usage charges and paid connectors are not included. Annual totals are 12 monthly payments, not annual subscription quotes.
+Do you offer discounts?
+Yes. When you pay for a year up front, you'll get two months free.
+Can I try Hyperping for free before committing?
+Yes. Start with a 14-day free trial, or use the free plan with 20 monitors and one basic status page. No credit card required.
+Can I speak with someone or have a demo first?
+We're here to answer all your questions. Contact us to schedule a demo and learn how Hyperping can help your team maintain uptime and communicate effectively with customers.
+Can we migrate from another provider?
+Yes, contact us and we'll do it for you.
+Can we cancel at any time?
+Yes, you can cancel at any time. If you paid for a yearly plan, we'll refund any unused months.
+How are logs billed?
+By volume, on top of your plan. Essentials includes 5 GB of logs a month, Pro 20 GB and Business 50 GB. Beyond that, each GB you send costs $0.25, with 30 days of search included. We count the uncompressed size of the lines we accept, and never bill rejected lines, seats or searches.
+Is Hyperping GDPR compliant?
+Yes. All data is stored in the EU in GDPR-compliant DIN ISO/IEC 27001-certified data centers. See our security page for more information.
+Do you support Terraform / infrastructure as code?
+Yes. The open-source Terraform provider manages monitors, status pages and maintenance windows as code, with import support for existing setups. The API is available on all paid plans.
+Is AI included, or is it an add-on?
+Included. Every paid plan and trial gets Ask Hyperping , in alpha: 10 questions and 3 incident investigations a month on Hyperping’s AI. Connect your own OpenAI, Anthropic, Gemini or OpenRouter key and both become unlimited, with nothing more to pay us. It is not available on the Free plan or on EU-only accounts.
+Does Hyperping work with AI tools like Claude or Cursor?
+Yes. Hyperping ships an MCP server , so you can query uptime, investigate and respond to incidents, and manage monitors, status pages and maintenance in natural language from Claude, Cursor and other MCP-compatible AI tools.
+Do you offer custom plans?
+Yes. If our current plans don't meet your specific needs, we can create a custom plan tailored to your requirements. Contact our sales team to discuss your needs and get a custom quote.
+For teams who can’t
+afford downtime.
+Read the story ↗
+“Hyperping’s reputation in our company is that it’s more reactive than Datadog. We usually get notifications from Hyperping before Datadog.” Fabrice Gregoire Site Reliability Engineer, Alma
+Stay ahead of downtime.
+Talk to sales Start monitoring

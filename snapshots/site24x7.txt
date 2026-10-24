@@ -1,0 +1,1086 @@
+Site24x7 Pricing | Plans Starting From Just $9/Month
+Get started with a 30-day free trial.
+No credit card required.
+Request a Quote
+Select Currency
+$ USD
+£ GBP
+€ EUR
+₹ INR
+$ AUD
+Technologies to monitor
+Cloud
+Server
+Applications
+Observability
+Kubernetes
+Network
+VMware
+Website
+Real User Monitoring
+Synthetic Transactions
+Logs
+Cloud Cost
+Size of your organization
+Small
+Medium
+MSP
+Enterprise
+Website Monitoring
+Infrastructure
+All-In-One
+MOST POPULAR
+Web Uptime
+$ 10 /month
+$ 9 /month
+paid annually
+Sign Up
+Default plan offerings
+Includes 25 websites
+Transaction monitors
+1 min polling interval
+32 monitoring locations
+Includes RUM page views
+3 status pages
+Supports multiple users
+Third-party integrations
+Pack based feature comparison
+Email support
+FAQs
+Get more monitors
+Web Perf
+$ 39 /month
+$ 36 /month
+Includes 40 websites
+Includes 8 transaction monitors
+8 monitoring locations
+Includes 100K page views
+10 status pages
+Classic support
+Enterprise Plus Web
+$ 999 /month
+$ 899 /month
+Includes 2500 websites
+Includes 100 transaction monitors
+30 sec polling interval
+16 monitoring locations
+Includes 5M page views
+FAQs Get more monitors
+Try our free forever plan : Monitor the uptime of up to 50 resources. | Receive instant downtime email alerts
+Infrastructure Monitoring
+Lite
+Includes 2 servers
+Includes 5 websites
+25 Child resources monitored
+Guidance Reports (for five accounts)
+Opt for hourly pricing
+Available add-ons
+Includes application
+Includes log ingestion
+Includes network monitoring
+Professional
+$ 49 /month
+$ 42 /month
+Default plan offerings Customize
+Includes 5 servers
+Includes 1 application
+Includes 20 websites
+Includes 4 GB log ingestion
+Includes 10 network components
+NCM - Firmware vulnerability management
+NCM - Compliance
+Custom metrics
+Starts at
+$ 625 /month
+Request Price Quote
+Managing a bigger digital presence? Join our list of enterprise customers who are monitoring more than 250,000 websites, servers, networks, applications, and cloud services per account.
+Includes all features available in the Professional plan,
+Plus
+Includes Anomaly Detection
+Includes Event Correlation
+Includes Infrastructure Events
+Includes NCM: Firmware Vulnerability
+Includes NCM: Compliance
+All-in-one Monitoring
+Inlcudes 4 GB log ingestion
+For Managed Service Providers
+$ 59 /month
+$ 54 /month
+Manage 9 customers
+Includes 3 applications
+Includes 15 websites
+Includes 8 monitoring
+locations
+5GB logs collected
+MSP Enterprise
+$ 249 /month
+$ 225 /month
+Includes all features available in the MSP plan,
+Cloud Monitoring
+Monitor PaaS services from AWS, Azure, and GCP
+$ 1 / resource / month
+View plans
+> Hourly billing is supported.
+Server Monitoring
+Monitor servers or VMs across on-premises, cloud, and virtual environments
+$ 2.50 / VM / month
+Application Performance
+Monitor transactions, enhance performance, and fix issues before they affect users.
+$ 8 / instance / month
+Kubernetes Monitoring
+Monitor the performance of containers deployed in Kubernetes and OpenShift
+$ 0.25 / container / month
+> Node level pricing available.
+Network Monitoring
+Monitor network performance, bandwidth, and network device configuration
+$ 3 / device / month
+Monitor the uptime and performance of your resources from worldwide locations
+$ 0.36 / website / month
+Track each page visit for performance insights
+$ 5 / 100K pageviews / month
+Monitor transactions using real browsers from worldwide locations
+$ 10 / 10000 runs / month (or)
+$ 8 / transaction / month
+Log Management
+Manage logs from applications, infrastructure, the cloud, and networks
+Search retention
+7 Days
+15 Days
+30 Days
+$ 0.30 / GB / 7 days
+$ 0.60 / GB / 15 days
+$ 1.20 / GB / 30 days
+Cloud Cost Management
+Provides insights and optimizes cloud costs with best practices
+1% of your cloud bill
+* Volume discounts available. Contact sales@site24x7.com for more details.
+Expand your monitoring coverage with add-ons
+(You can buy multiple units of each add-on)
+Web Uptime plan add-ons
+(Rates per month)
+Uptime monitors
+50 Uptime monitors $ 18
+500 Uptime monitors $ 140
+Web Perf plan add-ons
+Synthetic combo
+50 uptime & 10 transactions $ 50
+1000 uptime & 100 transactions $ 1,050
+RUM page views
+500K Page views $ 25
+5M Page views $ 150
+Enterprise Plus Web plan add-ons
+Basic monitors
+500 Monitors: $ 275
+Advanced monitors
+25 Monitors $ 200
+100 Monitors $ 600
+500K Page views $ 24
+5M Page views $ 124
+Contact sales@site24x7.com
+or reach us on phone at US: +1 408 352 9117 for any pricing clarification.
+Site24x7 is more than just affordable—it delivers measurable ROI.
+See how much
+Lite plan add-ons
+10 Monitors: $ 10
+Host monitors
+10 Monitors: $ 25
+2 Monitors: $ 15
+Network components
+10 Components: $ 11
+500K Page views: $ 25
+10 GB Logs 7 days index: $ 3
+10 GB Logs 15 days index: $ 6
+10 GB Logs 30 days index: $ 12
+* The Lite plan comes with a fixed set of add-ons. For additional usage, we recommend upgrading to the Professional plan.
+Professional plan add-ons
+500 Monitors: $ 450
+10 Monitors: $ 110
+500 Monitors: $
+1,100
+25 Monitors: $ 160
+100 Monitors: $ 600
+500 Components: $ 468
+10M Page views: $ 300
+1 TB Logs 7 days index: $ 195
+1 TB Logs 15 days index: $ 450
+1 TB Logs 30 days index: $ 900
+Synthetic runs
+10000 Synthetic runs: $ 8
+1M Synthetic runs: $ 680
+Hourly pricing
+Virtual cloud servers: $ 0.006 /hr
+Application instances: $ 0.028 /hr
+Enterprise plan add-ons
+10 Monitors: $ 16
+500 Monitors: $ 720
+10 Monitors: $ 40
+1,800
+25 Monitors: $ 315
+100 Monitors: $ 1,190
+10 Components: $ 15
+500 Components: $ 491
+500K Page views: $ 30
+10M Page views: $ 360
+10 GB Logs 7 days index: $ 4
+1 TB Logs 7 days index: $ 270
+10 GB Logs 15 days index: $ 8
+1 TB Logs 15 days index: $ 540
+10 GB Logs 30 days index: $ 16
+1 TB Logs 30 days index: $ 1080
+10000 Synthetic runs: $ 10
+1M Synthetic runs: $ 1,105
+Virtual cloud servers: $ 0.008 /hr
+Application instances: $ 0.037 /hr
+MSP plan add-ons
+Additional customers
+1 Customer: $ 9
+Explore the top features
+Features
+Detailed comparison
+Key platform features
+SAML-based single sign-on (SSO)
+Biometric authentication
+Multi-user support
+Data retention
+2 years
+3 years
+5 years
+Monitor Groups
+Alerts
+Custom dashboards
+Forecasts
+Anomaly detection
+Capacity monitoring
+Outlier detection
+IT Automation
+API access
+200 calls/day/monitor
+300 calls/day/monitor
+Mobile App
+Role-based access control
+Up to 10 users
+Up to 35 users
+Unlimited users
+Reports
+Limited access
+Scheduling
+SLA
+Scheduled maintenance
+Integrations
+Tags
+Location Profile
+Only one location is polled at the configured polling frequency.
+Notification Profile
+Only email alerts are applicable.
+Threshold & Availability
+No. of status pages
+10
+Digital experience - Synthetic Monitoring
+Minimum poll frequency
+1 min
+10 secs
+Number of monitoring locations
+Primary location supported
+8 locations
+16 locations
+Secondary location poll frequency
+1 hr
+30 mins
+On-Premise Poller monitoring
+Zero false alert protection
+Re-checks on failures
+Root cause analysis on downtime
+Video-based RCA for Web Transactions
+Website and DNS Monitoring
+Content checks
+Website Defacement Monitoring
+Ping & Port Monitoring
+Domain and SSL Expiry Monitoring
+Digital experience - Real User Monitoring
+Analyze front-end performance
+Monitor single page applications
+Visualize performance across geographies
+Collect custom data from user journeys
+Pinpointing JavaScript errors
+Analyze user sessions
+Identify anomalies with AI-powered alerts
+Integrate RUM with APM
+Session replay
+CloudSpend
+Multi-cloud support
+Business Units(BUs)
+Spend Analysis
+Resource Explorer
+Budgets
+Tag profiles
+Multi-currency support
+Mobile Application
+Enterprise (AIOps)
+(up to 10 users)
+(up to 35 users)
+(unlimited users)
+6 month
+1 year
+upto 100 groups
+upto 500 groups
+upto 2000 groups
+(10/resource/day)
+(40/resource/day)
+(500/resource/day)
+10 runs/day/monitor
+20 runs/day/monitor
+50 runs/day/monitor
+10 calls/day/monitor
+25 calls/day/monitor
+Reports and scheduling
+Report customization
+Terraform integrations
+No. of On-Premise Pollers supported
+50
+Mobile Network Poller
+20
+Standard events and metrics
+Over 300 plugin integrations
+Process, service, and resource check monitoring
+Custom metrics via plugins
+Infrastructure events
+VMware, Nutanix, and Hyper-V Monitoring
+Kubernetes and Container Monitoring
+10 containers per host
+StatsD and Prometheus integrations
+Microsoft Application Monitoring
+Database Monitoring
+Cron Monitoring
+Heartbeat Monitoring
+Software update monitoring
+Event log and syslog monitoring
+Over 10,000 device templates
+Layer 2 discovery
+Topology and Map view
+SNMP traps
+500/day
+Unlimited
+Performance counters
+100 performance counters
+1000 performance counters
+5000 performance counters
+High availability Poller
+Poller group for load balancing
+NCM (Network Configuration Management)
+NCM: Firmware vulnerability management
+NCM: Compliance
+Network observability
+Dashboards
+NetFlow Analyzer
+Guidance Report | Availability practices
+Guidance Report | Cost practices
+Guidance Report | Security practices
+Amazon Web Service (AWS) Cloud monitoring
+Azure monitoring
+GCP monitoring
+Continuous discovery and monitoring
+Auto-scale management
+Child resources monitoring
+5 mins
+Service quotas
+No limits
+CloudSpend integration
+Application Performance Monitoring
+Supported platforms
+(Java, .Net, Python, Node.js , PHP, Ruby on Rails)
+Code-level tracing
+Sampling will be done (30 traces/min)
+Component tracing
+Distributed tracing
+CPU and memory consumption
+SQL Query Monitoring
+Service maps
+Deployment tracking
+Code performance comparisons
+Transaction flow map
+Thread profiler and Thread dump analyzer
+JVM Memory Leaks Detection
+Span retention
+7 days
+15 days
+Log Monitoring
+100+ out-of-the-box logs supported
+Query language support
+Search alerts & dashboards
+Minimum alert check frequency
+3 mins
+Export logs
+100K
+1M
+Upto 8 locations
+Upto 16 locations
+1 years
+upto 1500 groups
+Custom user role
+SLO monitoring
+Configuration Profiles
+Poll Now
+Configlet Management
+Custom Instrumentation
+Compare Milestones
+Frequently Asked Questions (FAQ)
+General
+Digital experience (website/RUM/synthetic monitoring)
+For managed service providers (MSPs)
+1. What is a monitor? What are the different types of monitors Site24x7 supports?
+A monitor refers to a resource like a server, website, web application instance, or URL that is monitored for uptime and performance. Each monitor can track different aspects of performance metrics for a resource.
+For example:
+Server monitor will collect metrics like CPU, Memory, Disk usage, network metrics, etc.
+Website monitor will track DNS resolution time, SSL handshake time, First byte and last byte time, and response time of an URL from multiple locations.
+Application monitor will trace the application performance by code level tracing and components level tracing.
+Similarly, each monitor type in Site24x7 tracks various metrics, traces, and logs of a resource.
+2. What is a basic monitor?
+Basic monitor is a license entity in Site24x7 which can be used to monitor the following list of monitor types:
+Website (HTTP/HTTPS)
+REST API, SOAP, or WebSocket endpoint
+DNS, NTP, FTP, or SMTP server
+Ping check, or any TCP/IP port
+SSL/TLS certificate or domain expiry monitor
+Real-time Blocklist monitor (10 hostnames)
+Brand Reputation monitor (10 URLs)
+Windows Server Backup monitor
+Hadoop
+Kubernetes containers and pods
+Cron monitor (25 Cron jobs)
+Heartbeat monitor (25 URL endpoints)
+100+ out-of-the-box Plugins
+Containers (5 containers will consume 1basic monitor)
+AWS resources (except EC2)
+Azure resources (except Azure VMs)
+GCP monitors (except GCP Compute)
+3. What is a host monitor?
+Host monitor refers to monitoring the health and performance of various resources on your servers and IT infrastructure. Cloud and server monitors majorly come under host monitors. Here is a list of monitors that are counted as hosts.
+Agent-based host monitoring
+Windows Server Monitoring
+Linux Server Monitoring
+FreeBSD Server Monitoring
+OS X Server Monitoring
+Agentless host monitoring
+HP Server Monitoring
+IBM Server Monitoring
+Solaris Server Monitoring
+SNMP Server Monitoring
+WMI Server Monitoring
+VMware (VMs/ESX/ESXi hosts/Clusters)
+NutanixHosts (VMs/Clusters)
+Kubernetes Nodes
+Azure VMs
+GCP Compute
+Cloud AWS EC2 instances
+4. What is an advanced monitor?
+Advanced monitors cater to more intricate monitoring needs and offer functionalities beyond simple uptime checks. Monitors that are marked as advanced in Site24x7 are:
+Each JVM, .NET, PHP, Ruby on Rails, or Node.js instance in Site24x7 APM
+Microsoft Apps: Microsoft SharePoint, BizTalk, Active Directory, Failover Cluster, Hyper-V, SQL, and Exchange monitors
+VMware Horizon
+Web Transaction (Browser) monitor
+Web Page Speed (Browser)
+Website Defacement
+Mail Delivery monitor
+FTP Transfer monitor
+Database monitors
+ISP monitors
+Microsoft IIS
+5. What is an add-on and can I buy multiple add-ons to expand my monitoring capabilities?
+An add-on is an optional extension to your existing subscription that unlocks additional features, or expands monitoring capacity beyond your base plan's limitations. You can buy additional add-ons for different components like basic, advanced, host, logs, RUM page views, network bundle and synthetic runs within Site24x7.
+We support add-ons for basic, advanced, host, network bundle, RUM page views, logs, synthetic runs and uptime monitors.
+6. Can we try Site24x7 before the purchase?
+Yes, we offer a full-fledged 30-day free trial to test the service before you commit to a paid plan.
+7. Do I get a discount if I go for a yearly plan?
+We typically provide a discount of 10% for choosing a yearly plan compared to a monthly plan.
+8. What is hourly billing?
+With hourly billing, you pay for monitored resources by the hour depending on how long the resource has been actively monitored.
+Hourly billing is supported for the following monitors:
+APM Insight Instance
+Azure Virtual Machine
+DynamoDB Table
+EC2 Instance
+Lambda Function
+RDS Instance
+SQS Queue
+GCP VM Instance
+Server Monitor
+9. What payment options and periods are available in Site24x7
+You have flexible payment options including credit cards, PayPal, and purchase orders as part of the billing. We allow monthly and yearly payment for all the plans, with a 10% discount applied when paid annually.
+10. Does Site24x7 support auto-renewals for plans and add-ons?
+Yes. We support auto-renewals for both plans and add-ons for credit card purchase and recurring PayPal users.
+11. How can I pay for my Site24x7 plan, and can I set it to renew automatically?
+You can choose between monthly or yearly billing for all plans. Plus, you can lock in a 10% discount when you pay annually. For added convenience, we also support auto-renewal for both plans and add-ons if you use a credit card or recurring PayPal.
+12. What is On-premise Poller?
+On-Premise Poller is an agent that you can install in your own network. This helps monitor your internal network and resources behind a firewall or VPN.
+13. How can I monitor my internal websites/web applications/servers or network devices?
+To effectively monitor the availability and performance of the resources, installing on-premise poller agents within your network serves as a robust solution. These agents actively check the health and performance of your internal resources, providing faster data collection and potentially enhanced security. Additionally, setting up an on-premise poller allows for centralized data gathering from the machine where the poller is installed, streamlining monitoring processes.
+14. Does the on-premises poller support High Availability?
+Yes, we support high availability which means we support a secondary poller which can seamlessly take over the entire load in case the primary poller goes down, ensuring uninterrupted monitoring of the resources. However the data collection will take place only in one of the pollers.
+15. What is an API call and how is it charged?
+API calls are requests that your monitoring system makes to other systems (websites, servers) to grab specific data (beyond the web interface view). You can use the Site24x7 API's to fetch the data from our systems and push it to your storage for achieving different business purposes.
+We limit API calls to 10 per resource, regardless of whether it's a basic, advanced, or host monitor.
+17. What are AI credits?
+AI credits are the usage units consumed when you use AI-powered features in Site24x7 through Zoho Key Services (ZKS) . Each ZKS plan includes a predefined number of AI credits that are renewed every month. Credits are consumed based on the selected AI model, request size, and generated response.
+You can track your AI credit usage in the Zia chat window or on the Subscriptions page. Once your available AI credits are exhausted, Zia stops processing new AI requests. To continue using AI features through ZKS, contact our support team for assistance acquiring additional credits.
+We offer Classic and Premium support for our users.
+Classic support includes assistance via email, community forums, chat, and phone support available Monday through Friday.
+Premium Support caters to high-impact issues round the clock, 24x7. This ensures that urgent issues can be addressed promptly without delay, providing continuous support for mission-critical operations. You have the option to request Premium support, which is available at an additional cost.
+For more detailed information about our support services, please consult our knowledge base section , where you can find comprehensive details about the scope of support provided under both Classic and Premium tiers.
+1. Monitoring locations: What are they, and can I choose which ones to use?
+Monitoring locations are geographically dispersed servers from which the service monitors your website/domains. These distributed checkpoints constantly monitor your resources, providing valuable insights into their performance.
+You can choose from any of the more than 130+ monitoring locations that we provide. However, there are restrictions on the monitoring locations based on the plan you select. If you need to monitor from all 130+ locations, please contact our sales for a customized plan.
+2. What is primary and secondary monitoring locations?
+Location is generally a set of geographically diverse points where the servers receive the response for the defined monitors.
+Primary location is the main location from which the defined monitors are polled from. When this location detects a downtime, the polling happens also from the secondary location, which helps to exclude false alerts.
+The secondary monitoring location serves as a backup or supplementary checkpoint for validation and redundancy. Employing multiple monitoring locations improves the scope of coverage and the dependability of monitoring services.
+3. How can I monitor transactions from 25 locations?
+To conduct monitoring from additional locations beyond those supported by your package, you can utilize supplementary check add-ons. These add-ons enable you to perform extra location checks and decrease the polling frequency for secondary locations compared to those provided in your package.
+For instance, suppose you have a monitor with a secondary polling frequency of 30 minutes and eight included locations in your plan. If you wish to monitor every five minutes from all your secondary locations, the total polling that would occur from the eight locations within an hour would be 8 * 12, out of which 8 * 2 will be complimentary.
+4. What monitors are included in the WebPerf pricing plan?
+The following monitor types are included in the WebPerf pricing plan:
+Website monitors
+Ping or TCP/IP Port
+SSL/TLS Certificate or Domain Expiry
+DNS, NTP, FTP, and SMTP Server
+REST API
+Web Transaction (Browser)
+5. What monitors are included in the WebUptime pricing plan?
+The following monitor types are included in the WebUptime pricing plan:
+Ping check or any TCP/IP port
+6. Do we provide run-based and monitor-based pricing?
+We have run-based pricing for Web Page Speed and Real Browser Monitors (RBMs). Each monitor runs in each location and will be counted as a check.
+Let us say, there are 1,440 checks allowed for a plan. You can use it as 288, 5-minute checks per monitor per day for five days, or split it across WPA or RBMs in your account.
+Monitor-based pricing is about the three types of monitors, basic, host and advanced monitors that we support in this new pricing version.
+Check-based pricing allows you to adjust your location count and polling frequency. With this option, you can increase the number of locations and decrease the polling frequency compared to the defaults provided in your plan.
+For website monitor, with a minimum poll frequency of 1 minute from the primary location and seven secondary locations polling at a 30-minute frequency is allowed with the basic monitor license. Say, if you have a requirement to monitor the website at a 1-minute poll frequency from all eight locations, it will be allowed through the Additional Check-based add-on. Following this way, you can calculate the additional checks required:
+Total runs: 60 checks/hr * 24 hrs/day * 30 days/month * 8 locations = 3,45,600 checks
+Allowed via Basic monitor: 60 checks/hr (Primary) * 24 hrs/day & 30 days/month + 2 checks/hr (Secondary) * 24 hrs/day * 30 days/month * 7 (Secondary locations) = 53,280
+Additional checks required = 3,45,600 - 53,280 = 2,92,320 checks / month
+7. What is the lowest polling frequency supported for monitoring?
+The default polling frequency of monitors aligns with the plans selected. Users have the option to adjust the polling frequency for websites to a minimum interval of 30 seconds, which will require two basic licenses. However, for the on-premise poller, the frequency is fixed at 5 minutes.
+8. What is a Synthetic Run? Which types of monitors require a Synthetic Run license?
+In real browser monitoring, a transaction is a series of steps in a monitored web application, crucial for assessing user experience and identifying performance issues. A synthetic run with a Real Browser Monitoring (RBM) tool refers to a simulated test-run within a web browser to evaluate system performance. Combining these, one transaction equals one synthetic run, meaning each monitored transaction represents a simulated test-run in real browser monitoring. Conducting synthetic runs ensures the reliability of a RBM, to optimize remote monitoring for a seamless user experience.
+Synthetic run license is supported for transaction monitors (RBMs) and Web Page Speed browser.
+9. What is the difference between Advanced monitor and Synthetic Run licensing?
+In the advanced monitoring license, you can add a WPA/RBM monitor, which will conduct polling at 8/16 locations based on your plan, either every 30 seconds or every minute. Opting for a synthetic run-based license allows you to conduct up to 10,000 checks for a monitor. Additionally, you have the flexibility to allocate this run-based license across multiple advanced monitors.
+If a user has numerous WPA or RBM monitors with multiple location checks to execute, opting for a run-based license would prove more cost-effective. The advanced license included in your package can then be utilized for adding other advanced monitors based on your requirement.
+10. Which monitor supports browser-based simulation, and how is it priced?
+Our RBM and Web Page Speed monitors simulate how actual users experience your website. These monitors are typically categorized as advanced or use a check-based pricing model.
+11. What is RCA? What is included in various plans?
+Root cause analysis (RCA) is an in-depth analysis to ascertain the actual reason behind a downtime incident. Pinpointing the root cause helps reduce the resolution time and ensure smooth running of your websites or applications.
+All plans include a detailed RCA report, however video RCA is exclusive to the Enterprise plan.
+12. How does RUM licensing work?
+Each webpage loaded in the browser is counted as a page view, regardless of the quantity of resources loaded in the background.
+RUM is licensed based on the number of page views. Users have to purchase page views to use RUM monitor.
+1. How does licensing for servers work? Does monitoring individual resources within a server cost extra?
+Each host operating system (virtual or physical) being monitored counts as one server and consumes one host monitor license.
+By default, you can track up to 25 key resources running in the server including like processes, services, and resource usage within each server. If you need to monitor more than 25 resources on a single server, those additional checks will tap into your basic monitor licenses.
+2. What is agent-based and agentless monitoring? How will it be licensed?
+Agent-based involves software installed on a device (like an agent) which gathers performance data and sends it to a central server for analysis and alerts.
+Agent-based monitoring includes:
+Agentless monitoring includes:
+Agentless refers to fetching performance data from the servers using existing protocols and APIs, without having to install an agent.
+Both agent-based and agentless are counted as host monitors.
+3. What are plugins, and where can they be used?
+Plugins are custom scripts or integrations that can be used to monitor various aspects of your IT infrastructure or applications beyond the standard monitoring capabilities provided by Site24x7. These plugins allow you to gather specific metrics or perform custom checks.
+4. Are there any limitations on the number of plugins I can add to a server monitor?
+Each plugin with 25 specific attributes costs one basic monitor. Adding extra plugins uses your basic monitor licenses. Each plugin can track up to 25 specific aspects (attributes) of your server.
+5. How do you monitor processes/services running in a host? Is it licensed separately?
+Our monitoring solution autonomously identifies and monitors processes and services running on every host. Moreover, if necessary, you have the option to manually include specific processes or services for monitoring.
+Enjoy the capability to monitor up to 25 processes per host at no extra cost with our Professional plan! To monitor beyond 25 processes, a basic license is necessary (covering an additional 25 processes).
+With the Enterprise plan, you can monitor up to 50 processes per host for free. Should you require monitoring beyond this limit, additional licenses would be required.
+6. How are Docker and Kubernetes monitoring licensed?
+For Docker, the first 10 containers on each host are free. After that, every 10 additional containers require one host monitor license.
+For Kubernetes, the main Kubernetes cluster is considered as one basic monitor. For details on additional components, please refer to this article .
+7. How do you define a database host? What are the types of databases you support?
+Each individual database instance is considered a database host. Let's say if two MySQL instances are running on the same server machine, then it will be considered as two database licenses.
+We currently support databases such as MSSQL, MySQL, and PostgreSQL, as well as plugin-based databases like Oracle, Cassandra, MongoDB, ClickHouse, CouchBase, etc.
+8. How does database licensing work?
+Each database server consumes an advanced monitor license with which you can monitor 10 databases for free. Additional databases within the server will start consuming one basic monitor license each.
+9. How do you monitor Cloud VMs? How are they licensed?
+The cloud VMs like AWS EC2, Azure VM, GCP Compute will be monitored in following two ways:
+Agentless monitoring using respective API's: This will help to discover new VM resources added, Auto-scaled environments and hypervisor level resource utilization.
+Agent-based monitoring using Site24x7 server agents: This will help to monitor system resources, process/services, identify dependencies, and self-heal an incident.
+10. How does licensing work for VMware infrastructure monitoring?
+For VMware monitoring, VMware Cluster, VMware ESX/ESXi and VMware VM consume one host license each. Datastore and Datastore Snapshots will be Basic monitors.
+ESX Hardware will be weightage based monitor where the license depends on number of associated Sensors, one basic monitor license for every 50 Hardware sensors.
+vCenter is a free monitor. Monitoring Nutanix clusters, hosts, and VMs in your environment will require a separate host license for each.
+11. What are "Infrastructure Events" and why are they included as part of infrastructure monitoring? How are they licensed?
+Infrastructure events are notifications that signal significant changes or occurrences within your IT environment. These are included at no additional cost.
+1. What are the cloud monitors? How are they licensed?
+Cloud monitors are tools or services used to track and manage the performance, availability, and health of cloud-based resources and services. These tools help users optimize their cloud environments for better reliability, efficiency, and cost-effectiveness.
+Cloud monitors include AWS, Azure, and GCP. Each of these will consume a host license.
+2. How are AWS resources licensed?
+AWS resources are monitored as host or basic monitors depending on the service type monitored. The number of basic monitor licenses consumed by a service depends on the number of metrics and monitoring complexity. View the list of AWS monitor types .
+3. How are child monitors in a cloud server licensed?
+A child monitor in Site24x7 refers to a supplementary monitoring instance that operates under a primary monitor. It's used to monitor specific aspects or components of a service or application.
+By default for AWS, you can monitor up to 25 key resources per server, including like containers, and volumes. Should you require monitoring of more, five child monitors will consume one basic license.
+For Azure and GCP, you can track up to 25 key resources running in the server including like processes, services, and resource usage within each server. If you need to monitor more than 25 resources on a single server, those additional checks will tap into your basic monitor licenses.
+4. Is there an hourly support plan for the auto-scaled resources? How does it work?
+An auto scaling group is a logical collection of EC2 instances grouped together to facilitate scaling. Using Site24x7, you can monitor resource metrics such as CPU usage across the group and set alerts. This allows for informed adjustments to scaling policies based on application workload fluctuations, ensuring instances scale appropriately with changing demands.
+If we find more resources than your licensed limit, we typically suspend them and hold them in your account. You can purchase a license and activate it whenever you need to.
+Enabling hourly pricing activates these monitors to automatically begin collecting your metrics. You only pay for the period during which your resources are active in your account. You have the option to suspend them if desired.
+We will only bill you for the duration that the resource is active, allowing you to monitor multiple resources at the cost of a single host monitor.
+For example, under the Professional plan:
+Monitoring an EC2 instance for 1-4 hours daily over 30 days costs $0.72 (calculated as 0.4 hours x $0.006 per hour x 30 days).
+Monitoring an EC2 instance for 6 hours daily over 30 days costs $1.08 (calculated as 6 hours x $0.006 per hour x 30 days).
+The combined cost of EC2 1 and EC2 2 is $1.80, which is lower than the individual per host monitor cost of $2.
+With this, you can monitor your resources according to your requirements, such as during business hours, weekends, and other specific times.
+1. What is a network component license?
+A network component license is a unit of licensing required to monitor an individual aspect of your network device.
+2. Can we use one network component license to monitor multiple network devices?
+No. Monitoring a network device uses one component license for up to 100 interfaces via SNMP. Every additional 100 interfaces consumes one more license. Analyzing the traffic of a single interface in NetFlow Analyzer will consume one component license. Tracking device configuration changes for one device in NCM will consume one component license. This also includes firmware vulnerability management and network configuration compliance (supported only in the Enterprise pack).
+3. How can I use network component licenses across monitors?
+Network component licenses are applicable only to specific network-related monitor types. For more details on supported resource types, visit this page .
+4. Is VMware VeloCloud SD-WAN supported in network component licenses?
+Yes, 1 VeloCloud Edge needs 1 network component license.
+5. How does network component licensing work for Cisco IPSLA monitors and wireless LAN controllers (WLCs)?
+Cisco IPSLA monitors like VoIP and WAN RTT each consume 4 network component licenses per monitor. Wireless LAN Controllers (WLCs) are licensed as 1 component per WLC. Access Points (APs) are licensed as 1 component for every 2 Access Points.
+6. How are licenses consumed when adding devices to storage monitoring?
+Each disk, tape library, or Fibre Channel (FC) switch added to storage monitoring consumes 2 network component licenses.
+7. Do Cisco Meraki devices and organizations need separate licenses?
+Yes, 1 network component license is required for each Cisco Meraki device and each organization.
+1. How is application performance monitoring licensed?
+APM application is a free monitor. One APM instance will consume one advanced license and one APM key transaction monitor will consume one basic license.
+We also support APM host add-on. With one add-on, you can add 25 APM instances from the same host.
+2. Can I run APM with containers? What languages does APM support?
+APMin containerized environments involves overseeing and optimizing the performance of applications deployed within containers.
+You can use our APM agent in the applications deployed in containers. APM supports Java, .NET, Ruby, PHP, Node.js and Python languages.
+3. What type of data is collected in mobile APM?
+Mobile APM, or Mobile Application Performance Monitoring, involves tracking metrics to optimize the performance and user experience of mobile apps. It provides insights into app responsiveness, speed, resource usage (for example, CPU, memory), network performance, and user interactions.
+Mobile APM collects:
+Screens, transactions, and HTTP calls
+App crashes
+User sessions
+App start time
+Frozen frames
+4. How does tracing in APM work? Is there a limit on tracing?
+A trace maps a single user's request and its path through your application, pinpointing how it interacts with different services and databases.
+Tracing works by instrumenting each method call in a transaction, and tracking the start/end time for each of them.
+Users are limited to 30 traces per minute for an application.
+5. What is the retention period for traces?
+We support a retention period of 30 days for traces, which refers to the duration trace data, often associated with transactions or method calls in a system, remains stored and accessible for analysis or reference.
+6. What is the data retention period for logs?
+Site24x7 provides multiple log retention periods (7, 15, 30, 60, and 90 days). You can contact support for extended data storage for auditing purposes at an additional charge ( support@site24x7.com ).
+7. How to limit log uploads from a particular log type?
+You can set your preferred maximum upload limit to control log consumption and licensing usage. Once the limit is reached, new log uploads will not be accepted.
+8. Does decreasing the retention period for logs contribute to reducing the pricing?
+We offer multiple log retention options: 7, 15, 30, 60, and 90 days. When you increase the retention period, your upload limit will get reduced.
+9. Is there a license available for retaining logs for one year?
+We provide a maximum log storage period of 90 days. If you need to keep logs for a longer period, our support team can assist with a backend configuration update at an additional charge.
+1. Can I manage multiple accounts in a single portal?
+Yes, you can manage customers using the MSP plan. We allow you to add nine customers on purchase of the MSP plan.
+To manage more than nine, you can purchase the MSP customer add-on.
+2. How does Site24x7 MSP charge?
+In Site24x7, we provide plans for MSPs to efficiently monitor multiple accounts through a unified portal. Each monitored account is termed as a "customer."
+The MSP can assign a license limit for each customer. If customers are not added individually, they can still collectively utilize monitors up to the MSP's license limit.
+Initially, Site24x7 allows users to add nine customers. Additional account monitoring requires purchasing a customer add-on.
+For increased monitor capacity, the MSP administrator must purchase additional licenses.
+3. What is capping? How does it affect when capping is done for customers?
+Capping is like setting a limit. It defines the highest point of monitors customers can use within an MSP account.
+With capping, customers have a set limit on the number of monitors they can add to their account. Reaching this limit prevents adding any further monitors.
+Without capping, all customers under a single MSP account share a pool of available monitors. Each customer can add monitors as long as there's availability within the total pool.
+4. How do I limit the usage of any resource for my customers?
+MSP admins can set limits for each customer using the step given below.
+Subscriptions > Apply license > Basic, Advanced, Host licenses (you can set limits for each of these monitors for each customer).
+5. Who can assign licenses to customer accounts in an MSP account?
+Assigning licenses to customer accounts is reserved for MSP admins only. For easy tracking, you can enable the "Show allocation" option to view the licenses distributed to your customers.
+6. Can I activate or deactivate any customer portal?
+The MSP admins will have the permissions to activate or deactivate the customer portals at any given point of time.
+7. How do renewals work for MSPs?
+For both plans and add-ons, we facilitate automatic renewals for users who make purchases using credit cards and for recurring PayPal users. Furthermore, any customer usage limits established via the Apply license option will be retained and carried forward.
+Website is a basic monitor..
+Basic monitor is a license entity referring to each instance of the below mentioned resources -
+REST API, SOAP or WebSocket endpoint
+100+ out-of-the-box Plugins (Each plugin with 25 specific attributes is one basic monitor)
+* We allow 20 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+Website is a basic monitor.
+Kubernetes Containers & Pods
+Containers (five containers will consume one basic monitor)
+* We allow 50 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+Application is an advanced monitor.
+Advanced monitor is a license entity that caters to more intricate monitoring needs and offers functionalities beyond simple checks. This includes:
+Microsoft Apps (Microsoft SharePoint, BizTalk, Active Directory, Failover Cluster, Hyper-V, SQL and Exchange monitors)
+* We allow one advanced monitor in this plan. Refer to our add-ons section to buy more.
+* We allow 10 advanced monitors in this plan. Refer to our add-ons section to buy more.
+Server is a host monitor.
+Host monitor is a license entity that monitors the health and performance of various resources on your servers and IT infrastructure. The list includes:
+Windows, Linux, FreeBSD, and OS X server
+VMware(VMs/ESX/ESXi hosts/Clusters) or Nutanix(Hosts/VMs/Clusters)
+Docker Host
+Containers (10 containers will consume 1 host monitor)
+* We allow five host monitors in this plan. Refer to our add-ons section to buy more.
+* We allow 40 host monitors in this plan. Refer to our add-ons section to buy more.
+A component license includes monitoring individual network resources such as network devices/interfaces, NetFlow interfaces, NCM devices, IPAM subnets/used IPs, Cisco Meraki devices, IPSLA monitoring, Cisco ACI, WLCs, access points, and SD-WAN devices.
+Each component license lets you monitor the availability and performance of one network device via SNMP (up to 100 network interfaces), or traffic for one interface, or device configuration. Additional component licenses are required for monitoring additional interfaces or devices. Learn more .
+AppLogs is a Site24x7 log management service that helps you upload and manage your logs across all your infrastructure―all on a single dashboard.
+We support more than 100 different log types by default. You can also create custom log types to meet your requirements.
+With the Professional plan, you receive four GB of log storage for a duration of 7 days, included by default with the plan.
+You have the option to increase your log limit by purchasing additional log add-ons .
+With the Professional Pack, you receive 40 GB of log storage for a duration of 7 days, included by default with the plan.
+Integrate Site24x7 with your existing tools to enhance communication efficiency and foster seamless collaboration.
+Site24x7 supports effective teamwork by centralizing communication and correlating events across your chosen tools, boosting efficiency in incident management and troubleshooting.
+Supports integration with all systems except LAMA.
+Supports integration with all systems including LAMA.
+Synchronize performance metrics collected through Site24x7 monitoring with StatusIQ to effectively communicate your performance data. Publish maintenance schedules configured for Site24x7 monitors on StatusIQ to keep customers informed.
+Share user experience data from your application or webpage using Site24x7 Real User Monitoring (RUM) on StatusIQ. Integrate the RUM World Map dashboard to obtain region-specific performance insights of your components. Learn more about StatusIQ and its customization.
+We support 100 status pages in this plan. However, you can increase the number of status pages by purchasing an additional add-on. Please refer to the StatusIQ pricing for more details.
+We support 200 status pages in this plan. However, you can increase the number of status pages by purchasing an additional add-on. Please refer to the StatusIQ pricing for more details.
+* We allow 25 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+* We allow 40 uptime monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+* We allow 2500 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+Transaction monitor is an advanced monitor.
+Advanced monitor is a license entity that caters to more intricate monitoring needs and offers functionalities beyond simple checks. This includes -
+* However, this feature is not supported in this plan.
+* We allow eight advanced monitors in this plan. Refer to our add-ons section to buy more.
+* We allow 100 advanced monitors in this plan. Refer to our add-ons section to buy more.
+Each impression on a webpage is considered a page view, irrespective of the number of resources that are loaded behind. This plan does not include for RUM page views.
+With a single network bundle license, you can monitor the availability and performance of one device (up to 100 network interfaces), including its network traffic and device configuration. However, network observability is not included in this plan.
+ManageEngine StatusIQ offers status pages for businesses and organizations of all sizes, from small and mid-sized companies to large enterprises. We deliver real-time updates on incidents and planned maintenance, helping to minimize downtime and keep your users informed.
+We support three status pages in this plan. However, you can increase the number of status pages by purchasing an additional add-on. Please refer to the StatusIQ pricing for more details.
+We support 10 status pages in this plan. However, you can increase the number of status pages by purchasing an additional add-on. Please refer to the StatusIQ pricing for more details.
+Containers (5 containers will consume 1 basic monitor)
+*We allow five basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+*We allow 20 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+*We allow 50 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+* We allow 1 advanced monitors in this plan. Refer to our add-ons section to buy more.
+Host monitor is a license entity that allows to monitor the health and performance of various resources on your servers and IT infrastructure. The list includes -
+* We allow two host monitors in this plan. Refer to our add-ons section to buy more..
+* We allow 5 host monitors in this plan. Refer to our add-ons section to buy more..
+* We allow 40 host monitors in this plan. Refer to our add-ons section to buy more..
+Allows you to collect up to 4 GB of logs per billing cycle. For larger log volumes, consider our add-on options.
+Allows you to collect up to 40 GB of logs per billing cycle. For larger log volumes, consider our add-on options.
+With a single network bundle license, you can monitor the availability and performance of one device (up to 100 network interfaces), including its network traffic and device configuration.
+This plan includes two network bundles, however you can increase the limit by purchasing an additional network observability add-on .
+This plan includes 20 network bundles, however you can increase the limit by purchasing an additional network observability add-on .
+Child resource monitoring in Site24x7 improves visibility and control over interconnected components, ensuring thorough monitoring and efficient management of dependencies within your IT resources.
+For instance, after adding a Windows server monitor, services and processes running on the server are automatically discovered and designated for monitoring as child monitors.
+You can monitor upto 25 child resources in this plan.
+You can monitor upto 50 child resources in this plan.
+Custom metrics are user-defined data points designed to capture specific aspects of infrastructure that traditional monitoring may overlook.
+Enhance your monitoring capabilities with Site24x7's Plugins, which provide deeper insights into various components of your IT infrastructure. Tailor your monitoring to meet exact requirements, ensuring comprehensive oversight of critical systems. Develop custom plugin scripts to monitor specific metrics of your systems and services.
+You can push these metrics using plugins, REST APIs, or other tools, and conveniently view the resulting data within the Site24x7 web client.
+As per the plan features, you can monitor up to 25 metrics using a plugin (where 25 metrics equals 1 basic license).
+Site24x7's Network Configuration Manager (NCM) proactively identifies and manages firmware vulnerabilities to secure your networks. By leveraging vulnerability data from NIST, NCM scans your networks; identifies risks; and displays the firmware versions, exposed devices, and vulnerabilities on the Firmware Vulnerabilities Dashboard.
+Here is a link to the devices for which we support firmware vulnerability management.
+Network configuration compliance ensures adherence to rules to safeguard networks from threats and maintain standards (like Cisco IOS, SOX, HIPAA, or the PCI DSS) as well as organizational policies.
+These are specialized metrics that monitor various aspects of your network devices, including temperature, memory usage, and CPU utilization. You can add custom performance counters to monitor custom performance metrics by simply providing the sysOID or by using MIBs.
+Track the tabular SNMP OIDs of your network devices to monitor multiple instances of the same attribute (like memory, disk, or interfaces) within a single network device using tabular performance counters.
+* We allow three advanced monitor in this plan. Refer to our add-ons section to buy more.
+This plan includes three network bundles, however you can increase the limit by purchasing an additional network observability add-on .
+* We allow 15 basic monitors in this plan. Refer to our add-ons section to buy more. Read our what is a monitor FAQ for more details.
+Each component license lets you monitor the availability and performance of one network device via SNMP (up to 100 network interfaces), or traffic for one interface, or device configuration. Additional component licenses are required for monitoring additional interfaces or devices. Learn more. .
+With the Professional plan, you receive five GB of log storage for a duration of six months, included by default with the plan.
+* We allow four advanced monitor in this plan. Refer to our add-ons section to buy more.
+* We allow 25 host monitors in this plan. Refer to our add-ons section to buy more.
+Each component license lets you monitor the availability and performance of one network device via SNMP (up to 100 network interfaces), or traffic for one interface, or device configuration. Additional component licenses are required for monitoring additional interfaces or devices. Learn more.
+With the Enterprise plan, you receive 40 GB of log storage for a duration of six months, included by default with the plan.
+Frequency at which checks are performed. Monitoring frequency is customizable in Site24x7 as per customer requirements.Each plan specifies the minimum poll frequency allowed.
+A poll frequency of 60 seconds will utilize 2 basic monitor licenses, whereas all other polling frequencies will consume 1 basic license each.
+A poll frequency of 10 seconds will utilize 2 basic monitor licenses, whereas all other polling frequencies will consume 1 basic license each.
+Each impression on a webpage is considered a page view, irrespective of the number of resources that are loaded behind. The Professional plan allows you to monitor 500K unique interactions using RUM page view license.
+You have the option to increase your page views by purchasing additional RUM page view add-ons .
+Custom Roles let you define granular permissions to control user access to features and actions. Assign only the permissions required for each role to improve security and streamline access management.
+Service-level objectives (SLOs) define and measure the level of service you promise to deliver to your customers. By establishing clear SLIs, SLOs enable teams to monitor, evaluate, and continuously improve their service delivery.
+Please note, SLO availability and limits depend on your Site24x7 subscription plan.
+Poll Now lets you instantly run an on-demand check from the selected monitoring locations and On-Premise Pollers to verify your monitor's current availability and performance without waiting for the next scheduled poll.
+Capture performance data for custom methods, classes, and frameworks that are not instrumented by default. This provides deeper visibility into your application, helps analyze uninstrumented code blocks, and enables performance monitoring for custom or unsupported frameworks. Supported for Java and .NET Core agents.
+Compare application performance before and after important events such as deployments, product updates, feature releases, or infrastructure changes. Milestone markers help correlate performance trends with these events, making it easier to measure their impact and troubleshoot issues.
+Each impression on a webpage is considered a page view, irrespective of the number of resources that are loaded behind. The Professional plan allows you to monitor 100K unique interactions using RUM page view license.
+Each impression on a webpage is considered a page view, irrespective of the number of resources that are loaded behind. The Professional plan allows you to monitor 5M unique interactions using RUM page view license.
+We provide two tiers of support services: Classic and Premium.
+Classic support includes assistance via email, community forums, and chat support available Monday through Friday.
+Premium support caters to high-impact issues around the clock.
+For more detailed information about our support services, please consult our knowledge base section , where you can find comprehensive details about the scope of support provided under both classic and premium tiers.
+We provide Classic support services.
+For more detailed information about our support services, please consult our knowledge base section , where you can find comprehensive details about the scope of support provided.
+Email support includes assistance via email, community forums, and chat, Monday through Friday.
+Performance metrics and version comparisons for every deployment.
+Comparing CPU, memory allocations, lock wait time and more after deployment
+Collecting and incorporating distributed tracing data.
+Duration for which APM stores data for detailed tracing.
+A poll frequency of 30 seconds will utilize 2 basic monitor licenses, whereas all other polling frequencies will consume 1 basic license each.
+Monitoring locations are customer vantage points geographically dispersed worldwide by Site24x7 or Private locations deployed internally using on-premises poller. There will be a limit on from how many locations a monitor can be checked appropriate to the plan chosen.
+You can purchase additional monitoring location checks by purchasing required add-on. This add-on will provide additional checks which can be used to increase number of locations from where the monitoring checks can be performed. Reach out to sales@site24x7.com for details.
+Public page communicating the current operational health of your service.
+Multi-user support enables sharing of resource permissions and functionalities across users.
+It maintains separate user profiles, permissions, and personalized settings, facilitating efficient collaboration in organizations and collaborative environments with diverse roles and access requirements.
+Executing automated tasks within an IT system for streamlined operations.
+Child resources include process, services, files, URLs and directories.
+The Guidance Report offers personalized insights to optimize your cloud resources, providing recommendations to enhance cost-efficiency, fault tolerance, and performance. By following the suggestions in the Guidance Report, you can pinpoint bottlenecks, fine-tune configurations, and achieve optimal performance for your AWS, Azure, or GCP cloud environment.
+By default, this plan allows you to manage up to 9 customers. Add-ons provide the ability to manage more customers with your existing MSP plan. Refer to our add-ons section to Buy more .
+Used to monitor a sequnece of web actions.
+Total monitors to be shared among customers. Refer to our add-ons section to buy more.
+Each plan includes a default network device limit, which can be expanded by purchasing additional network observability add-ons.
+Each impression on a webpage is considered a page view, irrespective of the number of resources that are loaded behind. Professional plan allows you to monitor 100K unique interactions using RUM page view license.
+Each plan includes a default RUM page views, which can be expanded by purchasing additional RUM page view add-ons.
+Each plan includes a default log limit, which can be expanded by purchasing additional log add-ons.
+Each transaction or workflow monitored in synthetic or WPA monitors is counted as a run. If you are using your advanced monitor license to monitor additional resources, synthetic runs will help efficiently monitor transactions at a lower cost.
+Refer to our Synthetic Run FAQ for more details.
+Frequency at which checks are performed.
+Monitoring locations are vantage points for customers, available as geographically-dispersed locations worldwide by Site24x7 or as private locations deployed internally using On-Premises Poller. There will be a limit on how many locations a monitor can be checked from, appropriate to the plan chosen.
+You can purchase additional monitoring location checks by purchasing required add-ons. This add-on will provide additional checks which can be used to increase the number of locations from which the monitoring checks can be performed. Contact sales@site24x7.com to explore additional monitoring locations.
+Maximum number of requests or calls that can be made to an API within a given period of time.
+Executing automated tasks within an IT system for streamlined operations
+An SLA is a formal agreement that establishes service performance expectations. These agreements outline specific metrics such as availability and response time, alongside corresponding service level objectives.
+We provide various SLA reports, including Availability, Response Time, Composite, and Executive Summary reports.
+Boost communication efficiency and encourage seamless collaboration through integrations. Site24x7 is adaptable, versatile, and fosters effective teamwork among your IT teams by centralizing communication and correlating events via the tools of your choice.
+Advanced tools, policies, and monitoring for comprehensive IT protection.
+Workload balance across a group of pollers. Refer FAQ for more.
+It is the root cause analysis identified and observed in a video recording for web transactions. This is enabled only for the Enterprise plan.
+Extended monitoring capabilities of a system beyond its built-in functionality.
+Deployment tracking monitors performance changes during updates, infrastructure adjustments, and framework upgrades. It helps isolate bugs quickly and provides performance metrics and version comparisons for each deployment, ensuring optimal system efficiency and stability.
+It provides performance metrics and facilitates version comparisons for every deployment, ensuring thorough evaluation and optimization of your system's operational efficiency and stability.
+This feature is available in the Enterprise plan.
+Deployment tracking involves identifying and monitoring performance changes during build updates, infrastructure adjustments, and upgrades to framework versions. This capability enables rapid isolation of bugs within your code and its underlying infrastructure components.
+Measuring the execution time of individual methods within your code including time spent on locks, I/O, and more
+These provide detailed CPU and memory usage metrics, respectively, for each service and request—down to the code-line level.
+For example, when evaluating the performance of a Java agent on an e-commerce store developed with Java 11, the report examines the impact of the APM Insight agent. It specifically analyzes memory consumption, CPU usage, response time overhead, and network bandwidth consumption.
+This feature is available in both the Professional and Enterprise plans.
+Code performance comparisons involve identifying and monitoring performance changes during build updates, infrastructure adjustments, and upgrades to framework versions at a transaction level. These are very similar to the deployment trackers.
+As of now, this feature is only enabled in the Enterprise plan.
+Collecting and incorporating distributed tracing data
+Span retention refers to the duration after which the older traces are automatically cleaned up.
+The retention period is 7 days for Professional plans and 15 days for Enterprise plans. For extensions beyond these durations, please contact sales@site24x7.com .
+The Service Quotas feature enables users to monitor and control AWS service limits, which define the maximum usage thresholds for resources within your AWS account. These limits come with default values but can be adjusted to accommodate increasing business needs.
+With Site24x7's AWS Service Quotas feature, you can conveniently view and manage these limits directly from the Site24x7 web client, eliminating the need to log in to the AWS console.
+Site24x7's Capacity Monitoring enables proactive management of your IT infrastructure, ensuring optimal performance through efficient resource monitoring and management. This capability includes overseeing IT infrastructure components to maintain efficiency and optimal operation.
+Capacity Monitoring assists in tracking resource utilization, forecasting capacity needs, planning for future requirements, and optimizing costs. This approach enhances overall performance, scalability, and cost-effectiveness across your infrastructure.
+The CloudSpend integration in Site24x7 allows for seamless management of cloud spending across various cloud service providers. This integration enables users to track and optimize cloud expenses, analyze cost trends, and generate detailed reports directly within the Site24x7 platform. By integrating CloudSpend, organizations can gain better visibility into their cloud expenditures, improve cost management strategies, and ensure efficient allocation of resources in their cloud environments.
+ManageEngine CloudSpend provides a pay-as-you-go licensing model for your cloud cost management software, offering additional benefits for the FinOps environment. For more information on licensing, please consult the CloudSpend pricing page .
+Whenever a network device detects a state change or anomaly, such as a network or hardware issue, it generates an SNMP trap and sends an event message to Site24x7. Site24x7 swiftly processes these trap messages, displaying them and promptly notifying administrators based on predefined thresholds. This approach ensures the rapid detection, notification, and resolution of issues, facilitating efficient troubleshooting.
+This is also bundled with the network observability license.
+Performance counters monitor specialized metrics like temperature, memory usage, and CPU utilization for network devices. You can add these counters by specifying the object identifier (OID. You can also add custom performance counters as required.
+NCM is a multi-vendor solution for managing network device configurations. It tracks changes, alerts on them, compares versions, audits, restores configurations, and automates backups.
+Firmware vulnerability management and compliance is included for Enterprise users only.
+The duration for which data is stored and maintained by Site24x7 before it is deleted, archived, or anonymized.
+The maximum number of requests or calls that can be made to an application programming interface (API) within a given period of time.
+Alerts triggered via SMS/voice call for monitored devices.
+Sharing resource permissions and functionalities across teams.
+Categorize your monitoring alarms based on the attributes causing the issue.
+Process of planning and setting a specific timeframes for performing maintenance tasks on a system or software application.
+Secondary locations are additional geographically-dispersed monitoring points, offering redundancy and potentially broader network visibility. The application is generally monitored more frequently from the primary location. Since secondary locations come next to primary with respect to customer presence, monitoring frequency has been lowered.
+However, you can also have the secondary locations poll more frequently using the Additional Check add-on option.
+Please refer to our FAQ section for more details.
+The False Alarm Protector facilitates the reduction of unnecessary alerts by enabling customization of alert configurations.
+Site24x7 is dedicated to minimizing false alerts, employing various strategies to ensure that downtime alerts are accurate. This feature is one such measure. Threshold and Availability Profiles assist the alert engine in determining whether a particular resource should be flagged as critical or down. Setting up Downtime Rules further reduces the occurrence of false alerts.
+Activate hourly billing for your account and pay on an hourly basis without enduring long-term commitments for auto-scaling workloads.
+Please refer to our add-ons section for detailed hourly pricing information for application instances and virtual cloud servers.
+Note: We will begin hourly metering when purchased monitor licenses get consumed. Learn more
+Having complex application workloads? Our platform is capable of collecting any volume of telemetry data your application sends.
+Monitoring VMware, Nutanix, and Hyper-V helps you optimize performance, availability, and resource efficiency by tracking the CPU usage, memory usage, disk I/O, and network traffic. Alerts for critical events such as VM failures and resource overutilization are configured, and integrations with management tools streamline administration.
+VMware and Nutanix are counted as host monitors, whereas Hyper-V is counted as an advanced monitor. These are subject to limitations based on the selected plans. However, you can increase the monitor limit by purchasing an additional add-on of the same type.
+Site24x7’s Kubernetes and Docker monitoring ensures optimal performance and resource use of containerized environments. It provides oversight at the cluster, node, pod, and namespace levels.
+Kubernetes nodes count as host monitors, and containers as basic monitors. Host and basic monitors are subject to limitations based on the selected plans. However, you can increase the monitor limit by purchasing an additional add-on of the same type.
+Custom plugins extend monitoring to specific IT aspects, offering comprehensive visibility across applications, systems, and services. Create and deploy tailored plugins for servers, databases, and other components to enhance monitoring and gain personalized insights.
+Check the list of out-of-the-box plugins that we support.
+Plugins are counted as basic monitors.
+The StatsD and Prometheus integrations in Site24x7 enhance monitoring capabilities by enabling the collection and visualization of custom metrics and time series data critical for maintaining the health and performance of your applications and infrastructure.
+StatsD and Prometheus are counted as basic monitors. Basic monitors are subject to limitations based on the selected plans. However, you can increase the monitor limit by purchasing an additional basic monitor add-on .
+Microsoft Application Monitoring involves gathering, analyzing, and presenting metrics from applications like Microsoft 365, Microsoft Exchange Server, Microsoft SQL Server, Microsoft IIS, Microsoft Azure, and Microsoft SharePoint. This enables IT teams to detect issues proactively, enhance performance, ensure compliance, and uphold consistent service reliability for users.
+Microsoft applications are counted as advanced monitors. Each plan includes a default advanced monitor limit, which can be expanded by purchasing additional advanced monitor add-on .
+You can track database availability, gain deeper insights into database components, proactively identify issues, understand the root causes of performance degradation, and automate corrective actions with Site24x7's database monitoring.
+Database monitors fall under the advanced monitor category. Each plan includes a default advanced monitor limit, which can be expanded by purchasing additional advanced monitor add-on .
+Monitor cron jobs with real-time tracking, performance analysis, and proactive alerts for job failures or extended executions. Ensure efficient, reliable operation management for your scheduled tasks.
+Cron monitors are basic monitors. Each plan includes a default basic monitor limit, which can be expanded by purchasing additional basic monitor add-on .
+Heartbeat monitors ensure continuous operation of scripts, agents, and daemons. Each heartbeat monitor in Site24x7 provides a unique ping URL. Make HTTP requests to verify task-server communication and set thresholds to receive alerts if pings fail.
+Heartbeat monitors are basic monitors. Each plan includes a default basic monitor limit, which can be expanded by purchasing additional basic monitor add-on .
+Software update monitoring in infrastructure entails tracking updates, patches, and upgrades across software components. It aids in mitigating security risks, enhancing system performance, and maintaining smooth IT operations by ensuring your software remains current and optimized.
+Software update monitors are basic monitors. Each plan includes a default basic monitor limit, which can be expanded by purchasing additional basic monitor add-on .
+Devices and applications generate logs for events, which are collected, aggregated, and analyzed in real time. Syslog monitoring gathers and scrutinizes syslog messages from across your IT infrastructure, helping to detect issues, anomalies, and security events, and ensuring system health and security.
+Track and oversee your infrastructure's performance across various metrics, like CPU utilization, memory usage, and disk usage.
+Customize thresholds for each metric. When a metric surpasses its set threshold (e.g., CPU usage exceeding 90%), an alert is activated to indicate a critical monitoring status (based on the status set). Configure alerts to promptly notify you of specific events as they happen.
+Tracking the availability and system-level metrics of your servers goes beyond CPU, disk, and memory usage monitoring; it also involves monitoring the performance of every service and process for comprehensive analysis.
+Site24x7's service and process monitoring identify resource-intensive processes, enabling prompt actions and automatic resolutions through configurable alerts. This ensures efficient operations and compliance with performance expectations across your IT and cloud infrastructures.
+We allow 25 resource checks to be added per server monitor.
+Improve your monitoring capabilities with Site24x7's Plugins, which offer enhanced insights into different components of your IT infrastructure. Customize your monitoring to meet your specific needs, ensuring comprehensive oversight of critical systems. Create custom plugin scripts to monitor specific metrics of your systems and services. View the resulting data directly in the Site24x7 web client.
+Based on the plan inclusions, you can monitor up to 25 metrics using a plugin.
+Java, .Net, Python, Node.js , PHP, Ruby on Rails.
+Code-level tracing delves into the detailed execution flow of your application code, providing insights beyond traditional monitoring of high-level service or API interactions.
+In Site24x7, you can monitor and trace the execution path of functions within your application code. This capability allows for the identification, troubleshooting, and optimization of problematic methods or flows within the application.
+Event correlation involves analyzing multiple events from different IT systems to detect relationships and potential issues.
+This leads to faster incident response, reduced alert fatigue, improved service availability, and enhanced security.
+Component tracing entails monitoring user requests as they traverse through different components within your application. It serves as a visual guide, showcasing how various segments of your application work together to fulfill user requests.
+It also tracks data flow across application boundaries, encompassing interactions with databases, other applications, or third-party services. This capability helps identify issues that extend beyond the application's immediate execution context.
+This feature is available in the Professional and Enterprise plans.
+A trace will record the sequence of actions within a transaction, encompassing method calls, database queries, and exceptions.
+Monitoring user requests is crucial to understand their entire journey and interactions with various services, databases, and components throughout the system.
+Microservices need advanced tracing to diagnose issues efficiently. Distributed tracing tracks web transactions across services, unifying requests into a single view to identify common issues in complex microservice environments.
+Microservices require advanced tracing methods to diagnose and resolve problems efficiently. Distributed tracing meets this requirement by tracing the complete path of web transactions across application or service boundaries. It consolidates requests spanning multiple applications, components, and external services into a unified service view, aiding in identifying common issues across microservices—a vital capability akin to pinpointing challenges amidst complexity.
+SQL query monitoring involves monitoring and analyzing the performance of SQL queries within your application. It ensures efficient database interactions and identifies potential bottlenecks that may impact response times.
+Application dependency maps (service maps) offer a detailed view of your application's infrastructure and its connections. They display the status of your application, its instances, and associated servers, including key metrics like response time, throughput, connection status, and failed requests.
+Application dependency maps (service maps) provide a comprehensive overview of your application infrastructure and its connections to other dependent resources. Using these maps, you can visualize the status of your application, its instances, and the associated servers. You will receive key metrics such as response time, throughput, and connection status details. You can also keep track of the failed requests.
+A transaction flow maps a user's request journey through your application, showing interactions with services, databases, and external systems. Key transactions can be highlighted to monitor critical business processes separately, simplifying the assessment of performance metrics for important transactions.
+A transaction flow illustrates the journey of a user request across your application, documenting each stage from initiation to completion. It visualizes interactions with services, databases, and external systems that contribute to fulfilling the request.
+Key transactions can be designated to monitor and track the performance of critical business processes separately. This feature allows you to conveniently assess the performance metrics of important transactions without having to search among all web transactions.
+Thread profiling helps you identify bottlenecks in your code stack. It lists all collected thread profiles, detailing thread count, CPU time, and memory usage. You can view the threads that consume high CPU, threads with time-consuming methods, and the invocation counts for each method.
+Thread dump analysis helps streamline troubleshooting of performance issues and provides valuable insights such as thread states, stack traces, and resource usage for your multi-threaded applications.
+As of now, these features are only enabled in the Enterprise plan.
+Memory leak detection identifies and resolves issues before they impact application performance. Leaks occur when memory isn't released, potentially causing crashes. Site24x7's On-Demand Memory Profiling uses a linear regression model to track and diagnose leaks, quickly identifying memory-intensive classes and listing objects and metrics for the specified timeframe.
+Memory leak detection identifies and resolves memory leaks before they impact your application's performance.
+Memory leaks happen when allocated memory isn't released properly, causing servers to run out of memory and potentially crash applications. In Java, garbage collection usually frees memory, but overlooked resources can lead to leaks. Site24x7's On-Demand Memory Profiling tracks object collection with a linear regression model to detect and diagnose leaks.
+This feature enables quick identification of memory-intensive classes in your code stack, listing all collected objects and associated metrics within the specified timeframe.
+Network configuration and compliance management encompasses overseeing network devices, such as routers, switches, firewalls, and other infrastructure components, and ensuring that they are configured according to the established standards and policies. This includes implementing rules and policies to protect your network from potential threats and ensuring compliance with industry standards (like Cisco IOS, SOX, HIPAA, or the PCI DSS) as well as any custom organizational policies.
+These features are bundled with the network observability license, which comes by default with the plans. You can expand the monitor count by purchasing additional network observability add-on .
+Real-time network performance monitoring involves collecting and analyzing data from routers, switches, firewalls, and endpoints to assess availability, performance, and address issues. It also includes network traffic analysis and configuration management.
+A single network bundle license allows you to monitor the availability and performance of one device, covering up to 100 network interfaces. This includes network traffic and device configuration monitoring. You can increase the number of network devices by purchasing additional network observability add-on .
+Templates are predefined configurations that simplify the process of monitoring devices from a specific network device vendor (e.g., Cisco, Juniper Networks, or HP).
+We offer support for more than 1000 device types and 100 device vendors.
+Monitor real-time network statuses with Site24x7's Topology Maps, which offer customizable network maps for organizing devices and interfaces logically and hierarchically. These visual representations allow for quick assessments and corrective actions from a centralized console. Our network topology mapper simplifies device visualization, displaying all the connections in a single window so you can swiftly address potential issues before they escalate.
+Site24x7's Topology Maps offer a real-time, customizable view of your network, akin to a navigation map. This visual approach helps you zoom in on traffic hot spots, identify slowdowns, and manage issues swiftly. By organizing devices and interfaces logically, these maps simplify device visualization and proactive management.
+Additionally, Site24x7 uses Zoho Maps to accurately represent device locations and statuses across multiple Cisco Meraki organizations on a single view.
+Site24x7’s NetFlow analysis and Health Dashboard offer insights into network performance and traffic patterns, highlighting top devices and interfaces. Analyze response times, packet loss, and the top 10 interfaces for traffic, bandwidth, and errors to optimize network performance.
+Auto Scaling dynamically adjusts computing resources based on real-time demand. Site24x7 monitors metrics like CPU usage across Auto Scaling groups, providing alerts and insights for configuring scaling policies effectively.
+Tags provide a robust and user-friendly method to classify and locate resources within your Site24x7 account. While Monitor Groups categorize monitors into different groups for organization, Tags can help you gain increased flexibility in managing and organizing your Site24x7 monitors, alerts, and reports.
+You can add custom metadata in straightforward name-value pairs and assign them to these resources as needed.
+Multi-user support enables the sharing of resource permissions and functionalities across users.
+SAML-based SSO provides secure, centralized access across applications, simplifying logins and enhancing user experience. Implement SSO with Zoho using your IdP to allow users to sign in with their existing IdP credentials.
+In addition to the sign-in modes of OneAuth , you can also set up another layer of verification using your biometrics (provided that your device supports it). You can configure either Face ID or Touch ID for verification.
+Site24x7 lets you have control over the access levels of the users in your Site24x7 account. Being the administrator of your Site24x7 account gives you the privilege to add, edit, or delete multiple users from your account.
+Alerts notify you of device status via SMS, voice call, mobile app, or third-party tools. Integrate Site24x7 with incident management tools for efficient handling and quick troubleshooting. Alerts are automatically closed once issues are resolved.
+Receive instant notifications through email, SMS, voice calls, or integrations with Jira, Zapier, Slack, Microsoft Teams, ServiceNow, and more.
+Data retention involves storing complete data points of monitored metrics, which will be available for the defined period as specified under the plan.
+You can customize and generate various reports such as availability, performance, and infrastructure inventory reports to suit your requirements.
+Additionally, you can schedule these reports to be delivered at specific intervals—daily, weekly, monthly, or quarterly—according to your preferences.
+Select the metrics you wish to include in each report. Customize and highlight your business-critical KPIs to effectively communicate with your stakeholders.
+Scheduled Maintenance is a planned activity conducted regularly to ensure your infrastructure remains efficient, reliable, and safe. You can schedule maintenance to inspect, repair, and update your environment proactively.
+The Monitor Group feature organizes resources into categories for easy reporting and insights on operational trends. It supports up to five nested subgroups and enables visualization through the Business View.
+Please note, there are restrictions on the number of monitor groups available under each plan.
+A Configuration Profile facilitates the creation of unique settings for notification, threshold, alerting, actions, and more. You can create and maintain Configuration Profiles to have standard and uniform settings for all your monitoring needs.
+Additionally, several Configuration Profiles can be created with customized settings, and the appropriate profiles can be chosen while setting up your monitors.
+The On-Premise Poller is a powerful probe that you can install within your own network. It enables you to monitor your internal network and resources effectively, including those protected by a firewall or virtual private network (VPN).
+Use the Mobile Network Poller and expand monitoring capabilities by transforming an Android device into a monitoring point, complementing Site24x7’s 130+ global monitoring locations. Deploying multiple devices allows you to assess website performance across diverse mobile service providers.
+Additionally, the Mobile Network Poller can monitor internal websites, web, and mobile applications behind a firewall, and those inaccessible from external networks, leveraging your local Wi-Fi network. This flexibility extends monitoring capabilities to include local intranet applications, enterprise mobile apps, and servers not directly connected to the internet.
+Detect unusual spikes in performance metrics and receive immediate notifications via dashboard and alert emails. The Anomaly Report helps optimize performance and infrastructure resilience. Share anomalies with your team through CSV, PDF reports, or email for timely communication.
+Learn more about our AI-powered anomaly reporting.
+The AI-powered Forecast Report uses historical data to predict trends, supporting decision-making and strategic planning. It enables visual trend analysis for proactive adjustments, improved resource allocation, and future demand preparation. Leveraging this report helps organizations align strategies with anticipated trends, enhancing agility, reducing risks, and optimizing growth opportunities.
+Infrastructure events are notifications that signal significant changes or occurrences within your IT environment. This is included at no additional cost.
+Site24x7's Capacity Monitoring ensures optimal IT performance by tracking resource usage, forecasting needs, and planning for future requirements. It enhances performance, scalability, and cost-effectiveness through efficient resource management.
+IT Automation is a self-healing mechanism through which mundane recovery tasks can be automated. IT Automation will be triggered for the status change of a monitor, when configured. The number of IT Automation executions allowed will be restricted as mentioned under the plans.
+You can purchase additional IT Automation runs by reaching out to sales@site24x7.com
+Use Site24x7 API's to fetch the data from our systems and push it to your storage for achieving different business purposes. There will be a maximum number of hits allowed per day to our API's.
+You can purchase additional API calls to extend the limits. Reach out to sales@site24x7.com for details.
+Monitor your IT resources on the go and take corrective actions wherever you are. Additionally, utilize our mobile app to display your IT resource status in NOC rooms, ensuring you stay informed and responsive at all times.
+Monitor websites for availability and performance in real time from 130+ global locations, including those behind your firewall using On-Premise Poller. Track HTTP and HTTPS URLs, scan for keywords, and set alerts via voice calls, emails, SMS, RSS, instant messenger, and push notifications. Site24x7 also supports dual-stacked IPv4 and IPv6 infrastructure. For advanced configurations, refer to our help document .
+The DNS Server monitor tracks performance, alerts on issues like faulty lookups or slow connections, and verifies forward lookup functionality. It supports various DNS record types: A, AAAA, CNAME, NS, MX, SOA, PTR, and SRV.
+Both website and DNS monitors are counted as basic monitors. These are subject to limitations based on the selected plan. However, you can increase the monitor limit by purchasing an additional basic add-on .
+In the Web Uptime plan, Content Check scans the response for specific keywords that either must be present or must not appear.
+In other plans, you also have the option to enable case-sensitive keyword searches (disabled by default). Additionally, you can use Regex, XPath, and JSONPath to match content in the response. It's also possible to check whether a specific header is present or missing in the response headers.
+Website defacement involves unauthorized changes to a site’s content or structure. Site24x7 monitors key elements—like images, scripts, and links—alerting you to any discrepancies to protect your site’s integrity. This includes unintended changes by employees, with monitoring from your primary location and over 130+ global locations.
+Take a look at our help document for more details about the performance metrics of a defacement monitor.
+This feature is supported in both the Professional and Enterprise plans.
+Ping measures latency by sending ICMP packets and checking response times; if at least one packet is received, the monitor is UP, otherwise, it's DOWN. Alerts are sent if response times exceed thresholds. Site24x7 supports dual-stack IPv4/IPv6 infrastructures.
+Port monitoring tracks TCP/IP ports from multiple locations, alerting you to downtime and response mismatches, also supporting dual-stack infrastructures.
+Both ping and port monitors are counted as basic monitors. These are subject to limitations based on the selected plan. However, you can increase the monitor limit by purchasing an additional basic add-on .
+Site24x7's Domain Expiry Monitor tracks domain expiration and sends timely alerts to prevent risks like hijacking. Configure notification thresholds to ensure prompt renewal and secure your online identity.
+Site24x7's SSL/TLS Certificate Monitor tracks certificate validity, alerts you before expiry, and performs OCSP and blacklist checks. It also monitors SHA-1 Fingerprints for tampering, ensuring secure data transmission and enhancing site credibility.
+Both domain and SSL expiry monitors are counted as basic monitors. These are subject to limitations based on the selected plans. However, you can increase the monitor limit by purchasing an additional basic add-on .
+Frequency at which checks are performed. Monitoring frequency is customizable in Site24x7 as per customer requirements. Each plan specifies the minimum poll frequency allowed.
+Also take a look at our KB article to understand more about Site24x7's intelligent polling during outages.
+Site24x7 initiates a follow-up monitoring check after an initial failure to distinguish between temporary glitches and genuine outages, ensuring precise alerts.
+We confirm an outage only after verifying downtime from alternate locations. If a website appears unavailable from one location, additional checks are conducted from other monitoring locations. If any subsequent check returns a positive response, the website is marked as UP and alerts are not triggered.
+These additional checks typically occur from Secondary Locations (if configured in your account) or randomly selected locations (if no Secondary Locations are configured).
+Root cause analysis (RCA) investigates downtime incidents to uncover their underlying causes, using DNS reports, ping, traceroute, and screenshots. RCA reports are automatically generated for most monitors except SSL/TLS Certificates, Domain Expiry, and Website Defacement. For Website, REST API, and REST API Transaction monitors, reports are also generated for Trouble alerts. RCA includes web page screenshots, ping outputs, DNS analysis, and traceroute data to provide a thorough cause analysis.
+Track the health, performance, and uptime of cloud resources and the application workloads running on AWS. Site24x7 programmatically accesses the CloudWatch API to collect performance metrics and metadata for the various supported AWS resources under monitoring.
+For a list of AWS services that we support, refer to the help doc .
+Monitor your complete Azure cloud infrastructure and gain comprehensive insights into the availability and performance of more than 100 Azure services. Achieve nearly real-time Azure monitoring with alerts for status updates and access ready-to-use reports.
+For a list of Azure services that we support, refer to the help doc .
+Monitoring the performance of your applications and services hosted on Google Cloud offers real-time visibility into your cloud platform. This provides actionable insights for troubleshooting, ensuring availability, and minimizing disruptions to business operations.
+Take a look at the list of Google Cloud services supported for monitoring in our help doc .
+Terraform is an Infrastructure as Code tool designed to streamline the creation, editing, and management of cloud resources with ease and efficiency. Utilize Terraform to manage your Site24x7 resources through code by following straightforward steps. This enables you to add, update, or delete resources and manage administrative updates within Site24x7 using Terraform .
+Obtaining detailed metrics on network, front-end, and back-end response times is crucial for understanding and improving front-end performance, which directly influences user experience (UX). Effectively analyzing these metrics helps identify and resolve bottlenecks that may delay website or application loading times.
+This is supported in both the Professional and Enterprise plans.
+RUM for single-page applications embeds JavaScript snippets into your application to monitor user interactions and route changes. These tools capture critical metrics such as Page Load Time, First Contentful Paint (FCP), Time to Interactive (TTI), and JavaScript Errors.
+Using Site24x7 RUM, you can track all your internal pages loaded from client based MVC frameworks like Angular, Backbone, React, and Ember.
+Site24x7's geography-based reports helps you visualize your website's performance across different geographical regions using intuitive graphs and charts. This feature provides insights into how your website behaves and performs across various locations around the world.
+Capture personalized data from user journeys, including details such as user names, environment specifics, and critical business actions. This information is instrumental for real-time analysis and enhancement of product performance.
+Pinpointing JavaScript errors involves identifying and capturing any instances of JavaScript code errors occurring on your webpages. These errors can disrupt the functionality and performance of your web applications. By accurately detecting and logging JavaScript errors, developers gain insights into specific issues that need attention. This process facilitates troubleshooting and debugging, ensuring smoother user experiences and improved application performance overall.
+Analyzing user sessions involves tracking metrics like duration, pages visited, and actions taken to identify performance issues and user behavior. This helps in proactive troubleshooting and optimizing application performance.
+Identifying anomalies with alerts powered by Zia (an AI assistant) involves leveraging artificial intelligence to detect and notify users of any deviations from the typical behavior or performance of a website or application. AI algorithms continuously analyze various metrics and patterns, such as response times, traffic volume, user interactions, and other performance indicators. When there is a slight deviation detected from the established baseline or expected patterns, the Zia-powered alert system triggers notifications in real-time.
+This feature is available only in the Enterprise plan.
+Gain a comprehensive view of both front-end and back-end performance through unified monitoring by integrating Real User Monitoring (RUM) with APM Insight. Take a look at our help document to know more.
+This feature is available only to Enterprise users.
+Log management simplifies the collection, parsing, storage, and analysis of log data from diverse sources such as servers, applications, and cloud environments. Utilizing our centralized log management tool, you can effortlessly monitor, troubleshoot, and gain comprehensive visibility across your entire infrastructure stack.
+Site24x7 AppLogs currently supports over 100 default log types, each detailed on this page .
+This is a simple language search that filters out irrelevant values and helps quickly obtain actionable results. Explore our documentation for more information on query syntax, structure, and types.
+AppLog alerts let you set thresholds and notify designated user groups promptly to address critical issues as they arise. Configure trend-based or count-based alerts. Customize alerts based on relative time and conditions. Adjust alerts by editing the search query from the AppLogs Search page.
+The export logs feature enables you to conveniently download and save log data in CSV format for external analysis and reporting.
+Minimum alert check frequency refers to how often the monitor is polled to perform checks.
+Site24x7 allows customization of monitoring frequencies based on customer needs. Each plan specifies the minimum poll frequency: 5 minutes for Professional and 3 minutes for Enterprise plans.
+Site24x7 allows customization of monitoring frequencies based on customer needs. The MSP plan supports a polling frequency of 3 minutes.
+Continuous discovery and monitoring in Site24x7's cloud monitoring automatically detect, track, and update cloud resources in real-time, ensuring comprehensive visibility and management.
+This process monitors key performance metrics, availability, and security, providing proactive alerts and insights to optimize resource usage and maintain a secure cloud environment.
+Log retention refers to the number of days your collected log data will be stored and available for searching in Site24x7. The add-ons come with a retention period of 7 days.
+For additional log storage, please consider purchasing the log add-ons. For increasing the retention, purchase them in multiples. For example, 10 GB logs with 7 days retention add-on, when purchased in multiples of 4 will increase your retention period to 30 days.
+Evaluate uptime, health, and performance of services and applications on AWS, Azure, and GCP
+Monitor container performance across Kubernetes, OpenShift, and Docker.
+Docker includes the first 10 containers per host for free; each additional 10 containers requires a license.
+Kubernetes counts the main cluster as one host monitor. For details on additional components, refer to this article .
+Get in-depth visibility into device and interface performance, including for Netflow Analyzer and Network Configuration Manager.
+Monitor the health and performance of your websites, Ping, POP, Port, DNS, mail server RTT, REST APIs, and FTP servers. Also, keep an eye on defacement and SSL monitors for enhanced security visibility.
+Get insights into front-end performance and end-user experience, visualizing interaction patterns and identifying real-time issues. Plus, analyze performance across browsers, platforms, geographies, and ISPs.
+Test website, web application, and API performance by simulating user interactions from various locations. The web transaction feature uses real browsers to record and replay these interactions, with monitoring from 130+ global locations or our private on-premise poller, licensed as advanced monitor or run-based monitor.
+Collect, monitor, and troubleshoot issues with the integrated log management feature and get valuable insights to optimize the performance of your systems.
+ManageEngine CloudSpend, is a SaaS-based cloud cost management tool designed to provide businesses with detailed insights into their cloud expenses. It aids in cost optimization by implementing best practices such as chargebacks, forecasting, and resource rightsizing.
+Manage your customers' IT infrastructures with the remote monitoring platform.
+Infrastructure events are alerts that indicate significant changes or incidents within your IT environment.
+Visualize your entire cloud infrastructure in one place. Customize your dashboard with essential metrics and share insights with your team via permalinks, iframes, or exported PDFs. By adding widgets that highlight key metrics, you can tailor your monitoring experience for improved insights and efficiency using the Custom dashboard feature.
+Uptime monitor is a basic license entity referring to each instance of the below mentioned web resources -
+DNS, UDP, NTP, FTP, or SMTP server
+Synthetic combo is a combination of basic and advanced monitors.
+Uptime monitors here refer to -
+Advanced monitors include -
+Real browser(RBM)
+Web Page Speed(WPA)
+Each plan includes a specific number of status pages. However, you can increase the number of status pages by purchasing an additional add-on. Please refer to the StatusIQ pricing for more details.
+Monitoring a network's connections and nodes requires mapping tools that can uncover the network's different layers. Site24x7's Layer 2 Maps provide network professionals with an in-depth view of the physical interconnections within their networks. These Layer 2 maps reveal port-to-port connections and linking properties.
+Discover Layer 2 devices connected to your network and visualize them on a map.
+Get recommendations for distributing resources across multiple regions and availability zones, implementing failover mechanisms, and optimizing resource redundancy to prevent single points of failure.
+Enhance the resilience of your infrastructure, minimizing downtime and ensuring that your services remain accessible even in the face of unexpected outages or failures.
+The Guidance Report provides recommendations on rightsizing instances, removing underutilized resources, and optimizing storage solutions, all aimed at lowering your overall cloud costs without compromising performance.
+The cost recommendations help you achieve a more economical cloud environment, ensuring that your cloud spending aligns with your organization's budgetary goals.
+Obtain best practice recommendations for strengthening your cloud environment against potential threats, reducing the risk of breaches, data loss, and unauthorized access.
+This not only safeguards your critical assets but also helps in maintaining compliance with industry regulations and standards, thereby protecting your organization's reputation.
+User session replay allows users to playback user interactions on their web application, helping them understand user journeys. It is useful for troubleshooting and enhancing the end-user experience by capturing user actions, DOM events, console events, resource insights, and issues.
+When the user activates the configuration option in the APM agent profile, the APM agent will instrument the application's logging frameworks, and the Applogs agent will gather the application logs. Users can view the application logs generated during a transaction directly within the APM traces, offering a detailed view of method-specific performance alongside the log messages.
+This feature is available exclusively for server-integrated APM monitors and is limited to Enterprise users. It requires the presence of both the APM agent and the server agent.
+Application Discovery and Dependency Mapping (ADDM) is a Site24x7 feature aimed at improving monitoring by identifying and grouping unmonitored critical resources for better event correlation. It involves gathering inventory information from various Site24x7 modules and, in the future, possibly other tools, to map out and group all connected resources. This process provides a comprehensive view of the customer’s infrastructure, enhancing overall monitoring effectiveness.
+* This feature is available exclusively for Enterprise users.
+Identify and highlight anomalies in your AWS resource performance metrics, enabling proactive management by isolating unusual behavior before it impacts your cloud environment. Obtain advanced statistical analysis to distinguish between normal and abnormal patterns, ensuring timely alerts and actionable insights.
+In your Site24x7 setup, the primary poller manages all data collection, while the secondary poller is ready to take over if the primary fails. This configuration ensures continuous monitoring and system reliability.
+Regularly test failover, maintain both pollers, and monitor their performance for optimal operation. Future exploration of distributed data collection could further improve performance.
+Site24x7's "poller grouping" feature allows users to assign monitoring locations to a poller group, which then auto-assigns tasks to the optimal poller. A standby poller ensures load balancing and redundancy.
+NetFlow Analyzer provides real-time insights into network traffic, monitoring bandwidth usage, and identifying top applications and traffic patterns. With customizable reports and alerts, you can detect issues, optimize performance, and understand bandwidth usage by different sources.
+Seamlessly manage your multi-cloud cost for AWS, Azure, and GCP with CloudSpend. Get a unified view and take action across all your cloud environments.
+Organize your accounts effectively with Business Units (BUs). Group accounts by team, be it executive leadership, finance, or engineering, and filter by location, services, and more.
+Analyze your cloud costs in detail with CloudSpend's Spend Analysis. Drill down and analyze your cloud costs by adding filters like subscriptions, resource groups, services, resource types, user-defined and system-generated tags, and dates. You can also receive a detailed cloud cost analysis at each resource level.
+Group expenses by accounts, regions, services, or tags. Explore detailed resource costs with the Resource Explorer. Access paginated cost views and apply tags for efficient management.
+Proactively manage cloud costs and rightsize your resources through IT automation to optimize your cloud bills. Create custom budget policies, compare actual spending against budgets and forecasts, set up alerts and schedule reports to plan effectively and forecast your cloud spending. Receive notifications through your preferred channels using Site24x7's third-party integrations with apps such as Slack, Jira, and Microsoft Teams.
+Obtain automatically created, out-of-the-box reports after parsing your cloud bills. Gain valuable insights into your organization's cloud spending, usage, and trends.
+Manage your cloud data by breaking down cloud costs efficiently. Obtain customized labels that group user-defined parameters such as resource location, service, and resource with Tag profile.
+Monitor your cost account expenses in your preferred currency. Track expenses, budgets, and forecasts across 25 regions and multiple currencies. Simplify international business operations with CloudSpend's multi-currency support.
+Track your cloud cost and usage on the go with the CloudSpend mobile app. Stay updated on alerts, notifications, and resource usage. Identify and eliminate cloud resource wastage in your multi-cloud environment from your Android or iOS device.
+Location Profile lets you monitor the availability and performance of your resources from multiple geographic locations to understand real user experience.
+Notification Profiles ensure that the right teams are alerted through the correct channels to accelerate and improve incident response.
+Threshold and Availability allows you to define performance and availability limits beyond which alerts are triggered for your resources.
+You can schedule reports to be delivered at specific intervals—daily, weekly, monthly, or quarterly—according to your preferences.
+Customize Professional Pack
+&times;
+These are the monitors allowed in the Professional plan by default.
+Reset to Default
+Website monitoring
+No. of websites
+&minus;
+&plus;
+51
+Host monitoring
+No. of servers
+Advanced monitoring
+No. of applications
+No. of devices
+16
+Applog (30 days indexing)
+Logs ingestion
+RUM
+Cancel
+Apply

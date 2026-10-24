@@ -1,0 +1,92 @@
+Find the right plan
+Start with Team. Scale with Enterprise.
+Team
+Everything you need to understand, test, and improve your AI applications.
+$20
+/ user / mo
+Get started with Team
+50,000 events per month included
+300 AI Playground queries per month
+Unlimited projects
+1 year history
+Prompt management & human reviews
+Enterprise
+Custom plans for larger teams with personalized needs.
+Custom
+Get a Quote
+Self-hosted
+SSO
+Granular Access Control
+PII Masking
+SLA
+White labeling
+Data Warehouse connectors
+Legendary support
+Payment is required before workspace access.
+Create your account, complete secure checkout, then connect your app. Billed monthly. Usage above the included allowance is billed separately.
+Already using Lunary? Your existing plan stays the same, including Free workspaces. Log in .
+Powering the world's best AI teams.
+From next-gen startups to established enterprises.
+Basic Features
+Logs / Events
+50k included
+then $10 / 50k / month
+Maximum Seats
+10
+History
+1 year
+Smart Views
+Unlimited Prompts
+Full API Access
+AI Playground
+300 / month
+then $0.05 per query
+Unlimited Projects
+Custom Dashboards
+Human Reviews
+Topics
+CSV & JSONL Exports
+Support
+Priority
+Same-Day
++ Shared Slack/Teams channel
+Host on your servers
+SSO / SAML
+SOC2 & ISO27001 Reports
+99.9% SLA
+Custom Invoicing
+Audit Papertrail
+White Label
+Technical Account Manager
+Testimonials
+Lunary is trusted by the best teams, from next-gen startups to established enterprises.
+“ Lunary has proven to be an invaluable tool and great addition to our technology stack. Its contribution has significantly enhanced the capabilities of our GenAI solutions, bringing real value by optimizing our processes and offering advanced insights. ”
+Ioannis Tarlas
+Product Manager , DHL
+“ Essential to supporting Close's GenAI work. The Lunary team consistently delivers improvements and new features quickly, and their Kubernetes setup is of high quality. ”
+Thomas Steinacher
+CTO & Co-founder, Close.com , Close
+Frequently Asked Questions
+What happens if I go over the events limit?
+Where is the data hosted?
+Is payment required to get started?
+Will my existing plan change?
+How do I cancel my subscription?
+Do you offer discounts for students or non-profits?
+Can you accommodate quarterly billing?
+Is there an agency-specific pricing?
+Is self-hosting free?
+Is there a migration path from cloud to self-hosting, if required?
+Minutes to magic.
+Cloud workspaces start at $20 per user / month. Payment is required to activate your workspace.
+Get started with Team Schedule a Demo
+Own Your Data
+Self Hostable
+1-line Integration
+Prompt Templates
+Chat Replays
+Analytics
+Topic Classification
+Agent Tracing
+Score LLM responses
+Feedback Tracking

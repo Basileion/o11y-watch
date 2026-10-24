@@ -1,0 +1,47 @@
+Transparent Pricing designed for
+Modern Observability
+No user-based pricing | No complex pricing tiers | No misconfiguration penalties
+No hidden fees or surprise overages | No credit card required
+APM
+RUM
+Infrastructure
+Logs
+Serverless
+Database
+Kubernetes
+API analytics
+Synthetic
+Infra vulnerability
+App vulnerability
+APM RUM Infrastructure Logs Serverless Database Kubernetes API analytics Synthetic Infra vulnerability App vulnerability
+Application Performance Monitoring
+Track transactions, optimize performance, and monitor every request without overpaying. Atatus APM offers 3x more cost-effective observability than Datadog, with transparent pricing and no hidden fees.
+Custom Pricing
+Get a tailored pricing plan based on your infrastructure size, data volume, and specific monitoring needs.
+Schedule a Call
+14-day free trial included. No credit card needed.
+What’s Included with Application Performance Monitoring?
+Full-stack transaction visibility
+Code-level performance tracing
+Database & external service monitoring
+Error and exception tracking
+Infrastructure and runtime metrics
+Advanced filtering & diagnostics
+Real-time alerting
+Deployment tracking
+Built-in integrations
+Unlimited applications
+Unlimited team members
+Email support
+Priority support for enterprise plans
+Common questions about Application Performance Monitoring plans and pricing
+How is APM pricing determined?
+APM pricing is based on the number of requests processed. You can monitor multiple applications under a single plan, provided the total request volume stays within your plan's limit.
+Are there additional costs for monitoring multiple environments (e.g., staging, production)?
+No, Atatus allows monitoring of multiple environments without extra charges, as long as the combined request volume remains within your plan's allowance.
+Does Atatus offer a free trial for APM?
+Yes, Atatus provides a 14-day free trial for APM, allowing you to explore its features without any commitment.
+What happens if I exceed my plan's request limit?
+If you exceed your plan's request limit, Atatus will notify you. You can then choose to upgrade your plan to accommodate the increased volume.
+Is support included in the APM pricing?
+Yes, Atatus includes support in all subscription plans, with priority support available for enterprise plans.

@@ -1,0 +1,26 @@
+name: Weekly pricing check
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Diff pricing pages
+        env: { CHROME_BIN: /usr/bin/google-chrome }
+        run: node scripts/check.mjs
+      - name: Build site
+        run: node scripts/build.mjs
+      - name: Commit snapshots and report
+        run: |
+          git config user.name "pricing-bot"
+          git config user.email "pricing-bot@users.noreply.github.com"
+          git add snapshots reports
+          git diff --cached --quiet || git commit -m "Weekly pricing check $(date -u +%F)"
+          git push

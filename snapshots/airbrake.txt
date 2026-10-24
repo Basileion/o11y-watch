@@ -1,0 +1,147 @@
+Pricing
+Pricing Resources
+Log in Sign up
+Log in
+Flexible Usage-Based Pricing
+Discover for yourself why Airbrake is the simplest and most cost-effective Error & Performance Monitoring Tool, built by developers for developers.
+Monthly
+Yearly
+Dev + errors
+Starting at
+$19 /month
+Get started with Error and Performance Monitoring
+Includes:
+Users: 1
+Teams: 1
+Projects: Unlimited
+Account Dashboard
+Advanced Search Filters
+Unlimited Integrations
+Deploy Tracking
+Get Started
+Basic + errors
+$38 /month
+Add your team and multiple projects to take your error monitoring to the next level
+Everything in dev, plus:
+Users: Unlimited
+Teams: 3
+Pro + errors
+$76 /month
+Go Unlimited and experience complete fearless deployments
+Teams: Unlimited
+Audit Logs
+Spike forgiveness
+Everything in basic, plus:
+BEST VALUE
+* Starting a new account requires a valid email and credit card. Cancel risk free any time during your free trial.
+$17 /month
+Start Free Trial
+$34 /month
+$68 /month
+Which plan would you like?
+Basic Pro Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+How often do you want to pay?
+Monthly Annually Thank you! Your submission has been received!
+Save 10%
+Error Monitoring
+30 days data retention
+$5.00 / 10K on-demand errors
+$59/month
+7.5k
+200M
+Performance Monitoring
+$5.00 / 10K on-demand events
+50k
+Total monthly cost: $17.00
+Upgrade in App
+Frequently Asked Questions
+How does the Free Trial work?
+During your free trial, you will have access to all Airbrake features, including UNLIMITED Errors, UNLIMITED Performance Monitoring events, and 30 days data retention.
+How much are the Paid Plans?
+Currently we have five different pricing tiers. Monthly pricing plans start at $19/month for 25,000 errors.
+Tier 1: $19/month for 25,000 errors
+Tier 2 (Essential): $59/month for 100,000 errors
+Tier 3 (Startup): $129/month for 300,000 errors
+Tier 4 (Growth): $299/month for 1 million errors
+Tier 5 (Business): $799/month for 5 million errors
+Your plan’s monthly error quota determines the number of errors that can be sent to your Airbrake account within a billing period. Your monthly error quota is refilled at the beginning of each new billing period.
+‍ Usage alerts
+‍ Airbrake will automatically notify you when your monthly error quota reaches certain thresholds.
+‍ Running out of errors
+‍ If you exceed your account’s error quota, additional errors will be charged an “on-demand” rate based on your selected plan.
+‍ Can I control error volume to avoid on-demand charges?
+‍ Yes, you can set a “usage cap” for your account and for individual projects. This setting enables you to specify exactly how many errors you want to see each billing cycle. Setting the Usage Cap to an amount greater than your plan quota will mean that you will see On-Demand Errors until you reach the “capped” usage limit for each project or account.If you set your Usage Cap equal to the quota of your base Airbrake plan, and you exceed your account’s error quota, no more errors will be accepted until your next billing cycle begins. You will receive alerts if you get close to exceeding your monthly quota.At any point in time you can adjust the usage caps for your account (up or down) or check your current usage via the Account & Billing section of your Airbrake Dashboard at https://airbrake.io/account/edit .Visit the docs to read more about setting Usage caps .
+How does Monthly Billing work?
+All paid plans are set up for monthly credit card payments initiated through the web application. Monthly payments are prepaying for the upcoming month of service. You can view your account’s past payment records and the plan your account is currently on in the Billing Section or directly at https://airbrake.io/billing/history .
+Accounts on our Tier 3 plan and above are qualified for our yearly invoicing option. Please contact support@airbrake.io to get yearly invoicing set up for your account or if you have any questions.
+Why choose an Annual Pricing Plan option?
+Instead of paying for Airbrake on a monthly basis, you can choose to pay upfront for the year and receive a 10% discount. If you’re a current Airbrake user on a monthly plan, you can make the switch to an Annual Pricing Plan option at any point during your current billing cycle.
+Can I really get up and running with Airbrake in 3 minutes?
+Yes! Setup is fast and simple. Once you sign up for the Free Trial and create your Airbrake account, just follow the instructions to install the notifier and add your project's API key. That's it!
+Is my data secure?
+Absolutely. Airbrake offers top-notch security to keep your data safe. Airbrake is SOC 2 Type II certified and complies with GDPR. Two-factor authorization is also available through GitHub, OneLogin, and Okta integrations. Finally, Airbrake keeps payment information secured using Stripe, a certified PCI Level 1 Service Provider. Any data in transit between Airbrake and its customers is encrypted using Transport Layer Security (TLS) protocol. Currently, Airbrake supports both TLSv1.2 and TLSv1.3.
+How do I upgrade or downgrade my plan?
+• Upgrading to a Different Paid Plan or Annual Plan
+‍ If you find that the current Airbrake Tier you’re enrolled in doesn’t meet your business needs, you can upgrade to a higher Airbrake Tier immediately at a prorated rate. Upgrades that take place in the middle of a billing cycle will take effect immediately and you will be charged the prorated difference between your current plan and your new plan. At the time of upgrade, Airbrake will also charge you for any on-demand Errors and Events accrued to that point in your billing cycle. Your billing cycle will reset to your upgrade date and you will have immediate access to the new limits of the upgraded plan.
+• Downgrading to a Paid Plan
+‍ Downgrades to a different paid Airbrake plan that are initiated in the middle of a billing cycle will take effect immediately and your account will be credited for the prorated difference between your current plan and your new plan. Any credits will be applied to future Airbrake charges. At the time of downgrade, Airbrake will also charge you for any on-demand Errors or Events accrued to that point in your billing cycle. Your billing cycle will reset to the date your account is downgraded and your error quota will be reset.
+• Downgrading to a Free Plan
+‍ Downgrading your account from a paid Airbrake plan to a Free Developer plan will stop any future monthly recurring payments, however, you will still have full access to your Airbrake account until the end of the current billing cycle. If your account accrues any on-demand usage beyond your plan limit during your final billing cycle, you will be charged for this at the end of the billing cycle when your account is downgraded. Airbrake does not offer prorated refunds for paid plans that downgrade to the Free Developer tier.
+• Upgrading or downgrading within Annual Pricing Plans
+‍ You can downgrade to a lower Tier, paid Airbrake plan while subscribed to an Annual Pricing Plan. The new annualized price will take effect immediately. Any prorated portion from the previous plan will be applied as a credit to your account. Airbrake does not issue refunds for credit balances.
+• Downgrading from an Annual Pricing Plan to a Free or Monthly Plan
+‍ You can downgrade to a free plan or cancel your annual plan, but these downgrades will only occur at the end of the period for which you already paid. You will continue to have access to your Airbrake account through the end of your pre-paid billing period, but your account will not auto-renew on your next billing date. Airbrake does not offer refunds for canceled plans and downgrades to free accounts. Complete details can be found in our Terms of Service.
+What is Pro?
+Pro is a new plan for Airbrake power users that provides full visibility and administrative control with accidental overage forgiveness baked in. Pro is the most complete Airbrake experience, and includes unlimited projects, users, teams and integrations, as well as Audit Logs for the life of the account. Spike forgiveness helps ensure predictable pricing and budgeting, so account owners can rest easy knowing that they will not incur exorbitant fees in the event of usage spikes or have to worry about setting data caps.
+How easy is it to cancel my account?
+You can modify your plan and account settings at any time from your account dashboard, without having to call and talk to Airbrake. Canceling your account will stop any future monthly recurring payments. However, you will still have full access to your Airbrake account until the end of the current billing cycle. If your account accrues any on-demand usage beyond your plan limit during your final billing cycle, you will be charged for this at the end of the billing cycle when your account is deactivated.
+Please note, Airbrake does not offer prorated refunds for canceled accounts.
+Do I have to buy both Error Monitoring and Performance Monitoring?
+Error Monitoring and Performance Monitoring are metered and billed as two separate products. Airbrake allows you to independently select the tier of Error Monitoring or Performance Monitoring that best suits your needs. This means that you can choose either Error Monitoring, Performance Monitoring - or both products (best value and insight!) - while customizing the plan limits for each product. If you do not choose a paid tier for a particular product, your account will be subject to the limits of a Free Developer plan for that product.
+What happens if I exceed my monthly quota?
+Each Airbrake Tier includes a pre-paid monthly Error or Event limit/quota. If you exceed your account's Error or Event quota, each additional Error or Event will be billed to your account at an "on-demand" rate based on your selected plan.
+How are on-demand errors and events billed?
+At the end of each billing cycle, Airbrake will compare your actual Error and performance Event usage to the number of Errors and Events included in your plan tier. Errors and Events that are received in excess of your plan quota are considered "on-demand usage" and will be charged per Error or Event.
+On average, on-demand errors and events cost ~20% less than the cost of Errors and Events included in your base plan and vary based upon the plan to which you are subscribed. The following is a partial representation of Airbrake prices for on-demand Errors and Events.
+ON-DEMAND ERROR PRICING:
+• Tier 1 $.00065 per error
+• Tier 2 $.0005 per error
+• Tier 3 $.000365 per error
+• Tier 4 $.000250 per error
+• Tier 5 $.000133 per error
+ON-DEMAND EVENT PRICING:
+• Tier 1 $.00001900 per event
+• Tier 2 $.00001475 per event
+• Tier 3 $.00000967 per event
+• Tier 4 $.00000747 per event
+• Tier 5 $.00000395 per event
+How do I control my usage to avoid on-demand charges?
+You can set a "Usage Cap" for your account and for individual projects. This setting enables you to specify exactly how many Errors or Events you want to see each billing cycle. Setting the Usage Cap to an amount greater than your plan limit will mean that you will see On-Demand Errors and Events until you reach the "capped" usage limit for each project or account.
+If you set your Usage Cap equal to the limit of your base Airbrake plan, and you exceed your account's limit, no more Errors or Events will be accepted until your next billing cycle begins. You will receive alerts if you get close to exceeding your monthly plan limit.
+At any point in time, you can adjust the Usage Caps for your account (up or down) or check your current usage via the Account & Billing section of the Airbrake Dashboard.
+Deploy Fearlessly with Airbrake
+“Perfect for Error Management. It really helps to find odd issues that otherwise would be hidden. We even need it alongside other logging solutions because it’s really made for Developers.”
+TrustRadius verified review
+Score 10 out of 10
+98 San Jacinto Blvd, Suite 1300 Austin, TX 78701
+support@airbrake.io
+Featured Blog Posts
+Airbrake & LogicMonitor = Awesome Sauce! Have a JavaScript Module Not Found Error? Have you Checked Your Paths? 405 Method Not Allowed: What It Is and How to Fix It A Developer in DevOps Land: My Experience at DevOps Days Blinkist Depends on Airbrake Slack Integration to Triage Incidents 302 Found: What It Is and How to Fix It 401 Unauthorized Error: What It Is and How to Fix It
+Languages
+Sinatra
+Ruby
+React
+Rails
+Python
+PHP
+Node.js
+.Net
+Magento
+JavaScript
+Java
+Golang
+… and more
+Resources
+Airbrake Docs About API Contact Airbrake Blog The 2022 Airbrake Error Data Report Terms of Service Privacy Policy Airbrake DPA Airbrake Sponsorships Customers
+Airbrake - A LogicMonitor Company - © 2024 - All Rights Reserved

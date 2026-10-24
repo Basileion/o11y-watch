@@ -1,0 +1,99 @@
+Observe Pricing
+Skip to content
+Expedition. Free, virtual, Nov 3–6.
+Technical tracks for practitioners, outcomes for leaders.
+Register now
+Observe
+Use Cases
+AI SRE Log Management Application Performance Monitoring Infrastructure Monitoring
+Resources
+Blog Docs
+Try Observe
+Contact Observe
+PRICING
+Smarter savings with Observe by Snowflake
+AI-powered observability at scale. Unify logs, metrics and traces on a cost-efficient Snowflake lakehouse, using an integrated AI SRE that helps resolve incidents faster.
+Logs
+starting at
+$0.49 /GiB
+Compute included
+Unlimited users
+30-day retention
+Metrics
+‍$0.008 /DPM
+13-month retention
+Traces
+$0.59 /GiB
+What you get with Observe
+Unlimited alerts
+Unlimited dashboards
+Unlimited data sources
+Unlimited retention for only $0.01 / GiB per month
+Data encryption. In-transit and at-rest
+Included customer success and technical support
+No overages. Period.
+Trusted By
+Snowflake for Observability
+Frequently Asked Questions
+Your top questions about getting started with Observe by Snowflake, answered here.
+How does Observe pricing work?
+Observe offers a subscription-based pricing based on a committed volume of uncompressed telemetry data ingested. The pricing model provides you the predictability and transparency to estimate your total costs.
+For information about Snowflake pricing, visit snowflake.com/pricing .
+Do you offer volume discounts?
+Multi-year and volume-based discounts are available. Contact us to get a custom quote to fit your use case and data volume.
+What does “No overages” mean?
+We will never send you an overage bill. If you are over your committed ingestion volume, we will work with you to right-size your capacity.
+Can I try Observe for free?
+Yes – you can sign up for a free trial at https://account.observeinc.com/ . The free trial is simple to sign up, does not require a credit card, and is provisioned immediately. To try Snowflake, visit signup.snowflake.com .
+Pricing for Observe by Snowflake. For Snowflake pricing, visit snowflake.com/pricing
+Product
+Platform
+Snowflake CoWork
+Data Engineering
+Analytics
+AI
+Applications & Collaboration
+Pricing
+Support
+Priority Support
+Status
+Industries
+Advertising, Media & Entertainment
+Financial Services
+Healthcare & Life Sciences
+Manufacturing
+Public Sector
+Retail & Consumer Goods
+Telecom
+Technology
+Company
+About Snowflake
+Leadership & Board
+Careers
+Investor Relations
+Trust Center
+Brand Guidelines
+Contact
+Newsroom
+Environmental, Social & Governance
+Snowflake Ventures
+End Data Disparity
+Snowflake Summit 26
+Learn
+Resource Library
+Live Demos
+Fundamentals
+Training
+Certifications
+Snowflake University
+Developer Guides
+Documentation
+Data Governance
+© 2026 Snowflake Inc. All Rights Reserved
+Privacy Policy
+Site Terms
+Communication Preferences
+Cookie Settings
+Do Not Share My Personal Information
+Legal
+* Private preview, † Public preview, ‡ Coming soon

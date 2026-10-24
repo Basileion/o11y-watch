@@ -1,0 +1,82 @@
+Mezmo Telemetry Pipeline Pricing for Every Team Size
+✨ AURA is the open-source agentic harness for production AI. See how teams are using AURA in production here.✨
+Solutions
+Resources
+About
+Sign in Get started
+Pricing built for AI-driven SRE
+No AI surcharges. No pay-per-query surprises. Just smarter telemetry.
+AI can help with incidents—but only if it gets clean, structured context. Mezmo prepares your telemetry so AI can find real root causes, not guess from noise.
+What's included in every plan
+Telemetry pipelines: Ingest and transform high-volume logs, metrics, and traces—via Mezmo Edge, OpenTelemetry, or direct connection. Automatically strip the noise that inflates LLM costs.
+AI-ready context: Automatic clustering of related events. We surface the specific "needles" in your haystack so AI (yours or ours) gets straight to the answer.
+Agentic root cause analysis: Our AI SRE agent investigates incidents and delivers the why behind outages—not just a flood of alerts.
+Full data control: Route, transform, and send telemetry anywhere. Own your data pipeline without vendor lock-in.
+Built-in RBAC: Our MCP/Agent has access controls built in. Users and agents can only inspect logs they’re authorized to access.
+Why Mezmo costs less than traditional AI observability
+Most AI observability tools charge you to store your data, then charge again every time you need AI assistance during an incident. With multiple tools, those costs add up fast.
+Mezmo works differently:
+AI RCA included – Our AI root cause analysis agent is part of your platform license. No metered queries.
+Context engineering – We deduplicate, cluster, and enrich telemetry before it reaches any model, reducing noise and preventing hallucinations.
+Model agnostic – Use our native agents or connect your own via the Model Context Protocol (MCP). Bring telemetry into your IDE or custom workflows at no extra cost.
+One Platform. Total Control. Intelligent Resolution.
+Mezmo is the only telemetry pipeline that optimizes your data for both humans and AI agents.
+Traditional AI Observability
+Mezmo
+AI Query Costs
+Pay per query
+Included
+Data Prep
+Raw logs sent to LLM
+Context-engineered telemetry
+Model Flexibility
+Vendor-locked
+Bring your own or use ours
+Pricing Model
+Usage-based surcharges
+Transparent platform pricing
+Frequently Asked Questions
+How is pricing calculated ?
+What if my data volume grows ?
+Can I use my own AI models ?
+Still have questions?
+We’re here to answer them
+Ask an expert
+Platform
+Agentic SRE
+Governance
+Integrations
+Pricing
+Talk to an engineer
+SRE agent for root cause
+AI-ready context engineering
+OTel Migrations
+For developers
+For platform engineers
+For site reliability engineers
+AURA Docs
+Mezmo Docs
+Support
+Blog
+Recipes
+Learn
+Demos
+Events
+Resource library
+Company
+News
+Culture
+Customers
+Partners
+Legal
+Security & compliance
+Privacy policy
+Terms of service
+Cookie policy
+Manage your cookie
+AI policy
+SLA
+DPA
+BAA
+MSA
+&copy; 2013- 2026 Mezmo, all rights reserved.

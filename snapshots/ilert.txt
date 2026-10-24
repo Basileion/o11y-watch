@@ -1,0 +1,339 @@
+Pricing | Faster Incident Response, Better Reliability – ilert
+Integrations
+Pricing Why ilert?
+Resources
+DE
+Login My Account Try free
+AI-first incident management for every team
+Free trial for 14 days. No credit card required. Cancel anytime.
+Need a formal quote? Get one instantly →
+Monthly
+Yearly
+Save 20%
+Enterprise
+For teams running critical infrastructure at scale
+Starts from
+49$
+per user per month (billed annually)
+per user per month
+Contact us All Scale features and:
+Up to 99.99% uptime SLA
+Dedicated Customer Success Manager
+Advanced security & compliance
+Enterprise-grade security controls including audit logs, role-based access control (RBAC), SCIM provisioning (coming soon), and compliance documentation to meet your security requirements.
+5,000 AI credits per month
+Power AI features like autonomous incident investigation (AI SRE) and intelligent alert triage. Credits are allocated per account. Available in closed beta – contact us for access.
+Most popular
+Scale
+For growing teams managing cross-functional incidents
+39$
+per user per month, min. 3 users
+Start free trial All Pro features and:
+Team-based organization
+Event intelligence & workflows
+AI-powered semantic grouping, event flows, advanced filtering (event thresholds, support hours), and intelligent routing to eliminate alert fatigue.
+Major incident management
+Advanced capabilities for incident response: incident channels, conference bridges, timeline, paging, incident lifecycle guidance, and AI-assisted postmortems.
+1,000 AI credits per month
+Pro
+For engineering teams handling on-call rotations
+19$
+Start free trial All Free features and...
+Unlimited SMS / voice notifications
+Single sign-on (SSO)
+Unlimited Viewer users
+Read-only access for managers and stakeholders who need visibility without being on-call.
+250 AI credits per month
+Free
+Essential alerting for small teams getting started - up to 5 users.
+On-call management
+1 Status page included
+100 SMS / voice notifications
+Push / messenger notifications
+Start now
+* Limited to 1 free plan per company
+Trusted by leading companies
+Explore our add-ons
+Only pay for the features you really need
+Inbound Call Routing
+A phone number your customers and team can call. ilert connects them to whoever is on call.
+10$
+per user, per month
+Heartbeat monitors
+Check connectivity between your systems and ilert.
+20 monitors 100 monitors 1.000 monitors
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form.
+per month
+Status page
+Customize your status page for your audience
+Public
+Accessible by anyone on the internet, no login required.
+250 subscribers 1.000 subscribers 5.000 subscribers 25.000 subscribers
+Private
+Accessible only to authenticated users (e.g. through E-Mail Domain Whitelisting, IP-Address Whitelisting, etc.).
+Audience-specific
+Accessible only to authenticated ilert users and stakeholders. These pages dynamically display services based on the user's group.
+All Features
+Compare plans
+Alerts and notifications
+Email notifications
+Email notifications about triggered alerts and alert updates. ilert also lets you acknowledge, escalate or resolve alerts via personalized one-click links in email notifications. No need to login into our app.
+Unlimited
+Push notifications
+Get notified about alerts via push notifications using our mobile apps. Notifications are actionable, so you can acknowledge an alert without opening our app, even from your Apple Watch.
+Messenger notifications
+Get notified about alerts via WhatsApp or Telegram. Notifications are actionable, so you can acknowledge an alert within the messenger without opening our app.
+SMS & voice notifications
+Worldwide bi-directional SMS & voice notifications. Acknowledge alerts by replying to an SMS or by pressing a number during a phone call. For many countries, our SMS messages are sent from a local number.
+100 account-wide
+Priority-based notification rules
+Define notification rules based on the priority of an alert. This lets you use more obtrusive alerting methods for alert that require immediate attention and less obtrusive methods for the ones that don’t.
+TRUE
+Maintenance windows
+Create maintenance windows for alert sources or services. A service under maintenance will appear as such on your status page. An alert source with an ongoing maintenance window will not create any alerts.
+Support hours
+Dynamically set the alert priority based on support hours that you can define per alert source.
+Alert actions
+Execute custom defined actions on an alert, either manually, or automatically upon alert creation. E.g. create a JIRA issue, post the alert to Slack, revert last commit from a code repository. You can also define conditional for when to automatically execute alert actions, e.g. based on alert fields.
+Alert templates
+Customize the summary and details of alerts to deliver critical information in a format that resonates with your team leveraging built-in and dynamic template variables from your monitoring tools.
+Mute notifications
+Silence all notifications during periods when you're unavailable, such as vacations.
+Time-based alert grouping
+Alert grouping helps you reduce noise by clustering related alerts within a defined time window or by allowing only one open alert at a time per source.
+Event filters
+Accept events that meet your specified conditions. You can filter events by timestamps, count, or select specific event properties.
+Threshold-based event filters
+The feature triggers alerts based on event count thresholds. For example, an alert can be triggered if there are more than five events within five minutes.
+Intelligent alert grouping
+Alerts with semantic similarity (even if their content differs) are combined into one using AI.
+Event flows
+Visually create workflows and custom routing to automate how incoming events are handled, based on conditions like priority, source, or support hours.
+On-call management and escalations
+On-call schedules
+Define on-call schedules with or without rotations. Teams can manage their schedules on their own and swap shifts using our mobile app.
+Schedule overrides
+Overrides are one-time changes to a schedule and let you e.g. quickly swap a shift with a colleague or schedule a replacement in case of absences.
+Escalation policies
+Escalation policies connect your alert sources with your team members and define whom to notify in case of an alert.
+On-call reminder notifications
+ilert reminds you via SMS, push and email before any of your on-call shifts begin.
+Max responders per escalation level
+Notify multiple users or schedules at the same time per escalation level.
+10
+25
+Call routing
+Reach the right on-call responder immediately by calling a phone number. Incoming calls will be routed using the same escalation policies and on-call schedules that you use four your alert sources.
+add-on
+AI-assisted on-call schedule creation
+Share your scheduling requirements, such as team members' names, rotation frequency, and times, in the chat, and ilert AI will automatically generate the schedule.
+Incident management
+Incidents
+Declare and run incidents as a dedicated coordination workspace. Assign responders, track progress internally, and publish updates externally via status update.
+Parallel escalations
+Trigger multiple escalation flows simultaneously when an incident is declared. Page an on-call engineer, a full team, and a backup escalation policy all at once.
+Postmortem library
+Create, edit, and publish postmortems internally or to your status page, and keep every past postmortem in one browsable library.
+Dedicated incident channels
+For major incidents, create separate channels to bring all stakeholders together.
+AI-assisted postmortem creation
+ilert AI collects information from the incident chat channel and the alert timeline and automatically synthesizes and structures this information into a document.
+Status pages
+Services
+Services model business capabilities to which users rely on and can subscribe to receive incident status updates.
+Service and status updates subscriptions
+Let stakeholders self-subscribe to services and automatically receive status updates about incidents that are relevant to them.
+Stakeholder users
+Stakeholders can view status updates for incidents they're subscribed to, and for status pages and services they've been granted access to. All other data remains hidden.
+Free public status page
+One free public status page with no support for subscribers.
+Public status page
+Communicate incident status updates and maintenance windows via your own branded public status page.
+Private status page
+Private status pages that are accessible to authenticated ilert users, selected email addresses or IP ranges only. Users with stakeholder licenses can also view status pages.
+Audience-specific status page
+A private page accessible only to authenticated ilert users or stakeholder accounts. It dynamically presents services and metrics tailored to each user's team assignments, ensuring that everyone sees only the information relevant to them.
+Custom domain
+Make your status page available under your own domain, e.g. status.your-domain.com. Available for both public and private pages, with building-in support for SSL.
+RSS / Atom feed
+Every status page comes with a RSS / Atom feed.
+Email subscriptions
+Notify your status page subscribers about incident status updates via email.
+SMS subscriptions
+Notify your status page subscribers about incident status updates via SMS.
+Webhook subscriptions
+Notify your status page subscribers about incident status updates via webhook.
+Metrics
+Go beyond uptime status and include metrics in your status page that give more insights into the health of your service
+AI-assisted incident communication
+Generate status updates for new incidents with the AI assistance.
+Monitoring integrations
+Use our inbound integrations to integrate your monitoring or ticketing tools with ilert. Inbound integrations create, acknowledge, or resolve alerts in ilert.
+ChatOps integrations
+Receive and respond to alerts from chat and collaboration tools like Slack, Microsoft Teams and Google Chat.
+Heartbeat monitor
+Monitor connectivity between your systems and ilert to receive alerts if your internet connection is down and your monitoring tools are unable to communicate with ilert.
+ITSM integrations
+ilert integrates with various incident management and ticketing tools such as JIRA, ServiceNow, or Zendesk.
+2-way integrations
+Bi-directional integration with selected tools, e.g. ServiceNow, Autotask, Zabbix, Auvik. A bi-directional integration sync alert information back to the source system (e.g. that an alert was acknowledged or resolved).
+SMS alert source
+Send alerts to ilert via SMS without requiring a working internet connection. This is useful in situations where you want to get alerted if your internet connection is down or in environments, where you don’t have an internet connection, at all.
+Deployment events
+Deployment events bring your CI/CD pipelines to ilert and enrich your alert contexts.
+Call Routing
+Global phone number inventory
+We provide local, national, mobile, and toll-free phone numbers in more than 100 countries to ensure you have a number that best represents you to your community.
+Voicemail
+Let callers leave a voicemail when no-one is available or configure your call routing number to be in voicemail only mode.
+Voicemail transcription
+Convert voicemails to text automatically
+PIN codes
+Ask callers for a secret code before they are connected with agents, adding an extra layer of security to your call routing.
+Multi-level IVR menus
+Add depth to your callers' journey by incorporating several IVR menus, offering more choices and directions
+Multi-language call flows
+Cater to a global audience by allowing callers to select the language for their interactions with your call routing system.
+Block numbers
+Create blacklists and reject calls from specific numbers.
+Support-hours-based call routing
+Route calls based on support-hours to different targets, e.g. to allow for scenarios like "route to escalation policy A during working hours, and to escalation policy B outside working hours."
+Simultaneous calling
+With simultaneous calling, you can call up to 10 responders in parallel. The caller will be connected with the first responder who picks up and accepts the call.
+Route calls to external numbers
+Route a call to a contact without ilert account
+AI Voice Agent
+Handles the first communication with callers, processes the information provided, and creates an incident or calls an on-duty engineer
+ChatOps
+Receive and respond to alerts from chat tools
+Receive critical alert notifications directly in your chat channels, ensuring you never miss an important update.
+Create alerts from chat tools
+Report issues directly from chat interface without the need for an ilert account.
+Who is on-call lookup
+Quickly view your on-call schedule directly from your chat tool.
+Reporting & Analytics
+Notification reports
+Notification reports show you the number of notifications (per notification method) that have been sent for a time period.
+Alert & MTTA / MTTR reports
+Get detailed information about key metrics such as mean time to acknowledge (MTTA) and mean time to repair (MTTR) and filter by alert sources and teams.
+On-call reports
+On-call reports give on-call engineers and managers insights into all-things on-call and report three key metrics: time on-call, number of alerts during on-call time and time spent on alerts.
+Administration
+Role-based permissions
+Assign account-wide or team-level roles and manage fine-granular permissions. Roles include Guest, Stakeholder, Responder, Admin, and more.
+Viewer roles
+Create teams to manage access to resources and simplify the user interface to show only the incidents and resources relevant to a team.
+SSO
+Control log-in access and auto-provision users with GSuite or with any SAML provider like ADFS, Okta, or Auth0.
+Mobile device security
+Add an additional layer of security by enforcing mobile users to use a passcode in the ilert app. When supported by the device, users can also choose to unlock the ilert app using biometric authentication such as Face ID.
+Terraform provider
+Leverage the power of infrastructure as code with our Terraform Provider. Seamlessly integrate ilert into your existing Terraform workflows for efficient alert management and improved incident response.
+Support
+Community support
+Community support (available soon)
+E-Mail support
+We’ll get back to you within minutes
+business hours
+24/7
+24/7 emergency hotline
+24/7 phone hotline to reports critical issues
+Uptime SLA
+Guaranteed uptime SLA
+99,9%
+up to 99,99%
+Administration assistance
+Up to 8 hours per month support from our Professional Services team.
+Account / business reviews
+Bi-annual or quarterly reviews of your account with your Customer Success Manager.
+Expand comparison
+Collapse comparison
+Incident Management
+inbound Call Routing (add-on)
+From our users
+What customers are saying about us
+“Other teams are now checking whether they would also use ilert.”
+Thilo Maass
+Manager at Adesso AG
+If you want to get alerting that works with lots of different platforms, is easy to set up and is cost effective, then get ilert. There are lots of platforms out there, but how often can you say that you haven’t had to engage with the support team once in 3 years? That alone is worth its weight in gold.
+Michael Ives
+Group IT Director at Go Inspire
+ilert is a low maintenance solution, it simply delivers [...] as a result, the mental load has gone.
+Tim Dauer
+VP Tech at fulfillmenttools
+We are using ilert to fix our problems sooner than our customers are realizing them. ilert gives our engineering and operations teams the confidence that we will react in time.
+Dr. Robert Zores
+Chief Technology Officer at REWE digital
+Read our Case Studies
+What else?
+Frequently Asked Questions
+How does the trial work?
+During our trial period, you get access to our full set of features at no costs. No credit card is required.
+What payment options are available?
+We offer payment by credit card, SEPA direct debit, and invoice. Invoice payment is available for Enterprise customers and for annual subscriptions of €2,000 or more (currently limited to Germany).
+Can we pay by invoice?
+Payment by invoice is available for Enterprise customers as well as for annual subscriptions of €2,000 or more, fully automated, with no manual steps required. Invoice payment for annual subscriptions is rolling out gradually, starting with German customers, with expansion to other EU countries and the US to follow. For all other plans, you can pay by credit card or SEPA direct debit.
+How many monitoring tools can I connect to ilert?
+You can integrate as many monitoring tools as you want at no additional charge.
+Do you have a demo?
+Yes! Please follow this link to schedule a call with one of our sales representatives.
+How many users do I need?
+Anyone with access to your ilert account can receive alerts or is included in an escalation policy, is billed as a user. For view-only access to incidents, services, and status pages, you need to purchase a Stakeholder add-on, available in Scale and Enterprise plans.
+What do I need to use ilert?
+ilert is a fully managed software-as-a-service solution. All you need is an internet connection and a modern browser (such as Firefox or Chrome). To use the ilert mobile application, you need an iOS or Android smartphone updated to the latest version.
+Can I purchase additional quotas for SMS and voice notifications in the Free plan?
+The quota in the plan package is a hard monthly limit. If you reach the limit, you will not receive any SMS or voice notifications until the limit is reset next month. To raise the limits, please proceed with one of ilert paid plans.
+Can I get a discount?
+All yearly plans cost 20% less than monthly. So, if you are looking for a better deal, consider switching to annual payment.
+Is the SMS limit for the Free plan reset each month?
+Yes, you have 100 SMS/voice notifications per every month.
+Do I need the Inbound Call Routing add-on for ilert to phone my on-call engineer?
+Voice call and SMS alerts are included in all ilert tiers. You don’t need the Inbound Call Routing add-on for this.
+Built for teams that run always-on services.
+Start for free Learn more
+© 2011 - 2026 ilert
+Follow us:
+Product
+Alerting & Notifications On-call Management & Escalations Call Routing Status Pages Integrations ChatOps ilert AI Terraform provider Pricing More features
+PRTG Network Monitor Datto Autotask Prometheus Checkmk Datadog Zabbix More Integrations
+Blog Case Studies Glossary Documentation & FAQ API Reference Release Notes Security Postmortem Library
+Company
+Careers About Us Press Contact Us
+Compare
+Pagerduty Alternative Opsgenie Alternative ServiceNow & ilert ilert vs. Other tools
+Join our newsletter
+English
+Imprint Privacy Policy Cookie Preferences Legal
+Privacy Preference Center
+ilert uses cookies to improve your experience and for marketing. Review and manage your cookie settings below to control your privacy. For more information on how we use cookies, please see ilert's Privacy Policy.
+Essential
+Always allowed
+List of Essential cookies
+fs-cc
+Saves whether or not you have accepted the specific cookie categories.
+Marketing
+These cookies are used to deliver advertising that is more relevant to you and your interests. They may also be used to limit the number of times you see an advertisement and measure the effectiveness of advertising campaigns. Advertising networks usually place them with the website operator’s permission.
+List of Marketing cookies
+Conversion Linker
+The Conversion Linker cookie is used by Google Ads to track conversions and user interactions across different devices and websites. It allows for the analysis of the effectiveness of ad campaigns and how users move between various platforms.
+Google Ads Remarketing
+The Google Ads Remarketing cookie is used to recognize users who have previously visited a website. It enables advertisers to display targeted ads to these users when they visit other websites, re-promoting their products or services.
+LinkedIn Insights
+LinkedIn Insights is a cookie that collects information on how users interact with LinkedIn platforms. It helps businesses measure engagement on their LinkedIn pages and gain insights into their audience.
+Microsoft UET
+The Microsoft UET (Universal Event Tracking) cookie is used to track conversions and actions on websites using Microsoft Advertising (formerly Bing Ads). It allows for the optimization of ad campaigns and measurement of their effectiveness.
+Profitwell Engagement
+The Profitwell Engagement cookie is associated with the company ProfitWell, which specializes in the analysis of subscriptions and recurring payments. It is used to track interactions on websites related to subscription services.
+Twitter Base Pixel
+The Twitter Base Pixel cookie is used by Twitter to track user behavior on websites that utilize Twitter advertising. It enables advertisers to measure the effectiveness of their Twitter ad campaigns and deliver targeted ads.
+Hubspot Tracking
+Set only when accepted Marketing and Analytics cookies.
+The HubSpot Tracking cookie is employed by the HubSpot platform for marketing and sales purposes. It allows us to track user interactions on our websites and gather data to better understand our audience, manage marketing campaigns, and enhance customer relationship management.
+Analytics
+These cookies help us to understand how our website performs, how visitors interact with the site, and whether there may be technical issues. This storage type usually doesn’t collect information that identifies a visitor.
+List of Analytics cookies
+GA4 Config
+The Google Analytics 4 Config cookie is used to configure settings for Google Analytics 4, a web analytics service. It helps us collect data on user interactions, track website performance, and make informed decisions based on the analytics data.
+Personalization
+These cookies allow the website to remember choices you make (such as your user name, language, or the region you are in) and provide enhanced, more personal features. For example, we remember the URL of your iLert account, so you're seamlessly redirected to your iLert account when you click on the My account button.

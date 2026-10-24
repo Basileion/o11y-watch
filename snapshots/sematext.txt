@@ -1,0 +1,419 @@
+Simple, transparent pricing. Only pay what you use.
+Get the visibility and security you want with the flexibility and ROI you need.
+Get started for free Calculate your cost
+From our perspective, Sematext is the best Datadog alternative out there and we really appreciate the predictable pricing model you have. Huge bonus.
+Venkat
+Codista.com
+14-day free trial
+Sematext Cloud pricing
+Monthly
+Annually
+-10%
+Logs
+Hassle-free log management and analytics.
+Starts at
+$5
+/ month
+Start free trial
+Infra Monitoring
+Monitor your whole Infrastructure in real-time.
+$2.8
+Integrations
+Monitor service-level performance metrics in real-time.
+$8.64
+Tracing
+Zero-code distributed tracing in minutes.
+$19
+Service Monitoring
+Auto-discover services, APIs, map dependencies, and monitor APIs without code instrumentation.
+$1.68
+AI Agent Watch
+Track what AI agents do on your infrastructure
+Experience
+Improve your customers' digital experience.
+$9
+Synthetics
+Monitor performance and availability of your site and APIs.
+$2
+per monitor
+$4.5
+$5/month
+$2.52
+$2.8/month
+$7.77
+$8.64/month
+$17.1
+$19/month
+Network Map
+Visualize infrastructure topology in real-time.
+$1.51
+/ host / month
+$1.68/host/month
+$8.10
+$9/month
+$1.80
+$2/month
+Explore the plans below, then calculate costs
+Calculate your cost Pricing guide
+{{ section === 'service'
+? 'Integrations'
+: section === 'network-map'
+? 'Service Monitoring'
+: section === 'ai-agent-watch'
+? 'AI Agent Watch'
+: section.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')
+}}
+Price depends on the number of hosts, containers, plan, and data
+retention. It is metered, so you pay only for what you use.
+No fixed data buckets
+No overage charges
+Unlimited sources
+Unlimited users
+14 days free
+No commitment
+No credit card needed
+Need a Custom Plan?
+Contact us for more details!
+Basic
+${{ infrastructure_.price.basic }}
+/month
+per host
+Retention
+1 day
+Try free for
+14 days
+Standard
+${{ infrastructure_.price.standard }}
+{{item}} days
+Try
+free
+for 14 days
+Pro
+${{ infrastructure_.price.pro }}
+Try free
+Frequently Asked Questions
+What happens at the end of my trial?
+At the end of the trial your Monitoring App is automatically disabled, unless you
+have set up your payment info. If you have set up payment info, we will automatically start charging
+based on the selected plan.
+Can I cancel the service?
+Of course. You can simply disable any App. You can also fully delete any App at any time and even
+close your whole account all by yourself.
+Do I need to sign a contract, do I have to commit?
+There are no contracts and no commitments. You can cancel any time. Price is metered and based on
+the running time for the app / server being monitored. Note: Docker monitoring is based on the base
+price and per-container price. The base price includes monitoring of a Docker host and free
+monitoring of up to N containers. Per-container price is applied only if you run more than N
+containers per host. The number of containers per host is averaged for the whole account. The base
+price and the number of containers included in it depends on the plan. We charge at the end of the
+month. For longer term and large contracts please get in touch.
+Can I use multiple different plans?
+Yes. Each Monitoring App is independent
+and each App can have a different plan, including the free plan. Each user account can have any
+number of Apps.
+How many servers or containers can I monitor?
+There are no limits to how many servers / instances / nodes / containers you can monitor for Apps
+with a paid plan.
+Do I have to create my own charts and reports?
+You don't have to, though you can. Sematext gives you instant gratification. It knows what type of
+application you are monitoring and gives you a number of charts out of the box, neatly grouped into
+multiple reports and filterable by tags appropriate for each collected metric. As soon as you
+install the agent Sematext will start providing valuable performance insights.
+Can I graph my own custom metrics?
+Yes. You can send your custom metrics, chart them, alert on them, apply on anomaly detection on
+them, create custom dashboards with them, correlate them with other metrics, events, and logs.
+How does Sematext compare to New Relic? Datadog? Splunk? Elastic Cloud? AppDynamics?
+Sematext is 4-5 times cheaper than New Relic APM. For more information see Sematext vs. New Relic . Datadog
+appears more affordable, but forces you to pick a paid plan for your whole account.
+Sematext, on the other hand, lets you assign plans to each individual App . This
+way you can select the most optimal plan for each App, including the free plan. This is a major
+difference whose cost-saving value becomes apparent once you start using Sematext. AppDynamics is
+rich, but very expensive and focused primarily on large enterprises and on premises deployments –
+see Sematext vs. AppDynamics .
+Price depends on the number of monitoring agents (i.e. number of
+services monitored), plan, and data retention. It is metered, so
+you pay only for what you use.
+${{ service_.price.basic }}
+per agent
+${{ service_.price.standard }}
+${{ service_.price.pro }}
+Price depends on daily log volume, retention duration, and
+selected plan.
+No hidden charges
+${{ logs_.basic.priceTotal }}
+Data Received: $0.1/GB
+Data Stored: $0.15/GB
+7 days
+Daily Volume
+500 MB/day
+${{ logs_.standard.priceTotal }}
+Data Received:
+${{ section.logs.data_received }}/GB
+Data Stored:
+${{ logs_.standard.price }}/GB
+{{item / 1000}} GB/day
+${{ logs_.pro.priceTotal }}
+${{ logs_.pro.price }}/GB
+At the end of the trial your Logs App is
+automatically disabled, unless you have set up your payment info. If you have set up payment info,
+we will automatically start charging based on the selected plan.
+There are no contracts and no commitments. You can cancel any time. Price is metered and based on 3
+factors: plan, daily volume, and data retention. You pick a plan based on which features you want.
+You pick volume based on the volume of logs you produce daily. The higher volume you pick the lower
+the cost per GB. You pick data retention depending on how long you need to keep your data. We charge
+at the end of the month. For longer term and large contracts please get in touch.
+Yes. Each Logs App is independent and each Logs App can have a different plan. Each user account
+can have any number of Logs Apps.
+Can I run Sematext On Premises or in my Cloud?
+No. Sematext Cloud is a SaaS.
+What if I don't know my daily log volume?
+Sematext displays your daily log volume. You can use that information to determine which plan best
+fits your needs. You will also see recommendations for the most cost-effective daily log volume
+selection.
+What happens if I go over the daily volume specified in my plan?
+We keep accepting your logs. We keep track of the daily volume and charge based on the actual
+volume of data sent to us beyond the volume specified. Note that the bigger volume you specify in
+your plan the lower the price per GB. Thus, if you find that you often go over the volume you've
+specified you may pay less if you select a higher volume. Also, there is a hard
+daily log volume limit you can set for extra protection .
+How much time does set-up take?
+It can take as little as a few minutes, but it depends on how fast you are at configuring log
+shipping. When you create a Logs App we provide all needed configs for an array of log shipping
+tools.
+How does Sematext compare to in-house Elastic Stack / ELK Stack?
+The key difference that is often underestimated is that running Elasticsearch requires maintenance
+and tuning, and this requires both time and expertise. This is not immediately obvious, but becomes
+more and more costly as data volume (and the Elasticsearch cluster) grows. All of this adds up and
+ends up costing more time, money, and resources than using Sematext.
+How does Sematext compare to Splunk?
+It's much more affordable. But there are also differences in features and benefits. Have a look at
+Sematext vs. Splunk .
+How does Sematext compare to Elastic Cloud?
+Glad you asked! Sematext is a fully managed log management solution, with built-in replication,
+data sharding, auto-scaling, backups, etc. There is nothing you need to manage, while with Elastic
+Cloud the underlying Elasticsearch cluster is still your responsibility. There is also a difference
+in cost.
+Price depends on daily spans volume, retention duration, and
+${{ tracing_.basic.price }}
+2M spans/day included
+${{ tracing_.standard.price }}
+{{ tracing_.standard.spans }}M spans/day included
+Spans per Day
+{{item}}M spans/day
+{{item.days}} days
+${{ tracing_.pro.price }}
+{{ tracing_.pro.spans }}M spans/day included
+At the end of the trial your Tracing App is
+Yes. You can disable any App or fully delete it at any time. You can also close your whole account
+yourself. There are no contracts or commitments.
+How is pricing calculated?
+Pricing is based on three factors: plan tier (Basic/Standard/Pro), daily span volume (2M/5M/20M spans),
+and data retention (1 day for Basic, 7 days for Standard/Pro). Higher volume tiers have lower per-span costs.
+We charge monthly based on actual usage.
+Yes. Each Tracing App is independent with its own plan. You can have multiple Tracing Apps with
+different plans under one account.
+What if I don't know my daily span volume?
+Sematext displays your actual daily span volume in the dashboard. Use this data to choose the most
+cost-effective plan. We also provide recommendations for optimal volume selection.
+How long does setup take?
+Setup can take just a few minutes with auto-instrumentation. Our guided setup wizard provides
+step-by-step instructions and code examples for all supported languages and frameworks.
+What languages and frameworks do you support?
+We support JavaScript, Java, Python, PHP, Go, .NET, Ruby, and more. Auto-instrumentation is
+available for popular frameworks, often requiring zero code changes.
+What tracing standards do you support?
+Sematext has native OpenTelemetry support in Sematext Agent. Send traces using the OTLP protocol or one of the language-specific
+SDKs with automatic OpenTelemetry integration.
+What's the difference between plan tiers?
+Basic includes core tracing features. Standard adds advanced alerting, custom dashboards, and performance
+heatmaps. Pro includes everything plus dedicated account management and the highest span volume limits.
+Can I upgrade or downgrade my plan?
+Yes, you can change your plan tier or span volume at any time. Changes take effect immediately,
+and billing adjusts for the next cycle.
+Price depends on the plan, page views per day and data retention.
+Startup
+${{ experience_.price.startup }}
+Page Views
+25k views/month
+${{ experience_.price.standard }}
+{{item / 1000}}k views/month
+${{ experience_.price.pro }}
+Yes. Each Experience App is independent
+and each App can have a different plan. Each user account can have any number of Apps.
+Of course. You can simply stop sending us your logs or switch to the Basic plan.
+How do I know which plan to choose? (What is the best plan for me?)
+We recommend going through the trial period to see how much data you receive (PVs), how many alerts
+you need, etc. Then after the trial period you can pick the plan that matches your monthly page
+views and functionality needs. Keep in mind that the higher number of page views you select as part
+of our plans (Standard & Pro) means you benefit from a volume discount.
+What happens if I exceed my PV (Page View) volume?
+If you surpass your PV limit for that day or month, data will stop being shipped to your Sematext
+Experience App. By default, your monthly PVs are staggered, meaning that we derive a daily PV limit
+from your monthly PV selection and then stop accepting data for the rest of the day - until 00:00
+UTC - when and if that daily limit was reached. You can choose whether to disable staggering, and
+you can also configure your daily limit manually for even more control and flexibility.
+At the end of the trial your Experience App is automatically disabled, unless you have set up your
+payment info. If you have set up payment info, we will automatically start charging based on the
+factors: plan, number of PVs, and data retention. You pick a plan based on which features you want.
+You pick PVs based on the number of monthly page views your website or web app received. The higher
+the PVs and the longer the data retention, the lower the per-PV rate. You pick data retention
+depending on how long you need to keep your data. We charge at the end of the month. For longer term
+and large contracts please get in touch.
+How do I integrate this in my website or webapp?
+It's as simple as adding Google Analytics to your website. See here . There are also simple integrations for React, Vue.js,
+Angular.js, Angular 2+, and Ember .
+What is a Geo report?
+A Geo report displays the world heat map that shows how location affects your website visitors'
+experience.
+What is the On-Page Transactions feature?
+You can use On-Page Transactions to track any kind of UI interaction. For example, you can track
+how long it takes for your app to load all the initial data, or you can ensure that some critical
+part of your UI always finishes in under 200ms. Read more about this
+feature by clicking here .
+What are custom
+tags?
+Filtering by browser, operating system, city, etc. are known as basic tags. Custom tags are
+anything defined specifically for your visitors (Example: if your visitor is a paying customer or
+not).
+Price depends on the plan, monitor count and data retention.
+Unlimited APIs
+Pay-As-You-Go
+per HTTP monitor
+$7
+per Browser monitor
+Minimum $5 per month
+30 days retention
+${{ synthetics_.price.standard }}
+Max Monitors
+{{ section.synthetics.monitors[item] }}
+${{ synthetics_.price.pro }}
+Max HTTP Monitors
+{{ item }} HTTP Monitors
+Max Browser Monitors
+{{ item }} Browser Monitors
+What are the locations to run the monitors?
+Sematext Synthetics monitors can be scheduled to run from multiple locations around the globe. For
+the latest list of locations, refer to the Locations section in our
+documentation.
+What is a monitor?
+A monitor denotes a single HTTP endpoint or website or user-journey you want to monitor. The
+monitor is scheduled to run periodically from configured locations and the results are evaluated
+based on configured conditions. There are 2 types of monitors: HTTP and Browser monitor. HTTP monitor can be used to
+monitor API endpoints, Web URL, or any HTTP endpoint. Browser monitor can be used to
+monitor website performance and user journeys.
+What is a run?
+A run is a single execution of the monitors from a location. For example, a monitor configured to
+run every 1 minute from 2 locations will create 2 runs every minute or 86400 runs a month.
+How do I know how many monitors or runs I will need?
+This depends on your monitoring requirements. Below are a few examples:
+&middot; Global availability and performance - 1 HTTP monitor every minute
+from 5 locations (216000 runs a month) and 1 browser monitor every 30 mins from 5 locations
+(7200 runs a month).
+&middot; API performance monitoring - 5 HTTP monitors every 5 mins from 3
+locations (129600 runs a month). The number of locations depends on where the majority of
+your customers are located.
+&middot; Competitive benchmarking - 3 browser monitors every 1 hr from 1
+location (2160 runs a month). The number of browser monitors depends on the number of
+competitors you want to benchmark with.
+&middot; User journey monitoring - 5 browser monitors every 30 mins from 1
+location (7200 runs a month). The number of browsers depends on the number of unique user
+journeys you want to monitor.
+What happens when I use up all monitors or runs?
+When you reach the monitor or run limit for a plan, you need to move to a higher plan which allows
+more monitors and runs. Else you could also create a new App , with the same plan and add the new
+monitors in this App.
+What is a user journey?
+A user journey is the sequence of actions a user performs while navigating your website. For
+example, in the case of an e-commerce website a common user journey is login, search, select
+product, add to cart, and checkout. With a browser monitor, you can simulate this user's actions
+using a browser script and verify if all the above steps are working correctly and meet your
+performance criteria at each step. This is also known as click path or web transactions.
+How many APIs or user journeys can I monitor?
+The number of APIs or user journeys you can monitor per App is based on the plan. Note that you
+can have as many Apps as you wish.
+Can I monitor HTTP endpoints/websites that are behind a firewall?
+Currently, we do not support a list of static IP addresses that can be whitelisted in your
+firewall. If your firewall supports whitelisting based on HTTP headers, we add fixed headers to
+HTTP requests sent from HTTP monitor. You can customize the Browser monitor script and add similar
+headers.
+Will I get charged if the Synthetics App or all the monitors inside the App are disabled?
+No. The App needs to record a minimum of 60 HTTP runs or 6 Browser runs in a day to be charged for
+that day.
+Can I monitor multiple page loads / navigation in a single browser monitor?
+You can script a user journey with multiple page loads in a single browser monitor. However, the
+page load metrics will be recorded only for the latest page load in the script. For example, if your
+script loads the home page and navigates to the login page, only the page load metrics for the login
+page will be recorded.
+Yes. Each Synthetics App is independent
+Can I change to a different plan later?
+Yes, you can change plans at any time. If the newer plan does not support your current active
+monitors or runs limit, you might have to disable a few monitors or adjust the configuration to meet
+the new plan limit.
+Of course. You can also disable any App. When you disable an App the monitors under the App won't
+be scheduled for execution. You won't be charged if there are no runs for your App. You can also
+fully delete any App at any time and even close your whole account all by yourself.
+At the end of the trial your Synthetics App is automatically disabled, unless you
+Is HTTPS supported?
+Yes. What's more we'll notify you about your SSL certificate expiring 7 days before its expiration
+date.
+Can be enabled or disabled at any time from your account settings.
++2%
+added on top of your monthly spend for annual plans, and 3% for monthly plans.
+Complete Oversight
+Improve accountability across your team by tracking all critical user actions in one place.
+Centralized Visibility & Security
+Maintain security and compliance by having centralized visibility as teams customize and adopt Sematext.
+Audit Everything
+Track all changes across the whole platform, across all users and roles.
+Search and analyze detailed audit events.
+All audit events are kept indefinitely.
+At the end of the trial Audit Trail is
+we will automatically start charging.
+Of course. Audit Trail can be enabled or disabled at any time from your account settings. Only users with the Account Owner role can change this setting. The cost will be applied if Audit Trail was enabled for any period of time during the month.
+There are no contracts and no commitments. You can cancel any time.
+Service Monitoring includes Network Map and API Radar. Pricing scales with your Infrastructure Monitoring plan and retention.
+Starts at $1.68/host/month
+Includes Network Map and API Radar. Scales with your
+Infrastructure Monitoring plan and retention.
+Use our Cost Calculator
+for a detailed estimate.
+Automatic Service & API Discovery
+Discover services, network connections, and HTTP API
+endpoints from observed traffic with Sematext Agent.
+No code instrumentation or individual endpoint configuration required.
+Network Map & Dependencies
+See how services communicate across Kubernetes and
+standalone hosts. Follow connections to workloads and
+processes to investigate dependencies and assess the
+potential blast radius of a problem.
+API Traffic & Performance
+Explore endpoints by service, HTTP method, and path.
+Compare request volume, status codes, error rates, and
+p50, p95, and p99 latency to find slow or failing endpoints.
+Endpoint Alerts & Certificate Tracking
+Get alerts for elevated error rates, slow responses,
+missing Authorization headers, and approaching certificate
+expiry. Each API alert identifies the affected service
+and endpoint so you can investigate directly.
+How is Service Monitoring priced?
+Service Monitoring pricing starts at $1.68/host/month and scales with your Infra Monitoring plan and retention. Use our Cost Calculator for a detailed estimate.
+At the end of the trial Service Monitoring is
+Can I enable or disable Service Monitoring?
+Yes. Service Monitoring can be enabled or disabled at any time from your account settings. The feature activates and deactivates dynamically without requiring agent restarts.
+AI Agent Watch pricing scales with your Infrastructure Monitoring plan and retention.
+Scales with your Infrastructure Monitoring plan and retention. Use our Cost Calculator for a detailed estimate.
+Full Activity Visibility
+See every command, file read/write, and outbound connection your AI agents make, captured as structured events and correlated into complete sessions.
+Automatic Risk & Trust Detection
+Untrusted ai agents and unapproved destinations are flagged automatically. Sensitive data in outbound traffic is masked and one-way encrypted the moment it's detected — never sent or stored in clear text.
+Alerts & Risk Scoring
+Build custom alert rules on any event field, with your own priority levels
+Get a risk score for every event and a rolled-up score for every session, from Clean to Critical
+Start covered with default alert rules and PII categories for common risks, no configuration required
+Block unauthorized agent actions — shell commands, sensitive file access, untrusted connections
+See exactly what every agent, session, and model is costing you, with proactive alerts before it becomes a surprise
+How is AI Agent Watch priced?
+AI Agent Watch pricing starts at $1.68/host/month and scales with your Infra Monitoring plan and retention. Use our Cost Calculator for a detailed estimate.
+At the end of the trial AI Agent Watch is
+Can I enable or disable AI Agent Watch?
+Yes. AI Agent Watch can be enabled or disabled at any time from your account settings. The feature activates and deactivates dynamically without requiring agent restarts.

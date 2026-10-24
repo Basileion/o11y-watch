@@ -1,0 +1,95 @@
+Observability priced like cloud, not enterprise
+Estimate your cost
+Drag the sliders. The price is the price.
+Traces GB Spans
+per month
+99
+Retention 1 mo 2 mo 3 mo 6 mo 1 yr
+Logs
+73
+Metrics Datapoints Timeseries
+79
+Estimated monthly bill
+Calculating...
+Calculating current estimate.
+Traces
+$...
+$.../GB $... / GB
+Metrics
+$.../M points $... / mln datapoints
+Start free Start free, no card Talk to sales
+50 GB free/mo · then $0.075/GB · no seats or hosts 50 GB free every month, then from $0.075/GB. Volume discounts apply automatically. Unlimited users, services, and hosts.
+Not sure of your volume? Sign up free and find out. Not sure of your volume? Sign up free and run Uptrace for a few days to get a real estimate.
+Loved by engineers
+Trusted in production by teams across SaaS, fintech, and infra
+1,000+
+Active installations
+99.9%
+Service uptime
+5+
+Years in production
+“ Uptrace gives us full visibility into our services without the complexity. As an SRE, I need reliable tracing and metrics, and Uptrace delivers both with a clean OpenTelemetry-native setup.
+Krishna Gangaraju
+Site Reliability Engineer, Performio
+“ We evaluated several observability platforms and Uptrace stood out for its straightforward pricing and solid performance. It handles our distributed architecture without breaking a sweat.
+Radoslav Kirilov
+Senior Solutions Architect, Corva
+“ Setting up Uptrace took us less than a day. The OpenTelemetry integration is seamless, and we finally have clear insights into our backend performance without overcomplicating our stack.
+Clément Lajoux
+Backend & DevOps Engineer, Fifteen
+Why Uptrace
+Cloud pricing without the enterprise tax
+Built for engineering teams that hate billing surprises and refuse to page-edit their telemetry budget.
+Predictable monthly bill
+Charged at month end, or once you hit $400, whichever comes first. No mid-month spikes, no auto-renewing seats, cancel anytime.
+Volume discounts, automatically
+Rates start at $0.10/GB and drop to $0.016/GB at scale. The more you ingest, the less you pay per gigabyte. No negotiation, no enterprise call.
+Hard budget cap
+Set a monthly ceiling and Uptrace will never bill above it. Predictable for finance, safe for ops.
+No host or seat limits
+Add as many services, users, and hosts as you need. Pricing depends only on what you ingest.
+Generous free trial
+1.2 TB of spans/logs and 100,000 timeseries. No credit card, no time pressure.
+Paddle handles billing
+Your card never touches Uptrace. Payments, tax, and receipts are processed by Paddle.
+FAQ
+Common questions, clear answers
+Why bill by data size instead of spans? Data size is simple and predictable. An average span is about 500 bytes plus custom attributes, so you can estimate costs easily.
+This model is fairer for microservices that generate many small spans and RPC calls. You pay for what you actually store, not arbitrary span counts.
+How does metrics billing work? Metrics are billed per million ingested datapoints . Typically, each timeseries produces one datapoint per minute, so 1,000 timeseries over 28 days is about 40 million datapoints (1,000 * 28 * 24 * 60).
+The exact number of datapoints depends on collection_interval in OpenTelemetry Collector or scrape_interval in Prometheus (both default to 1 minute). For example, with collection_interval=30s the number of datapoints per minute will double.
+Datapoint-based billing lets you use different collection intervals for different metrics: collect critical metrics more frequently, keep others at the default interval. The minimum supported interval in Uptrace is 10 seconds.
+A timeseries is a metric with a unique set of labels. For example, these are 3 separate timeseries:
+cpu_usage{host="host1"}
+cpu_usage{host="host2"}
+cpu_usage{host="host3"}
+The rate starts at $0.025 per 1M datapoints and decreases with volume. See the Metrics tab above for the full tier table.
+How long is data retained? Uptrace Cloud keeps all data for 4 weeks (28 days) by default.
+Need longer retention? Store data on cold storage (S3 or HDD) for up to 100 weeks:
+Spans (including logs and errors) $0.01 per GB-month
+Metrics (active timeseries) $0.20 per 1,000 timeseries-month
+Example: retaining 1,000 GB of spans beyond 4 weeks costs $10/month.
+How does billing work? We use Paddle for secure billing and global tax compliance. Your payment details stay with Paddle, so we never see them. Receipts are handled by Paddle.
+Pay by credit card (automatic) or bank transfer (manual).
+Can I reduce costs with sampling? Yes. Configure Uptrace to sample a percentage of data and drop the rest to lower your bill.
+Dropped data costs just $0.01 per GB . For example, dropping 1,000 GB costs $10. No sampling? No charge.
+Where is data stored? Uptrace Cloud runs in Hetzner's Germany datacenters with redundant backups in Finland. See our privacy policy for details.
+Sending from AWS or GCP? Outbound fees apply, but observability data compresses well. OTel Arrow cuts bandwidth 30–70% versus standard OTLP.
+Can I run Uptrace on my own servers? Yes. Install Uptrace on-premises with a license. Your telemetry never leaves your infrastructure, making it ideal for compliance and security audits.
+On-premises includes:
+Free evaluation period
+Terraform and Ansible automation
+Custom retention policies
+Dedicated support engineer
+SOC 2 certification on request
+Learn more or book a demo .
+Is Uptrace production-ready for large-scale environments? Yes. Uptrace is built on ClickHouse , a columnar database designed for petabyte-scale analytics. Customers run Uptrace in production with billions of spans per day.
+Both Uptrace Cloud and on-premises deployments support horizontal scaling, so you can add capacity as your traffic grows without re-architecting.
+How does Uptrace handle high cardinality? ClickHouse handles high-cardinality attributes (user IDs, request IDs, container names) efficiently thanks to columnar compression and sparse indexing.
+Unlike time-series databases that choke on high-cardinality labels, Uptrace stores spans and logs as structured events, so adding more unique attribute values does not degrade query performance.
+What happens if I exceed my monthly cap? Nothing breaks. You keep sending data and Uptrace keeps ingesting it. At the end of the billing cycle, any usage above your plan is charged at the standard per-GB rate.
+You can set budget alerts to get notified before you reach your cap, and you can always adjust your plan mid-cycle.
+Can I try Uptrace without signing up? Yes. Explore our public live demo . No account needed.
+Is there a free tier? Yes, two options. Self-host Uptrace Community Edition for free forever with no limits.
+Or use Uptrace Cloud free up to 50 GB and 5,000 timeseries per month.
+Still have questions? Email us or schedule a call . We typically respond within a few hours.

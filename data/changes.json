@@ -1,0 +1,72 @@
+[
+ {
+  "date": "2026-10-24",
+  "vendor": "Bugsnag",
+  "type": "free tier detail",
+  "summary": "Free plan now listed as 1 user with 7.5K events and 1M spans per month (we previously recorded \"solo users; 7 days retention\"). Old snapshot was overwritten, so we cannot confirm whether this is a change or a fuller reading.",
+  "source": "https://www.bugsnag.com/pricing/"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "Uptrace",
+  "type": "free tier detail",
+  "summary": "Cloud free tier stated as 50 GB and 5,000 timeseries per month; self-hosted Community Edition is free with no limits.",
+  "source": "https://uptrace.dev/pricing"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "UptimeRobot",
+  "type": "price increase",
+  "summary": "Paid prices rose ~18%: Team $39→$46/mo (monthly) and $33→$39/mo (annual); Scale $83→$98/mo (monthly) and $67→$79/mo (annual); annual Team $396→$468/yr. Free plan unchanged in our snapshot.",
+  "source": "https://uptimerobot.com/pricing/"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "Lunary",
+  "type": "free tier removed (new users)",
+  "summary": "Pricing page: \"Payment is required to activate your workspace.\" Cloud starts at $20/user/mo; existing Free workspaces stay the same.",
+  "source": "https://lunary.ai/pricing"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "Bugsink",
+  "type": "source moved",
+  "summary": "/pricing/ now returns 404; pricing lives on the homepage. Source URL updated.",
+  "source": "https://www.bugsink.com/"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "StatusGator",
+  "type": "source moved",
+  "summary": "/pricing now returns 404; pricing moved to /plans. Source URL updated.",
+  "source": "https://statusgator.com/plans"
+ },
+ {
+  "date": "2026-10-24",
+  "vendor": "All tracked vendors",
+  "type": "verification",
+  "summary": "Remaining 34 vendors reviewed from fresh pricing page snapshots; 31 marked verified, 3 uncertain (page does not state free limits).",
+  "source": "reports/diff-2026-10-24.md"
+ },
+ {
+  "date": "2026-10-16",
+  "vendor": "Highlight.io",
+  "type": "product sunset / redirect",
+  "summary": "highlight.io/pricing now redirects to launchdarkly.com (Highlight was acquired by LaunchDarkly). Removed from directory.",
+  "source": "https://www.highlight.io/pricing"
+ },
+ {
+  "date": "2026-10-16",
+  "vendor": "Logz.io",
+  "type": "price change (announced)",
+  "summary": "Pricing page states: \"New Metrics pricing starts Oct. 1, 2026 for new consumption plans only. Existing plans keep their current rate.\"",
+  "source": "https://logz.io/pricing/"
+ },
+ {
+  "date": "2026-10-16",
+  "vendor": "All tracked vendors",
+  "type": "baseline",
+  "summary": "Baseline snapshots saved for 70 vendor pricing pages (39 hand-verified at the time). Future weekly diffs will be logged here.",
+  "source": "reports/diff-2026-10-16.md"
+ }
+]

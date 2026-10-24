@@ -1,0 +1,268 @@
+Simple Usage-based Predictable Observability Costs
+No user-based pricing
+No host-based pricing
+No special pricing for custom metrics
+Get Started - Free Estimate Your Monthly Bill
+Starts at $199 $49/month, including $49 of usage
+Logs
+$ 0.3 /GB ingested
+15 days retention 15 days retention 30 days retention 90 days retention 180 days retention 1 year retention
+Traces
+Metrics
+$ 0.1 /mil samples
+1 month retention 1 month retention 3 month s retention 6 month s retention 13 month s retention
+Tired of unpredictable pricing and complex billing structure?
+Migrate your Datadog dashboards in minutes with our automated migration tool and save up to 80% on your Datadog bill with SigNoz Cloud.
+Teams
+For fast-scaling teams that need observability to scale with them.
+starts from $199 $49 /month
+Get Started with SigNoz Cloud
+After the included $49 of usage, SigNoz Cloud bills:
+$0.30 /GB
+$0.10 /mn samples
+What is included in the $49/month minimum?
+Access to all features
+Send any mix of logs, traces & metrics
+$49 of usage (for example, 163 GB of logs or traces, or 490 mn metric samples)
+Access to MCP Server and Noz: Our new AI teammate
+Need more? Pay only for what exceeds $49 based on usage
+Add unlimited teammates and monitor any number of hosts
+Support via in-product Chat, Email, and Slack
+SOC2 Type II & HIPAA Compliant
+Data centers available in the US, EU & India
+Learn how the price for metrics is calculated
+Estimate your monthly bill
+Enterprise
+For larger orgs that need data residency, compliance and support.
+Custom starts at $4000/month
+Contact Us
+Choose between the following offerings
+SigNoz Cloud: Dedicated
+Includes monthly ingestion usage till $4000
+SigNoz Cloud: BYOC, managed by SigNoz in your cloud account
+Self-Hosted SigNoz: enterprise support. Your team operates infrastructure, storage, scaling, upgrades, and backups.
+Enterprise benefits
+Volume discounts & annual contracts
+HIPAA and BAA options for eligible SigNoz Cloud contracts
+Dedicated Slack, email & in-product support
+Guided migration support
+Ongoing professional services
+Team training
+SLA w/ downtime developer pairing
+🧮 Pricing Calculator
+Calculate Your Exact Monthly Bill
+Get an instant estimate based on your usage. No surprises, no hidden fees.
+Pricing per unit
+Retention
+Scale of ingestion (per month)
+Estimated usage
+Subtotal
+$ 0.3 /GB
+15 days 30 days 90 days 180 days 1 year
+0GB 100TB
+GB
+$ 0
+$ 0.1 /mn samples
+1 month 3 months 6 months 13 months
+0M 100B
+mn
+Monthly estimate
+$ 49
+SigNoz Cloud saves you up to 80% on Datadog bills.
+Get Started - Free
+💡 Pro tip: Most teams start with Teams Cloud free trial to test with real data, then decide based on their specific needs. You can always migrate between options as your requirements evolve!
+Self Hosted SigNoz (Community)
+Install & manage yourself
+Read Documentation
+SigNoz Cloud (Teams)
+Starts at $49/mo
+SigNoz Enterprise
+Cloud, BYOC, or Self-Hosted
+Choose When
+Best suited for your needs when you
+🛠️ Have DevOps expertise & want full control
+☁️ Want zero operational overhead & quick setup
+🏢 Want dedicated environments or bring-your-own-cloud
+Ideal for
+Solo developers & small startups
+Teams scaling fast & growing companies
+Orgs with compliance & security requirements
+APM & Distributed Tracing
+Out of Box APM metrics
+Filtering and creating dashboards based on traces data
+Creating alerts based on traces data
+Unlimited dashboards & alerts based on traces
+Advanced visualization for very large traces (>10K spans)
+Third Party API Monitoring with error rates, latency tracking
+Log Management
+Parsing logs via pipeline
+Create direct filters from JSON logs
+Saved Views for logs
+Live tail Logging
+Unlimited dashboards & alerts based on logs
+Infrastructure Monitoring
+Out of the box dashboards for hostmetrics
+Kubernetes Monitoring
+Container Monitoring
+Unlimited dashboards & alerts based on metrics
+Cloud Monitoring
+AWS monitoring (EC2, ECS, EKS, Lambda, RDS, ELB, VPC)
+Azure monitoring (VM, App Service, Functions, AKS, Container Apps, SQL DB)
+GCP monitoring (Compute Engine, GKE, Cloud Run, Cloud Functions, App Engine)
+Cloud services metrics, logs, and traces correlation
+CI/CD Observability
+Pipeline health and performance monitoring
+DORA metrics tracking and visualization
+Repository health and PR metrics
+Pipeline flakiness detection
+Data Exploration
+Metrics Explorer - search, query, and analyze all metrics with quick filters
+Traces Explorer with multiple views (List, Trace, Time Series, Table)
+Advanced Query Builder with filtering, aggregation, and mathematical functions
+Exceptions Monitoring
+Separate view of exceptions based on Trace data
+Frontend & Mobile Monitoring
+Web Vitals monitoring for frontend applications
+Mobile app monitoring (iOS, Android, Flutter)
+LLM Monitoring
+LLM observability with OpenTelemetry
+Integration with Langtrace and OpenLLMetry
+Vector database monitoring with OpenLIT
+Alerts Management
+Create alerts directly from dashboards
+Support for Slack, Pagerduty, OpsGenie & webhooks as alert channel
+Anomaly Detection
+Alert as Code
+MS Teams as alert channel
+Pre-built Integrations & Dashboards
+Single Click AWS Integrations
+Pre-built integrations & dashboards (AWS ElastiCache Redis, AWS RDS MySQL/PostgreSQL, ClickHouse, MongoDB, NGINX, PostgreSQL, Redis)
+Application performance & web service dashboards (APM, NGINX, Apache, RabbitMQ, LLM)
+OTel-native Messaging Queue Monitoring
+Producer Latency, Consumer Lag, Partition Latency Views
+Correlation of Signals
+APM metrics to traces
+Traces to logs
+Logs to traces
+Logs to infrastructure metrics
+Service Dependency Visualization
+Overview of your application graph with health indication
+Security & Compliance
+SOC2 Type II Compliant
+HIPAA Compliant
+Data centers in US, EU, and India
+BAA Agreement
+ADD ON
+Configuration
+SSO support
+SAML support
+Support for Multiple Ingestion Keys
+Support for Rate Limits based on Ingestion keys
+Dashboard Locking & Access control
+Access Data in SigNoz from Anywhere (via API keys)
+Security tightening for on-premise installation
+ENTERPRISE SELF-MANAGED
+Monitor Health of SigNoz
+Custom retention for different sources of logs
+COMING SOON
+Fine-grained RBAC
+BETA
+Audit Logs
+Multi-tenancy
+Support
+Community Support on Slack
+Email Support
+In product chat support
+ENTERPRISE CLOUD
+Support for Migrating DataDog Dashboards
+for spends above $999
+Dedicated Slack Channel
+Team Training
+Dashboard Configuration Support
+Instrumentation Support
+Trusted by the best platform teams
+Read customer stories
+SigNoz Cloud
+for
+Startups
+Special Pricing
+Eligible startups get SigNoz Cloud for $19/month for the first 12 months instead of $49/month. This includes $19 of telemetry usage.
+Perfect for early-stage companies looking for enterprise-grade observability that won't burn your startup budget.
+Eligibility Requirements
+Less than 3 years old
+Fewer than 30 employees
+Raised less than $6 million
+Learn More & Apply
+Complete
+Observability
+Every
+Use Case
+APM & Tracing
+Auto-instrument any language with OpenTelemetry
+JavaScript
+Python
+Java
+Go
+.NET
+PHP
+Ruby
+Rust
+See all languages
+Logs Management
+Collect, parse, and analyze logs from any source
+Kubernetes
+Docker
+Node.js
+See all log sources
+Monitor hosts, containers, and orchestration platforms
+Infrastructure
+Prometheus
+See infrastructure docs
+Cloud, Databases & Integrations
+Pre-built integrations for cloud services, databases, and third-party tools
+AWS
+Azure
+Google Cloud
+Redis
+PostgreSQL
+MongoDB
+Databases
+Temporal
+See all integrations
+OpenTelemetry Native — SigNoz Cloud supports any language or framework that OpenTelemetry supports. From Rust to Elixir, from mobile apps to serverless functions - if it can emit OTLP data, SigNoz Cloud can monitor it.
+View Full Documentation
+Why select SigNoz Cloud?
+Built for scale
+Our powerful ingestion engine has a proven track record of handling 10TB+ data ingestion per day.
+Trusted across the globe
+Used by teams in all 5 continents ⎯ across the mountains, rivers, and the high seas.
+Powering observability for teams of all sizes
+Hundreds of companies - from early-stage start-ups to public enterprises use SigNoz Cloud to build more reliable products.
+SigNoz Cloud provides up to 9X ROI than DataDog
+You can also set data ingestion limits so you never get a surprise bill. Learn more
+Worried about Data Protection Laws?
+No need to send data outside your region. We have data centers in US, EU and India to comply with data privacy regulations. You can also run Self Hosted SigNoz in your own cloud.
+Enterprise-grade Observability
+Get access to observability at any scale with advanced security and compliance.
+Why SigNoz SSO and SAML support
+Query API Keys
+Advanced Security
+Get started with Community Edition
+You can use Self-Hosted SigNoz, the open-source version of SigNoz, to get started with your observability journey.
+SigNoz / signoz
+The open-source observability platform
+Frequently
+Asked
+Questions
+What is the difference between SigNoz Cloud(Teams) and Community Edition?
+You can self-host and manage the community edition yourself. You should choose SigNoz Cloud if you don’t want to worry about managing the SigNoz cluster. There are some exclusive features like SSO & SAML support, which come with SigNoz cloud offering. Our team also offers support on the initial configuration of dashboards & alerts and advises on best practices for setting up your observability stack in the SigNoz cloud offering.
+How are number of samples calculated for metrics pricing?
+If a timeseries sends data every 30s, then it will generate 2 samples per min. So, if you have 10,000 time series sending data every 30s then you will be sending 20,000 samples per min to SigNoz. This will be around 864 mn samples per month and would cost 86.4 USD/month. Here's an explainer video on how metrics pricing is calculated - Link
+Do you offer enterprise support plans?
+Yes, feel free to reach out to us on support@signoz.io if you need a dedicated support plan or paid support for setting up your initial SigNoz setup
+Who should use Enterprise plans?
+Teams which need enterprise support or features like SSO, Audit logs, etc. may find our enterprise plans valuable
+SigNoz Cloud is the Fastest Way to Try Out SigNoz
+Sign Up
+Choose Data Source
+Set Up & Visualize

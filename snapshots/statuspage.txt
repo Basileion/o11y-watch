@@ -1,0 +1,56 @@
+Pricing that scales with you as you grow.
+Create your page in minutes. Launch it when you're ready.
+Public Page
+Private Page
+Audience-specific Page
+Communicate publicly with your users and customers during an incident.
+Free
+Our free plan gives you access to 100 subscribers, 25 components, two team members, two metrics, email notifications, Slack notifications, Microsoft Teams notifications, and access to REST APIs.
+Get started today
+Hobby
+$29
+/month
+250 subscribers
+5 team members
+5 metrics
+Email notifications
+Startup
+$99
+1,000 subscribers
+10 team members
+10 metrics
+Email/SMS/webhook notifications
+Business
+$300
+5,000 subscribers
+25 team members
+25 metrics
+Enterprise
+$1,499
+25,000 subscribers
+50 team members
+50 metrics
+Communicate privately with your employees about issues with internal tools and services.
+Starting at
+Team members starting at 25
+Groups starting at 10
+Users starting at 500
+Learn more about Audience-specific pages
+Different views for different sets of users
+Pricing FAQ for Public Pages
+Is there a core feature set included in all plans?
+Our core feature includes Incidents, Components, Scheduled Maintenances, Incident Templates, Page Analytics, Component Groups, Basic Customization, REST API access, Third Party Components, Automation Integrations, Chat Integrations, Status Embed, Activity Log, Twitter Integration. More information on these features can be found in our knowledge base .
+What are Team Members?
+Team members are people that can log into your account and do things (like create incidents, update component statuses, and other management functions) to update your status page.
+Does SSL cost extra?
+No. SSL comes for free on all plans!
+Do you offer yearly credit card billing?
+We do, although right now the setup is manual and requires a signed order form. If you're looking to sign up for a yearly plan via credit card, contact our support team and we're happy to help.
+Is there an additional charge for single sign-on (SSO) with Atlassian Guard?
+If you’re on the Startup, Business, or Enterprise plan, Statuspage users (team members) get SSO with Atlassian Guard for no additional charge. Note that if you have users on other Atlassian products like Jira who are not part of your Statuspage plan, they will be charged for Atlassian Guard.
+Is there extra cost for notifications?
+Nope, all plans come with unlimited notifications. That said, the type of notifications we send (Email vs. SMS vs. Webhook) depends on your plan. Hobby comes with Email Notifications while Startup comes with Email, SMS, and Webhook Notifications.
+Can I have customized status pages for each of my customers?
+Yes. We have an Audience-specific page type that lets you display custom statuses and send notifications based on customer groupings. Audience-specific pages have their own pricing model and documentation. You can switch your page type under Your page > Page type in the Statuspage management interface.
+Create your status page today
+Get it free

@@ -1,0 +1,300 @@
+[
+ {
+  "id": "sentry",
+  "status": "unchanged"
+ },
+ {
+  "id": "datadog",
+  "status": "unchanged"
+ },
+ {
+  "id": "newrelic",
+  "status": "unchanged"
+ },
+ {
+  "id": "grafana",
+  "status": "unchanged"
+ },
+ {
+  "id": "honeycomb",
+  "status": "unchanged"
+ },
+ {
+  "id": "betterstack",
+  "status": "unchanged"
+ },
+ {
+  "id": "axiom",
+  "status": "unchanged"
+ },
+ {
+  "id": "rollbar",
+  "status": "unchanged"
+ },
+ {
+  "id": "bugsnag",
+  "status": "unchanged"
+ },
+ {
+  "id": "honeybadger",
+  "status": "unchanged"
+ },
+ {
+  "id": "raygun",
+  "status": "unchanged"
+ },
+ {
+  "id": "appsignal",
+  "status": "unchanged"
+ },
+ {
+  "id": "uptimerobot",
+  "status": "unchanged"
+ },
+ {
+  "id": "checkly",
+  "status": "unchanged"
+ },
+ {
+  "id": "cronitor",
+  "status": "unchanged"
+ },
+ {
+  "id": "healthchecks",
+  "status": "unchanged"
+ },
+ {
+  "id": "pingdom",
+  "status": "unchanged"
+ },
+ {
+  "id": "statuscake",
+  "status": "unchanged"
+ },
+ {
+  "id": "hyperping",
+  "status": "unchanged"
+ },
+ {
+  "id": "logzio",
+  "status": "unchanged"
+ },
+ {
+  "id": "papertrail",
+  "status": "unchanged"
+ },
+ {
+  "id": "mezmo",
+  "status": "unchanged"
+ },
+ {
+  "id": "coralogix",
+  "status": "unchanged"
+ },
+ {
+  "id": "elastic",
+  "status": "unchanged"
+ },
+ {
+  "id": "signoz",
+  "status": "unchanged"
+ },
+ {
+  "id": "uptrace",
+  "status": "unchanged"
+ },
+ {
+  "id": "dash0",
+  "status": "unchanged"
+ },
+ {
+  "id": "posthog",
+  "status": "unchanged"
+ },
+ {
+  "id": "logrocket",
+  "status": "unchanged"
+ },
+ {
+  "id": "atatus",
+  "status": "unchanged"
+ },
+ {
+  "id": "site24x7",
+  "status": "unchanged"
+ },
+ {
+  "id": "instatus",
+  "status": "unchanged"
+ },
+ {
+  "id": "incidentio",
+  "status": "unchanged"
+ },
+ {
+  "id": "pagerduty",
+  "status": "unchanged"
+ },
+ {
+  "id": "rootly",
+  "status": "unchanged"
+ },
+ {
+  "id": "langfuse",
+  "status": "unchanged"
+ },
+ {
+  "id": "helicone",
+  "status": "unchanged"
+ },
+ {
+  "id": "openstatus",
+  "status": "unchanged"
+ },
+ {
+  "id": "glitchtip",
+  "status": "unchanged"
+ },
+ {
+  "id": "splunk",
+  "status": "unchanged"
+ },
+ {
+  "id": "dynatrace",
+  "status": "unchanged"
+ },
+ {
+  "id": "middleware",
+  "status": "unchanged"
+ },
+ {
+  "id": "last9",
+  "status": "unchanged"
+ },
+ {
+  "id": "oneuptime",
+  "status": "unchanged"
+ },
+ {
+  "id": "sematext",
+  "status": "unchanged"
+ },
+ {
+  "id": "loggly",
+  "status": "unchanged"
+ },
+ {
+  "id": "sumologic",
+  "status": "unchanged"
+ },
+ {
+  "id": "groundcover",
+  "status": "unchanged"
+ },
+ {
+  "id": "observe",
+  "status": "unchanged"
+ },
+ {
+  "id": "openobserve",
+  "status": "unchanged"
+ },
+ {
+  "id": "parseable",
+  "status": "unchanged"
+ },
+ {
+  "id": "graylog",
+  "status": "unchanged"
+ },
+ {
+  "id": "scoutapm",
+  "status": "unchanged"
+ },
+ {
+  "id": "airbrake",
+  "status": "unchanged"
+ },
+ {
+  "id": "trackjs",
+  "status": "unchanged"
+ },
+ {
+  "id": "bugsink",
+  "status": "changed",
+  "added": 22,
+  "removed": 68
+ },
+ {
+  "id": "exceptionless",
+  "status": "unchanged"
+ },
+ {
+  "id": "ohdear",
+  "status": "unchanged"
+ },
+ {
+  "id": "updown",
+  "status": "changed",
+  "added": 8,
+  "removed": 10
+ },
+ {
+  "id": "statusgator",
+  "status": "changed",
+  "added": 4,
+  "removed": 83
+ },
+ {
+  "id": "statuspage",
+  "status": "unchanged"
+ },
+ {
+  "id": "ilert",
+  "status": "unchanged"
+ },
+ {
+  "id": "squadcast",
+  "status": "unchanged"
+ },
+ {
+  "id": "firehydrant",
+  "status": "unchanged"
+ },
+ {
+  "id": "zenduty",
+  "status": "unchanged"
+ },
+ {
+  "id": "langsmith",
+  "status": "unchanged"
+ },
+ {
+  "id": "braintrust",
+  "status": "unchanged"
+ },
+ {
+  "id": "arize",
+  "status": "unchanged"
+ },
+ {
+  "id": "opik",
+  "status": "unchanged"
+ },
+ {
+  "id": "laminar",
+  "status": "unchanged"
+ },
+ {
+  "id": "portkey",
+  "status": "unchanged"
+ },
+ {
+  "id": "wandb",
+  "status": "unchanged"
+ },
+ {
+  "id": "lunary",
+  "status": "unchanged"
+ }
+]

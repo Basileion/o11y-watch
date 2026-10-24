@@ -1,0 +1,210 @@
+Sumo Logic pricing: Intelligent operations. AI-guided investigations.
+Detect, investigate, and resolve incidents faster with a unified intelligence platform. By combining telemetry pipeline control, log analytics, SIEM, and autonomous DojoAI agents, Sumo Logic delivers enterprise-grade intelligence at a significantly lower TCO.
+Get a demo
+Browse plans
+Unlimited users
+Unthrottled performance
+Trusted by more than 2,500 customers globally
+Full-stack operational intelligence. Unlimited users. Predictable pricing.
+Essentials
+Start free trial
+Ideal for small-to-medium-sized DevOps and SecOps teams requiring ad-hoc investigation and troubleshooting.
+Onboard in minutes
+Start investigating and troubleshooting fast with out-of-the-box dashboards and monitors
+Accelerate troubleshooting and log analysis
+Quickly isolate root causes with automated anomaly detection, log volume patterns, and log-to-metric correlation
+Connect your ecosystem
+Seamlessly query and visualize data across cloud, hybrid, and multi-cloud environments using open integrations
+Enterprise Suite
+Ideal for maturing security teams looking for real-time threat detection, investigation, and response.
+Discover threats faster with cloud-native SIEM
+Focus on what matters with high-fidelity entity-centric detection, threats mapped to MITRE ATT&CK, UEBA-driven coverage
+Scale compliance and security monitoring
+Centralize audit trails, posture monitoring, and threat detection across all cloud and on-prem workloads
+Operate efficiently with enterprise-grade tools
+Leverage 24/7 support and automation service with complex multi-org support
+Contact sales
+Ideal for small- to medium-sized DevOps and SecOps teams requiring ad-hoc investigation and troubleshooting.
+Focus on what matters with high-fidelity entity-centric detection, threats mapped to MITRE ATT&CK, and UEBA-driven coverage
+Add-on
+Dojo AI
+Power your team with autonomous AI agents across security and operations without daily prompt caps or unmanaged token bills.
+Explore Dojo AI
+Automate complex incident investigations
+Deploy autonomous agents that pick up alerts, gather telemetry, and deliver root-cause evidence in minutes instead of hours.
+Trust and verify
+Get verifiable, audit-ready findings behind every AI agent recommendation, while maintaining total control over their access.
+Democratize the platform with Mobot
+Turn every team member into a super user — no complex query syntax required — with an AI assistant built for natural-language search and content creation.
+Get what you need for monitoring, troubleshooting and security
+Product configuration elements listed are only activated for data processing when quoted with data volume at the time of subscription creation. Activation for products not initially activated is available at any time during the subscription, subject to minimum transaction requirements.
+Contact Sales
+Calculate flex pricing
+DojoAI
+Expand
+Mobot conversational interface Analyze log data, investigate incidents, manage content, and optimize the platform with natural language
+Included 10 prompts per user/day
+Add DojoAI Credits for pooled monthly capacity
+SOC Analyst Agent Agent that automatically investigates alerts, delivers evidence-backed findings, and helps analysts respond faster with greater consistency and confidence
+Requires SIEM + DojoAI Credit
+Root Cause Agent Agent that automatically investigates alerts, correlates logs and metrics to deliver verifiable root cause findings, and helps engineers resolve incidents faster.
+In development
+Sumo Logic MCP Server**** Integration that connects AI clients directly to Sumo Logic&#8217;s Log Analytics and SIEM context
+Security
+Logs for Security
+Anomaly Detection Leveraging AI models to detect suspicious and anomalous deviations from baseline behaviors.
+Entity Normalization Ingested data fields organized into a schema for further queries and advanced analytics.
+Risk Assessment Quantifying the possibility of major impacts on business-critical processes due to cybersecurity threats.
+Automated Remediation Automatically take action to address security flaws using pre-defined workflows.
+Cloud Security Posture Monitoring Continuously view the overall state of cybersecurity readiness of your cloud environment.
+AWS CloudTrail and Amazon Guard Duty Threat Benchmarking Provides real-time dashboards and searches, evaluating your organization against a statistical baseline for both performance and risk indicators to optimize security configurations and threat detection.
+SIEM
+Activation required**
+Insight Rules Engine (including 900+ out-of-the-box rules) Transparent rules engine applied to incoming logs to surface Signals and Insights.
+Entity Timeline This view gives information about what else the Entity doing before, during, and after Signals and Insights involving the Entity were generated
+Entity Relationship Graph This view gives information about an Entity in an Insight and all other connected (related) entities or systems.
+Insight Global Confidence Scores Represents a level of confidence, predicted by Sumo Logic’s Global Intelligence machine learning model, that the Insight is actionable.
+Automation Service (playbooks for Insight enrichment, notifications, and containment actions) Allows you to set up actions that run automatically when certain conditions are met in Sumo Logic
+MITRE ATT&#038;CK Coverage Explorer Shows the MITRE ATT&#038;CK adversary tactics, techniques, and procedures (TTP) from the Enterprise Matrix that are covered by rules in your system
+Insight Trainer A dashboard in the Enterprise Audit &#8211; SIEM app. Insight Trainer offers suggestions for making adjustments to rules, such as writing rule tuning expressions and changing severities
+UEBA behavioral models A suite of UEBA-specifc rules specifically designed to detect various classifications of anomalous activities compared against existing normal baselines.
+Premium threat intelligence Includes Crowdstrike, Intel471, and other native threat intel feeds, as well as any feeds you bring into the platform to add more context to your SIEM rules.
+Cloud SOAR
+Activation required***
+Playbooks (including complete Sumo Logic playbook catalog) A playbook is a predefined set of actions and conditional statements that run in an automated workflow to respond to a certain event or incident type.
+Progressive Automation Driven by machine learning, SOAR uses progressive automation to learn repeatable patterns, distinguish between real threats and false threats, and offer recommended courses of action
+Case Manager Tools for managing and documenting security cases, including evidence collection, analysis, and reporting
+Supervised Active Intelligence A combination of multiple Machine Learning capabilities, all working together to ensure a smooth and uninterrupted SecOps workflow
+War Room
+Configurations
+Licensing Options Sumo logic licensing model options available for indicated subscription package
+Sumo Credit &#8211; Tiers
+Sumo Credit &#8211; Tiers, Sumo Credit Flex
+Platform Log Ingest Defines the Sumo Logic data ingest options available for each package subscription
+Tiers: Continuous
+Tiers: Continuous, Frequent, Infrequent
+or
+Flex (search billed separately)
+SIEM Log Ingest Packaging that supports &#8220;SIEM&#8221; ingest as a product variable
+N/A
+Tiers: SIEM
+Log capacity Defines the upper limit of logs volume that can be ingested daily
+Unlimited
+Metrics capacity Defines the upper limit of metrics volume that can be ingested daily
+Up to 50,000/day
+Tracing capacity Defines the upper limit of trace volume that can be ingested daily
+Up to 5GB/day
+Log data retention Defines the duration of time logs are retained on Sumo Logic
+Up to 365 days
+Customer defined
+Real-time alerting (monitors logs/metrics) Defines the upper limit of Logs/Metrics Monitors that are configurable based on your package subscription
+300/500
+1000/500
+PCI, SOC2 Type 2, CSA, ISO, HIPAA certifications Get peace of mind with top-grade compliance attestations and certifications.
+Platform Security
+Support Includes access to certified support engineers to prioritize, analyze, and assist in resolution of issues
+Standard (8&#215;5)
+Enterprise (P1 24/7)
+Premium support Includes access to a named Technical Account Manager for recurring status calls, customer success plans, onsite training and more
+Optional
+Platform
+AI-driven Alerting AutoML-powered anomaly detection to reduce false positives
+Alert Response Alert Response provides contextual insights about triggered alerts to minimize the time needed to investigate and resolve application failures
+Alerting Integrations (Slack, PagerDuty, ServiceNow, etc.) Alerting integrations enable users to route contextualized alerts to 3rd party tools to streamline investigations and resolve failures quickly
+Compliance and Audit Logging Monitor and audit Sumo Logic usage to meet regulatory and compliance requirements
+CrowdStrike Threat Intelligence Identify indicators of compromise (IOCs) in your log data by comparing it against CrowdStrike&#8217;s IOC feed
+Customizable Dashboards Tailor, extend, or create dashboards from the ground up to align with your specific monitoring, analytics, and reporting needs
+Enterprise Audit and Logging Dashboards Out-of-the-box dashboards that visualize Sumo Logic audit logs to give teams quick insight into user activities and events
+Geo IP Lookups Automatically visualize IP addresses in dashboards by geolocation
+Global Intelligence Service apps A collection of apps leveraging machine learning to create advanced operational and security insights benchmarked against the population of Sumo Logic customers
+Historical and Live Streaming Dashboards Visualize historical and real-time data in Sumo Logic dashboards to derive contextualized, actionable analytics
+Ingest Budgets Control the daily volume of log data sent to Sumo Logic by assigning ingest budgets that define daily log capacity limits
+Live Tail for Streaming Logs View a real-time feed of log events associated with a Source or Collector. These live feeds can help you with development and troubleshooting
+Log Search API Integrate Sumo Logic&#8217;s Log Search capabilities into your workflows and 3rd party tools via API to solve more complex use cases
+Log Search and Visualizations Use Sumo Logic&#8217;s Query Language and Dashboarding Framework used to quickly parse, aggregate and visualize insights entirely based off of raw log data
+LogReduce©, LogCompare, and LogExplain A collection of patented and patent-pending operators designed to quickly assess activity patterns and surface behavioral insights to accelerate troubleshooting
+Lookup Tables Enrich log data ingested by Sumo Logic in real time with in-memory lookup tables
+Management APIs Administor Sumo Logic and manage users via API and/or with IaC tooling like Terraform
+PCI Compliance Apps and Dashboards for Audit Readiness Simplify audits and maintain compliance with apps designed to help teams meet evolving PCI requirements
+Predictive Analytics and Outlier Detection Forecast trends and identify anomalous activity in real time with advanced query operators.
+Single sign-on with SAML Support for federated identiy access management and single sign-on
+Software Development Optimization Manage software delivery performance against industry-standard DORA metrics
+Sumo Logic Apps Access to 400+ apps and integrations designed to turn data into insights
+Observability
+Application Observability Full-stack observability with MELT telemetry to ensure application reliability
+Cloud Log Management Streamlined collection, storage, and analysis of logs as a single source of truth in a unified SaaS platform
+Multi-Cloud Observability (AWS, Azure GCP) Deep observability for multi-cloud organizations across vendors-specific cloud services and infrastructure using pre-built integrations
+Kubernetes Observability Out-of-the-box analytics visualize k8s hierarchical relationships to simplify troubleshooting across clusters, namespaces, and services
+APM and Distributed Tracing Native support for collection of OpenTelemetry with pre-built analytics to monitor and respond to user-impacting performance issues of your instrumented applications
+Advanced Span Analytics Aggregate your distributed trace data and dervie advanced analytics using Sumo Logic&#8217;s Query Language to monitor application performance
+Service Maps Easily understand the relationships of complex service interactions across your applications to simplify troubleshooting
+Real User Monitoring (RUM) Monitor real-user interactions across your applications with pre-built visualizations and alerts, all powered by OpenTelemetry
+Automated Log-level Detection Quickly identify anomalies and drill down into high-severity logs in the log search histogram
+Reliability Management (SLIs/SLOs) Simple setup and monitoring of critical user journeys, error budgets and more using pre-built SLO dashboards
+Metrics-based SLOs Power your SLIs and SLOs using metrics
+Scheduled Alert Muting Pause alert notifications from monitors according to a schedule that you define
+Metrics Predict Operators Predict future time series metrics values using linear and auto-regressive models for resource and capacity planning
+OTel Data Onboarding Easily set up and configure native OTel data ingest and install relevant content to quickly derive insights for troubleshooting
+Automated Playbooks Build and execute automated playbooks tied to alerts with Sumo Logic&#8217;s Automation Service
+OTel for K8s Logs and Events Enable k8s OTel collection with Sumo Logic&#8217;s Helm Chart
+Package subscription cost vary based on specific subscription configuration details. &#8220;Unlimited&#8221; indicates there is no limit on volume that can be quoted; however, fees will vary based volume quoted.
+The following Product Variables(s) are available to the respective Eligible Service Plan(s). Activated Product Variables are confirmed on the Sumo Logic Order Form at the time of subscription transaction, based on minimum transaction requirements. Product variables that are not initially activated but are listed as available can be activated with an upgrade transaction upon request.
+* Note: The price per GB is calculated assuming Customer purchases: (1) an annual commitment to Sumo Logic Essentials; (2) ingesting an average of 1GB of log ingest per day; and (3) election of a US Deployment Region. Pricing may vary based on Deployment Region selected by Customer.
+** Note: Feature activation subject to minimum volume and service requirements confirmed at time of transaction.
+*** Note: Feature activation subject to minimum number of users, and service requirements confirmed at time of transaction.
+**** Note: Limited to four (4) API calls per section up to ten (10) concurrent in flight API requests at one time. Query processing limited to two (2) minutes before timing out. Standard API limits apply.
+Flex Pricing Estimate
+Has your data outpaced your budget?
+Get unlimited data ingest.
+$0 ingest
+Cloud-scale
+100% indexed readily available
+DevSecOps single source of truth
+What&#039;s your analytics usage profile?
+500-750 scans per GB ingested
+Ad-hoc investigation and troubleshooting
+Compliance and audit readiness
+Accelerating distributed DevOps and SecOps teams
+750-1500 scans per GB ingested
+Real-time analytics for app performance and security
+Continuous visibility into infrastructure and threats
+Scalable support for modern DevSecOps teams
+1500-2000 scans per GB ingested
+Enterprise-wide analytics across business-critical systems
+AI-driven detection, remediation, and automation
+100% visibility at cloud scale
+Enhanced security posture and application reliability
+Region:
+Select the AWS Region, where you want Sumo Logic to store your data. Please choose an appropriate region based on your data residency requirements.
+North America: US North America: Montreal Europe: Dublin Europe: Frankfurt APAC: Sydney Japan: Tokyo
+Estimated price per TB scanned
+&#8212;
+Terms and conditions apply. *The MSRP is calculated assuming Customer purchases: (1) an annual commitment to Sumo Logic Enterprise Flex; (2) configured based on the ingest, retention and analytic profile settings specified; (3) leverages Sumo Logic’s New Logo Onboarding Acceleration promotion, and (4) election of a US Deployment Region. Pricing may vary based on Deployment Region selected by Customer. Contact an authorized Sumo Logic reseller for pricing details. Minimum qualifications apply for the New Logo Onboarding Acceleration promotion.
+Contact Sumo Logic for full terms and conditions.
+FAQ
+Still have questions?
+What is a scan and what is scan volume? +
+Data scanning occurs when a Sumo Logic query is executed across log data (e.g. Log Search, Dashboards, Monitors). A data scan facilitates the query and retrieval process of a log search by traversing table items from beginning to end and assessing each item against specified values derived from the query. Scan volume is the total storage volume that is scanned on the platform. Data scanning offers a more efficient way to search for and access data and it can be used to quickly locate, access, and analyze data stored.
+What is a credit? +
+A credit is the unit of measure used to pay for Sumo Logic products and capabilities within your subscription. Rather than licensing individual products separately, credits give you a flexible pool of value that can be applied across platform capabilities based on how you configure them.
+Credit licensing is designed to maximize analytics ROI in three ways:
+Pay for what you use. Credits are consumed when billing unites are activated. You don&#8217;t need to license to worst-case scenarios or peak usage because credits reflect actual consumption.
+No arbitrary penalties. There are no cap penalties. Usage spikes are visible in your account dashboard, but they don&#8217;t trigger overage charges.
+Full flexibility. With a licensed pool of credits, you decide how to configure the platform to meet your current and evolving needs within the configuration you have licensed..
+For overall licensing definitions and details, click here .
+Is credit tracking real time or is there a 24-hour delay? +
+Tracking is real time. The Sumo Logic platform constantly tracks credit utilization as it happens. You immediately see the impact of your product usage and immediately see any significant spikes. There is no artificial 24-hour delay that impacts your ability to manage your account. You see it as it happens so there are no surprises.
+What is a DPM? +
+For billing and reporting purposes, data volume for metrics is measured in Data Points per Minute (DPM). DPM is defined as the average number of metric data points ingested per minute in one thousand increments. The per minute ingest is then averaged for a calendar day to get the average data points per minute for that day. The daily DPM average in one thousand increments is the unit of measure used to track metric ingestion for reporting and licensing within the Sumo Logic SaaS Log Analytics Platform.
+Does pricing impact performance? +
+No. You do not need to trade off price for performance. The model provides economics, allowing you to optimize data analytics as you see fit with no dependency on hardware. Sumo Logic&#8217;s SaaS Log Analytics Platform can easily scale based on your analytics requirements in order to maximize performance for ingest and query response.
+Do you charge for demand spikes, or charge penalties for increased use? +
+No. With credits, Sumo Logic does not charge after the fact for any ingest spike or increased usage at penalty rates. Unlike other market options, you do not need to pay or provision for peaks. You will never get surprised with on-demand/overage bills. Your credit utilization simply reflects the product used for that specific time.
+Is there a storage or data retention cost? +
+Yes. There is a nominal charge component to keeping data stored and secure within the Sumo platform. Typical customers retain data to cover the most common post-event analytic needs and those needs vary. With Sumo Logic, you only get charged on actual retention, which is configured directly by you for each data source configured in the platform.
+Can I pay via credit card? +
+Yes. Self-serve checkout lets Sumo Logic customers seeking small credit bundles to purchase directly within the trial experience and upgrade their account once it’s created. Start your free trial today!
+What are my buying options? +
+At Sumo Logic, we meet you where you are in your business. You can purchase credits directly with a credit card (up to $25,000) from our self-serve checkout in trial, we have sales team members available to support your larger goals, as well as an extensive partner network—including resellers, MSSPs, and technology partners—to help you integrate, optimize, and scale your observability and security solutions seamlessly. Ready to start exploring? Start your free trial .
+Are there additional pricing options beyond what’s listed here? +
+Yes! In addition to the plans shown on this page, we offer flexible self-service options for users looking to get started quickly. If you&#8217;re on a free trial, you can explore these plans in your Account Settings under Manage Plan and purchase directly via credit card.

@@ -1,0 +1,286 @@
+Pricing Plans
+Get started for free with our generous free plan. Paid
+plans unlock additional features. Sign up free, no credit card required.
+Monthly
+billing
+Yearly
+Free
+All the basics you need to get started
+$0
+Get
+Started
+What's included
+1 Status Page
+100 Subscribers
+Unlimited Manual Monitors
+Active Monitors at $1/month
+Incident Management
+Logs, Traces and Metrics
+5 Business Day Email Support
+No uptime SLA (best effort)
+Growth
+Advanced Workflows, Integrations, API Access and more included.
+$22
+14 day trial
+Everything in Free Plan
+Unlimited Status Pages
+Unlimited Subscribers
+On Call Rotation and Alerts
+5000+ Integrations
+API Access
+1 Business Day Email Support
+99.9% uptime target
+Scale
+SSO, Advanced Access Control, Better Support for your team.
+$99
+Everything in Growth
+Single Sign On (SSO)
+Unlimited Teams
+Advanced Access Control
+6 hour Chat or Email Support
+Dedicated Account Executive
+Deployed on Multi Cloud
+Enterprise
+Enterprise grade offering. The best of us for your team.
+Custom
+Please contact sales Please contact sales or request a demo. The best of us for the best companies around. We will quote a cusom price to match your needs.
+Request
+Demo
+Everything in Scale Plan
+Custom Features
+Dedicated Engineer
+1 hour Phone Support
+Custom Data Residency
+Custom Data Retention
+Private Cloud or SaaS
+Annual Invoicing
+Prefer to pay on your cloud bill? Buy OneUptime Cloud on
+AWS Marketplace (opens in a new tab) or Microsoft Marketplace (opens in a new tab) , at the same prices.
+See every marketplace &rarr;
+Pay As You Go
+Only pay for what you use. No commitments, scale up or down anytime.
+Active Monitoring
+Pricing for monitoring website, API, IP addresses and more. We pass on the cost of monitoring to you, so you can focus on your core business activities and maintain uptime.
+Monitor from multiple locations
+Monitor resource every minute
+Logs stored for 90 days
+Custom criteria for response body, headers, status
+Starting at
+$1
+per monitor per month
+Start Free Trial
+Select Number of Active Monitors
+1 Monitor
+If you have more than 100 monitors, contact [email&#160;protected] for a discount.
+Notifications
+Get instant alerts via SMS, WhatsApp, and phone calls when your monitors detect issues. Push notifications, app alerts, email, and webhooks are free.
+Instant SMS notifications
+Voice call alerts
+WhatsApp notifications
+Worldwide coverage
+Push notifications are free
+App alerts are free
+Email alerts are free
+Webhooks are free
+SMS Pricing
+$0.10
+per SMS sent
+WhatsApp Pricing
+per message sent
+Call Pricing
+per minute per call
+Bring Your Own Twilio
+Connect your own Twilio account and pay nothing to OneUptime for SMS and Call alerts. You only pay Twilio directly at their rates.
+Pricing may vary for high-risk regions. Contact support for details.
+Telemetry: Logs, Traces and Metrics
+We charge $0.10 for every GB of data ingested (for 15 day retention). It's the lowest in the industry and 8X cheaper than DataDog.
+Ingest logs, traces and metrics
+Custom data retention
+Search TB's of data in seconds
+Native OpenTelemetry support
+per GB ingested (15 day retention)
+GB's ingested per month
+1 GB
+If you are ingesting more than 1 TB of data every month, contact [email&#160;protected] for a discount.
+Data Retention (in days)
+15 Days
+If you're looking for data retention of more than 6 months, contact [email&#160;protected] for a discount.
+AI
+Leverage AI to automatically analyze incidents, suggest resolutions, and help your team respond faster. Powered by advanced LLMs to provide intelligent insights.
+Incident analysis & insights
+Root cause suggestions
+Automated runbook generation
+Log analysis & anomaly detection
+LLM Token Usage
+$0.02
+per 1,000 tokens
+Equivalent to $20 per 1M tokens
+Estimated tokens per month (in thousands)
+100K tokens
+If you need more than 10M tokens per month, contact [email&#160;protected] for volume pricing.
+Bring Your Own LLM Provider
+On the Growth plan and above, connect your own LLM provider (OpenAI, Anthropic, or others) and OneUptime charges nothing for the tokens it uses. You only pay your provider directly at their rates.
+Powering thousands of teams from startups to the Fortune 500
+OneUptime is 10+ tools combined into one.
+With OneUptime, you get a complete SRE
+toolchain out-of-the-box. One interface. One conversation. One permission model. Thousands of features.
+You'll be amazed at everything OneUptime can do today. And we're just getting started.
+Status Page
+Status Page helps you be more transparent with
+your customers and showcase reliability. Communicate status, gain trust and increase revenue.
+Protect revenue and improve customer experiences
+by resolving critical incidents faster and preventing future occurrences.
+Monitoring
+Analyze uptime & performance of your resources.
+Improve poorly performing resources. Get alerted by SMS, Email or Call when things go wrong.
+On-Call & Alerts
+Get instant phone, email, and SMS alerts when
+resources are not operational. Alert the right people at the right time.
+Error Tracking
+Track errors in your applicaton. See issues that really matter. Fix errors with AI-generated pull requests (powered by OneUptime AI)
+Logs Management
+Ingest logs from any source and search in seconds. Native OpenTelemetry Support. Ingest TB's and search in seconds.
+APM
+Monitor performance of any app, any service, any stack.
+Workflows
+Integrate with any software or service. Drag and drop workflows. Supports webhooks and APIs. 5000+ integrations. Write custom code.
+All the basics you need to get started.
+Feature
+Included
+Public Status Page
+Subscribers
+100
+Custom Branding
+SSL Certificate
+Custom Domain
+Private Status Page
+Private Status Page Users
+Basic Incident Management
+Public Postmortem Notes
+Private Postmortem Notes
+Incident Workflows
+Custom Incident State
+Custom Incident Severity
+Static / Manual Monitors
+Website Monitoring
+API Monitoring
+Synthetic Monitoring (with Playwright)
+IPv4 Monitoring
+IPv6 Monitoring
+Inbound Webhook / Heartbeat Monitoring
+VM or Server Monitoring
+Network Monitoring
+Container Monitoring
+Coming Soon
+Kubernetes Cluster Monitoring
+On-Call and Alerts
+SMS Alerts
+$0.10/SMS
+WhatsApp Alerts
+$0.10/message
+Phone Call Alerts
+$0.10/min
+Push Notifications
+App Alerts
+Email Alerts
+On-Call Escalation
+On-Call Rotation
+Advanced Workflows
+Logs and Events
+Webhook Alerts
+Vacation and OOO Policy
+On-Call Pay
+Reports
+Ingest with OpenTelemetry
+Ingest with Fluentd
+Ingest +1000 Sources
+Application Logs
+Container Logs
+Data Retention
+15 days
+Advanced Team Permissions
+Telemetry / APM
+Metrics
+Traces
+Security Events (SIEM)
+Ingest Pricing
+$0.10/GB
+Track Errors and Exceptions
+Cross Microservice Issues
+Distributed Tracing
+Stack Traces
+Version Management
+LLM Token Pricing
+$0.02/1K tokens
+Bring Your Own LLM
+Incident Analysis & Insights
+Root Cause Suggestions
+Automated Runbook Generation
+Log Analysis & Anomaly Detection
+Fix Errors Automatically
+Integrate with GitHub, GitLab
+Integrate with Slack / Teams
+Support and More
+Support
+Email Support
+Support SLA
+5 business day
+Service SLA
+No SLA (best effort)
+Advanced Features
+Billing
+Billing Period
+Payment Method
+Cancel Anytime
+Try
+14 days free
+Unlimited
+1 business day
+99.9%
+500 Runs / month
+Monthly or Yearly
+Visa / Mastercard / Amex / Bitcoin
+Email and Chat Support
+6 hours
+2000 Runs /month
+/yr
+Email, Chat, Phone Support
+1 hour priority
+99.95%
+Unlimited Runs
+Visa / Mastercard / Amex / ACH / Invoices / Bitcoin
+Pricing plan comparison
+Feature by
+Plans
+Pricing
+Advanced Workflows, Integrations, API Access and more
+included.
+Free for 14 Days
+SSO, Advanced Access Control, Better Support for your
+team.
+Enterprise grade offering. The best of us for your
+Choose your plan
+Frequently asked questions
+Do you have discounts for non-profits /
+open-source?
+No. The Apache 2.0 Community Edition is free to self-host, at any scale. On our SaaS service everyone pays the same published price. You pay, we keep the lights on.
+Can I cancel anytime?
+Yes. You can cancel anytime.
+What are accepted payment methods?
+Visa / Mastercard / AmEx. Invoice payment available for
+Enterprise customers. We also support payments in Bitcoin . If you choose to do so, please send us an
+email to [email&#160;protected] and we will send a lightning invoice.
+Do I get a 14-day free trial if I upgrade an
+existing account?
+If you upgrade from an existing account you are not
+eligible for the 14-day free trial. The 14-day free trial only applies when you sign up for a new
+paid account.
+How do discounts work?
+Annual billing is discounted against monthly billing &mdash; the annual price for each plan is shown in the table above. You can upgrade an existing plan to annual billing at any time. Volume discounts are available on high monitor counts, high telemetry ingest, and extended retention; contact us for a written quote.
+What happens to API keys and SCIM if I move to a lower
+plan?
+API keys need the Growth plan and SCIM provisioning needs
+the Scale plan. On a lower plan, requests made with your API keys are refused, and your identity
+provider can only remove people through SCIM: adding or changing people is refused until you
+upgrade again. Nothing is deleted &mdash; both work fully again as they are as soon as you are back
+on the plan.

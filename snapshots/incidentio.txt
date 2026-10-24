@@ -1,0 +1,145 @@
+Cheaper than downtime
+Whether you’re a startup, global enterprise, or somewhere in between, incident.io is designed to save you time and money.
+Basic
+Free
+Forever
+Everything you need to get started with incident management
+Slack or Microsoft Teams native incident response
+Single team on-call
+Status page
+Essential incident automation
+Available on Slack
+Teams
+Get started with Basic
+Team
+Annual discount
+$ 19
+$ 15
+Per user / month
+For Incident Response
+All-in-one incident management for smaller teams
+Slack & Teams native incident response
+Multi-team on-call and alerting
+Workflows
+On-call
++ $ 10 per user / month
+Get started with Team
+Pro
+$ 25
+Powerful end-to-end incident management for growing teams
+Everything in Team, plus:
+Advanced insights & custom dashboards
+Customizable post-incident process & postmortems
+Private incidents and policies
++ $ 20 per user / month
+Talk to an expert
+Enterprise
+Let's talk
+Our team will put together a custom proposal to suit your needs
+Advanced incident management for enterprise-wide deployment
+Everything in Pro, plus:
+Dedicated customer success manager
+Advanced access control & multiple environments
+Enterprise security & compliance
+99.99% uptime SLA
+Looking for on-call only?
+You can purchase on-call as a standalone product.
+Alerts routing, grouping & insights
+Flexible schedules, with shadow rotations and holiday calendars
+Cover requests and overrides
+Best-in-class migration support
+$ 20 Per user / month
+Compare plans
+Basic Basic Team Pro Enterprise Compare plans
+Get started
+Response
+Slack/Teams support
+Custom Fields
+1 3 Unlimited Unlimited
+Suggestions ✨
+Scribe ✨
+Post-mortems Editor
+Basic Basic AI Native AI Native
+Multiple post-mortem documents
+Custom Post Incident Flow
+Custom Incident Types
+Advanced Insights
+Custom Dashboards in Insights 3 Unlimited
+Response policies
+1 Unlimited
+Multiple streams
+Alert routing and grouping
+Schedules
+1 Schedule 2 Schedules Unlimited Unlimited
+Sync to Slack User Groups
+Cover requests and schedule overrides
+Shadow scheduling
+Holidays in schedules
+WhatsApp escalations
+Live call routing
+1 number 5 numbers
+Send calls to voicemail
+Phone trees (IVR)
+Alert insights
+On-call policies
+Compensation calculator
+Readiness reports
+Maintenance windows
+Heartbeats
+Investigations requires Response
+Root cause analysis
+Available as add-on Available as add-on
+Autonomous agent
+Nexus data sources
+Status Pages
+Page subscribers Unlimited Unlimited Unlimited Unlimited
+Custom domain
+Public pages 1 1 1 Unlimited
+Internal pages
+Customer pages
+Unlimited
+Metrics
+Sub-pages (multi-region, multi-product)
+Platform Features
+Integrations
+2 Unlimited Unlimited Unlimited
+HRIS integrations
+Nexus
+Catalog Basic Types Basic Types Custom Types Custom Types
+AI agent ✨
+MCP
+API & Webhooks
+Sandbox Environment
+Private Incidents, Alerts & Escalations
+Slack Enterprise Grid support
+Security
+SOC2 Report
+HIPAA Compliant
+Authentication SSO SSO SSO + SAML SSO + SAML + SCIM
+User Roles Basic Basic Basic Custom RBAC
+Team Roles
+Audit logs
+Technical Support and Success
+Help Center
+Community support
+Email support
+Dedicated Slack channel
+Customer Success Manager Shared Designated
+Live phone support
+“ If I could point to the single most impactful thing we did to change the culture at Airbnb, it would be rolling out incident.io and democratizing incident response. ” Nils Pommerien
+Director, SRE
+“ In the time that it had taken us to get one vendor to respond to our product feedback, incident.io had shipped four features we requested. Internally, we had a meeting, and I think we said something like, 'Wow, they are super hungry'. ” Jeremy Tinley
+Principal Systems Architect
+See how Etsy uses incident.io
+“ incident.io saves us hours per incident when considering the need for us to write up the incident, root cause and actions, communicate it to wider stakeholders and overall reporting. ” Braedon Gough
+Site Reliability Engineer
+See how Pleo uses incident.io
+“ One of the improvements that incident.io has brought to our incident response processes is the reduction of that cognitive overload. It’s one tool … It's in the same context. ” Adrián Moreno Peña
+VP of Engineering
+See how SumUp uses incident.io
+“ We wanted something that had the UX and ease of use that an engineer across Netflix could pick it up, could run with it and didn't need explicit training... even if it's 3AM, it's the first time and it would just feel natural. ” Hank Jacobs
+Staff Site Reliability Engineer
+See how Netflix uses incident.io
+“ The team behind the product are excellent. Being able to speak directly with Product Owners & Engineers makes a world of difference in our partnership with incident.io ” John Paris
+Principal Systems Engineer
+View all customer stories

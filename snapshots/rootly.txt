@@ -1,0 +1,165 @@
+Incidents are full of surprises. Your bill isn’t.
+One price per product, everything you need to run agentic incident response, and a team that works with you from day one.
+Incident Response
+Run incidents in Slack, Teams, or Google Chat.
+$20
+per user / month
+Book a demo Always included
+@Rootly in Slack, Web, Mobile
+AI Related Incidents and timelines
+AI Scribe and Retrospectives
+Insights, Workflows, Catalog
+Integrate with MCP
+On-Call
+Route alerts and page the right person.
+Paging in Slack and Teams
+AI suggested coverage
+Related alert grouping
+Rotations built in minutes, with holidays, PTO, and shadowing
+Mobile shift swaps and overrides
+AI SRE
+Agents that find the cause and draft the fix.
+Let’s talk
+Requires Incident Response
+Talk to an expert Always included
+Probable root cause, with evidence
+Autonomous Agents
+Remediation steps and draft PRs
+AI connectors and MCP
+Integrate with Claude, Codex, others
+Enterprise
+Any mix of products, priced for your org.
+Custom
+volume pricing
+Talk to an expert Everything, plus
+SCIM and audit logs
+Status Pages and unlimited schedules
+Bring your own AI key and custom data retention
+Private incidents and advanced workflows
+Dedicated success team and priority 24/7 support
+Bring all three together.
+Ask about bundle pricing.
+Startup program
+Build, pivot, grow, and ship reliably with the entire Rootly platform at a fraction of the cost.
+Apply
+Up to 50% off
+< 100 employees
+< $50m raised
+< 5 years in business
+Pay what you can
+< 25 employees
+Including
+Trusted by startups and enterprises alike.
+“I’ve deployed Rootly at two companies now, because I know what great incident management looks like and this is it.” Nigel Wright Director of Platform Engineering, Auror “We migrated 1,000+ users in days. All our users had to do was link their Slack and download the mobile app. That’s it. We didn’t miss a beat.” Paul Van Liew Director of Platform Engineering, Motive “We moved ten years of incident tooling to Rootly in two weeks, and now the whole company can take part.” Saag Patel Head of Platform, UNiDAYS
+01 Every plan
+Build your process
+You get an opinionated starting point with smart default workflows, retrospective templates, AI Instruction best practices, and Rootly Academy training.
+02 Every plan
+Migrate off your current pager
+Our migration team imports your schedules, escalation policies, and users, handles the edge cases an importer would skip, and runs both tools side by side until you switch.
+03 Every plan
+Run incidents across your orgs
+A dedicated success team, a private Slack channel with us, and a training plan built around how your org actually runs incidents.
+A separate add-on for every AI feature AI agents at every stage of the incident lifecycle
+Buying products you don’t need Incident Response and On-Call each work on their own
+Status pages sold as a separate product Beautiful Status Pages included with Incident Response
+Guesswork when budgeting for your responders Incident Response and On-Call each start at $20 per user / month
+Rebuilding every schedule by hand to switch A tailored and proven migration that avoids any downtime
+Feature comparison by product Incident Response $20 per user / month On-Call $20 per user / month AI SRE Let’s talk Enterprise Custom
+@Rootly AI Agent
+AI Related Incidents
+AI Scribe Agent
+AI Retrospectives
+Response with Slack
+Response with Google Chat
+Response with Microsoft Teams
+Playbooks and Runbooks
+Incident Roles
+Action Item Tracking
+Retrospective Processes Smart Default Custom
+Reminders and Nudges
+Maintenance Incidents
+Communications Module
+Custom Fields
+Custom and Dynamic Forms
+Custom Incident Types
+Custom Incident Status
+Private Incidents
+Enterprise Slack Grid
+Alert Grouping and Noise Reduction Basic Advanced
+Alert Routes
+Alert Sources (Sentry, Datadog, Prometheus, etc.)
+SMS, Voice, Push, Bypass DnD
+Live Call Routing (incl. Call Routing Tree) 1 number 5 numbers
+Heartbeats
+Schedules and Escalation Policies 20 Unlimited
+Dynamic Escalation Paths
+Shadow Rotations
+Holiday Calendars and PTO
+Overrides
+Request Coverage
+Schedule Gap Detection and Fallback
+On-call Readiness Reports
+On-call Pay Calculator
+Sync to Slack User Groups
+Slack Native On-Call
+Custom Alert Fields and Labels
+Support for China
+99.99 % Reliability
+Identify probable root cause with supporting evidence
+Correlate alerts with changes (deploys, configs, etc.)
+Generate impact analysis with related incidents
+Draft remediation steps and PRs with suggested fixes
+Suppress alert noise and page the right responders
+Feedback for training and personalization
+Status Pages
+External status pages 1
+Internal status pages 1
+Components: services, functionalities and third-party
+Custom domain names
+Page authentication (password or SAML)
+Status update templates
+Publish updates from Slack or web
+Status Page API
+Platform and extensibility
+Rootly AI, across the whole incident lifecycle
+BYO AI Key (OpenAI, Anthropic, Gemini)
+API, CLI, Webhooks, and MCP
+Catalog
+Advanced Metrics & Insights
+Metric Dashboards Smart Default Smart Default Smart Default Custom
+Workflows Basic Basic Basic Advanced
+Integrations (Jira, Confluence, Zoom, Backstage etc.)
+Terraform Provider
+iOS and Android Mobile App
+Teams
+Organizations 1 1 1 Unlimited
+RBAC Built-in Built-in Built-in Custom
+Authentication SSO + SAML SSO + SAML SSO + SAML SSO + SAML + SCIM
+SOC2, GDPR, CCPA, BAA
+Data Export
+Native Secrets Management
+Custom Data Retention & Session Timeout
+Audit Logs
+Microsoft 365 (Sharepoint, Outlook, Teams)
+Migration and support
+PagerDuty and Opsgenie Migration
+Dedicated Private Support Channel
+Dedicated Success Manager
+Incident Management training with Rootly Academy
+Dedicated Success Team
+Priority 24/7 Global Support
+Tailored Training Plan and Resources
+You and your teams deserve modern incident management.
+Book a demo
+Is Rootly available on the AWS Marketplace to purchase? Yes, for faster procurement with pre-approved legal, security, and prices that contribute directly to your EDP spend, Rootly is available on the AWS marketplace .
+Does Rootly have discounts for startups? Yes, Rootly has a couple programs for startups:
+1. If your startup is < 100 employees, has raised < $50m, and has been in business for < 5 years, Rootly has special discounts for you to save up to 50%.
+2. If your company is < 25 employees you pay Rootly what you can.
+Can I change my plan later? Yes, you can always upgrade your plan or add more users at any time.
+What does it cost to use more than one product? Prices are additive. Incident Response is $20 per user, per month and includes Status Pages; adding On-Call is another $20, so both together is $40 per user, per month. AI SRE is an additional product that requires Incident Response, and Enterprise includes it. Talk to us about pricing.
+Does Rootly offer discounts for bundling Incident Response, On-Call, and AI SRE? Yes, Rootly does offer discounts when you purchase IR, OC, and AI SRE together. For the best incident management experience we actually recommend it.
+Can Incident Response and On-Call be purchased and used standalone? Yes, Incident Response and On-Call each work independently within your stack, and Status Pages is included with Incident Response. AI SRE is the exception: it runs on the Rootly platform alongside them rather than being sold on its own.
+Is Rootly AI a set of features, or a platform? A platform. One engine and one chat surface run underneath Incident Response, On-Call, Status Pages, and AI SRE—rather than each product carrying its own bolt-on. It reads your catalog, telemetry, code, and incident history, you can point it at your own OpenAI, Anthropic, or Gemini keys on Enterprise, and you can drive it from the API, CLI, webhooks, and MCP.
+Is my data secure with Rootly? Yes, Rootly is SOC 2 Type II, GDPR, CCPA, and HIPAA compliant. See Rootly’s security page to learn more.
+How long is my trial? Typically your trial will last two weeks. We’re here to work with you every step of the way so we can always extend it if needed.

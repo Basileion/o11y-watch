@@ -1,0 +1,113 @@
+Pricing | Parseable
+Download Parseable Cloud
+Fastest way to Production,
+while Controlling your Cost
+You own the project, we handle the infra.
+No GMV-tax or special licenses.
+Download now Schedule a demo
+Open source. Free as in freedom.
+Includes:
+SQL query and dashboards.
+Threshold alerts, OIDC SSO, unlimited users.
+Customizable retention and object storage.
+Pay as you go. Best for fast-growing teams.
+365 days retention.
+99.999% uptime.
+AI-native analysis, anomaly detection, unlimited users, dashboards, alerts, and API access.
+Data sovereignty. Dedicated support.
+Includes everything in Cloud and:
+Premium support with dedicated SLA.
+Flexible deployment options: self-hosted, private cloud, or hybrid.
+Custom partitioning, multi-tenant cluster, audit logging.
+Data residency & sovereignty options.
+Scroll to detailed comparison ↓
+Reduce your telemetry bill by up to 80%
+Parseable offers predictable ingestion-based pricing with AI included. Calculate your savings below.
+What is Daily ingestion?
+TB
+What is your Retention period (months)?
+What is the primary use case?
+What is your deployment method?
+Parseable cloud BYOC Self hosted
+Request a detailed proposal
+Estimated monthly cost
+$ 117,000
+Send me a detailed proposal
+Compare plans
+OSS Cloud Enterprise
+Platform features
+SQL query
+Dashboards
+Threshold alerts
+OpenID Connect (SSO)
+Unlimited users
+Role-based access control (RBAC)
+Scalability
+PromQL query
+High availability cluster
+Smart cache
+AI agent observability
+Automatic error tracking
+APM with service view
+Alerts with PromQL
+Custom partitioning
+Multi-tenant cluster
+Audit logging
+Bring Your Own (Cloud, LLM, OAuth)
+Data residency & sovereignty
+AI native intelligence
+Keystone — natural language Q&A
+Anomaly detection alerts
+Forecasting alerts
+AI SQL generation
+Summarization
+Support
+Community (Slack, GitHub)
+Architecture & design support
+24×7 product support via portal
+Dedicated SLA
+Ingestion agent management
+Infrastructure
+Deployment environment
+Dedicated
+Retention
+Customizable, unlimited with BYOC
+Object storage
+Bring your own bucket
+Compare
+plans
+OSS
+Download on GitHub
+Cloud
+Try Parseable Cloud
+Enterprise
+Book a call
+Groups not supported
+Only 1 query node supported
+Self-managed
+Shared
+Customizable
+365 days included
+Parseable managed
+Your data is safe
+Keep complete ownership of your telemetry with enterprise-grade controls, open formats, and deployment options designed for security-conscious teams.
+GDPR
+Certified
+SOC 2
+Type II
+Learn more about security
+Frequently asked questions?
+Take a moment to explore our Frequently Asked Questions section, where you can discover useful information and find answers to all your inquiries.
+Reach out to us
+What are the key features of Parseable?
+Parseable unifies logs, metrics, and traces in one open observability platform. Teams get SQL and natural-language querying, dashboards, alerts, access controls, forecasting, and object-storage-native data management.
+View all features
+How does Parseable improve team collaboration?
+What security measures protect user data?
+Can Parseable fit specific business needs?
+Can I use my existing observability stack?
+See your data in a new light
+Parseable unifies telemetry data and keeps full-fidelity data queryable. It all lives in open formats on object storage with your complete control and ownership.
+$ curl -fsSL https://logg.ing/install | sh Copy
+Setup with Agents
+Start evaluating Talk to a human

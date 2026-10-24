@@ -1,0 +1,75 @@
+Reliability. At Any Cost.
+Pro
+Modern on-call and incident response
+Starts at:
+$ 15
+per user/month, billed annually
+Start Free Trial Fully functional for 14 days
+Includes:
+Role-Based Access Control
+Custom Integrations via API
+Knowledge Base
+Unlimited Email and Push
+SMS and Voice Notifications (Worldwide)
+Schedules and Escalations
+Incident Notes
+Response Actions
+Basic Event Intelligence
+Incident Watchers
+Tagging and Routing Rules
+Postmortems With Templates
+Automation Rules
+Mobile App (iOS and Android)
+Premium
+Rapid and secure incident management
+$ 24
+Everything in Pro, Plus:
+Stakeholders and Customer User Roles
+1 Year Data Retention
+Unlimited SMS and Voice Notifications (Worldwide)
+Advanced Escalations
+Delayed Notifications
+Exportable and Editable Incident Timelines
+Service Graph
+Custom Content Templates
+Webforms
+Runbooks
+Incident Workflows
+Outgoing Webhooks
+SLO Tracker
+Status Pages
+Enterprise
+Incident response and reliability at scale
+Let’s Chat
+Custom pricing for enterprise-grade, AI-powered incident management at scale
+Everything in Premium, Plus:
+Unlimited Data Retention
+Intelligent Alert Grouping
+Auto Pause Transient Alerts
+Past Incidents
+AI-Generated Incident Summaries
+Audit Logs
+Incident Suggestions
+ServiceNow Bidirectional Sync
+Live Call Routing [Add-On]
+Compare Plans
+Frequently Asked Questions
+How many notifications are included in my account?
+Below are the notification limits for different plans.
+Pro: You’ll be charged as follows:
+For U.S., India, and Brazil: # of users x 100 free notifications (SMS + voice combined). Extra notifications can be availed at $0.1 per additional SMS or call.
+For the rest of the world: # of users x 25 free notifications. Extra notifications can be availed at $0.35 per additional SMS or call.
+Premium: Unlimited
+Enterprise: Unlimited
+Do you support international SMS and voice notifications?
+Yes, we support international SMS and voice notifications.
+Is your product compliant with industry-standard security regulations?
+Yes, SolarWinds maintains compliance with a range of industry-standard security and regulatory frameworks. Detailed information regarding its security controls, certifications, and compliance initiatives is available through the SolarWinds Trust Center: SolarWinds Trust Center
+What will be the charge for stakeholders?
+SolarWinds ® Incident Response supports stakeholder licenses only on the Premium and Enterprise plans. With the Premium plan, you can add up to 10 stakeholders at no extra charge, while our Enterprise plan allows unlimited stakeholders at no additional cost.
+How does the 14-day trial work?
+On the Trial plan, you will have access to all SolarWinds Incident Response features for 14 days. The notification limit is 100 (Phone + SMS combined).
+What are the different user types?
+Account owners: SolarWinds Incident Response allows only one Account Owner per organization. An Account Owner has all privileges within that organization and, by default, is also responsible for the billing of the account.
+Users: By default, Users have the ability to customize their profile and notification rules, and respond to and resolve incidents. Typically, Users are engineers, site reliability engineers, systems engineers, or anyone on the team who handles incident management and on-call.
+Stakeholders: Stakeholders have view-only access to all incidents. So, Stakeholders are not notified by default for any of the incidents created in SolarWinds Incident Response.

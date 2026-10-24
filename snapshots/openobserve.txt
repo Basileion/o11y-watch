@@ -1,0 +1,115 @@
+Up to 8x more cost efficient vs Datadog Finally, an observability platform
+with transparent pricing
+No hidden tiers, no surprise bills - try it free for 14 days.
+Cloud Self Hosted
+Most Popular Cloud Professional
+Fully managed cloud, pay-as-you-go
+$0.50 /GB ingested + $0.01/GB queried · billed monthly
+Start 14-Day Free Trial
+Logs, Metrics, Traces, RUM, Session Replay, Error tracking
+Ingestion $0.50 per GB*
+Query $0.01 per GB
+Included Retention
+Metrics 15 Months
+Non metrics (Logs, Traces and etc.) 30-Days
+*Includes 30% discount for annual commitment
+Enterprise
+Custom scale & compliance
+Custom volume discounts, BYOB
+Talk to Sales
+Additional Retention for non-metrics data
+Infinite retention - BYOB (Bring your own bucket)
+Pipelines
+Sensitive Data Redaction
+AI-Powered Observability
+Incident Management & AI SRE Agent
+AI Assistant
+Audit Trail
+Unlimited Users
+Single Sign-On (SSO)
+Role-Based Access Control (RBAC)
+Premium support
+Deployment flexibility (Public Cloud, or Bring Your Own Cloud)
+Architecture reviews
+Volume discounts
+SLAs
+Estimate your monthly cost
+Drag to your daily ingestion volume - no card required to see the number.
+Daily ingestion 1 GB/day
+Datadog (est.)
+$140 /mo
+OpenObserve Cloud
+$15 /mo
+You save
+89%
+Detailed Bill Analyzer
+Why teams switch
+How OpenObserve compares
+Feature OpenObserve Datadog Splunk Dash0
+Pricing model Per GB ingested Per host + per GB License-based Per signal (spans, logs, metrics)
+Per-seat fees None Yes Yes None
+Storage cost vs. Elasticsearch Up to 140x lower - - -
+Typical monthly cost 4–8x lower Baseline Often higher Higher at volume
+Open source core Yes, AGPL-3.0 No No No
+OpenObserve vs Datadog OpenObserve vs Splunk OpenObserve vs New Relic OpenObserve vs Dash0
+Other comparisons
+Testimonials What teams say running OpenObserve
+Correlate between the environments and signals across various sources with OpenObserve built-in correlation engine.
+“OpenObserve helped us migrate from Datadog in under an hour... reducing observability costs by 4x.”
+4x
+Lower observability cost
+< 1 hour
+Migrated off Datadog
+Flat pricing
+No month-end surprises
+“Today, I think we run our entire production logs through OpenObserve... it's been a phenomenal journey so far.”
+~1TB/day
+Ingested at scale
+IoT logs
+Large-scale telemetry
+Production
+Entire prod logs on O2
+“The costs only seem to be skyrocketing... OpenObserve solves that by keeping the entire cost contained.”
+Day one
+Immediate cost savings
+3 clouds
+GCP, AWS & Azure unified
+Drop-in
+OTel & StatsD, no rework
+Pricing FAQs
+Does OpenObserve offer a free trial?
+Yes. OpenObserve Cloud offers a 14-day free trial on the Pay As You Go plan - no credit card required to start. For self-hosted deployments, the Open Source edition is free forever, and the Self-Hosted Enterprise edition is free for up to 50 GB of ingestion per day.
+What data retention is included by default?
+The Cloud Pay As You Go plan includes the following default retention at no extra cost:
+Metrics : 15 months
+Logs, Traces, RUM, and other non-metrics data : 30 days
+You can extend non-metrics retention at $0.02 per GB per additional 30-day period.
+How much does additional data retention cost?
+Additional retention for non-metrics data (logs, traces, RUM, etc.) beyond the default 30 days costs $0.02 per GB for each additional 30-day period. Metrics retention of 15 months is included at no extra charge.
+What is Infinite retention with BYOB (Bring your own bucket)?
+On the Cloud Enterprise plan, you can bring your own object storage bucket (such as Amazon S3, Google Cloud Storage, or Azure Blob Storage) and retain your data for as long as you want. Since the data lives in your own bucket, you pay your cloud provider directly for storage and keep full ownership and control of your data, with no retention limits imposed by OpenObserve. Contact the OpenObserve sales team to enable BYOB for your organization.
+How are AI-powered features priced?
+AI-powered features are free during preview. You get 20 credits to play:
+Incident Management and AI SRE Agent : Automates incident detection, root-cause correlation, and remediation suggestions.
+AI Assistant : Provides natural-language querying and intelligent insights across your observability data.
+Credits are consumed based on the number of AI operations performed.
+Are there limits on users, dashboards, or alerts?
+No. All OpenObserve Cloud plans include unlimited users with no per-seat charges. There are no limits on the number of dashboards, alerts, or data sources you can create.
+Does the Self-Hosted Enterprise plan cost anything?
+The Self-Hosted Enterprise plan is free for up to 50 GB of ingestion per day. This tier includes enterprise features such as SSO (Single Sign-On), RBAC (Role-Based Access Control), federated search, query management, workload management (QoS), audit trail, and sensitive data redaction. For ingestion volumes above 50 GB per day or additional enterprise support, contact the OpenObserve sales team.
+Is Single Sign-On (SSO) available on all plans?
+SSO is included on the Cloud Pay As You Go plan and the Self-Hosted Enterprise plan at no additional cost. It allows teams to authenticate using existing identity providers such as Okta, Azure AD, or Google Workspace, reducing credential management overhead.
+Can I switch between Cloud and Self-Hosted deployments?
+Yes. You can migrate between Cloud and Self-Hosted deployments at any time. Cloud provides fully managed infrastructure with no operational overhead, while Self-Hosted gives you complete control over data residency and the deployment environment. The OpenObserve team can assist with migration planning and data transfer.
+Are discounts available for startups, non-profits, or educational institutions?
+Yes. OpenObserve offers special pricing for eligible startups, non-profit organizations, and educational institutions. Enterprise plans also include volume discounts for high-usage customers. Contact the OpenObserve sales team at openobserve.ai/contact-sales to discuss eligibility and apply for discounted pricing.
+How does OpenObserve pricing compare to Datadog?
+Datadog charges per host plus per GB for log ingestion, which can result in bills 4–8x higher than OpenObserve. OpenObserve charges $0.50/GB for ingestion with no per-seat or per-host fees and includes unlimited users on all plans. See the full feature and pricing breakdown on our OpenObserve vs Datadog comparison page.
+Is OpenObserve cheaper than Splunk?
+Yes. Splunk pricing is typically license-based and can cost tens of thousands of dollars per year, with additional charges for data volume. OpenObserve Cloud starts at $0.50/GB ingested with a 14-day free trial and no upfront commitment. See a detailed breakdown on our Splunk alternative page.
+How does OpenObserve compare to New Relic?
+New Relic charges per user (up to $549/month per full-platform user) plus data ingest fees after a free tier. OpenObserve includes unlimited users on all plans with a straightforward per-GB ingestion model and no seat-based pricing. See the full comparison on our New Relic alternative page.
+Ready to get started?
+Try OpenObserve today for more efficient and performant observability.
+Get Started For Free
+Schedule Demo

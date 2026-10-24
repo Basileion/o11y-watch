@@ -1,0 +1,224 @@
+Yearly
+Monthly
+Choose your plan
+Freelance
+Monitor up to 10 sites & servers
+€49
+/mo
+Get 2 months free · billed annually
+billed monthly
+Start my free trial
+Most popular
+Studio
+Monitor up to 25 sites & servers
+€99
+Agency
+Monitor up to 50 sites & servers
+€149
+Every plan starts with a 10-day free trial. No credit card needed.
+All plans
+Same features, every plan. Pick your size.
+Plan
+Sites Sites & servers
+Price
+Solo
+€15 /mo
+Start trial →
+Solo Plus
+€29 /mo
+10
+€49 /mo
+25
+€99 /mo
+50
+€149 /mo
+Agency Plus
+75
+€199 /mo
+Portfolio
+100
+€249 /mo
+Portfolio Plus
+150
+€329 /mo
+Scale
+200
+€399 /mo
+Enterprise
+200+
+Custom
+Talk to us →
+Prices in EUR, ex. VAT · 30-day money-back guarantee · cancel anytime
+Why pay for six tools when one will do? Oh Dear replaces your uptime monitor, status page, SSL checker, broken-link crawler, DNS watcher, and cron monitor.
+One bill, one login.
+Why teams pick Oh Dear
+No false alarms
+We run Oh Dear on Oh Dear, so we&#039;d rather sleep through false alarms too. Every alert is verified from a second location first - and every feature is one we wanted for ourselves.
+No blind spots
+Uptime, SSL, performance, links, DNS, cron, and status pages in one place. The gaps between separate tools are where outages hide.
+Enterprise-grade from day one
+Single sign-on, two-factor, and multi-user access are on every plan. Security is never an upsell here.
+Boring, reliable, still here
+We&#039;ve been monitoring sites for years, for teams like HBO, Stanford, and Laravel.
+Everything's included. On every plan.
+No feature is locked behind a higher tier - not single sign-on, not two-factor, not unlimited users, status pages or notification destinations. The only thing that changes between plans is how many sites you monitor.
+Website monitoring
+Uptime monitoring
+Broken links & mixed content
+Performance & Lighthouse
+Sitemap monitoring
+AI-powered checks
+Servers & network
+Ping monitoring
+TCP port monitoring
+Port scanner
+Application health
+Scheduled tasks (cron)
+Certificates & DNS
+SSL certificate health
+DNS records
+DNS blocklist
+Domain expiration
+Alerting
+Powerful notifications
+All 3rd party integrations
+Monthly email reports
+Status pages
+Public status pages
+Subscriber notifications
+Security & teams
+Single Sign-On (SSO)
+Two-factor authentication
+Unlimited users
+User roles & permissions
+Platform
+Full API
+No setup or hidden fees
+Friendly human support
+Trusted by teams at
+Bitmovin
+HBO Nordic
+Obsidian
+Laravel
+Fathom Analytics
+PHP 8
+Stanford University
+Takeaway.com
+IGN
+VRT NWS
+spatie
+For agencies
+Monitoring a whole roster of clients?
+Oh Dear is built to sit behind your agency, watching every client's sites without any of them ever knowing we're there. It's all in the standard plans, priced by how many sites you're watching. No agency tier, no per-client fees.
+All your clients, one account. Group each client's sites together, send them their own monthly reports, and give read-only access to just the sites that are theirs.
+Your brand, numbers they can trust. Your own logo and domain go on the status page, but the uptime is measured by Oh Dear - an independent service. Your clients trust the numbers because they don't come from you.
+Look like the expert. All the tools to confidently monitor a client's site, so you know it's online, working, and fast.
+One price per site, everything included. Uptime, SSL, broken links, Lighthouse, DNS, and cron all come standard, so there's no set of separate tools to combine. And every plan has unlimited users, so growing the team never costs you a cent more.
+row.startsWith('XSRF-TOKEN='))?.split('=')[1];
+const response = await fetch('https:\/\/ohdear.app\/start-monitoring', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+'Accept': 'application/json',
+'X-XSRF-TOKEN': xsrfToken ? decodeURIComponent(xsrfToken) : '',
+},
+body: JSON.stringify({
+url: this.url,
+'my_name_27svMuTRMcccaCsc': '',
+'valid_from': 'eyJpdiI6ImI0OVQzc0dCbnh1ZzFRYmRHdjFpRWc9PSIsInZhbHVlIjoiR2xhZjY3QlNPZ05nbllJUHFIT3pkQT09IiwibWFjIjoiNzJjYjBhNWFiN2NmZjA3MGZjNTY2NTM5NWYyZDMyOTk5Mzc4NjMwZmMzNGYyNmRmZjcxNzk5MmI1YjZiYjUwYSIsInRhZyI6IiJ9',
+}),
+}).catch(() => null);
+this.loading = false;
+if (response?.ok) {
+window.location.href = 'https:\/\/ohdear.app\/register';
+return;
+this.error = response?.status === 422
+? 'That doesn\u0027t look like a website address. Try something like acme-shop.com.' : 'Something went wrong. Please try again.';
+}"
+@submit.prevent="submit"
+Start monitoring
+White-labeling
+Your brand, front and center
+Everything your clients actually see can carry your brand instead of ours. Set it up once, and every status page and report uses it.
+Branded status pages
+Your logo, your colours, on your own domain like status.yourcompany.com, with automatic SSL. Visitors see your brand, not ours.
+Status pages &rarr;
+Branded client reports
+A monthly report with your logo and accent colour, composed per site, lands straight in your client's inbox.
+Client reporting &rarr;
+Resell under your own name
+Run every client's monitoring from one reseller account, billed through your own subscription. One login link and they're in, no Oh Dear account needed.
+Reseller program &rarr;
+This is what you wake up to
+One clean dashboard for uptime, performance, certificates, and the rest. No switching between tabs, no guessing.
+Security
+With all the security you need
+You're trusting us with your monitoring data, and we don't take that lightly. Encrypted in transit, hosted in the EU, with tightly restricted access, and backed up properly.
+Encrypted in transit
+Every connection uses TLS 1.2 or higher. No exceptions.
+Hosted in the EU
+Your data lives in Belgium on ISO 27001-certified infrastructure.
+Locked-down access
+Multi-factor, least-privilege, and SSH-key-only access to production.
+Backed up & tested
+Daily through yearly backups, kept off production and restored regularly.
+Read our full security page &rarr;
+Reseller? Sell Oh Dear under your own brand.
+Offer monitoring to your clients as your own branded service, and create and manage each client's team from a single reseller account.
+See the reseller program &rarr;
+Don't take our word for it
+We built an incredibly powerful website monitor we know you'll love. Don’t
+just take our word for it, here's what our users think:
+I signed up for Oh Dear for the broken link checker, which gives me peace of mind when I release new updates. Top notch product 👌 .
+Tony Lea
+Creator of devdojo.com
+Does one thing, and does it really well.
+Arnaud Porterie
+Founder
+Oh Dear Is the bomb, awesome simple UI, easy to setup & maintain.
+Lee Stables
+Laravel Developer
+Highly recommend for monitoring sites.
+Simon Drijver
+Developer
+I was looking for a replacement for Pingdom because it is no longer value for money. It was a no-brainer to switch. You get way more features and the best user experience .
+Lester Chan
+Full Stack Engineer
+Oh Dear detected an issue that our other uptime monitor did not!
+Casey Sprague
+Chief Technology Officer at thera-LINK
+Oh Dear looks really good, it's fast, and it found some mixed content I had. 👌💯
+Nicolas Widart
+Creator of Asgard CMS
+Started using 2 years ago as a simple monitoring tools. Has become a daily must-have for uptime, performance and page speed metrics audit.
+Nicolas Lefèvre
+Technical Consultant
+I just entered my domain and Oh Dear took care of the rest. I was pleasantly
+surprised to see changes in my SSL cert chain and mixed content reports.
+Paul Redmond
+Contributor at Laravel News
+Show more
+Frequently asked questions
+Does Oh Dear offer a free trial?
+Yes! We offer a 10-day free trial with all features included. No credit card required to start - just sign up and start monitoring your websites immediately.
+Why isn&#039;t Oh Dear the cheapest option?
+Because cheap monitoring often fails to alert you at exactly the wrong moment. We verify every alert from a second location, watch your sites from multiple regions, and put every feature on every plan, even the enterprise ones like SSO, two-factor, and unlimited users. You're paying for the night you don't get woken by a false alarm, and the morning you hear about a real problem before your customers do.
+Oh Dear maintains a feature-by-feature comparison with other monitoring services .
+Is Oh Dear expensive if I monitor a lot of sites?
+It depends what you're comparing it to. Per site, we're not the cheapest option. But that one price bundles every check - uptime, SSL, broken links, performance, Lighthouse, DNS, cron, and more - so matching it elsewhere means paying for an uptime tool, an SSL monitor, a crawler, and a Lighthouse tool separately. Every plan also includes unlimited users, so a bigger team never costs extra. Add it up and, for anyone watching more than a few sites, one flat per-site price usually comes out ahead.
+Can I change my plan at any time?
+Absolutely. You can upgrade or downgrade your plan at any time from your account settings. Changes take effect immediately and billing is prorated, so you only pay for what you use.
+What payment methods do you accept?
+We accept all major credit cards (Visa, Mastercard, American Express). In the EU, we also accept wire transfers and many local payment methods like iDEAL, Bancontact, and SEPA Direct Debit through our payment provider.
+Do you offer refunds?
+Yes, we offer a 30-day money-back guarantee for new customers. If Oh Dear isn't right for you, just contact us within 30 days of your first payment for a full refund - no questions asked.
+What&#039;s included in every plan?
+Every plan includes all features : uptime monitoring, SSL certificate monitoring, broken link checking, performance monitoring, DNS monitoring, scheduled task monitoring, status pages, domain expiration monitoring, ping monitoring, TCP port monitoring, unlimited users, and unlimited notifications. The only difference between plans is the number of sites you can monitor.
+See all other FAQ items &rarr;
+Start monitoring instantly
+Start a free 10-day trial with no commitment. You're all set in less than a minute.
+(No credit card needed.)
+'my_name_dDMOMfyyK08x5enl': '',
+'valid_from': 'eyJpdiI6InJJREpTWkxqbTdDRWdqWFJINGFtWnc9PSIsInZhbHVlIjoiV0hGOWRocVZaUlVPeEVmR1JLNkpmZz09IiwibWFjIjoiNjhjZjQ3ZmYzNGE2NjY0MTg1ZDIzMWU4YmUxMGM5NTAwMmEyNWYxMTBiYjVjNmRmNGMwM2FlOTM4MTgxM2ZkZSIsInRhZyI6IiJ9',
+Not convinced yet? Need help?
+Get in touch via support@ohdear.app .

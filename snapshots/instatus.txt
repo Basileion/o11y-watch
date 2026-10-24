@@ -1,0 +1,94 @@
+Space for all
+Use for free. Upgrade for hyper powers.
+Compare Instatus plans and features to find the right plan for you
+Choose your plan
+Yearly
+25% off
+Starter
+Free
+Pro
+/ month
+Business
+Features Start free Start free Start trial Start trial Start trial Start trial
+Monitors
+15
+50
+1,000
+Checks
+2 min
+30 sec
+Alerts
+Email
+Email & SMS
+SMS & Calls
+Team members
+On-call members
+20
+SAML SSO
+Status page type
+Public
+All
+Custom domain
+1+
+3+
+Subscribers
+200
+5,000
+25,000
+15 Monitors
+2 min checks
+Email alerts
+5 team members
+2 on-call members
+No SAML SSO
+Public status page
+No custom domain
+200 subscribers
+Sign up free
+50 Monitors
+30 sec checks
+Email & SMS alerts
+50 team members
+20 on-call members
+1+ custom domain
+5,000 subscribers
+1,000 Monitors
+SMS & Calls alerts
+team members
+50 on-call members
+All status pages
+3+ custom domain
+25,000 subscribers
+Enterprise Enterprise Enterprise Enterprise
+SCIM Directory Sync
+Priority customer support
+99.99% Uptime SLA
+Multiple SSO connections
+Custom contracts
+Custom policies
+Contact us Book a demo
+Enterprise
+Instatus customers
+Our Customers
+Calculate your savings Simplify & save
+Replace 3 DevOps services with Instatus. Simplify and save!
+Monitoring
+50 monitors
+Pingdom
+Incident response
+10 team members
+PagerDuty
+Status page
+1,000 subscribers
+Atlassian Statuspage
+Total bill
+/ mo
+Incident escalations
+Start free
+Frequently Asked Questions
+Do you offer discounts?
+Yes. When you pay for a year up front, you’ll get three months free. Also if you’re a non-profit organization or an open-source project, you can email us to get a free Pro account.
+Can we cancel at any time?
+What payment methods do you accept?
+Is billing per team or per project?
+Have more questions?

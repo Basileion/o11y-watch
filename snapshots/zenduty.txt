@@ -1,0 +1,125 @@
+FREE 14 DAY TRIAL FOR ALL PLANS NO CREDIT CARD REQUIRED
+Pricing that scales with your team
+Save 16 %
+BILL YEARLY
+Starter
+Incident response for smaller teams
+$6
+PER USER | PER MONTH
+Get Started
+Growth
+Incident management for fast growing teams
+$16
+Enterprise
+Advanced incident management for the enterprise
+Talk to us
+Contact Us
+Seats/Number of Users
+Number of Teams
+Integrations per Team
+Support
+Call/SMS Limits
+Customer Success Manager
+Status Pages
+AI Features
+Postmortems
+Playbooks
+Service Dependency Mapping
+Workflows Automation
+Up to 5
+Up to 50
+Unlimited
+1 Team
+Up to 5 teams
+Community Support
+Business hours (9x5)
+24×7 priority support & escalation
+100/user/month for USA, Canada, and India. 25/user/month for rest of the world
+Shared customer success manager
+Dedicated customer success manager
+Optional add-on ($10k/year)
+Included in plan
+Enterprise-grade reliability, built into every plan
+From Starter to Enterprise, every plan comes with the full toolkit your team needs to respond faster, reduce noise, and keep systems reliable.
+Alert Correlation
+Group related alerts, reduce noise and improves signal.
+Advanced Alert Rules
+Route alerts based on priority, service, or team.
+Advanced Analytics
+Gain deep insights into incidents with real-time analytics
+Incident Response via Slack, Teams, GChat
+Manage incidents end-to-end inside your collaboration apps
+Incident Responders
+Assign and notify the right people instantly
+Two way Integration with Ticketing Platforms
+Sync tickets and incidents seamlessly across connected tools
+APIs and Extensibility
+Extended Zenduty with APIs and integrations
+Stakeholder Communications
+Keep internal and external stakeholders always updated
+Incident Tagging
+Categorize incidents for easier tracking and reporting
+Custom Incident Priorities
+Define custom severity levels for your org
+Service Maintenance Windows
+Suppress alerts during planned maintenance periods
+Robust Scheduling & Escalation Policies
+Automate schedules and escalation paths to ensure 24/7 coverage
+Shift Overrides
+Swap on-call shifts quickly when needed
+Advanced Alert Suppression
+Block duplicate or irrelevant alerts automatically
+Incident SLA's
+Track response times against defined service commitments
+Postmortem Templates
+Standardized templates to amplify incident analysis
+Stakeholder Templates
+Prebuilt templates for faster, consistent updates
+Single Sign On
+Secure, seamless login with SSO support
+1000+ RELIABLE BUSINESSES ACROSS THE GLOBE
+Trusted by 1000+ businesses
+4.6 out of 5 on G2
+Frequently asked questions
+Alerting and Response On-call management Alert Routing Analytics Support
+Can Zenduty notify a single user?
+Can Zenduty notify a user and then notify another user when the first user doesn't respond?
+What are the Notification channels that are supported by Zenduty?
+Can I define an escalation policy for specific teams/services?
+Can I add responders and subject matter experts from the Slack/Teams channel?
+E COMMERCE
+IndiaMart currently has over 152,000 paying subscribers who make up 95% of the revenue. This makes it very important for the company to deliver an uninterrupted online experience as it directly impacts the subscriber experience and thence the revenue. Our most important KPI is to ensure uptime of our all production websites and without Zenduty, we can not do this. Zenduty plays a vital role in maintaining uptime of our websites by providing alerts timely.
+Vinay Singh
+DevOps Manager, IndiaMart
+Read the Case Study
+FINTECH
+Zenduty helps the team keep a track of weekly occurring, re-occurring issues, we design the on-call schedule on the tool to escalate the alerts to the on-call engineer and provide us with a robust interface to manage the incident within Slack, which is our team communication channel. And lastly, the MTTA and MTTR are recorded and visualized on the tool, to help us compare the actual and target numbers for improvements. We are happy to pay for on-call tools because the value this tool adds for our engineers and customers is much higher than the money.
+Rohit Khatana
+VP of Engineering, Qoala
+ENTERTAINMENT
+It's a great incident management tool that helps us enable faster and better incident resolution. We have all our critical applications and system alerts configured on Zenduty. We manage end-to-end Incidents on Zenduty.
+Mohammed Shabbir S
+Technical Support Lead, Bookmyshow
+I like Zenduty’s intuitive user experience throughout, be it the web UX, the Android UX, and most of all the Slack UX. We pretty much manage all our incidents from sitting inside a Slack channel and that’s awesome. Other than being a robust product, I found the people providing support are the best. As an operations team lead myself, I understand the day-to-day toil and stress support can cause. The Zenduty team has just always been there, friendly, coolheaded, and ready to take action on anything thrown at them.
+Heinrich Roets
+Operations Support, Electrum Payments.
+TRAVEL
+Zenduty has been great so far in terms of delivering meaningful alerts to the right person quickly, which has also improved our uptime significantly. We did not face any challenges with the onboarding, and received great support from everyone in the team - further reducing our friction while moving to Zenduty. The turnaround for most of our requests was super quick and the team was very helpful while resolving our queries!
+Atmesh Mishra
+Associate Vice President - Platform at Chalo
+HOSPITALITY
+All (infrastructure downtime) alerts by default go to DevOps receiver … which trigger SMS and a phone call to the concerned on-call developer based on the configuration provided. (Zenduty) ... is pretty intuitive with great support and configuring them with escalation policies is a piece of cake.
+Abhay Kumar
+Lead DevOps Engineer at Zolo Stays
+TECH
+Zenduty serves as a command and control center for our DevOps/incident management functions. Over time, we have deployed a whole bunch of monitoring services through AWS, Datadog, GitHub, Monit, Python scripts, etc, and it has become quite a challenge to centralize the alerts and act upon them. Zenduty gives a clean way of pulling together these alerts, classifying them, assigning them, acting on them and then sending out updates.
+Anirban Mazumdar
+CTO, Urbanpiper
+Easy to configure, intuitive platform that triggers alerts from our monitoring tools such as Datadog, AWS Cloudwatch, GCP, etc, and helps us respond to incidents faster.
+Felipe Urbina
+CTO, Simpliroute
+SIGNUP TODAY FOR FREE
+NO CREDIT CARD REQUIRED
+Be Prepared for Incident Response with Zenduty
+Your robust incident management and alerting platform. Organizations have experienced reduced alert fatigue with over 60% reductions in MTTA & MTTR while experiencing growth.
+Get Started Take a Guided Tour

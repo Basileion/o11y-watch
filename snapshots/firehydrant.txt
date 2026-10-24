@@ -1,0 +1,70 @@
+All-in-One Incident Management,
+Without the Legacy Tax
+Powerful workflows, flexible alerting, and simple, transparent pricing — with teams saving 50%+ by switching to Signals.
+Free
+Perfect for teams who want to poke around FireHydrant.
+Start free trial
+Incident Management
+Up to 10 responders
+2 runbooks
+Slack & Teams chatbot
+1 public status page
+3 integrations
+Pro
+$25
+/responder/month, billed annually
+For growing teams that need advanced features and automation
+5 runbooks
+1 retrospective template
+Unlimited public status pages
+Service catalog
+10 custom fields
+5 integrations
+Signals On-Call & Alerting
+On-call scheduling
+Unlimited escalation policies
+Notifications via push, Slack, Microsoft Teams, email
+Notifications via SMS and voice available for purchase
+Unlimited webhooks and alert rules
+Security & Admin
+SSO
+Support
+Standard support
+Enterprise
+Custom
+Pricing
+For large organizations that need enterprise-grade features and support
+Talk to us
+Everything in Pro, Plus:
+Incident management
+Viewer licenses
+Unlimited runbooks
+Private incidents
+FireHydrant AI – summaries, meeting transcripts, triage, retros, follow ups
+Unlimited retrospective templates
+Private status pages
+Incident analytics
+Unlimited custom fields
+Unlimited integrations
+Alert grouping
+Volume discounting
+Live call routing
+Notification Policy
+Slack Enterprise Grid
+Data exports
+Audit logs
+SCIM
+Multiple organizations
+SLAs
+Premium customer support
+Dedicated customer success manager and solutions engineer
+Frequently asked questions
+How does the free trial work?
+Start with a 14-day free trial of our Pro plan. No credit card required. Get full access to all features to see if FireHydrant is right for your team.
+What payment methods do you accept?
+We accept all major credit cards and can also accommodate purchase orders for Enterprise plans.
+How do you charge for alerting and on-call (Signals)?
+Signals is charged based on the number of alerts you send.
+See FireHydrant in action
+See how our end-to-end incident management platform can help your team respond to incidents faster and more effectively.
+Get a demo

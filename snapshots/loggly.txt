@@ -1,0 +1,152 @@
+Loggly Pricing | Compare Loggly Plans
+SolarWinds.com Blog Contact Us
+LOG MANAGEMENT AND ANALYTICS
+INFRASTRUCTURE MONITORING
+APPLICATION MONITORING
+DIGITAL EXPERIENCE
+Get unified visibility and intelligent insights with SolarWinds Observability SaaS
+LEARN MORE
+Log Management and Analytics
+Explore the full capabilities of Log Management and Analytics powered by SolarWinds Loggly
+View Product Info
+FEATURES
+Proactive Log Monitoring Troubleshooting and Diagnostics with Logs Security and Compliance Log Analysis and Reporting DevOps Integrations Loggly for Enterprise Scale DevOps Products
+Infrastructure Monitoring Powered by SolarWinds AppOptics
+Instant visibility into servers, virtual hosts, and containerized environments
+View Infrastructure Monitoring Info
+Application Performance Monitoring Powered by SolarWinds AppOptics
+Comprehensive, full-stack visibility, and troubleshooting
+View Application Performance Monitoring Info
+Digital Experience Monitoring Powered by SolarWinds Pingdom
+Make your websites faster and more reliable with easy-to-use web performance and digital experience monitoring
+View Digital Experience Monitoring Info
+SUPPORTED LOG SOURCES
+Android Docker Nginx Linux Apache .NET Python PHP Syslog AWS CloudTrail Heroku Tomcat Syslog endpoint DigitalOcean IIS Kubernetes MySQL Docker Network devices and routers Windows system logs Java Node.js Javascript
+View All Supported Log Sources
+Technical Resources
+Using Loggly Product Documentation API Loggly Library Catalog Sending Logs to Loggly Ultimate Guide to Logging Troubleshooting
+Educational Resources
+Videos & Webinars Infographics Whitepapers Case Studies Use Cases
+APM Integrated Experience
+Datasheet Infographic Video: Failed Transaction Check SolarWinds vs Dynatrace SolarWinds vs Datadog SolarWinds vs AppDynamics SolarWinds vs New Relic
+Connect with Us
+System Status Support Request Blog COVID-19 Resource Center
+The right price for every sized business
+Lite
+Free
+For starters
+Start Free Trial
+Lite Features
+✔ Centralized log management
+✔ Automated log summaries
+✔ Search & filters
+See more features
+Standard
+Starting at
+$79
+per month, billed annually
+For small business
+Standard Features
+✔ All Lite features, plus:
+✔ Unlimited users
+✔ Up to 3 source groups
+✔ Built-in email alerting
+✔ Fast monitoring with charts & dashboards
+✔ Direct access to support team
+Pro
+$159
+For growing companies
+Pro Features
+✔ Includes all Standard Features
+✔ Up to 5 source groups
+✔ Alerts – Email and webhook (use with PagerDuty, Slack, VictorOps, and more)
+✔ Custom derived fields – up to 10 rules
+✔ API access
+✔ Archive to Amazon S3
+✔ Peak Overage Protection
+Enterprise
+$279
+All-inclusive
+Contact Sales
+Enterprise Features
+✔ Includes all Pro Features
+✔ Unlimited source groups
+✔ Unlimited derived field rules
+✔ Variable custom volume (up to TBs)
+✔ Custom retention periods
+✔ Technical success management
+✔ GitHub Integration
+✔ JIRA Software integration
+✔ Anomaly Detection
+✔ Federated identity management
+Your free trial is fully functional for 30 days, regardless of the plan you choose.
+Feature List
+Volume
+200 MB/day
+1 GB/day
+Plans up to 100 GB/day
+Custom
+Retention
+7 days
+15 days
+15-30 days
+15-90 days
+Number of users
+Unlimited
+Unlimited*
+Centralized logging
+Agentless log collection
+Any kind of logs
+Automated parsing
+Automated filters
+Rich views and trends
+Persistent workspaces
+Loggly Dynamic Field Explorer​ ™
+Gamut Search™
+Log Usage Dashboards
+Search Volume
+API access
+Federated identity management
+Customized dashboards
+Built-in alerting
+Email only
+Email and webhooks
+Alerts to multiple endpoints
+Custom source groups
+Up to 3
+Up to 5
+Anomaly detection
+JIRA Software Integration
+GitHub Integration
+Custom parsing rules for derived fields
+Up to 10
+Peak Overage Protection
+Archive to Amazon S3
+Variable data volume
+Role-based visibility
+Support
+Community forum
+Email support
+Priority support
+Frequently asked questions
+Do I need to provide a credit card to sign up for a free trial?
+No, and the first 30 days are completely free.
+Is the free trial full-featured?
+Yes, the free trial gives you access to all of the features available with our Enterprise tier.
+What happens if I go over the daily volume limit specified in my plan?
+You can use the Log Volume Usage dashboard and the Search Volume Usage details to gain a clear understanding of your data volume capacity needs. Additionally, the Pro and Enterprise service plan tiers provide Peak Overage Protection (POP), which ensures your data is captured even if you exceed your subscription level. If the subscription level is exceeded more than three days in any month, data beyond the subscription level won’t be indexed or retained until the account is upgraded to a subscription level that wouldn’t have resulted in capping. If you know you’ll have highly variable log volumes, contact appmansales@solarwinds.com for assistance in finding the most economical plan for your needs.
+What if I don’t know my daily log volume?
+In the Loggly application, you can use the Log Volume Usage dashboard to gain an in-depth understanding of your specific sources of log volume usage. You can gain further insight with the Search Volume Usage detail views, including the volumes associated with specific searches or source groups. Finally, your Account Overview page displays real-time metrics for your daily log volume. Together, these give you a comprehensive and proactive way to understand your log volume needs and usage so you can determine the best subscription level.
+Does Loggly offer annual subscription plans?
+Yes. Loggly’s annual plans provide a discount in return for a prepayment of fees for the year. Contact sales@loggly.com for more information.
+Can I change plans at any time?
+You may change tiers or subscription levels at any time. All subscriptions are prepaid for the month, so any increases will be prorated for the remaining days in the month. You can make changes from your Account page or contact the Loggly sales team to help you find the right plan for your needs.
+Is credit card the only billing option?
+For month-to-month plans, Loggly offers credit card billing only. For annual prepaid plans, we can provide for alternative forms of payment.
+Does the free trial have any volume limits?
+No, there are no daily volume or data storage limits on the free trial. During the trial you will see your full data volume and size a plan to meet your business needs.
+What is the process for getting started?
+Getting started with Loggly is easy. Signup takes less than 60 seconds, and your account is immediately provisioned and ready for logs. Your full-featured trial provides 30 days of unlimited data volume, and during this time you can select a plan to meet your needs. At the end of your trial, your account will convert to the Lite package, which offers basic log management functionality free of charge.
+*We’ll work with you on a subscription that best matches your needs and values.
+Still have questions? No worries.
+Help create my plan

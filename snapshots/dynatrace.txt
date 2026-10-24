@@ -1,0 +1,235 @@
+Full platform access, zero surprises
+Scale confidently with commitment-based pricing on the Dynatrace platform.
+Try it free
+One commitment. Total flexibility.
+One annual commitment
+Make an annual commitment at the platform level—not per capability or per month. The more you commit, the more you save.
+Every capability, unlocked day one
+Use what you need—everything draws down from your commitment at transparent rate-card pricing. No overage premiums or surprise costs.
+Control your consumption
+Get real-time visibility, automated forecasting, and alerts on sudden usage changes. All built in, no setup required.
+How pricing works
+Application and Infrastructure Observability
+End-to-end observability for applications and infrastructure. Extendable with Log Analytics, Digital Experience Monitoring, Code Monitoring, and Application Security.
+Choose Foundation or Infrastructure for infrastructure only, Full-Stack for both application and infrastructure observability.
+Foundation & Discovery
+Basic infrastructure monitoring and IT inventory.
+$7 / mo
+per host*
+Basic host health indicators
+Host and process topology detection
+Filesystem monitoring (ex: disk usage)
+OS services monitoring
+Collection and correlation of logs in context
+*Billed at $0.01 per hour per host
+Infrastructure Monitoring
+Infrastructure observability for cloud, hyperscaler, and data center.
+$29 / mo
+Everything included in Foundation & Discovery
+Process, disk, memory, and network analysis
+Custom metrics for extensibility
+*Billed at $0.04 per hour per host
+Full-Stack Monitoring
+Comprehensive observability for apps, microservices, and infrastructure.
+$58 / mo
+per 8 GiB host*
+Everything included in Infrastructure Monitoring
+APM
+Automated root cause analysis for E2E transactions
+Code-level profiling
+Kubernetes Platform Monitoring
+OpenTelemetry metrics and traces
+10 days of trace data retention, extendable to 10 years
+*Billed at $0.01 per memory-GiB-hour
+View full rate card
+Container Observability
+Observability of cloud-native containerized environments, from infrastructure to application, down to the code level. Extendable with Real User Monitoring, Log Analytics, and Application Security.
+Visibility into Kubernetes clusters, nodes and workloads.
+$1.40 / mo
+per pod*
+Kubernetes metrics and events: CPU, memory, network, and more
+Health views and explorative analysis with data in context
+Resources and topology
+Included on hosts with Full-Stack Monitoring for no additional charge
+*Billed at $0.002 per hour per pod
+Code Monitoring
+Troubleshoot and debug your code live in production instantly.
+$3.60 / mo
+per container*
+Live code troubleshooting and debugging
+Non-breaking breakpoints
+Integration with Visual Studio Code and JetBrains
+*Billed at $0.005 per hour per container
+Log Analytics
+Analyze logs in context and make smarter decisions when troubleshooting or measuring the health of your environments. Extendable with Application and Infrastructure Observability, Digital Experience Monitoring, and Application Security.
+Mix and match your logs pricing model across your environment, according to your use-case.
+Pay-per-Query
+Pay only for the data you use.
+Ingest & Process
+$0.20
+per GiB
+Retain
+$0.0007
+per GiB-day
+Query
+$0.0035
+per GiB-scanned
+Automated data ingestion & processing, topology enrichment
+Advanced data transformation
+Conversion to time series
+DQL-powered analytics & querying: on-read parsing, aggregation, reporting
+Data retention control from 1 day to 10 years
+Bundled Queries
+Retention with included queries for budget predictability.
+Retain with included queries
+$0.02
+Minimum 10, up to 35 days retention with queries included, extendable with usage-based option
+Telemetry
+Ingest and analyze telemetry signals from any source, with native OpenTelemetry support.
+Preserve context to query and correlate across signals.
+Metrics
+Measure and trend performance across infrastructure, network, and cloud services
+$0.15
+per 100k datapoints
+$0
+no additional cost
+15 months of retention at 1-minute granularity included, extendable to 10 years
+OpenTelemetry ingest via OTLP
+Built-in metrics included
+Custom metrics allowance included with Full-Stack and Infrastructure Monitoring
+Traces
+Track requests end to end across distributed services, APIs, and serverless workloads
+10 days of retention included, extendable to 10 years
+Trace ingest for serverless functions
+Trace allowance included with Full-Stack Monitoring
+Events
+Capture and correlate business, deployment, and security signals from any source
+Ingest custom events from any source via API
+Built-in events included
+Retention extendable to 10 years
+AI
+AI throughout the platform, from contextual guidance and telemetry exploration to autonomous investigations, custom agents, and integrations with MCP clients and external agents.
+AI Exploration
+AI for everyday work: telemetry exploration, anomaly detection in time-series and log analysis.
+Included
+no additional charge
+Explore telemetry by executing DQL queries and tool calls that surface Dynatrace data, such as open problems, Kubernetes events, Smartscape topology, and security events
+Finding a specific document stored in Dynatrace
+Agentic anomaly detection in time series data
+Predicting future timeseries values with agentic forecasting
+Log pattern analysis
+Calling non-LLM tools via the remote MCP Server
+Agentic Operations
+Resolve incidents, perform autonomous investigations, optimize your infrastructure or connect your own agents and tools with Dynatrace.
+$0.10
+per AI unit
+Create custom agents for analysis, automated investigation and remediation, optimization, or tuning
+Deep reasoning powering autonomous investigations and analytics
+Orchestration across Dynatrace's agents for multi-step tasks
+Embed agentic and generative AI directly into your custom workflows
+Give your agents access to Dynatrace’s LLM and agentic capabilities via the remote MCP Server, CLI, or API
+See "How tasks draw AI units" below for exactly which tasks are metered and their average cost.
+Included for a limited time
+Agentic investigation and analysis, included in Dynatrace Assist
+Agentic Operations tasks, detailed in the table below, aren't billed when performed directly within Dynatrace Assist for a limited time**.
+Note: those same tasks are billed today when performed through workflows, MCP, the API, or a custom app.
+How tasks draw AI units
+Avg. AI units per call
+Translate DQL to natural language
+2 AI units
+Chat via your own app or integration
+3 AI units
+Translate natural language to DQL
+8 AI units
+Autonomous multi-step investigation
+30 AI units
+The amounts shown are averages provided for reference; actual consumption may vary with the level of complexity and context of each request.
+** We may modify or discontinue this promotional inclusion upon notice at any time in our sole discretion. Continued use after any such change will be subject to consumption/additional fees.
+Real User Monitoring
+Understand and optimize every user journey with real-time session intelligence across web and mobile.
+Gain full visibility into how end users experience every digital transaction.
+$2.25
+per 1,000 sessions*
+Capture and analysis of customer experience in every digital transaction
+Mobile application monitoring and crash analysis
+35 days of data retention
+*Billed at $0.00225 per session
+RUM with Session Replay
+Visually replay end user sessions to reproduce and diagnose production issues.
+$4.50
+per 1,000 sessions with replay capture*
+Everything included in Real User Monitoring
+Movie-like visual replay of end user experience
+*Billed at $0.0045 per session with replay capture
+Synthetic Monitoring
+Proactively validate critical user journeys, APIs, and services.
+Browser Monitor
+Simulate and verify critical user journeys across real browsers and locations.
+per 1,000 synthetic actions*
+Web-based recorder
+Scripted transactions
+Private locations
+* Billed at $0.0045 per synthetic action
+HTTP Monitor
+Validate availability and performance of APIs, services, and networks across all environments.
+$1.00
+per 1,000 synthetic requests*
+Analytics tracking availability, response time, HTTP status codes
+Global public and private synthetic locations
+*Billed at $0.001 per synthetic request
+Application Security
+Immediate and continuous actionable insights across your complete environment. Security findings integrated in core observability apps and workflows.
+Choose Runtime Vulnerability Analytics to surface critical exposures in your environment. Add Runtime Application Protection to block exploitation attempts.
+Runtime Vulnerability Analytics
+Detect and remediate critical 1st and 3rd party vulnerabilities at runtime.
+$13 / mo
+Detect 1st party code vulnerabilities and 3rd party vulnerabilities
+Automatic prioritization by risk and impact
+Ingest and analyze external security findings
+*Billed at $0.00225 per memory-GiB hour
+Runtime Application Protection
+Protect against and block exploitation attempts of your applications at runtime.
+Protects against top relevant OWASP security risks
+Blocking of exploitation attempts
+Covers 1st party code vulnerabilities
+*Billed at $0.00225 per memory-GiB-hour
+Security Posture Management
+Stay compliant with key security guidelines and industry standards.
+$5 / mo
+Continuously identify and resolve misconfigurations
+Detect and address security issues impacting your compliance at runtime
+Evidence creation for auditing purposes
+Covers compliance standards including CIS, NIST, DORA, HIPAA and more
+*Billed at $0.007 per host-hour
+Integrate seamlessly with the clouds and technologies you rely on
+See all supported technologies
+Enterprise ready, out of the box
+Your Dynatrace subscription includes the security, compliance, and support infrastructure your team expects.
+Visit our Trust Center
+Compliance certifications
+We don’t just meet the market standard, we exceed it. ISO 27001, SOC 2 Type II, FedRAMP Moderate, HIPAA, and more.
+Data residency
+Choose where your data lives across our global data center footprint to satisfy sovereignty requirements.
+End-to-end encryption
+Strict per-customer separation, with encryption in transit and at rest, so your infosec review has fewer open items from day one.
+Access controls
+Give your security team full governance over user access through SSO, granular access policies, and IP allow lists.
+Privacy by design
+Privacy isn't an add-on. Built-in masking, configurable retention, and hard deletion help you meet GDPR, CCPA, and beyond, with no bolt-on tooling required.
+Unlimited seats
+Give every team member full platform access—no per-seat fees, no user tiers, no cost surprises.
+Get started with Dynatrace
+Start your 15-day free trial of Dynatrace.
+Start free trial
+FAQ
+How the model works
+How usage is measured
+Additional details
+What is Dynatrace Platform Subscription?
+Dynatrace Platform Subscription (DPS) is a licensing model where you make a minimum annual spend commitment at the platform level and then consume that commit based on actual usage and a straightforward rate card. Any platform capability can be used in any quantity at any time based on your evolving needs.
+Do I get access to all platform capabilities in a Dynatrace Platform Subscription contract?
+Yes, Dynatrace Platform Subscription gives you access to all platform capabilities that are generally available when you sign the order form.
+Do I get a discount if I buy a larger Dynatrace Platform Subscription?
+Yes, as you commit to more usage, your unit price decreases.
+When does Dynatrace charge for overages?
+Dynatrace never charges penalty-style overages. Instead, customers who consume more than their minimum annual spend commit can continue to use the platform on an on-demand basis, billed monthly at the same rates as pre-paid consumption. Customers can alternatively increase their commit spend to attain a higher discount.

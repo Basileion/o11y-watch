@@ -1,0 +1,139 @@
+Free
+Designed for personal development of AI applications and models
+$0/mo
+Get started
+Features includes:
+AI application evaluations
+AI application tracing
+AI application scorers
+AI model experiment tracking
+AI assets registry & lineage tracking
+Community Support
+Pro
+Professionals working to optimize AI applications and models
+Starts at $60/month, billed monthly
+Start your 30 day free trial
+All features from Free, plus:
+Unlimited teams for collaboration
+Team-based access controls
+Service Accounts
+Priority email & chat support
+CI/CD automations
+Slack and email alerts
+For early-stage teams fewer than 50 employees. Customers who exceed these guidelines will be required to transition to CoreWeave Forge Enterprise.
+Enterprise
+Companies prioritizing security and compliance for AI applications and models
+Custom plans
+Contact us
+All features from Pro, plus:
+HIPAA compliant option
+Secure private connectivity
+Customer-managed encryption key
+Single Sign On
+Automated user provisioning
+Custom roles
+Audit logs
+Enterprise support package
+Free forever for academic research
+Coordinate projects remotely. Unlimited projects, teams, and 200GB free cloud storage.
+Apply now
+Personal development
+/ small projects
+Professionals and
+small teams
+Prioritizing security
+and compliance
+The basics
+Model seats
+Train and fine-tune AI models
+Up to 5
+Up to 10
+Customizable
+Storage
+5 GB/mo
+100 GB/mo
+Additional storage $0.03/GB
+or bring your own bucket
+Weave data ingestion
+Volume discounts available with annual commitments
+1 GB/mo
+1.5 GB/mo
+Additional data ingestion $0.10/MB
+Additional data ingestion $0.20/MB
+CoreWeave Forge Inference
+per model pricing
+Run open source AI models. View per model pricing.
+Billed monthly
+$5/mo
+Free credit for a limited time.
+Additional inference billed monthly.
+CoreWeave Sandboxes
+Isolated, on-demand environments for running untrusted code, billed on the CPU and memory each sandbox requests. Currently available through serverless sandboxes.
+CoreWeave Forge ARIA
+AI research and iteration agent
+For a limited time
+Dedicated scalable deployment
+Available
+Agent Lens and Weave
+Tracing
+Monitor and analyze the performance of your GenAI models during development and in production, capturing inputs, outputs, and metadata for each inference.
+Evaluation
+Production monitoring
+Compare different recipes, including fine-tuning, RAG, LLMs, and datasets, side-by-side for accuracy, latency, and token usage.
+LLM-as-a-judge metrics
+Monitor the performance, cost, and health of your LLM applications.
+PII data redaction
+Core features
+Dataset and model versioning
+Artifacts
+Interactive data visualization
+Tables
+Collaborative dashboards
+Reports
+Access controls and permissions
+Public projects
+Private projects
+Project-level access controls
+Custom Roles
+For Weights & Biases Models
+Service accounts
+Security and compliance
+SOC 2 Type II
+Customizable data retention
+Artifacts TTL
+Single sign-on
+User and role management using SCIM API
+Audit Logs
+Bring your own bucket
+Not available with Weave
+HIPAA compliance
+Possible with BYOB
+IP allowlisting
+Available with private hosting
+Inbound and outbound
+Customer-managed encryption key (CMEK)
+AWS & GCP
+Support
+Email support
+Chat support
+First response time
+During business hours: 2am – 5pm PT M-F
+4 – 24 hours
+depending on severity
+1 – 4 hours
+and support package
+Dedicated Slack/MS Teams support channel
+Included with Standard+
+Included with Premium Support
+Dedicated Account Solution Architect
+24x7 Coverage
+FAQS
+Frequently asked questions
+When will I be billed?
+How is Weave data ingestion calculated?
+How much Weave data ingestion do I need?
+How is storage calculated?
+Does tracked data stored on an external server count against my storage quota?
+Who qualifies as an academic?
+What does the academic license include?
+Who qualifies for a Pro Plan?

@@ -1,0 +1,114 @@
+Pricing aligned with you
+TrackJS pricing is predictable and aligned with your growth, not your problems. Frontend native error monitoring that scales with your success.
+Monthly
+Yearly
++ one month free
+Starter
+Great for small businesses or individuals looking for essential error tracking.
+49
+/month
+45
+Start My Free Trial
+100K monthly page views
+Unlimited users
+1 application
+10 days data retention
+800,000+ errors per month,
+20 errors per minute
+Error Limits
+TrackJS stores a limited number of errors per minute to maintain optimal performance. You're never charged for the errors you send, and this approach ensures you receive all new errors throughout your monthly subscription period.
+Professional
+Perfect for growing businesses to fix errors as a team.
+99
+91
+1 million monthly page views
+5 applications
+15 days data retention
+2,700,000+ errors per month,
+60 errors per minute
+Business
+Built for large organizations that need advanced error tracking and trend analysis.
+199
+183
+5 million
+10 million
+25 million
+50 million
+100 million
+monthly page views
+10 applications
+30 days data retention
+3,800,000+ errors per month,
+90 errors per minute
+You'll never get a surprise bill from TrackJS. Choose a predictable pricing tier based on your traffic, not usage spikes.
+Enterprise
+Tailor TrackJS to your needs with customized contracts, compliance, security, billing, volume,
+or service levels.
+Request Info
+Bootstrapped
+Building your own thing? We've been there. TrackJS supports moonlighting developers and bootstrapped
+businesses with discounted options.
+Apply for support
+Charity
+Building for the greater good? We can help make it easier. TrackJS supports non-profit organizations and
+open-source projects.
+Apply for sponsorship
+Error monitoring
+User seats
+Unlimited
+Applications
+10+
+Page view traffic
+100,000
+1,000,000
+5,000,000+
+Errors monitored
+800,000+
+2,700,000+
+3,800,000+
+Data retention
+10 days
+15 days
+30 days+
+AI Code Debugger
+Alerting
+Alert channels
+Email reports
+Realtime alerts
+Error status and comments
+Error management
+Inbound ignore rules
+Custom error grouping
+Custom metadata
+Integrations
+API access
+Google SSO
+SAML SSO
+Compliance and support
+Help via email
+Staff training
+Dedicated support
+Why are prices based on traffic instead of errors?
+Most services price based on errors, which means they profit when you fail. We want to align our
+success with yours, and grow as you become more successful.
+What is a "page view"?
+Whenever the TrackJS agent is installed on the page, we make a small usage request.
+This is a Page View. It occurs when a visitor navigates between pages or refreshes the browser.
+Client-side rendered applications typically will have fewer page views, as it is only counted when
+the application is initially loaded.
+Are there limits on how many errors I can send?
+No, you can send us unlimited errors, but we will only keep a limited number of them based on your plan. Error limits
+are applied every minute, which means you'll always get a steady flow of errors throughout the entire billing period.
+You can utilize Ignore Rules, which are included with every plan, to focus TrackJS on the most important errors for your users.
+Ignored errors are removed before any limit is applied.
+What if I exceed my plan limits?
+The plan limits are soft. When you exceed them, you'll be prompted in the UI to upgrade,
+but everything will continue to work. If you repeatedly go over your limits,
+we'll reach out to you about upgrading your plan.
+How do you process payments?
+We accept credit card payments through Stripe. Credit card information never touches our systems and we don't store anything about the card.
+For Business plans, we accept custom payment methods and invoice payment terms.
+Can I cancel my service?
+There are no contracts or cancellation fees. Cancel your service at anytime. We do not issue refunds for services that have already been paid for.
+Help! I have more questions.
+That's not a question. Our team is at your service, contact us anytime and we'll do all we can to help.

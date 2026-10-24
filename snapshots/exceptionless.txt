@@ -1,0 +1,49 @@
+Pricing
+Free
+$ 0 Per Month
+1 project / 1 user
+3 days event retention
+3,000 events per month
+No premium features
+Small
+$ 15 Per Month
+5 projects / 10 users
+30 days event retention
+15,000 events per month
+Premium features included
+Medium
+$ 49 Per Month
+15 projects / 25 users
+90 days event retention
+75,000 events per month
+Large
+$ 99 Per Month
+Unlimited projects / users
+180 days event retention
+250,000 events per month
+Extra Large
+$ 199 Per Month
+1,000,000 events per month
+Enterprise
+$ 499 Per Month
+3,000,000 events per month
+Sign Up For FREE Now!
+Frequently Asked Questions
+Can I try before I buy?
+Yes! Just use our free plan and start tracking exceptions, log messages or feature usages in minutes.
+Can I change my plan at any time?
+Yes. You can change your plan at any time.
+Can I cancel my account at any time?
+If you decide that you no longer want to use Exceptionless, simply cancel before your next billing period.
+What happens if I go over my error limit?
+We will simply send you a notification. If you continually exceed your limit, you will be asked to upgrade your plan or your account will be closed.
+What are the premium features?
+Premium features are only available in the paid plans. Here is a list of the premium features:
+Searching
+Error occurrence notifications (only daily summaries are allowed in the free plan)
+Web hooks, Slack integration, and Zapier integration
+Additional premium features coming soon.
+Can I host Exceptionless myself?
+Sure! Feel free to visit Exceptionless on GitHub for hosting details if you have the resources to set it up.
+Important Information
+No credit card required.

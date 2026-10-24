@@ -1,0 +1,104 @@
+Simple pricing. No surprise bills or jump scares.
+Scout Monitoring starts at $0/month with 300K transactions, error monitoring, and log management included. Paid plans begin at $19/month. Every plan includes unlimited users, unlimited apps, full API access, N+1 query detection, and memory bloat detection. No contracts, no credit card required.
+Start with 14 days of unlimited performance data to see exactly what you need, then choose the plan that fits.
+Monthly
+Annual (save 10%)
+Free
+$ 0
+/month
+Plan includes:
+300K monthly transactions
+1 GB log data
+5,000 errors included
+1 endpoint monitored for anomalies
+Real human support
+Scout CLI & MCP server
+Full API access
+Start for Free
+Best Value
+Production Ready
+$108/mo
+$ 64
+Everything you need:
+1.2M monthly transactions
+50,000 errors with intelligent grouping
+30 GB log storage, 14-day retention
+20 endpoints monitored for anomalies
+Full trace analysis & N+1 detection
+Real human support (priority)
+Everything in Free, plus more
+Enterprise
+Custom
+Tailored to your needs
+Plan options include:
+Custom transaction volume
+Custom log storage & retention
+Single Sign-On (SSO)
+Security & Compliance audit
+SLA reporting
+Premier support
+Talk to Us
+Pricing is in USD. Need to pay in another currency? Contact Scout support and we will work with you.
+Scout Enterprise can be used in HIPAA-compliant environments with appropriate data handling agreements and security measures in place. Contact our sales team for details.
+Or build your own plan
+Mix and match to fit your needs. Additional log, error, or performance capacity can be added at any time.
+300K transactions, 5k errors, 1 GB logs, 1 endpoint monitored for anomalies
+Startup
+$ 19
+600K transactions, 5k errors, 1 GB logs, 10 endpoints monitored for anomalies
+Small
+$ 39
+1.2M transactions, 5k errors, 1 GB logs, 10 endpoints monitored for anomalies
+Medium
+$ 99
+3M transactions, 5k errors, 1 GB logs, 10 endpoints monitored for anomalies
+Large
+$ 299
+9M transactions, 5k errors, 1 GB logs, 10 endpoints monitored for anomalies
+More Errors
+50,000 additional errors
+More Logs
+$ 40
+30 GB additional log storage
+More Anomaly Detection
+$ 10
+10 additional endpoints monitored
+Get a Demo
+Rated 4.6 on G2 &middot;
+SOC 2 Type II certified &middot;
+No credit card required &middot;
+Month-to-month, cancel anytime &middot;
+Available on Heroku &middot;
+Available on AWS Marketplace &middot;
+Available on DigitalOcean
+What our customers say
+"We made our requests 70% faster by identifying common bottlenecks thanks to Scout's detailed breakdowns. Every other day, we say, 'Let's go to Scout!'"
+"Scout has been pivotal in enhancing the stability and efficiency of Genius Scan's backend, ultimately resulting in an enhanced user experience for millions of users."
+Read more customer stories
+Pricing FAQ
+What is a transaction?
+A transaction is a single web request or background job execution that Scout traces. Each traced request or job counts as one transaction.
+Not sure how much volume your app needs?
+No problem. Every new account starts with a 14-day free trial that includes unlimited performance data. Use that window to understand your actual transaction volume, then pick the plan that fits. You can upgrade or downgrade at any time.
+How do you install Scout?
+Scout is installed as a gem or package for your framework. Setup takes just a few minutes with our documentation and integrates seamlessly with Rails, Django, and other popular frameworks. Scout is also available as a Heroku Add-on , through the AWS Marketplace , and on the DigitalOcean Marketplace .
+How does Scout compare to other monitoring tools?
+Scout provides integrated errors, logs, and traces in one tool for Ruby, Python, PHP, and Elixir applications. Pricing is based on transaction tiers with no seat licenses or per-host fees. Every plan includes unlimited users and applications.
+What happens when the transaction rate limit is exceeded on your selected plan?
+When you exceed your plan's monthly transaction limit, we continue monitoring your application but stop recording new transactions in the dashboard. You can upgrade your plan anytime to increase your limit.
+What counts as one Anomaly Detection monitor?
+One monitor is one endpoint or one background job with Anomaly Detection enabled. The Free plan includes 1 monitor; Startup, Small, Medium, and Large include 10; Production Ready includes 20. Need more? Add blocks of 10 additional monitors for $10/month each.
+What is the overhead of the agent?
+Scout's agent is designed to have minimal performance impact on your application. Typical overhead is less than 1-3% depending on your configuration.
+What type of support is available?
+Every plan includes real human support. Paid plans get priority response times, and Enterprise plans include dedicated premier support.
+Do I need to sign a contract?
+No. Our plans are month-to-month with no long-term commitment. You can upgrade or downgrade at any time, and changes take effect immediately with prorated billing.
+What forms of payment do you accept?
+We accept all major credit cards (Visa, MasterCard, American Express) and can arrange wire transfer or invoice billing for Enterprise customers.
+Is Scout available on Heroku, AWS, or DigitalOcean?
+Yes. Scout is available as a Heroku Add-on , on the AWS Marketplace , and on the DigitalOcean Marketplace . All three let you consolidate monitoring billing with your hosting account.
+Can Scout Monitoring be used in HIPAA-compliant environments?
+Yes. Scout Enterprise can be used in HIPAA-compliant environments with appropriate data handling agreements and security measures in place. Contact our sales team for details.
+Ready to Get Started?
+Set up in minutes. No credit card required.

@@ -1,0 +1,131 @@
+Pricing - Pingdom
+Blog Contact Us
+Free Trial
+SYNTHETIC MONITORING
+REAL USER MONITORING
+INFRASTRUCTURE MONITORING
+APPLICATION MONITORING
+LOG MANAGEMENT
+Get unified visibility and intelligent insights with SolarWinds Observability SaaS
+LEARN MORE
+Synthetic Monitoring
+Simulate visitor interaction with your site to monitor the end user experience.
+View Product Info
+FEATURES
+Uptime Monitoring Page Speed Transaction Monitoring Alerting
+Simulate visitor interaction
+Identify bottlenecks and speed up your website.
+Learn More
+Real User Monitoring
+Enhance your site performance with data from actual site visitors
+Live Map User Experience Monitoring Page Load Performance User Behavior Metrics
+Real user insights in real time
+Know how your site or web app is performing with real user insights
+Infrastructure Monitoring Powered by SolarWinds AppOptics
+Instant visibility into servers, virtual hosts, and containerized environments
+View Infrastructure Monitoring Info
+Comprehensive set of turnkey infrastructure integrations
+Including dozens of AWS and Azure services, container orchestrations like Docker and Kubernetes, and more
+Application Performance Monitoring Powered by SolarWinds AppOptics
+Comprehensive, full-stack visibility, and troubleshooting
+View Application Performance Monitoring Info
+Complete visibility into application issues
+Pinpoint the root cause down to a poor-performing line of code
+Log Management and Analytics Powered by SolarWinds Loggly
+Integrated, cost-effective, hosted, and scalable full-stack, multi-source log management
+View Log Management and Analytics Info
+Collect, search, and analyze log data
+Quickly jump into the relevant logs to accelerate troubleshooting
+Use Cases By Industry
+Web Development Ecommerce & Retail Media & Entertainment Enterprise
+Use Cases by Challenge
+Digital Experience Monitoring Marketing Web Performance Optimization
+Technical Documentation
+Pingdom API Datasheet Getting Started FAQ Knowledge Base Even more Pingdom plugins, apps and add-ons Website Speed Test Webhooks
+Educational Resources
+Create a Support Ticket Download Extensions On-demand training
+APM Integrated Experience
+Datasheet Video: Failed Transaction Check Infographic SolarWinds vs Datadog SolarWinds vs AppDynamics SolarWinds vs New Relic SolarWinds vs Dynatrace
+Connect
+About Us Contact Us Customer Support Customer Stories Pingdom THWACK Forum Pingdom Blog COVID-19 Resource Center
+Customize your Pingdom subscription
+Mix and match capabilities to fit your monitoring needs.
+Annual Payment
+Monthly Payment
+Starting at
+/mo
+Quantity
+10 Uptime, 1 Advanced, 50 SMS
+25 Uptime, 4 Advanced, 100 SMS
+50 Uptime, 10 Advanced, 200 SMS
+100 Uptime, 20 Advanced, 350 SMS
+200 Uptime, 30 Advanced, 400 SMS
+300 Uptime, 40 Advanced, 500 SMS
+400 Uptime, 40 Advanced, 500 SMS
+500 Uptime, 50 Advanced, 1,000 SMS
+750 Uptime, 60 Advanced, 1,000 SMS
+1,000 Uptime, 80 Advanced, 1,000 SMS
+1,500 Uptime, 120 Advanced, 1,000 SMS
+2,000 Uptime, 160 Advanced, 1,000 SMS
+2,500 Uptime, 200 Advanced, 1,000 SMS
+3,000 Uptime, 240 Advanced, 1,500 SMS
+4,000 Uptime, 320 Advanced, 1,500 SMS
+5,000 Uptime, 400 Advanced, 1,500 SMS
+7,500 Uptime, 600 Advanced, 1,500 SMS
+10,000 Uptime, 800 Advanced, 1,500 SMS
+15,000 Uptime, 1,000 Advanced, 1,500 SMS
+20,000 Uptime, 1,500 Advanced, 1,500 SMS
+25,000 Uptime, 2,000 Advanced, 1,500 SMS
+30,000 Uptime, 2,500 Advanced, 1,500 SMS
+Proactively monitor web application availability, performance, and business transactions.
+Transaction monitoring
+Page speed monitoring
+Uptime monitoring
+Email and SMS alerting
+Maintenance windows
+Public status pages and reports
+Unlimited users
++ View more features
+- View less features
+100,000 Pageviews
+250,000 Pageviews
+500,000 Pageviews
+1 million Pageviews
+2 million Pageviews
+3 million Pageviews
+4 million Pageviews
+5 million Pageviews
+7.5 million Pageviews
+10 million Pageviews
+20 million Pageviews
+30 million Pageviews
+40 million Pageviews
+50 million Pageviews
+75 million Pageviews
+100 million Pageviews
+200 million Pageviews
+300 million Pageviews
+400 million Pageviews
+500 million Pageviews
+750 million Pageviews
+1 billion Pageviews
+Understand and troubleshoot web application performance from your user’s perspective.
+Unlimited number of sites
+Shareable reports
+Performance filtering
+13-month data retention
+Your Pingdom Subscription Calculator
+/yr
+Yearly Price
+START FREE TRIAL
+Trial includes Synthetics and RUM
+Enterprise
+From 500K to over 5M pageviews a month. We can scale with you regardless of the size of your digital footprint(s). Contact us and we&#8217;ll help you get the most out of your SolarWinds® Pingdom® Enterprise experience.
+Request Quote
+Achieve Maximum Observability with the APM Integrated Experience
+Add metrics, traces, and logs to the user experience for full-stack application monitoring, giving you the client-side and server-side perspective in a single pane of glass.
+Infrastructure and Application Monitoring
+Complete visibility into the health and performance of applications and their underlying infrastructure.
+Log Management and Analytics
+Validate root cause assessment with logs in context of the application or service.
+Start monitoring for free

@@ -1,0 +1,127 @@
+Self-hosted Error Tracking
+See exactly when your code fails in production and why
+Sign Up
+Self-Host
+GitHub 2.1K★
+Loved by Developers
+1400+ teams use Bugsink every week
+Hosted Bugsink has worked very well: low cost, easy setup , and overall, a solid European alternative to Sentry .
+Erlend Landrö
+Novion Energy Solutions
+I was running in less than 10 minutes with a "docker compose up" and changing one line in my env.
+Sam Texas
+Simplecto
+We found the cause of a production exception in just 2 minutes with Bugsink's stack trace and context.
+Philip Tran
+Divi Media
+More lightweight and less complicated than sentry, additional points for ARM compatibility.
+Bartosz Pijet
+RODUQ
+Stacktrace First
+Why did your code fail? Your stacktrace, code and local variables will tell you.
+Drop-in for Sentry
+Simply point your existing Sentry SDKs at Bugsink by updating the DSN and start tracking errors.
+Fully compatible with Sentry’s open-source SDKs for all major languages and frameworks.
+Learn more &rarr;
+80% Cheaper at Scale
+Self-host on your own servers and handle millions of events with no per-event billing.
+Prefer us to run it? Use a managed plan and cut your Sentry invoice by up to 80%.
+Managed or Self-Hosted
+Choose managed Bugsink for a hassle-free
+experience, or self-host the same product on infrastructure you control.
+Both options are supported, so you can switch between them whenever you want.
+Managed
+Self-Hosted
+Operated by
+Bugsink
+Your team
+Setup
+Ready to use
+You install it
+Data location
+EU (GDPR-friendly)
+Your infrastructure
+Cost model
+Plan pricing
+Infra & DevOps
+SDKs
+Sentry SDKs
+Sign Up &rarr;
+Self-Host &rarr;
+More Features
+Triage with Search & Trends
+Find relevant errors, see their frequency and trends, and resolve or mute issues as you review them.
+Issue Grouping
+Bugsink groups repeated errors into issues, even when messages contain changing IDs or addresses.
+Chat & Webhook Alerts
+New issues and regressions sent to Slack, Discord, email or custom webhooks. Included on the free plan.
+Bring Your Own Agent
+Give your agent stack traces and event data through Bugsink's API. No proprietary agent forced on you.
+Self-host
+To evaluate Bugsink by self-hosting it, spin up a throw-away instance using Docker:
+Copy
+docker pull bugsink/bugsink:latest
+docker run \
+-e SECRET_KEY=IpVrBZkwuir2feZgHHkOEQmV41zqD0F5TsS5fTSk7aDl8dkjUa \
+-e CREATE_SUPERUSER=admin@example.org:admin \
+-e PORT=8000 \
+-p 8000:8000 \
+bugsink/bugsink docker pull bugsink/bugsink:latest
+bugsink/bugsink
+Visit http://localhost:8000/ , where you'll see a login screen. The default username and password
+are admin .
+Now, you can set up your first project and start tracking errors.
+Full installation guide →
+Pricing
+We run Bugsink for you.
+See what's included &rarr;
+15K / Evaluation
+Free
+15K monthly events
+Single user
+5K events retained
+Chat/email alerts
+Start for Free
+75K Events
+$16
+/mo
+75K monthly events
+Unlimited users
+75K events retained
+Start Trial
+600K Events
+$50
+600K monthly events
+600K events retained
+3M Events
+$158
+3M monthly events
+3M events retained
+More than 3M events?
+Predictable pricing at higher volumes.
+15M events
+$568/month
+50M events
+$1,288/month
+Higher volume
+Contact us
+Volume over 3M 600K monthly events
+We support higher volumes with predictable pricing: 3M events at $158 per month, 15M events at $568 per month, 50M events at $1,288 per month and even higher volumes available on request .
+Self-hosted
+All Features
+Volume based on hardware
+Install
+Premium Support
+$15
+/user/mo
+Priority Support (Email)
+Onboarding Assistance (1 hour)
+Moderate event volume
+Learn more
+Enterprise Support
+Custom
+Priority Support (all channels)
+Onboarding Assistance
+Integration Assistance
+Tuning for high event volume
+Influence the Roadmap

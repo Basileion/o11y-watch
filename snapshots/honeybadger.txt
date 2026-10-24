@@ -1,0 +1,156 @@
+All-in-one monitoring at a dev-friendly price
+Loved by solo devs. Trusted by engineering teams.
+Compare plans to learn why.
+See pricing calculator →
+Compare plans
+Developer
+$0 /mo
+Free forever
+Everything you need to monitor your web apps — for free, forever. Built for solo developers working on side projects or serious production apps.
+Sign up for free
+Most popular!
+Team
+$26 /mo
+$312/yr
+$286/yr
+Higher usage thresholds, unlimited users, and collaboration features for small businesses and engineering teams within larger companies.
+Start free trial
+Get a demo
+Business
+$80 /mo
+$960/yr
+$880/yr
+The product developers love, plus enterprise security and compliance — without the enterprise cost or complexity.
+Usage
+Start with everything you need to monitor production. Our free Developer plan is great for new apps, side projects, and developers working solo.
+Error Tracking Know the moment errors occur and fix bugs before customers can report them.
+5,000 errors/mo 50K errors/mo 50K errors/mo
+Performance & Logging See the bigger picture, put things into context & detect anomalies with Honeybadger Insights.
+50 MB/day 100 MB/day 100 MB/day
+Uptime Monitoring Know when your external services go down or have other problems, and monitor your tasks and cron jobs.
+1 monitor 5 monitors 5 monitors
+Status Pages Build confidence with a public status page that shows your live service status, incident history, and more.
+1 status page 1 status page 1 status page
+Users & Management
+Built for developers working individually or together. Add unlimited users and collaboration features as your engineering team grows.
+Users How many people can work on your projects together.
+1 Unlimited Unlimited
+Projects The number of distinct applications or services you can monitor.
+Unlimited Unlimited Unlimited
+Teams Organize users into teams for better access control and collaboration across projects.
+0 1 Unlimited
+Basic integrations Essential integrations like GitHub, Slack, and email notifications to streamline your workflow.
+Premium integrations More integrations including Jira, PagerDuty, SMS, webhooks, and more.
+Unlimited email support Fast, awesome support from the developers who built Honeybadger.
+Priority support Get priority response times and dedicated attention from our team for critical issues via phone and email.
+Error Tracking
+Whether you’re a solo developer or part of a team, Honeybadger cuts through the noise so you can find and fix production errors faster.
+Data retention How long we store your error data and make it available for analysis.
+15 days 90 days 180 days
+Metadata Add custom context data (such as user_id or user_email) to your errors for correlation and debugging.
+User feedback Embed a user-feedback form on your error pages. Feedback is automatically attached to the error that just occurred.
+Deployment tracking Know who deployed what, when. This feature also integrates nicely with GitHub to show the commits that got deployed.
+Custom per-project rate limits Set a custom rate limit for each project. This helps manage the amount of traffic that counts towards your total error limit.
+Advanced alert routing Route error alerts to specific users and integrations by environment, hostname, exception class — almost any piece of data associated with the error.
+Rate-based escalation Configure alerts based on error frequency. E.g., you can choose to only send Slack notifications when errors happen more than 10 times in an hour.
+Error volume anomaly detection Get alerted when a project's total error volume deviates from the baseline. Honeybadger learns each project's normal hourly error volume and notifies you automatically when the current rate is statistically unusual.
+Custom per-project retention limits Set a custom data retention limit for each project to ensure sensitive data is deleted within a shorter period than your plan's default retention period.
+Logging & Performance
+Get the logs and insights you need to debug production, without the complexity or cost of enterprise APMs.
+Data retention How long we store your log/event data and make it available for analysis.
+7 days Up to 30 days* Up to 60 days*
+Dashboards Choose from one of our automatic dashboards or create your own to monitor your application performance.
+1 dashboard Up to 30 dashboards* Up to 50 dashboards*
+Alarms & alerting Create alarms for queries and metrics that will alert you when Honeybadger detects anomalies. Your alarm limit grows with your Logging & Performance plan: from 2 to 30 alarms on Team and from 10 to 100 on Business.
+Up to 30 alarms* Up to 100 alarms*
+S3 archiving Archive Insights stream events to your own S3-compatible bucket for long-term retention and downstream analytics.
+*Retention, dashboards, and alarms increase with the selected Logging & Performance plan. See the pricing calculator below for the limits at each tier.
+Uptime Monitoring
+Monitor your app 24/7 (even when you’re the only developer on the team) right alongside your errors, logs, and performance.
+External API & website monitoring Classic uptime monitoring. Monitor your external APIs and websites to ensure they are up and running.
+Basic cron job & heartbeat monitoring Monitor cron jobs and services by having them check in with Honeybadger. Basic check-ins report within an interval, like "at least once every hour."
+Uptime check frequency Increase the frequency of your uptime checks (down to 1 minute) to ensure your application is always up and running.
+5 minutes 2 minutes 1 minute
+Custom timeout settings Configure custom timeout settings for your uptime checks. Default is 30 seconds, maximum is 120 seconds.
+Advanced cron schedule monitoring Monitor any cron schedule (such as "weekdays-only" or "the last saturday of the month") to ensure your cron jobs run on time.
+Status Pages
+Keep your users informed when incidents happen, without adding a separate status page service.
+Public status pages Create a public status page to show your live service status, incident history, and more.
+Upload your company logo Upload your company's logo to personalize your status page.
+Custom domains Host your status page on your company's domain name.
+Custom CSS and labels Customize the appearance of your status pages with CSS and labels.
+Remove Honeybadger branding Remove Honeybadger's branding from your status pages to make them more personalized.
+Private status pages Create a private status page that requires a password to access.
+Incident management Create incidents on your status pages and post updates to users.
+Email subscriptions Let visitors subscribe by email so they get your incident and maintenance updates in their inbox.
+Admin & Compliance
+Enterprise security and compliance, without the enterprise cost or complexity. Need even more? Talk to sales.
+SOC2 SOC2 compliance ensures that your organization meets the standards required by the U.S. Department of Commerce.
+HIPAA Security HIPAA ensures that your organization meets the standards required by the U.S. Department of Health and Human Services.
+EU Data Residency Store your Honeybadger data in our EU-hosted data center (instead of the U.S.) to meet your company's data residency requirements.
+SAML, SSO, and custom sign-in Log in to Honeybadger using third-party identity providers like Google Workspace, Okta, or OneLogin, and customize the sign-in page.
+BAA A Business Associate Agreement (BAA) ensures that your organization meets the standards required by HIPAA, and establishes clear data handling responsibilities and security requirements between your organization and Honeybadger.
+Audit controls Access a detailed log of user activity across your Honeybadger account.
+What does application monitoring cost?
+Honeybadger starts free for individual developers, while Team plans start at
+$26/month and scale with usage. Estimate your cost with our
+pricing calculator below.
+Error Tracking 50K errors/month 100K errors/month 300K errors/month 500K errors/month 1M errors/month 3M errors/month 5M errors/month 10M errors/month 30M errors/month 50M errors/month
+Monthly error tracking reports.
+Logging & Performance 100 MB/day ingest 500 MB/day ingest 1 GB/day ingest 2 GB/day ingest 4 GB/day ingest 8 GB/day ingest 12 GB/day ingest 20 GB/day ingest 50 GB/day ingest
+Daily Honeybadger Insights ingest. Retention, alarms, and dashboards
+increase with this plan.
+Uptime monitors 5 uptime monitors 10 uptime monitors 20 uptime monitors 50 uptime monitors 100 uptime monitors 200 uptime monitors 500 uptime monitors 1000 uptime monitors
+Monitors include uptime checks and check-ins.
+Status pages 1 status page 2 status pages 3 status pages 4 status pages 5 status pages 6 status pages 7 status pages 8 status pages 9 status pages 10 status pages
+Status pages with incident management.
+Team total cost
+$26 / month
+# Base price
++ $0 / month # 50K errors/month included
++ $0 / month # 100 MB/day ingest included
++ $0 / month # 5 uptime monitors included
++ $0 / month # 1 status page included
+90 days error retention
+7 days Insights retention*
+2 Insights alarms, 10 dashboards*
+$286 when paid annually
+Business total cost
+$80
+/ month # Base price
+180 days error retention
+14 days Insights retention*
+10 Insights alarms, 10 dashboards*
+$80 / month
+$880 when paid annually
+*Insights retention, alarms, and dashboards increase with the selected Logging
+& Performance plan.
+Need more than the Business plan?
+Honeybadger's Business plan includes unlimited users, projects, and
+teams, plus enterprise security and compliance. Have additional
+requirements? Talk to us.
+Contact sales
+Ask us about
+High-volume pricing
+Single-tenant or self-hosted deployments
+Custom SLAs
+Dedicated account management
+Real-time support
+Frequently Asked Questions
+What happens when my trial ends? New accounts start with a 30-day free trial, with collaboration features and unlimited users. No credit card required. Before the trial ends, we'll email you to confirm your plan. Add a payment method to keep your plan, or switch to the free Developer plan at any time to keep monitoring your apps as a single user.
+If you haven't chosen a plan by then, we'll pause monitoring until you log in and pick one.
+Does the free plan include logging? Yes! All plans start with 50MB/day of Honeybadger Insights data. You can upgrade to our paid add-on to send more.
+Is application monitoring software worth the investment for individual developers? Yes, especially when you can use Honeybadger for free, forever. Application monitoring can save individual developers hours of debugging by helping them find, diagnose, and fix production issues faster.
+Plus, Honeybadger delivers error tracking, logging, performance monitoring, uptime monitoring, and status pages, so you can consolidate all your monitoring into a single free platform.
+Why is application monitoring worth the investment for engineering teams? Application monitoring helps engineering teams spend less time investigating production problems and more time building software.
+Starting at just $26/month, Honeybadger’s Team plan gives your team shared visibility into errors, logs, performance, and uptime in one platform. Your Team plan also includes higher usage thresholds, unlimited users, and collaboration features designed for small businesses and engineering teams within larger companies.
+That means fewer tools to manage, less time spent debugging, and no need to pay for a bloated enterprise observability platform.
+What if I need more resources? No problem. We have larger plans available, and we can customize our pricing to meet your needs. Just shoot us an email , let us know what you need and we'll make it work.
+Do you accept purchase orders or checks? We accept POs and payment by check for users on the annual plans.
+Which languages are supported? Error monitoring is supported in Ruby, JS, Node, Go, Elixir, Python, PHP, Java, and more—see our docs for the full list. Uptime monitoring is supported in all platforms.
+How does the limit work? Our goal at Honeybadger is to keep you from hitting hard limits. When you exceed your monthly error limit, we continue to process up to 125% of your limit before we stop processing data until the end of the month. We also send a lot of nice emails along the way to make sure there are no surprises, and you can configure your own traffic limits per-project. You also have the option of enabling overage billing, if you routinely go just a little over your plan's quota. When enabled, you pay $0.0003 (Team plans) or $0.0006 (Business plans) for every notification we process over and above your quota.
+Quotas for Insights work a little differently. The quota is daily, not monthly, and we don't stop processing data when you exceed your quota. Instead, you will be prompted to upgrade your account if you consistently exceed your quota.
+More details about how quotas work can be found in our documentation .
+Do you throttle? We allow for bursts of error traffic without any throttling. We don't routinely throttle (aside from doing so to enforce the limits), but if your project's traffic is sufficient to impact the service we offer to other customers, we will throttle your project on a temporary basis.
+How does retention work? Most error data gets stale pretty quickly, so we don't keep everything forever. We purge data based on the retention settings of your account.
+Can I pay for Honeybadger through AWS Marketplace? Yes. Honeybadger is available on AWS Marketplace , so teams that procure infrastructure through AWS can subscribe and consolidate Honeybadger charges onto their existing AWS invoice. If you're an existing customer and want to migrate your account to AWS Marketplace billing, email support to discuss options.

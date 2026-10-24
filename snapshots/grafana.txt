@@ -1,0 +1,196 @@
+Send more, charge more is broken. We are changing it.
+free
+Always free
+Always
+$0
+Perfect for personal projects, exploring new ideas, and early-stage startups. No charges ever.
+Start free
+Benefits:
+All Grafana Cloud services, with usage limits
+Adaptive Telemetry, AI Assistant, and much more
+Community support
+14 days retention for metrics, logs, traces, profiles, & k6 performance tests
+pro
+Self-serve
+From
+$19 / month + usage
+Ready for scaling with more retention, basic support, and usage-based pricing.
+Sign up
+Everything in Free plus:
+Unlimited access to all Grafana Cloud services; simply pay as you go above the free tier
+8X5 email support
+13 months retention for metrics; 30 days retention for logs, traces, profiles, & k6 performance tests
+enterprise
+Full service
+Starts at
+$25,000 / year spend commit
+A full-service offering for companies with security, compliance, and deployment requirements.
+Contact us
+Let’s talk if you’re thinking about:
+Premium support
+Custom retention
+Deployment flexibility (Public Cloud, Federal Cloud, or Bring Your Own Cloud)
+Pricing philosophy
+Adaptive
+In-product tools to eliminate spending on unused data.
+Scalable pricing
+Automatically unlock volume discounts based on consumption.
+Composable
+Opinionated solutions only when they add value.
+Estimate your Grafana Cloud cost
+Use the interactive calculator to see what you'll pay at your scale. Pricing is volume-based and tiered, so your effective rate drops automatically as you grow.
+Product pricing
+All the details you need to know about pricing and plans.
+Select a product
+Metrics
+Fully-managed, highly-scalable metrics service in Grafana Cloud with built-in features to optimize cost.
+No credit card required
+Actually useful free tier with access to everything that Grafana Cloud has to offer.
+Limited to 10k active series per month
+14 days retention
+$6.50 / 1k series i
+Automatic volume discounts. Pricing at scale. View calculator
+Platform fee of $19 per month includes:
+10k active series per month then pay as you go
+13 months retention
+8x5 email support
+Prices are
+As low as $3 / 1k series
+Scalable unit price based on annual commit and volume discounts
+Minimum commit of $25,000 per year.
+Optimize metrics by up to 80%
+Pay only for what you use
+Adaptive Metrics eliminates unused time series data through aggregation and cardinality optimization.
+Watch Adaptive Metrics at work
+FAQ
+What is metrics billable series?
+Do you provide discounts for higher usage volumes?
+Logs
+Fully-managed log aggregation system powered by Grafana Loki. Only pay for data you use with the Adaptive Logs feature.
+Limited to 50 GB ingested per month
+14 day retention
+$0.050/GB Process i
+$0.400/GB Write i
+$0.100/GB Retain i
+50 GB ingested per month then pay as you go
+30 days retention
+8×5 email support
+Custom
+Scalable unit price based on annual commit
+Optimize log ingest by up to 50%
+Adaptive Logs identifies commonly ingested log patterns and creates a set of customized recommendations for dropping unused telemetry.
+Watch Adaptive Logs at work
+How do you define process, write, retain, and query?
+Do you offer retention greater than 30 days?
+Do you offer discounts for higher usage?
+Traces
+Fully-managed, easy-to-use, highly-scalable, and cost-effective distributed tracing backend.
+FEATURES
+$0.05/GB Process i
+$0.40/GB Write i
+$0.10/GB Retain i
+How do you define process, write, retain?
+Profiles
+Fully-managed continuous profiling tool that gives you a cost-efficient way to better understand the resource usage of code.
+Kubernetes Monitoring
+End-to-end Kubernetes observability for performance, health, and cost monitoring.
+Limited to 2,232 host hours & 37,944 container hours per month
+$0.01 / host hour ($7.20/host) i
+$0.0007 / container hour ($0.50/container) i
+2,232 host hours & 37,944 container hours per month then pay as you go (including telemetry generated)
+What exactly is a "Host Hour"?
+When does host hour pricing apply?
+How is this different from included telemetry pricing model?
+Application Observability
+Gain application performance insights and reduce MTTR out of the box, with native OpenTelemetry and Prometheus support.
+Limited to 2,232 host hours per month
+$0.025 / host hour ($18/host) i
+Frontend Observability
+Fully-managed real user monitoring (RUM) that provides immediate, clear, actionable insights into the end user experience of web applications.
+Limited to 50k sessions per month
+$0.75 / 1k sessions i
+50k sessions per month then pay as you go
+What is a session?
+Database Observability
+Gain deep visibility into database performance and query behavior out of the box, with correlation across your stack.
+Limited to 2,232 host hours (3 database hosts)
+Telemetry usage counts toward Grafana Cloud free tier allowances
+$0.07 / host hour (~$51 / host) i
+2,232 database host hours, then pay as you go
+Telemetry billed separately
+What exactly is a "Host Hour" for Database Observability?
+What counts as a database host?
+What telemetry costs should I expect?
+Grafana Assistant
+Your AI teammate for Grafana Cloud — ask questions, build dashboards, run investigations, and automate routine work, from Grafana, Slack, your terminal, or your pocket.
+Limited to 3 active AI users per month (40M tokens / user / mo) & 25M tokens per month for service account usage
+$20 / active AI user (includes 40M tokens per user) i
+$2 / 1M tokens (for additional tokens)
+3 active AI users per month (40M tokens / user / mo) & 25M tokens per month for service account usage, then pay as you go
+What is an active AI user?
+What consumes my tokens?
+What is the system-initiated usage?
+Does using gcx or the Grafana MCP server consume my tokens?
+Does Assistant Search consume my tokens?
+What is an AI token?
+Investigations
+Agent-powered root-cause investigations for Grafana Cloud — Investigations forms hypotheses, chases down leads across your metrics, logs, traces, and profiles, and hands back a structured report. Run one yourself, or let alerts and incidents trigger them automatically.
+Automatically triggered investigations (alerts, incidents) draw from the system-initiated token pool (25M tokens per month)
+Investigations you run yourself count toward per-user Assistant allowances (40M tokens / user / mo)
+$2 / 1M tokens (beyond included allowances)
+No separate subscription — pay only for the tokens investigations consume
+25M tokens per month for system-initiated usage & 40M tokens per active AI user per month, then pay as you go
+Investigation reports, history, and IRM webhook triggers included — no per-seat or per-investigation fee
+What is an investigation?
+How are investigations billed?
+How many tokens does an investigation use?
+What is a token?
+Agent Observability
+Out-of-the-box observability for AI agents and LLM applications — trace every generation, evaluate output quality, and enforce guardrails in production.
+Limited to 30k generations per month & 25M tokens per month for system-initiated usage (Evals & Guards)
+$1.50 / 1k generations
+$2 / 1M tokens (for Evals & Guards)
+30k generations per month & 25M tokens per month for system-initiated usage (Evals & Guards), then pay as you go
+What is a generation?
+When am I charged for tokens?
+Is my AI application telemetry included?
+Synthetics API Testing
+Proactively monitor your APIs and web applications globally and throughout the application lifecycle, with out-of-the-box debugging insights.
+Limited to 100k API test executions & 10k browser test executions per month
+$5 / 10k API test executions i
+100k API test executions & 10k browser test executions per month then pay as you go
+What is a test execution?
+How do I estimate the number of test executions?
+Synthetics Browser Testing
+Simulate real user interactions in the browser to validate end-to-end user journeys and frontend performance.
+$50 / 10k browser test executions i
+What are MultiHTTP checks and k6 scripted checks?
+Performance Testing (k6)
+Fully-managed performance testing platform to prevent system failures and consistently deliver fast and reliable applications.
+Limited to 500 virtual user hours per month
+$0.15 / virtual user hour i
+500 virtual user hours per month then pay as you go
+Virtual user hour pricing goes down with volume. See how much with our calculator .
+Scale up to 1 million concurrent virtual users
+What is a virtual user hour (VUh)?
+What limitations are there in the free tier?
+How can I calculate how many VUH my tests will consume?
+Grafana Visualization
+The most popular single-pane of glass for developers. Query, visualize, alert on, and understand your data no matter where it’s stored.
+Limited to 3 active users per month
+$8 / active user i
+3 active users per month then pay as you go
+Cloud or self-hosted
+What is a Grafana active user?
+Does the Cloud Pro Pay As You Go plan include Enterprise plugins?
+Grafana Visualization with Enterprise Plugins
+The most popular single-pane of glass for developers. Query, visualize, alert on, and understand your data no matter where it’s stored and unlock all Enterprise Plugins built & maintained by Grafana Labs.
+$55 / user with Enterprise Plugins i
+Incident Response & Management (IRM)
+Fully-managed incident and response management including on-call scheduling, notifications, and incident management.
+Limited to 3 active IRM users per month
+$20 / active IRM user i
+3 active IRM users per month then pay as you go
+What is an IRM active user?
+Sign-up time
+Get hands-on with Grafana Cloud or connect with us to figure out the right path. Either way, the next step’s yours.

@@ -1,0 +1,129 @@
+Pricing
+AX Free
+For builders
+Free
+Start for free
+No credit card required
+Signal
+10 issues per month
+Trace spans
+25k spans per month
+Ingestion volume
+1 GB per month
+Retention
+15 days
+Deployment
+SaaS
+Users
+Unlimited
+Evals
+AX Pro
+For AI-native teams
+$50
+per month
+Sign up
+25 issues per month
+50k spans per month
+10 GB per month
+30 days
+AX Enterprise
+For teams with scaled AI use cases
+Custom
+Request demo
+Ingestion Volume
+SaaS or Self-Hosted
+Startup pricing available
+Powering the world’s leading AI teams
+svg]:h-[16px] md:[&>svg]:h-[23px] [&>svg]:w-auto">
+See full capabilities
+$0
+$50/mo
+For custom plans
+Core Platform
+Custom Managed Agents
+Span volume
+Included 25k/month
+Included 50k/month
+Storage (GB)
+1 GB
+10 GB
+Projects
+Evaluations
+Experiments
+Human annotations
+Labeling queues
+Data Fabric
+Agents
+Alyx
+10 issues / mo
+25 issues / mo
+Repo Access
+Customize AI Provider
+Arize-managed
+Bring your own key + Arize-managed
+Swarm observability across managed and third-party agents
+Observability
+OpenTelemetry compliant
+Token, latency, and cost tracking
+Session support
+Multi-modal tracing support (image, voice, pdf)
+Agent trajectory visualizations (path and graph)
+Custom dashboards
+Custom metrics
+Custom monitors
+Custom views on traces
+Evaluation
+Online evals on traces/spans
+Offline evals on datasets & experiments
+Custom code evaluators
+Align evaluators
+Trace Evals: Evaluate agent trajectories
+Session Evals: Evaluate multi-turn conversations
+Agent as a judge
+Agent Experimentation: Run your agent in playground
+Multi-modal evaluation (image, voice, pdf)
+Human annotations and feedback
+Experimentation
+Playgrounds
+Datasets
+Prompts
+Prompt serving and versioning
+Trace replay in playground
+Multi-prompt comparison
+Prompt Learning (PL) optimization
+Security
+Self-hosted deployments
+Enterprise SSO
+Audit logs
+SOC 2 Type II
+GDPR
+HIPAA
+Data region
+US or EU or CA
+Organization and space RBAC
+1 Space
+1 org, 2 spaces
+Multiple orgs, multiple spaces
+Service accounts
+Support
+Troubleshooting support
+Community
+Email
+Dedicated
+Industry education workshops
+Invites to exclusive event
+Arize Customer Advisory Board
+Exclusive invite
+Onboarding kickoffs
+SLAs
+Standard
+Need something different?
+Arize for startups
+AI applications are business-critical regardless of company size. Use Arize to empower your AI initiatives from the start — at the right price. Apply for startup pricing to trace, evaluate, and iterate on your LLM applications.
+Apply now
+Arize Phoenix
+Phoenix is our open-source, local-first platform for tracing, evaluation, experimentation, and prompt iteration. Stay local, stay open, and move to Arize AX only when you need it.
+Learn more
+Start your AI observability journey.
+Book a demo
+Get started

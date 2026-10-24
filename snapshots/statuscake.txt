@@ -1,0 +1,157 @@
+Flexible plans that suit you
+Take a 7-day free trial with any of our plans.
+No credit card required.
+Annual Billing
+Monthly Billing
+Plan
+Free
+For individuals and small businesses. The basics of StatusCake monitoring.
+$0
+per month
+Start Monitoring
+Superior
+Access more monitoring tools and more customisation.
+$20.41
+$24.49
+Try
+Superior For Free
+Business
+For large scale companies and dedicated Dev Ops departments.
+$66.66
+$79.99
+Business For Free
+Uptime
+Monitors
+How many uptime tests you can set up
+10
+100
+300
+Test Interval
+How often we run your test
+5 minutes
+1 minute
+30 seconds
+Custom Locations
+Select where you want your tests to be run from
+Unbranded Reporting
+You won't have StatusCake branding on your reports
+Page Speed
+How many page speed tests you can set up
+15
+30
+24 hours
+15 minutes
+Domain
+How many domain tests you can set up
+50
+120
+7 days
+5 days
+Expiration Alerts
+We'll alert you when your domain is about to expire
+Blacklist Monitoring
+We'll let you know if your website appears on popular blacklists
+Record Monitoring
+Display and watch your websites records
+SSL
+How many SSL tests you can set up
+24 Hours
+30 minutes
+10 minutes
+We'll alert you when your SSL certificate is about to expire
+Mixed Content Alerts
+We'll alert you when your website has mixed content
+Certificate Scores
+We'll score your SSL certificate with StatusCake SSL algorithm
+Server
+How many server tests you can set up
+Alerts & Reports
+Email Alerts
+We'll alert you via email
+Integrations
+Access 15+ third part integrations for alerts
+Free SMS Credits
+Receive free SMS credits every month for alerts
+75
+400
+Reporting
+Generate reports on your website with StatusCake
+White Label Reporting
+Generate white label reports on your website with StatusCake
+Custom Template Emails
+Customise your alert emails using your own template
+Dashboards
+Get an overview of your website with a customisable dashboard
+Team Tools
+Audit Log
+Track user actions in your team
+Team Members
+Create limit-based accounts for team members
+1 Team Member
+9 Team Members
+Invoice Payment
+Get invoices for payment
+$0 / month
+Start monitoring
+What do you get with free?
+10 Uptime Monitors
+5 Mins Test Intervals
+1 Page Speed Monitor
+1 Domain Monitor
+1 SSL Monitor
+Alerts through Integrations
+Access more monitoring tools and more customisation. Perfect for small businesses.
+From
+$20.41 / month
+Try Superior For Free
+What do you get?
+100 Uptime Monitors
+1 Min Test Intervals
+15 Page Speed Monitors
+50 Domain Monitors
+50 SSL Monitors
+3 Server Monitors
+Most Popular
+The full StatusCake suite. For larger companies and Dev Ops teams.
+$66.66 / month
+Try Business For Free
+300 Uptime Monitors
+30 Secs Test Interval
+30 Page Speed Monitors
+120 Domain Monitors
+100 SSL Monitors
+10 Server Monitors
+Team tools
+Enterprise
+Build a plan to suit your business. Scale with bolt ons.
+Custom / month
+Chat To Us
+Build your own plan
+Limitless Monitors
+Constant Check Rate
+Dedicated Uptime & Page Speed Locations
+Service Creditable SLAs
+Regular Account Reviews
+Frequently asked questions about pricing
+When is payment by invoice available?
+Payment by invoice is available for customers taking a Business Yearly plan or above.
+For the avoidance of doubt payment by invoice is not available on Superior Monthly or Yearly, or Business Monthly. Customers on these plans should continue to pay in-app by debit/credit card.
+We do not accept payment by cheque.
+How do we arrange for payment by invoice?
+If you wish to pay by invoice please reach out to us via live chat or by emailing [email&#160;protected] .
+We will then ask you to complete a short form requesting some basic contact details, e.g. company name and address and so on, so that an invoice may be issued.
+What are your payment terms?
+Payment should be received by StatusCake within 30 days of an invoice being issued.
+Do subscriptions when paid by invoice auto-renew?
+Yes all StatusCake subscriptions auto-renew, including when paying for a Business Yearly plan by invoice. As per clause 8 of our Terms & Conditions if you wish to cancel your subscription you should do this at least 70 days prior to the renewal date. If you would rather have a Business Yearly plan on a year-by-year basis, then you can choose a non-rolling yearly plan by paying a supplemental uplift. Please contact support for more details.
+Do you offer an discounts when paying by invoice?
+The costs of managing payments by invoice mean we are not able to offer any discount coupons or 2 months free when paying by invoice. If these discounts are important to you then you should pay by debit/credit card in-app.
+We do however offer discounts for customers who are willing to enter multi-year subscriptions as follows:
+2 years – 12.5% discount;
+3 years – 25% discount; and
+5 years – 40% discount.
+Where a multi-year subscription is entered into the full fee is paid at the start of the billing period.
+What currencies do you accept payment in?
+We issue invoices, and accept payment in the following currencies: USD, GBP, EUR, AUD, NZD, SGD, and CAD.
+Try StatusCake for free today
+Join StatusCake

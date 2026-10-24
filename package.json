@@ -1,0 +1,11 @@
+{
+ "name": "o11y-watch",
+ "private": true,
+ "type": "module",
+ "scripts": {
+  "check": "node scripts/check.mjs",
+  "baseline": "node scripts/check.mjs --baseline",
+  "build": "node scripts/build.mjs",
+  "build:prod": "SITE_URL=${SITE_URL:-https://o11y-watch.pages.dev} node scripts/build.mjs"
+ }
+}

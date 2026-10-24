@@ -1,0 +1,380 @@
+Raygun Pricing
+Free trial
+We use cookies to help us deliver a personalized experience and display relevant promotions.
+By using this website, you agree to our use of cookies.
+To find out more see our Privacy Policy.
+Plans to fit every team
+Free trial. Flexible plans. Let’s get started.
+Crash Reporting
+Annual (save 33%)
+Monthly
+Basic
+40
+Per 100,000 errors/mo*
+60
+Free 14 day trial
+What’s included in plan Includes:
+Unlimited apps
+Unlimited members
+Unlimited customer records
+No restrictions on the number of customers whose sessions are captured
+Includes attachments
+Custom data attached to reports and sourcemaps
+Alerts via email, Slack or Teams
+Get custom alerts to where your team already works
+Spike protection
+Detect and flag irregular data volumes to avoid any surprise usage
+Categorisation & priorities
+Sort errors by urgency, source and more
+Symbols support
+Translate stack trace into file, line, and function name
+Advanced search & filters
+Filter by tag, release version or by your own custom tags
+Deployment tracking
+Monitor every deployment in real-time to identify new issues or regressions
+Audit log
+View history of your team’s changes and activities in Raygun
+Raygun API
+Extract, manipulate, and visualize your Raygun data
+On-demand events
+Keep capturing data even with unanticipated usage, helping maintain visibility
+MOST POPULAR
+Team
+80
+Per 200,000 errors/mo*
+120
+What’s included in plan Everything in Basic, plus:
+Inbound filters
+Reduce noise, conserve event quota, and focus on the errors that matter
+Third party integrations
+Including Slack, Teams, GitHub, Jira and more
+Unlimited custom dashboards
+Visualize critical error and performance data with customizable and sophisticated displays
+Single custom report
+Create a report that contains your most vital data points
+User roles & permissions
+Control access for different teams and levels
+Business
+400
+Per 1,000,000 errors/mo*
+600
+What’s included in plan Everything in Team, plus:
+SAML SSO
+Supports SAML2 (Security Assertion Markup Language) standard for authenticating users
+Dedicated Account Manager
+Unlimited support from your assigned Customer Success Manager
+Multiple custom reports
+Create up to five reports that contain your most vital data
+Multi-year discount
+Improved rates for long-term contracts
+Priority support
+Preferred in-app and email support with faster response times
+Product training & onboarding
+Unlimited training over Zoom, live chat, or email
+Quarterly reviews
+In-depth regular account reviews to ensure you’re hitting goals
+Enterprise
+Talk to us
+Custom
+What’s included in plan Everything in Business, plus:
+Custom terms & compliance
+Custom BAA and security review to meet the most stringent requirements
+Data volume discounts
+Our team will work with you to reach custom terms for large data volumes
+Unlimited custom reports
+Create unlimited reports that contain your most vital data
+SLA
+Custom SLAs available to meet enterprise requirements
+Private Slack channel support
+Dedicated channel with direct access to Raygun’s product and technical teams
+Custom data retention policies
+Tailored data retention to suit your organizational needs
+Carryover events
+Flexible event quota to use across seasonal fluctuations throughout the year
+Invoiced billing
+Reduce transaction fees and improve record-keeping for cash flow clarity
+*Billed annually as reserved errors, with additional usage charged on-demand at $0.001 per error
+*Billed monthly as reserved errors, with additional usage charged on-demand at $0.001 per error
+Real User Monitoring
+Core Web Vitals & UX metrics
+Track Google’s critical performance signals
+Root cause analysis
+Understand every performance factor, down to a single asset
+Page-level insights
+Pinpoint causes of performance issues for individual pages
+Custom alerts for slow pages
+Set alerts for drops in page or XHR performance
+Filter by browser, country, URL, release version, or by your own custom tags
+160
+240
+Alerts for Core Web Vitals
+Set alerts for your chosen Core Web Vitals thresholds
+Custom timings
+Set performance tracking for specific events e.g search bar load time
+800
+1,200
+*Billed annually as reserved sessions, with additional usage charged on-demand at $0.002 per error
+*Billed monthly as reserved sessions, with additional usage charged on-demand at $0.002 per error
+Application Performance Monitoring
+Apdex metric
+Monitor user satisfaction based on response time
+Sampling and code filtering
+Sample and filter to control noise and overhead costs
+Flamechart diagnostics
+Vivid visual breakdown of the life cycle of each HTTP request
+Proactive notification of issues
+Automatic issue creation and customizable notification settings
+Reduce noise, conserve event quota, and focus on the traces that matter
+Source code integration
+Connect source code directly with GitHub, Bitbucket, or Azure Repos
+*Billed annually as reserved traces, with additional usage charged on-demand at $0.002 per error
+*Billed monthly as reserved traces, with additional usage charged on-demand at $0.002 per error
+Compare our plans
+APM
+AI Error Resolution
+Resolve issues using AI-powered suggestions on the root cause of errors and how to fix them
+Attachments
+Custom data attached to errors and uploaded source map files
+Categorization & priorities
+Symbolication support
+Filter by release version or by your own custom tags
+SAML SSO (get as add-on)
+Third-party integrations
+Usage Capping (get as add-on)
+Add a hard limit to your event consumption and avoid any unexpected costs
+Pay monthly on annual billing
+Pay in monthly installments while still locking in lower annual rates
+Custom SLAs
+Usage Capping and SAML SSO can be purchased as add-ons for applicable plans.
+Per 100,000 sessions/mo*
+Per 200,000 sessions/mo*
+Per 1,000,000 sessions/mo*
+*Billed annually as reserved sessions, with additional usage charged on-demand at $0.002 per session
+*Billed monthly as reserved sessions, with additional usage charged on-demand at $0.002 per session
+Per 100,000 traces/mo*
+Filter by URL, status code, or duration
+Per 200,000 traces/mo*
+Per 1,000,000 traces/mo*
+*Billed annually as reserved traces, with additional usage charged on-demand at $0.002 per trace
+*Billed monthly as reserved traces, with additional usage charged on-demand at $0.002 per trace
+Predictable and flexible
+In addition to your plan’s existing events, you can pre-purchase more reserved events to guarantee the best rates. Use this slider for cost-savings calculations. Any usage above your reserved event quota will be processed as on-demand . Since reserved events deliver the best value, we recommend you select slightly more than you think you’ll need.
+Pay annually
+Pay monthly
+Crash Reporting errors
+An error instance is shown in Raygun with metadata about the error (stack trace, breadcrumbs, etc).
+.00
+errors
+5m+
+Real User Monitoring sessions
+A session is a series of user interactions within your application, ending automatically after 30 mins of inactivity.
+sessions
+Application Performance Monitoring traces
+A trace is a profiling trace of a given request.
+traces
+Total monthly cost
+$0
+You save $540 .00 p/m purchasing
+reserved events
+Pre-purchase your anticipated quota of reserved events to get the best value.
+versus using
+on-demand
+On-demand events are charged at standard rates, and scale with usage to ensure full visibility.
+Save 40% per month purchasing
+Save 60% per month purchasing
+Prices in USD
+Thank you! Your submission has been received!
+Oops! Something went wrong while submitting the form
+Plan comparison
+✔️
+Error dashboard with six-month visual chart
+Full-stack error monitoring for mobile, web, desktop, and server applications
+Automatically captured & filterable unhandled and handled errors
+End-to-end error diagnostics
+Intelligent error grouping & error inbox workflow
+Advanced search and filtering
+See error group impact across all your applications
+Error tracking across deployment stages
+Symbolicated stack traces and support for map files (incl. sourcemaps)
+Unlimited
+Breadcrumbs to help with error replication
+Additional error context with custom data
+Unlimited tags for prioritization and segmentation
+Spike protection notification and rate limiting to conserve event quota
+Error assignment to team member or group
+Team interactions and history of error resolution
+Custom alerts about new errors, error spikes and regressions
+Search errors by customer ID
+Ability to export your errors into a compressed file
+Permanently ignore error groups to conserve event quota
+Inbound filters to help you reduce noise and conserve event quota
+Custom reports to transform your most vital data points to aggregates
+Data retention of errors
+180 days
+Free APM traces included
+5,000
+10,000
+50,000
+Free Real User Monitoring sessions included
+Performance monitoring for web, hybrid and mobile applications
+Native support for single-page applications
+Native support for page speed metrics (load time, FP & FCP)
+Native support for Core Web Vitals (LCP, FID & CLS)
+Root cause analysis down to a single asset
+Page-level insights to help you pinpoint performance issues
+Performance tracking across deployment stages
+Ability to search sessions by customer ID
+Custom alerts for slow pages and XHRs
+A/B testing and performance comparison tool
+Support for Google Tag Manager
+Crash-free users percentage
+Prioritized list of pages for performance improvements
+Trend & session details for median, average, 75th, 90th and 99th percentile timings
+Page-by-page session view for every customer and anonymous user
+User satisfaction over time tile with two month visual chart
+Browser breakdown
+Platform breakdown
+Response codes breakdown by endpoint and URI
+Live view of live users and sessions
+Country and state-level breakdown
+Custom alerts for Core Web Vitals
+Custom timings for setting performance tracking for specific events (8/app)
+Data retention of sessions
+60 days
+Free Crash Reporting errors included
+Customizable overview page with one month visual chart
+Deep code profiling analysis for web request tracing
+Method tracing
+Queries tracing
+External API tracing
+Apdex score
+Smart sampling & code filtering
+Flamechart to help visually diagnose performance bottlenecks
+Automatic detection, notification and grouping of anti-patterns
+Chronological visualization of server-side deployments
+Link to total page load time in Real User Monitoring if a trace is a session
+Link to error details in Crash Reporting if a trace has errors
+Performance issue assignment
+Team interactions and history of issue resolution
+Permanently ignore performance issues to reduce noise
+Inbound filters to help you reduce noise and conserve quota
+Source code integration from a trace to your code
+Data retention of traces
+30 days
+Workflow, alerts & notifications
+Access to the Raygun API
+Team workflows and collaboration
+Team member & group assignments
+Create, edit, and delete custom alerts
+Threshold-based error conditions and filters
+Threshold-based page and XHR conditions & filters
+Errors and performance alerts for the latest deployment
+Email notifications
+ChatOps integrations (Slack and Microsoft Teams)
+Crash Reporting Daily Digest email
+Real User Monitoring Weekly Snapshot email
+Core Web Vitals (LCP, FID, & CLS) alerts
+Other third-party integrations (e.g., JIRA, GitHub, PagerDuty, Webhooks etc.)
+Two-way sync with third-party integrations
+Source control integrations
+Custom dashboards
+Permissions, security & compliance
+Two-factor authentication
+User roles (user, plan owner, and billing contacts)
+3 roles
+User audit log
+GDPR compliance
+PII masking & removal
+In-app signage of Data Protection Addendum (DPA)
+TLS support of v1.1 and over
+Advanced user roles and permissions
+SAML single sign-on
+Billing
+Annual quota ( events can carry over to be consumed across the year)
+Support & services
+Email support
+Dedicated Customer Success Manager
+Unlimited product training & onboarding
+Add-ons
+Sign in and authenticate through third-party providers via SAML Single Sign-On (SSO).
+Learn More
+$ 50 /month
+Included in Business and Enterprise subscriptions and available as an add-on for all other subscriptions. Price remains the same for both annual and monthly billing.
+Usage Capping
+Add a hard limit to your event consumption and avoid any unexpected costs, no matter what. For teams who need total cost certainty.
+$ 40 /month
+Available as an add-on for Team , Business or Enterprise subscriptions. Price remains the same for both annual and monthly billing.
+Trusted by thousands of the world’s best development teams
+“The approaches we use at Vend are the same as those used at Slack, Twitter, and Netflix. We ship to production constantly because we want to quickly see the effect of a change. Raygun is an essential part of our toolset.”
+Ben Gracewood - Chief Engineering Officer
+“We would absolutely recommend Raygun to any business that relies on providing reliable software to serve their customers. It’s incredibly easy to set up and great value for money.”
+Andrew Schofield - Chief Technology Officer
+“Raygun’s had a positive impact on our team; that ties back to the developer’s ability to spend most of their time writing features with confidence and reducing the lead time of feature delivery.”
+Sean Jackson - Software Development Manager
+Frequently asked questions
+Trial
+How does the free trial work?
+Our free trial gives you unlimited monitoring for 14 days, no credit card required. Simply sign up to get instant access to our full suite of monitoring tools. At any point during or after your trial, you can choose a paid plan on a monthly or annual basis.
+How do I install Raygun and get the most out of our trial?
+Once you’ve logged into Raygun simply select a product (Crash Reporting, RUM, or APM) from the left menu and follow the set-up instructions provided. Full language and getting started guides can be found in our docs .
+What happens when the trial ends?
+You'll still be able to log in and upgrade to a paid account when you're ready. (But please note, any new data sent to Raygun between the end of your trial and the activation of your account won't be processed).
+Why can’t I access features that I used during my trial?
+Some of our features are only available with a Team or Business plan. These are accessible during your trial so that you can give them a go and work out which features are most crucial for your monitoring needs. Once your trial is over, please carefully review the Plan Comparison chart to understand which plan is right for you.
+Purchase
+I want more events. Can I adjust how many events are in my plan?
+Each Raygun plan is designed to fit a common team profile, and each comes with an allocated number of reserved events and a unique feature set. An “event” can refer to an error, session, or trace, depending on the Raygun product being used.
+You can add further reserved events in increments of 50,000. However, if you’re adding lots of additional events, it might indicate that an upgraded plan is a better fit! Please note that if your extra events bring you all the way up to the size of a higher plan, our team will move you onto the higher plan tier to save you money and right-size your account.
+What’s the difference between the reserved events in my plan, additional reserved events, and on-demand events?
+Your chosen plan determines your base charge, and comes with a bundle of 100,000, 200,000, or 1,000,000 events, depending on your plan. If you’d like more on top of that, you can also use reserved events and on-demand events.
+With reserved events , you can pre-purchase extra events in advance. This is charged per 50,000 events at the start of each billing month, and you can book them on a monthly or annual basis. You can view our reserved events and on-demand prices here .
+If you run through all your reserved events, on-demand events will kick in automatically to guarantee uninterrupted visibility. On-demand events are any events consumed over and above your pre-purchased reserved events. They’re a useful contingency plan if a spike occurs, but they are charged at a higher rate. You can keep track with the usage page in Plan Settings, where you can see a running total of your month’s event use.
+It’s best to purchase ahead of time to get the best rates, booking slightly more than your anticipated usage so you can better predict costs. While this is on a monthly or annual basis, you save more if you go annual.
+It’s important that you understand on-demand charges before they’re generated and make informed choices to get the best value. We encourage you to follow our recommendations to track your projected billing. Our pricing model is outlined in more depth in our docs , as well as our standard Terms of Service .
+Do I need reserved events?
+If you have fairly consistent event volumes that are below or close to your plan allocation, you won’t need to add extra reserved events. If you often use events more than your plan includes, we recommend pre-purchasing extra reserved events on an annual basis to get the best rates. If you expect your volumes to vary, you can also book monthly reserved events and adjust this month to month to reduce (or avoid) on-demand charges.
+If you’re on a Business plan and you experience seasonal fluctuations in customer activity, ask your Customer Success Manager about carryover events. This gives you a flexible annual quota to be used throughout the year, helping you monitor through peak periods without incurring on-demand charges.
+I have no idea how many events I’ll use! How do I pick a plan?
+We know it can be challenging for new customers to project their event volume, so while you’re working out how many monthly sessions you need, we're happy to help you estimate and adjust your reserved events. Ask your Customer Success Manager about volumes or email support@raygun.com .
+To keep an eye on your usage and avoid any surprise bills, you can track your event consumption in the Usage section of your Raygun app. You can also turn on email notifications here to let you know if you’ve hit your reserved event limit and gone into on-demand.
+How does Usage Capping help me keep my costs consistent?
+Normally, when your plan exceeds your allocated volume of reserved events, any further events are processed at on-demand rates. With Usage Capping, you add a hard limit to the number of events Raygun will process against your plan, so there are never any charges above your regular billing. You can add Usage Capping to any Team, Business, or Enterprise plan.
+Usage Capping is a popular option for teams who need total cost certainty, but also means that you’ll lose visibility if you use your month’s quota early. Other options for managing your quota include Spike Protection and enabling usage notifications.
+What currency does Raygun support?
+All pricing is in United States Dollars (USD). Invoices are sent to the plan owner via email and are available in-app anytime.
+How long are your contracts? Can I upgrade or downgrade my subscription?
+You can select a monthly or annual subscription. Per our Terms of Service , you can request to adjust or cancel your account at any time. Changes may come into effect on your next billing anniversary — learn more here or contact us for details . Note custom billing terms are available for Enterprise.
+How can we download an invoice?
+Raygun invoices are available to all plan owners from within Raygun in Plan Settings > Invoices.
+What if I want to cancel my service?
+Not a problem. You can request cancellation from your "Plan details" page in the Raygun application. Please note that refunds for unused subscriptions are not available.
+General
+How do I manage team members and permissions?
+You can find out more about team management in our docs here . If you still have questions, you can contact us .
+What counts as an application in Raygun?
+An application is a container for your data. Each application has an API key, with notifications, integrations, and permissions managed at the application level. You can use the API key as widely or as narrowly as you like to compartmentalize your software based on programming language, environment, mobile, web, department, or whatever category you choose.
+How do you define an event in Crash Reporting?
+An error event is any handled or unhandled exception thrown by your application. For mobile apps, crash reports are stored on the device until an internet connection is present and data is sent to Raygun. We process the events that are sent to our API using our language-based SDKs.
+How do you define a session in Real User Monitoring?
+A session is a continuous set of user interactions within your application. Raygun will end a user session after 30 minutes of inactivity. If a user returns to your application after 30 minutes of inactivity, a new session will be recorded.
+How do you define a trace for Application Performance Monitoring?
+A trace is the profiling performance data for a given request to your software. Sampling options can be controlled on a per-URL basis. We don’t encourage capturing every request unless site traffic is especially low.
+Where are your servers based?
+All Raygun data is stored in the US-EAST-1 region of the AWS Datacenter. You can find Raygun's compliance with GDPR here , plus a downloadable DPA document (in the FAQs section). You can download, complete and sign it, and email it to us at dpa@raygun.com .
+As a side note, all of our providers give you the ability to censor out sensitive information before they are sent into Raygun.
+What sales taxes are applied?
+Raygun is a multinational company, with offices in New Zealand and the United States. For New Zealand customers, GST of 15% is added. For customers based in the United States, sales tax may be applied depending on where you are located.
+Ready to get started? Get set up in minutes
+Free trial Request demo
+No credit card required
+Platform
+APM Real User Monitoring Crash Reporting AI Error Resolution Deployment Tracking Dashboards Customer Experience Pricing Platform Overview Integrations Request a Demo
+Support
+Documentation Product Guides Feature Requests Security App Status Changelog Privacy GDPR AI Principles
+Terms and Conditions
+Resources
+Blog Ebooks Webinars Partners Media Kit
+Company
+About Raygun Customers Careers Media Contact
+© Raygun 2025
+Raygun is a registered trademark of Raygun Limited

@@ -1,0 +1,134 @@
+Graylog Pricing Plans & Features Comparison
+Skip to content
+Graylog Pricing
+Graylog
+Open
+Always
+FREE
+Source-available under SSPL. No volume restrictions. Community support.
+For teams with the engineering time to build and maintain their own log management.
+Includes:
+Log collection in Syslog, CEF, GELF, Beats, Netflow and more
+Sidecar collector management
+Pipelines, streams and data routing
+Search and dashboards
+Basic triggers and notifications
+Local role-based access control
+Data Node and multi-cluster support
+Full back-end access through REST API and MCP server
+Download
+Compare Versions
+Enterprise
+Starting at
+$15,000
+/year
+From 10 GB/day on daily volume or 100 GCUs on annual consumption
+For operations teams needing enterprise-grade log management and compliance.
+Everything in Open, Plus:
+Data lake routing, preview and selective retrieval
+Data tiering across hot, warm and archive
+Correlation engine, advanced notifications and automated script triggers
+Advanced search with filters and parameters
+Graylog-maintained parsers, dashboards, reports, and alert rules
+AI dashboard summarization
+Custom reports, scheduled or on demand
+Dynamic lookup tables fed by your own data sources
+SSO, teams and LDAP role-based access
+User audit logs
+Contact Sales
+Security
+$18,000
+For lean security teams needing security information and event management (SIEM).
+Everything in Enterprise, Plus:
+Identity-based risk triage surfaces verified active incidents
+Automatic case creation with investigation evidence collection
+Security Core raises visibility to top 10 threats
+Machine-learning anomaly detection
+Risk multipliers using adversary campaign intelligence, asset context and history, and vulnerability scan results
+Graylog-maintained detection rules, mapped to MITRE ATT&CK
+Sigma rule support, including private repositories
+Detection coverage map and log source gap analysis
+Custom watchlists
+Guided response and automated workflows
+AI-generated incident reports with remediation recommendations
+Getting up and running
+Service
+Availability
+What it covers
+Graylog Accelerator
+Included
+Guided setup and configuration, through to production.
+Details →
+On-demand training
+Open to all
+Self-paced courses, available to anyone.
+Live and custom training
+Add-on
+Instructor-led sessions, and training built around your environment.
+Professional Services
+Custom content, migrations, and tested disaster recovery playbooks.
+Technical Account Manager
+A named engineer who knows your deployment.
+Add-ons are only available to licensed customers.
+What drives your total operational cost?
+How many sources you connect
+Source count contributes to volume, but with Graylog you can connect every source you need, for coverage or for compliance because what you collect and what you license are two different numbers. Volume discounts are available.
+How much those sources talk
+Noisy sources add volume. Pipeline rules trim what you don&#8217;t need or route it to the data lake before processing, so you decide what counts toward your license. Enrichment gives analysts the context they need, but does grow message size in the process.
+What you route to the data lake
+Route standby data you want to collect in case it&#8217;s needed later to the data lake before licensing. Include this data in a search when you need it, see what&#8217;s there, and retrieve only what you want to minimize license usage. Data for dashboards, scheduled reports, and alerting rules should not be sent to the data lake.
+How long you keep your data
+Your compliance requirements set the minimum. After that, the trade is the familiar one between search speed and storage cost to determine how long you hold data in hot, warm and archive. Those periods are yours to set, directly if you&#8217;re self-managed or at contract time on Cloud.
+Where you run it
+Self-managed is a lower licensing cost and gives you full control over where data lives but requires you to provide the infrastructure and maintain uptime. Graylog Cloud shifts that burden to us so you can focus on using the platform, not maintaining it. Graylog Cloud is also available in the AWS Marketplace.
+The term you choose
+Multi-year subscriptions lock your rate for the full term, so there&#8217;s no annual renegotiation and no mid-term increase. Three and five years are both common. One year is available if you&#8217;d rather stay flexible, and a term can be structured as a ramped volume when you&#8217;re rolling out in stages.
+Let's start the conversation
+Tell us what you&#8217;re running. We&#8217;ll walk through how licensing applies to your environment, and work toward a quote from there.
+Want answers now? Ask Arti how the two licensing models work, what counts toward your license, and what’s included in each edition.
+Talk to Arti
+Graylog Pricing Frequently Asked Questions
+What does Graylog license — per GB, per device, per user?
+Graylog licenses processed data volume in the active data tier. Two models are available: daily volume (capacity), measured in gigabytes per day, and annual consumption, measured in Graylog Consumption Units (GCUs). Entry points are 10 GB per day and 100 GCUs. Device count, user count, and total stored data do not affect licensing.
+What's the difference between daily volume and annual consumption?
+Daily volume (capacity) licenses a per-day processing rate, starting at 10 GB per day. Annual consumption licenses an estimated yearly total, starting at 100 GCUs, drawn down as data is processed. Daily volume is best for those with predicatable and consistent log volume. Consumption is best for those with unpredictable log volume and environments that experience heavy variation due to seasonality or other factors.
+What is a GCU?
+A GCU is a Graylog Consumption Unit. Consumption-based subscriptions have a fixed annual platform subscription fee and a variable amount of Graylog Consumption Units. A single GCU can be redeemed for 20 GB of Graylog Security or 25 GB of Graylog Enterprise. GCU’s are typically purchased in bundles and volume discounts apply. The closest analogy is a pre-paid gift card.
+What's the difference between collecting data and licensing it?
+Graylog licenses processed data, not collected data. There is no restriction on the number of sources that can be connected. Pipeline rules and data lake routing determine which of that data is processed, and only processed data in the active data tier counts toward the license.
+Is Graylog priced monthly or annually?
+Graylog licenses are annual subscription. Published starting prices are annual figures, not monthly.
+How do volume discounts work?
+Volume discounts are built into the pricing structure. The per-unit rate decreases at each licensing tier.
+What contract terms are available?
+One to five year subscription terms are available. Multi-year terms lock in prices, eliminating the need to negotiate annually and preventing price increases during the term. Term length does not change licensed volume, unless the contract is structured as a ramped volume.
+Can I move between daily volume and annual consumption?
+Yes, work with your Customer Success Manager.
+Can I reduce volume without dropping sources?
+Yes. Pipeline rules can trim fields or discard events before processing, so they do not count toward the license. Data can also be routed to the data lake instead of being processed. Neither requires disconnecting a source.
+Does enrichment increase my license usage?
+Yes. Enrichment adds fields to messages, which increases message size and therefore processed volume. Enrichment can be applied selectively rather than to all data.
+When does data lake data count toward my license?
+Data routed to the data lake does not count toward the license while it remains there. To use it, you include the data lake in a search, review the results, and select what data to retrieve. Retrieved data counts toward daily volume or annual consumption at that point.
+What shouldn't go in the data lake?
+Data required for dashboards, scheduled reports, or alerting rules. Those functions operate on processed data and evaluate continuously. The data lake is for data retained in case it is needed later.
+Does retrieving from Archive cost anything?
+For self-managed customers, archive data was processed and counted at ingest, so retrieval carries no additional license cost. This differs from the data lake, where data is routed in before processing and counts when retrieved. For Cloud customers, it depends on the retention terms in your contract. The default is 90 days of live data and 1 year of retention for Graylog Cloud.
+Can I search data in the lake and Archive?
+Yes. All tiers are fully searchable. Hot and warm are included in searches by default. The data lake and Archive must be explicitly included in a search.
+Who sets the retention period?
+For self-managed customers, you do. Retention length does not affect licensing. It affects storage cost, which varies by tier across hot, warm, and archive.
+For Graylog Cloud customers, it is negotiated in your contract.
+What's the difference between Enterprise and Security?
+Both are licensed on the same foundational platform. Enterprise provides log management: collection, search, data tiering, reporting, and access control. Security includes everything in Enterprise and adds SIEM capabilities: maintained detection content, anomaly detection, guided investigations, risk scoring, and more.
+Is Graylog Open free, and are there volume limits?
+Graylog Open is free permanently. It is not a trial. There is no daily ingest cap and no volume limit of any kind. It is source-available under the Server Side Public License (SSPL) and has a narrower feature set than the paid licenses.
+Can I move from Open to a paid license without migrating?
+Yes. Applying a license key upgrades the existing installation. No migration, reinstall, or data movement is required. Configuration, dashboards, and historical data are unchanged. However, we often find this a good time to perform an architecture review, optimize your configurations, and move up to the most current version. Some customers find a clean install with a data migration is the better choice. We will guide you through this and provide you assistance as part of the onboarding process.
+What services are included, and what costs extra?
+Graylog Accelerator, the guided onboarding service, is included with every paid license. On-demand training is free and available to anyone. Live training, custom training, Professional Services, and Technical Account Management are paid add-ons available to licensed customers.
+What happens after I contact you?
+A Graylog representative will contact you to schedule a scoping call to review your environment and requirements. These calls are typically about 20 minutes.
+Questions about pricing?
+Ask Arti. How the two licensing models work, what counts toward your license, and what&#8217;s included in each edition.
+Ask Arti
