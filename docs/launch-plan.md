@@ -18,7 +18,11 @@ Status: nothing has been signed up for, deployed, bought, or sent. **[KURT]** ma
 1. Add a deploy job to the workflow: `actions/upload-pages-artifact` with `path: dist`, then `actions/deploy-pages` (needs `pages: write` and `id-token: write`).
 2. **[KURT]** Under Settings → Pages → Source, choose "GitHub Actions".
 
-## 3. Newsletter: Beehiiv free plan
+## 3. Newsletter: Kit (ConvertKit)
+
+**Done:** all subscribe forms POST to Kit form 10093883 (`https://app.kit.com/forms/10093883/subscriptions`, field `email_address`). Hosted page: https://o11y-watch.kit.com/6b567804da. The Beehiiv notes below are superseded.
+
+### (Superseded) Beehiiv free plan
 1. **[KURT]** Create a free Beehiiv publication named "O11y Watch". The free "Launch" plan allows up to 2,500 subscribers. Check the current limits at https://www.beehiiv.com/pricing before signing up.
 2. Copy Beehiiv's embed or subscribe-form URL and replace the disabled placeholder form in `scripts/build.mjs` (the `<section class="signup">` block). Rebuild and push.
 3. **[KURT]** Review `docs/newsletter-issue-001.md`, paste it into Beehiiv, and approve sending or scheduling it. Kurt is the sender.
