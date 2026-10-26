@@ -12,7 +12,7 @@ See `docs/affiliate-programs.md`. 8 vendors flagged; "Try it" buttons + disclosu
 | Site placement (category page + change log) | $39 / month | $79 / month |
 | Bundle | $79 | $149 |
 
-Rationale: small dev newsletters (~1k subs) charge roughly $50–100 per placement (e.g. BuilderDaily $75 per send to 1k+, https://www.builderdaily.dev/advertise; beehiiv's guide puts typical newsletter CPMs at $25–50+, niche B2B higher, https://www.beehiiv.com/blog/newsletter-sponsorship-cost). We have no published audience yet, so founding ≈ half of a 1k-sub rate. Observability buyers are high-value (vendors pay $100s per lead), which justifies moving to standard once we can show ~1k subscribers and open rates. The page does not claim any audience number.
+Rationale: small dev newsletters (~1k subs) charge roughly $50–100 per placement (e.g. BuilderDaily $75 per send to 1k+, https://www.builderdaily.dev/advertise; a founding/intro rate of ~$150 is cited for niche dev newsletters, https://webafterai.substack.com/p/sponsor-webafterai; general guide: https://www.beehiiv.com/blog/newsletter-sponsorship-cost). We have no published audience yet, so founding ≈ half of a 1k-sub rate. Observability buyers are high-value (vendors pay $100s per lead), which justifies moving to standard once we can show ~1k subscribers and open rates. The page does not claim any audience number.
 
 ## 3. O11y Watch Pro — $6/month or $60/year
 Offer (near-zero extra time; everything comes from the weekly `check.mjs` run Kurt already does):
