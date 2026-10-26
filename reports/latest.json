@@ -49,7 +49,9 @@
  },
  {
   "id": "uptimerobot",
-  "status": "unchanged"
+  "status": "changed",
+  "added": 4,
+  "removed": 4
  },
  {
   "id": "checkly",
@@ -173,7 +175,9 @@
  },
  {
   "id": "oneuptime",
-  "status": "unchanged"
+  "status": "changed",
+  "added": 10,
+  "removed": 2
  },
  {
   "id": "sematext",
@@ -222,8 +226,8 @@
  {
   "id": "bugsink",
   "status": "changed",
-  "added": 22,
-  "removed": 68
+  "added": 2,
+  "removed": 4
  },
  {
   "id": "exceptionless",
@@ -231,19 +235,19 @@
  },
  {
   "id": "ohdear",
-  "status": "unchanged"
+  "status": "changed",
+  "added": 29,
+  "removed": 29
  },
  {
   "id": "updown",
   "status": "changed",
-  "added": 8,
-  "removed": 10
+  "added": 23,
+  "removed": 20
  },
  {
   "id": "statusgator",
-  "status": "changed",
-  "added": 4,
-  "removed": 83
+  "status": "unchanged"
  },
  {
   "id": "statuspage",

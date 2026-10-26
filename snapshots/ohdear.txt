@@ -124,8 +124,8 @@ headers: {
 },
 body: JSON.stringify({
 url: this.url,
-'my_name_27svMuTRMcccaCsc': '',
-'valid_from': 'eyJpdiI6ImI0OVQzc0dCbnh1ZzFRYmRHdjFpRWc9PSIsInZhbHVlIjoiR2xhZjY3QlNPZ05nbllJUHFIT3pkQT09IiwibWFjIjoiNzJjYjBhNWFiN2NmZjA3MGZjNTY2NTM5NWYyZDMyOTk5Mzc4NjMwZmMzNGYyNmRmZjcxNzk5MmI1YjZiYjUwYSIsInRhZyI6IiJ9',
+'my_name_e9uEjGfXyhrJtOSX': '',
+'valid_from': 'eyJpdiI6IjQrZkNjNFJMSDFQREdBZmVtbjVkN1E9PSIsInZhbHVlIjoia3h3RkttMFJRdC8wYmN5MGNsbGo5Zz09IiwibWFjIjoiN2NiYTc3MGVlNjM5MDNiZGVhZTFlNDE0YzU2ZDlhMzkxMjhhOGM4YWFkNzNmMTcxYjNlM2UwYTQyNGM2YjgzNiIsInRhZyI6IiJ9',
 }),
 }).catch(() => null);
 this.loading = false;
@@ -169,34 +169,34 @@ See the reseller program &rarr;
 Don't take our word for it
 We built an incredibly powerful website monitor we know you'll love. Don’t
 just take our word for it, here's what our users think:
-I signed up for Oh Dear for the broken link checker, which gives me peace of mind when I release new updates. Top notch product 👌 .
-Tony Lea
-Creator of devdojo.com
-Does one thing, and does it really well.
-Arnaud Porterie
-Founder
+With Oh Dear we replaced multiple tools , gained features and a much better UX. Love the product and the team behind it.
+Franco Gilio
+CTO at Publica
 Oh Dear Is the bomb, awesome simple UI, easy to setup & maintain.
 Lee Stables
 Laravel Developer
-Highly recommend for monitoring sites.
-Simon Drijver
-Developer
-I was looking for a replacement for Pingdom because it is no longer value for money. It was a no-brainer to switch. You get way more features and the best user experience .
-Lester Chan
-Full Stack Engineer
-Oh Dear detected an issue that our other uptime monitor did not!
-Casey Sprague
-Chief Technology Officer at thera-LINK
-Oh Dear looks really good, it's fast, and it found some mixed content I had. 👌💯
-Nicolas Widart
-Creator of Asgard CMS
-Started using 2 years ago as a simple monitoring tools. Has become a daily must-have for uptime, performance and page speed metrics audit.
-Nicolas Lefèvre
-Technical Consultant
-I just entered my domain and Oh Dear took care of the rest. I was pleasantly
-surprised to see changes in my SSL cert chain and mixed content reports.
-Paul Redmond
-Contributor at Laravel News
+It's always the first tool that notifies me when something goes wrong.
+Kevin Petit
+Engineer
+Decent monitoring service!
+Albert Cui
+Technical Lead
+Oh Dear provides so much more confidence than just status checks - knowing my site is up, responding quickly and having no broken links.
+Dwight Conrad Watson
+CEO of roommates.com
+Oh Dear enables me to sleep well at night . A simple “does what it says on the tin” services with huge power and extensive features.
+James Mills
+Maintainer of Treeware
+Great tool for tracking your site health!
+Marco Rivadeneyra
+CTO
+Oh Dear is easy to set up and dependable and at a good price point.
+Nick Brandt
+Co-founder
+Oh Dear really helps me to focus on developing PHPMap! I don’t need to check my site manually . Oh Dear
+does it for me. ❤️
+Florian Wartner
+Creator of PHPMap.co
 Show more
 Frequently asked questions
 Does Oh Dear offer a free trial?
@@ -218,7 +218,7 @@ See all other FAQ items &rarr;
 Start monitoring instantly
 Start a free 10-day trial with no commitment. You're all set in less than a minute.
 (No credit card needed.)
-'my_name_dDMOMfyyK08x5enl': '',
-'valid_from': 'eyJpdiI6InJJREpTWkxqbTdDRWdqWFJINGFtWnc9PSIsInZhbHVlIjoiV0hGOWRocVZaUlVPeEVmR1JLNkpmZz09IiwibWFjIjoiNjhjZjQ3ZmYzNGE2NjY0MTg1ZDIzMWU4YmUxMGM5NTAwMmEyNWYxMTBiYjVjNmRmNGMwM2FlOTM4MTgxM2ZkZSIsInRhZyI6IiJ9',
+'my_name_CTGRNnxax6U6ejiX': '',
+'valid_from': 'eyJpdiI6ImVsTjF6dEJ2VjJFQVdwWkpwVWphc3c9PSIsInZhbHVlIjoic2lIS0F6Zm93RE02UUM1UjRjVlNIdz09IiwibWFjIjoiMWJmMTdhMzU4NzAyYWI2ODkxZjQzOGE0NDZlYzUzNDE1MWE5ZTRkODU1MWUwNWQ4ZDI0MzIwNjc0NzM0NTg3NyIsInRhZyI6IiJ9',
 Not convinced yet? Need help?
 Get in touch via support@ohdear.app .

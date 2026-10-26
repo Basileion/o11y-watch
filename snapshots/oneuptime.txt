@@ -1,4 +1,5 @@
-Pricing Plans
+Pricing
+Start free. Pay for more as you grow.
 Get started for free with our generous free plan. Paid
 plans unlock additional features. Sign up free, no credit card required.
 Monthly
@@ -94,6 +95,7 @@ Connect your own Twilio account and pay nothing to OneUptime for SMS and Call al
 Pricing may vary for high-risk regions. Contact support for details.
 Telemetry: Logs, Traces and Metrics
 We charge $0.10 for every GB of data ingested (for 15 day retention). It's the lowest in the industry and 8X cheaper than DataDog.
+Retention is billed for at least 7 days: telemetry kept for fewer days is still deleted on time, and billed as 7 days.
 Ingest logs, traces and metrics
 Custom data retention
 Search TB's of data in seconds
@@ -104,6 +106,7 @@ GB's ingested per month
 If you are ingesting more than 1 TB of data every month, contact [email&#160;protected] for a discount.
 Data Retention (in days)
 15 Days
+Retention shorter than 7 days is billed as 7 days.
 If you're looking for data retention of more than 6 months, contact [email&#160;protected] for a discount.
 AI
 Leverage AI to automatically analyze incidents, suggest resolutions, and help your team respond faster. Powered by advanced LLMs to provide intelligent insights.
@@ -120,7 +123,8 @@ Estimated tokens per month (in thousands)
 If you need more than 10M tokens per month, contact [email&#160;protected] for volume pricing.
 Bring Your Own LLM Provider
 On the Growth plan and above, connect your own LLM provider (OpenAI, Anthropic, or others) and OneUptime charges nothing for the tokens it uses. You only pay your provider directly at their rates.
-Powering thousands of teams from startups to the Fortune 500
+Trusted by engineering teams at
+Pause the moving logos
 OneUptime is 10+ tools combined into one.
 With OneUptime, you get a complete SRE
 toolchain out-of-the-box. One interface. One conversation. One permission model. Thousands of features.
@@ -171,7 +175,6 @@ Inbound Webhook / Heartbeat Monitoring
 VM or Server Monitoring
 Network Monitoring
 Container Monitoring
-Coming Soon
 Kubernetes Cluster Monitoring
 On-Call and Alerts
 SMS Alerts
@@ -190,6 +193,7 @@ Logs and Events
 Webhook Alerts
 Vacation and OOO Policy
 On-Call Pay
+Coming Soon
 Reports
 Ingest with OpenTelemetry
 Ingest with Fluentd
@@ -252,7 +256,6 @@ Visa / Mastercard / Amex / ACH / Invoices / Bitcoin
 Pricing plan comparison
 Feature by
 Plans
-Pricing
 Advanced Workflows, Integrations, API Access and more
 included.
 Free for 14 Days
@@ -277,6 +280,11 @@ eligible for the 14-day free trial. The 14-day free trial only applies when you 
 paid account.
 How do discounts work?
 Annual billing is discounted against monthly billing &mdash; the annual price for each plan is shown in the table above. You can upgrade an existing plan to annual billing at any time. Volume discounts are available on high monitor counts, high telemetry ingest, and extended retention; contact us for a written quote.
+Is there a minimum telemetry retention?
+Logs, traces, metrics, profiles and security events are
+billed for at least 7 days of retention. You can keep them for as little as a day, and they are
+deleted on time, but a GB kept for fewer than 7 days is billed as if it were kept for 7. Session
+replay recordings have no minimum: they are billed for the days they are kept.
 What happens to API keys and SCIM if I move to a lower
 plan?
 API keys need the Growth plan and SCIM provisioning needs

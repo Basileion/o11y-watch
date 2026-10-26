@@ -2,7 +2,7 @@ Self-hosted Error Tracking
 See exactly when your code fails in production and why
 Sign Up
 Self-Host
-GitHub 2.1K★
+GitHub 2.2K★
 Loved by Developers
 1400+ teams use Bugsink every week
 Hosted Bugsink has worked very well: low cost, easy setup , and overall, a solid European alternative to Sentry .
@@ -62,7 +62,7 @@ To evaluate Bugsink by self-hosting it, spin up a throw-away instance using Dock
 Copy
 docker pull bugsink/bugsink:latest
 docker run \
--e SECRET_KEY=IpVrBZkwuir2feZgHHkOEQmV41zqD0F5TsS5fTSk7aDl8dkjUa \
+-e SECRET_KEY=TJKVvjwEdmPu4Wo0xOVd7y8UjuWHpEhKkkFq0LSd6ecW4bE2lx \
 -e CREATE_SUPERUSER=admin@example.org:admin \
 -e PORT=8000 \
 -p 8000:8000 \
@@ -73,8 +73,6 @@ are admin .
 Now, you can set up your first project and start tracking errors.
 Full installation guide →
 Pricing
-We run Bugsink for you.
-See what's included &rarr;
 15K / Evaluation
 Free
 15K monthly events

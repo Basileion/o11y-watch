@@ -14,7 +14,7 @@ All monitor types + SSL & DNS
 12-month data retention
 Team
 ★ Most popular
-$ 39 $ 33 /month
+$ 46 $ 39 /month
 For small teams running production services.
 Subscribe now 100 monitors
 + 20 Third party service monitors New!
@@ -25,7 +25,7 @@ Everything in Solo, plus
 Webhook, Zapier & PagerDuty
 Scale
 Monitor tier 200 monitors 500 monitors
-$ 83 $ 67 /month
+$ 98 $ 79 /month
 For high-volume, self-serve monitoring.
 Subscribe now 200 monitors
 + 40 Third party service monitors New!
@@ -68,8 +68,8 @@ comparison .
 $ 0
 Starts at $ 144 /y
 Subscribe now
-$ 396 /y
-Starts at $ 804 /y
+$ 468 /y
+Starts at $ 948 /y
 Monitoring
 Monitoring interval Money saving feature! The shorter the interval, the faster you will spot the incident. 5 minutes 60 seconds 30 seconds 15 seconds
 HTTPS monitoring Essential monitoring for websites with SSL errors & alerts. SSL monitoring is included only in paid plans.
