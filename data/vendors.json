@@ -97,7 +97,18 @@
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "25% of net revenue, first 12 months",
+   "cookie_days": null,
+   "network": "in-house",
+   "signup_url": "https://betterstack.com/affiliates",
+   "source": "https://betterstack.com/affiliates",
+   "payout": "PayPal, $100 min, after 60-day refund window"
+  }
  },
  {
   "id": "axiom",
@@ -213,7 +224,18 @@
   "card_required": "No",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "20% recurring, lifetime",
+   "cookie_days": 30,
+   "network": "in-house (dashboard)",
+   "signup_url": "https://uptimerobot.com/affiliate/",
+   "source": "https://uptimerobot.com/affiliate/",
+   "payout": "PayPal, $100 min"
+  }
  },
  {
   "id": "checkly",
@@ -229,7 +251,19 @@
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "20% recurring, first 12 months",
+   "cookie_days": 60,
+   "network": "not stated",
+   "signup_url": "https://www.checklyhq.com/",
+   "source": "https://github.com/Affitor/open-affiliate/blob/main/programs/checkly.yaml",
+   "payout": "$50 min",
+   "confidence": "community listing only; unverified"
+  }
  },
  {
   "id": "cronitor",
@@ -293,7 +327,19 @@
   "card_required": "No",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "30% recurring, lifetime",
+   "cookie_days": 30,
+   "network": "Post Affiliate Pro",
+   "signup_url": "https://psantoris.postaffiliatepro.com/affiliates/",
+   "source": "https://www.postaffiliatepro.com/affiliate-program-directory/statuscake-affiliate-program/",
+   "payout": "Bank transfer, $100 min",
+   "confidence": "third-party listing; confirm on signup"
+  }
  },
  {
   "id": "hyperping",
@@ -309,7 +355,18 @@
   "card_required": "No",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "30% recurring, first 12 months",
+   "cookie_days": 90,
+   "network": "in-house partner portal",
+   "signup_url": "https://partners.hyperping.com/program",
+   "source": "https://partners.hyperping.com/program",
+   "payout": "Monthly, $50/€50 min"
+  }
  },
  {
   "id": "logzio",
@@ -485,7 +542,18 @@
   "card_required": "No (trial)",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "10–25% recurring, tiered by annual volume",
+   "cookie_days": null,
+   "network": "in-house partner program",
+   "signup_url": "https://www.atatus.com/partner-program/",
+   "source": "https://www.atatus.com/partner-program/",
+   "payout": "not stated"
+  }
  },
  {
   "id": "site24x7",
@@ -517,7 +585,18 @@
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "30% recurring, lifetime",
+   "cookie_days": null,
+   "network": "in-house",
+   "signup_url": "https://instatus.com/referrals",
+   "source": "https://instatus.com/referrals",
+   "payout": "not stated"
+  }
  },
  {
   "id": "incidentio",
@@ -960,7 +1039,18 @@
    "Trial only"
   ],
   "checked": "2026-10-24",
-  "confidence": "verified"
+  "confidence": "verified",
+  "affiliate": {
+   "program": true,
+   "joined": false,
+   "link": null,
+   "commission": "20% of first 12 months (cut from 25% on 2026-03-27)",
+   "cookie_days": 30,
+   "network": "in-house (Friends of Oh Dear)",
+   "signup_url": "https://affiliates.ohdear.app/signup",
+   "source": "https://ohdear.app/changelog/2026-03-27",
+   "payout": "PayPal/SEPA, €150 min"
+  }
  },
  {
   "id": "updown",
