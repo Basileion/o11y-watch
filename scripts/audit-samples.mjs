@@ -74,10 +74,19 @@ for (const p of profiles) {
   const top = r.ranked.slice(0, 5).map((x) => ({
     name: x.name,
     monthly: x.monthly,
+    monthly_low: x.monthly_low,
+    monthly_high: x.monthly_high,
     savings: x.savings_mo,
     effort: x.effort.label,
     confidence: x.confidence,
-    kind: x.kind
+    kind: x.kind,
+    caveat: x.caveat || null
+  }));
+  const insufficient = (r.insufficient_pricing || []).map((x) => ({
+    name: x.name,
+    missing: x.missing,
+    reason: x.reason,
+    partial_total: x.modeled_partial_total
   }));
   const summary = {
     profile: p.name,
@@ -85,7 +94,9 @@ for (const p of profiles) {
     baseline_source: r.current.baseline_source,
     modeled_current: r.current.modeled_total ?? r.current.total,
     teaser: r.teaser,
+    guardrails: r.guardrails,
     top5: top,
+    insufficient_pricing: insufficient,
     levers: r.levers.map((l) => `${l.name}: ~$${l.estimated_save_mo}/mo`),
     gap_count: r.gaps_summary.length,
     migration_steps: r.migration.length
@@ -98,6 +109,7 @@ for (const p of profiles) {
   for (const t of top) {
     console.log(`  - ${t.name} [${t.kind}]: ${O11yAudit.money(t.monthly)}/mo, save ${t.savings == null ? '—' : O11yAudit.money(t.savings)}, effort ${t.effort}, conf ${t.confidence}`);
   }
+  console.log('Insufficient pricing:', insufficient.length ? insufficient.map((x) => `${x.name} (missing ${x.missing.join('/')})`).join('; ') : 'none');
   console.log('Levers:', summary.levers.join('; ') || 'none');
   console.log('Gaps recorded:', summary.gap_count);
 }

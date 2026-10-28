@@ -109,13 +109,15 @@
     const range = t.savings_low_mo != null
       ? `<div class="amt grad-text">${money(t.savings_low_mo)} – ${money(t.savings_high_mo)}<span class="sm"> / mo</span></div>`
       : `<div class="amt">Range unavailable</div>`;
+    const basis = t.basis ? `<p class="sm mut">Basis: ${esc(String(t.basis).replace(/_/g, ' '))} · High/Medium confidence only · conservative cap applied.</p>` : '';
     return `
       <div class="card hl teaser-card" id="teaser">
-        <div class="eyebrow">Free teaser · estimates only</div>
+        <div class="eyebrow">Free teaser · conservative estimates</div>
         <h2 style="margin:8px 0 4px;font-size:22px">Top-line savings range</h2>
         ${range}
-        <p class="mut">Modeled current baseline: <b>${money(t.current_mo)}/mo</b> (${esc(report.current.baseline_source)}). Full report ranks 4–6 alternatives, self-host options, levers, and a migration plan.</p>
+        <p class="mut">Modeled current baseline: <b>${money(t.current_mo)}/mo</b> (${esc(report.current.baseline_source)}). Full report ranks fully covered alternatives, flags insufficient pricing data, self-host TCO ranges, levers, and a migration plan.</p>
         <p class="sm mut">${esc(t.label)}</p>
+        ${basis}
       </div>`;
   }
 
@@ -129,7 +131,9 @@
         <h3 style="margin:6px 0">Finance-grade audit — $${price}</h3>
         <p class="mut">One-time unlock. Instant. Runs in your browser against dated public pricing data.</p>
         <ul class="mut sm">
-          <li>Ranked savings table (SaaS + self-host)</li>
+          <li>Ranked savings (fully covered vendors only)</li>
+          <li>Insufficient public pricing data list</li>
+          <li>Self-host infra+ops TCO ranges</li>
           <li>Retention / sampling / log-filter levers</li>
           <li>Migration plan with effort ratings</li>
           <li>Print / Save-as-PDF branded report</li>
@@ -151,12 +155,12 @@
     const cur = report.current;
     const rankedRows = report.ranked.map((r) => `
       <tr>
-        <td><b>${esc(r.name)}</b><div class="sm mut">${esc(r.kind)}${r.checked ? ' · checked ' + esc(r.checked) : ''}</div></td>
-        <td>${money(r.monthly)}/mo</td>
+        <td><b>${esc(r.name)}</b><div class="sm mut">${esc(r.kind)}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
+        <td>${money(r.monthly)}/mo${r.monthly_low != null && r.monthly_high != null && r.kind === 'self_hosted' ? ` <span class="sm mut">(${money(r.monthly_low)}–${money(r.monthly_high)})</span>` : ''}</td>
         <td>${r.savings_mo == null ? '—' : money(r.savings_mo) + '/mo'}${r.savings_pct != null ? ` <span class="sm mut">(${r.savings_pct}%)</span>` : ''}</td>
         <td><span class="pill">${esc(r.effort.label)}</span></td>
         <td><span class="pill p-${r.confidence === 'high' ? 'yes' : r.confidence === 'medium' ? 'unknown' : 'no'}">${esc(r.confidence)}</span></td>
-      </tr>`).join('');
+      </tr>`).join('') || `<tr><td colspan="5" class="mut">No fully covered alternatives to rank for this usage profile.</td></tr>`;
 
     const altCards = report.alternatives.map((a) => `
       <div class="card">
@@ -166,12 +170,27 @@
         <div class="sm">${(a.lines || []).map((l) => `<div>${esc(l.label)}: <b>${money(l.amount)}</b></div>`).join('') || '<i class="mut">No modeled lines</i>'}</div>
         ${gapList(a.gaps)}
         ${a.url ? `<p class="sm"><a href="${esc(a.url)}" rel="nofollow noopener" target="_blank">Pricing source ↗</a> · checked ${esc(a.checked)}</p>` : ''}
-      </div>`).join('');
+      </div>`).join('') || `<p class="mut">No fully covered SaaS alternatives for this profile.</p>`;
+
+    const insuff = report.insufficient_pricing || [];
+    const insuffBlock = insuff.length
+      ? `<div class="tw"><table>
+            <thead><tr><th>Vendor</th><th>Missing dimensions</th><th>Why excluded</th></tr></thead>
+            <tbody>${insuff.map((x) => `
+              <tr>
+                <td><b>${esc(x.name)}</b></td>
+                <td>${esc((x.missing || []).join(', ') || '—')}</td>
+                <td class="sm mut">${esc(x.reason)}${x.modeled_partial_total != null ? ` (partial model ${money(x.modeled_partial_total)}/mo not shown as savings)` : ''}</td>
+              </tr>`).join('')}
+          </tbody></table></div>
+          <p class="sm mut">These vendors are listed for transparency only — incomplete public unit rates mean we do not rank them as savings options.</p>`
+      : `<p class="mut">All considered vendors had complete coverage for your used dimensions.</p>`;
 
     const selfCards = report.self_hosted.map((s) => `
       <div class="card">
         <h3 style="margin:0 0 6px;font-size:16px">${esc(s.name)}</h3>
-        <div class="amt" style="font-size:28px">${s.total == null ? 'n/a' : money(s.total)}<span class="sm">/mo software</span></div>
+        <div class="amt" style="font-size:28px">${s.total == null ? 'n/a' : money(s.total)}<span class="sm">/mo est. TCO</span></div>
+        <p class="sm mut">Software ${s.software_mo == null ? 'n/a' : money(s.software_mo)}/mo + infra/ops ${money(s.infra_low_mo)}–${money(s.infra_high_mo)}/mo (mid ${money(s.infra_mid_mo)})</p>
         <p class="sm mut">${esc((s.notes || [])[0] || '')}</p>
         ${gapList(s.gaps)}
       </div>`).join('');
@@ -214,6 +233,7 @@
 
         <section>
           <h3>Ranked savings</h3>
+          <p class="sm mut">Only vendors with public rates for every dimension you use. Confidence High / Medium / Low reflects coverage folds and realism floor vs your invoice.</p>
           <div class="tw"><table>
             <thead><tr><th>Option</th><th>Est. monthly</th><th>Savings</th><th>Effort</th><th>Confidence</th></tr></thead>
             <tbody>${rankedRows}</tbody>
@@ -221,12 +241,18 @@
         </section>
 
         <section>
-          <h3>Alternative vendors (modeled at your usage)</h3>
+          <h3>Alternative vendors (fully covered)</h3>
           <div class="grid">${altCards}</div>
         </section>
 
         <section>
+          <h3>Insufficient public pricing data</h3>
+          ${insuffBlock}
+        </section>
+
+        <section>
           <h3>Self-hosted options</h3>
+          <p class="sm mut">Software license may be $0; infra + ops are estimated as an explicit range with stated assumptions — never shown as $0 TCO.</p>
           <div class="grid">${selfCards}</div>
         </section>
 

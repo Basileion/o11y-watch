@@ -2,12 +2,35 @@
  * O11y Watch — Observability Cost & Stack Audit engine (deterministic, client-side).
  * Uses structured rates from data/audit-rates.json (extracted from vendors.json).
  * Never invents prices: missing dimensions → explicit "not in dataset" gaps.
+ *
+ * Credibility rules (v2):
+ * 1. Coverage: only rank a vendor when dataset rates cover every buyer dimension
+ *    the vendor's model is expected to price. Partial coverage → insufficient list.
+ * 2. Realism guardrails: floor-fraction + teaser cap + High/Medium/Low confidence.
+ * 3. Self-host: software may be $0; infra+ops always estimated as an explicit range.
  */
 export function createAuditEngine() {
   'use strict';
 
   const EFFORT = { none: 0, low: 1, medium: 2, high: 3 };
   const EFFORT_LABEL = ['None', 'Low', 'Medium', 'High'];
+
+  // ---------------------------------------------------------------------------
+  // Realism guardrails — heuristics documented for defensibility, not quotes.
+  // ---------------------------------------------------------------------------
+  // FLOOR_FRACTION (0.30): If a fully-covered modeled alternative lands below 30% of
+  // the buyer's stated invoice, treat confidence as Low. Mature Datadog/NR bills
+  // include APM, RUM, synthetics, and add-ons that sparse public unit rates miss;
+  // a model that implies ~90%+ savings is almost always undercounting, not a deal.
+  const FLOOR_FRACTION = 0.30;
+  // MAX_TEASER_SAVE_PCT (0.40): Headline / free-teaser savings are capped at 40% of
+  // baseline. Public migration case studies and FinOps write-ups rarely sustain
+  // >40–50% without cutting retention/scope; advertising uncapped model deltas
+  // (e.g. $8.2k → $165) destroys trust. Cap applies to teaser + summary ranges only;
+  // full report still shows uncapped modeled totals with confidence labels.
+  const MAX_TEASER_SAVE_PCT = 0.40;
+  // Material usage thresholds — below these, a dimension is not "used" by the buyer.
+  const MATERIAL = { hosts: 1, log_gb_day: 0.1, metric_series: 1000, spans_mo: 100000, users: 1 };
 
   function num(x, d) {
     const n = Number(x);
@@ -46,6 +69,99 @@ export function createAuditEngine() {
       region: String(raw.region || ''),
       constraints: String(raw.constraints || ''),
       csv_overrides: raw.csv_overrides || null
+    };
+  }
+
+  /** Dimensions the buyer actually uses (material non-zero). */
+  function buyerDimensions(usage) {
+    const dims = [];
+    if (usage.hosts >= MATERIAL.hosts) dims.push('hosts');
+    if (usage.log_gb_day >= MATERIAL.log_gb_day) dims.push('logs');
+    if (usage.metric_series >= MATERIAL.metric_series) dims.push('metrics');
+    if (usage.spans_mo >= MATERIAL.spans_mo) dims.push('traces');
+    if (usage.users >= MATERIAL.users) dims.push('seats');
+    return dims;
+  }
+
+  /**
+   * Which workload dimensions this vendor can defensibly price from dataset rates.
+   * Returns { covered: string[], foldNotes: string[] }.
+   *
+   * Hosts / seats that the model does not charge are omitted from "required" later
+   * (N/A), not counted as covered. Folded meters (one $/GB for logs+metrics+traces)
+   * mark all three covered and attach a fold note that lowers confidence.
+   */
+  function vendorCoverage(vdef) {
+    const rates = vdef.rates || {};
+    const model = vdef.model;
+    const covered = new Set();
+    const foldNotes = [];
+
+    if (rates.host_mo_annual != null || rates.host_mo_ondemand != null) covered.add('hosts');
+    if (rates.user_mo != null) covered.add('seats');
+    if (rates.metric_series_1k != null) covered.add('metrics');
+    if (rates.span_million != null) covered.add('traces');
+    if (rates.log_gb != null) covered.add('logs');
+
+    // All-in-one GB meter: vendor publishes one $/GB for metrics+logs+traces.
+    if (model === 'per_gb_all' && rates.log_gb != null) {
+      covered.add('logs');
+      covered.add('metrics');
+      covered.add('traces');
+      foldNotes.push('Single $/GB meter covers logs+metrics+traces; volume proxy is survey log GB/mo only (metrics/trace bytes not converted).');
+    }
+
+    // New Relic-style user + ingest GB: ingest GB stands in for logs; metrics/traces
+    // are not separately metered in the dataset — fold with penalty.
+    if (model === 'user_plus_gb' && rates.log_gb != null) {
+      covered.add('logs');
+      covered.add('metrics');
+      covered.add('traces');
+      foldNotes.push('Ingest GB used as combined proxy for logs/metrics/traces; dataset does not separate those meters.');
+    }
+
+    // Dimensions this pricing model does not charge (N/A for coverage checks).
+    const na = new Set();
+    const hostModels = new Set(['per_host', 'per_host_plus_products']);
+    if (!hostModels.has(model)) na.add('hosts');
+    if (rates.user_mo == null && model !== 'user_plus_gb') na.add('seats');
+
+    // Opaque floors cannot defensibly cover usage dimensions.
+    if (model === 'tier_floor' || model === 'compute_opaque') {
+      covered.clear();
+      foldNotes.push('Dataset has only a plan floor / opaque compute model — cannot map hosts/GB/series/spans to dollars.');
+    }
+
+    // usage_gb_samples: metric_sample_million exists but survey has series, not samples → metrics not covered.
+    if (model === 'usage_gb_samples') {
+      covered.delete('metrics');
+    }
+
+    // per_million_signals: log_million cannot convert from GB → logs not covered unless we invent events/GB.
+    if (model === 'per_million_signals') {
+      covered.delete('logs');
+    }
+
+    return { covered: [...covered], na: [...na], foldNotes };
+  }
+
+  /**
+   * Coverage gate: required buyer dims minus model-N/A must all be covered.
+   */
+  function assessCoverage(vdef, usage) {
+    const buyer = buyerDimensions(usage);
+    const { covered, na, foldNotes } = vendorCoverage(vdef);
+    const coveredSet = new Set(covered);
+    const naSet = new Set(na);
+    const required = buyer.filter((d) => !naSet.has(d));
+    const missing = required.filter((d) => !coveredSet.has(d));
+    return {
+      complete: missing.length === 0 && required.length > 0,
+      required,
+      missing,
+      covered: covered.filter((d) => required.includes(d) || buyer.includes(d)),
+      foldNotes,
+      buyer
     };
   }
 
@@ -99,7 +215,6 @@ export function createAuditEngine() {
         if (rates.user_mo != null) add(`Full platform users (${billUsers} × ${money(rates.user_mo)})`, billUsers * rates.user_mo, { dim: 'seats' });
         else gap('seats', 'User rate missing');
         const freeGb = rates.free_gb_mo || 0;
-        // Combined ingest: logs + rough span weight if we only have GB rate
         const ingestGb = usage.log_gb_mo;
         const billGb = Math.max(0, ingestGb - freeGb);
         if (rates.log_gb != null) add(`Data ingest (${billGb.toFixed(0)} GB × ${money(rates.log_gb)}/GB after ${freeGb} GB free)`, billGb * rates.log_gb, { dim: 'logs' });
@@ -122,7 +237,6 @@ export function createAuditEngine() {
       case 'usage_gb_samples': {
         const gb = usage.log_gb_mo;
         if (rates.log_gb != null) add(`Usage GB (${gb.toFixed(0)} × ${money(rates.log_gb)})`, gb * rates.log_gb, { dim: 'logs' });
-        // Approximate metric samples from series × scrape assumption is invention — don't.
         if (rates.metric_sample_million != null) {
           gap('metrics', 'Dataset prices $0.10/M samples but survey collects series count, not samples — metrics line not estimated');
         }
@@ -148,6 +262,9 @@ export function createAuditEngine() {
         const billGb = Math.max(0, usage.log_gb_mo - freeGb);
         if (rates.log_gb != null) add(`Logs/data (${billGb.toFixed(0)} GB × ${money(rates.log_gb)})`, billGb * rates.log_gb, { dim: 'logs' });
         if (vdef.model === 'per_gib_logs') gap('metrics', 'Per-DPM metrics rate not in dataset');
+        if (vdef.model === 'per_gb_all') {
+          gap('volume_proxy', 'All-in-one $/GB applied to log GB/mo only — metrics/trace byte volume not added');
+        }
         break;
       }
       case 'per_gb_ingest_query': {
@@ -158,7 +275,6 @@ export function createAuditEngine() {
       case 'per_million_signals': {
         const mSpans = usage.spans_mo / 1e6;
         if (rates.span_million != null) add(`Spans (${mSpans.toFixed(1)}M × ${money(rates.span_million)})`, mSpans * rates.span_million, { dim: 'traces' });
-        const mLogs = usage.log_gb_mo; // cannot convert GB→million log lines without inventing — gap
         if (rates.log_million != null) gap('logs', 'Log rate is per million events; survey has GB/day — not converted without inventing events/GB');
         break;
       }
@@ -177,7 +293,6 @@ export function createAuditEngine() {
       }
       case 'compute_opaque': {
         const floor = rates.paid_from_mo;
-        // Free: 500 GB loading compute — if log_gb_mo > rough allowance, apply floor; else $0
         const freeLoad = (vdef.free && vdef.free.loading_compute_gb_mo) || 0;
         if (usage.log_gb_mo > freeLoad && floor != null) {
           add(`Paid plan floor (compute model opaque)`, floor, { dim: 'tier' });
@@ -192,11 +307,11 @@ export function createAuditEngine() {
         gap('model', 'No structured model for ' + vdef.name);
     }
 
-    // Retention lever hint only — don't invent retention multipliers unless vendor publishes them
     if (usage.retention_days > 30 && !rates.retention_multiplier) {
       gap('retention', 'Retention > 30 days; dataset has no retention surcharge multiplier for ' + vdef.name + ' — not adjusted');
     }
 
+    // Base confidence from gap count (coverage gate applied later in runAudit).
     let confidence = 'low';
     if (modeled && gaps.length <= 1) confidence = 'high';
     else if (modeled && gaps.length <= 3) confidence = 'medium';
@@ -217,6 +332,32 @@ export function createAuditEngine() {
       oss_self_host: vdef.oss_self_host,
       oss_label: vdef.oss_label || null
     };
+  }
+
+  /**
+   * Apply realism floor: modeled alternative << stated invoice → Low confidence.
+   * Fold notes also demote High → Medium.
+   */
+  function applyConfidenceGuards(model, baselineMo, coverage) {
+    let conf = model.confidence;
+    if (coverage && coverage.foldNotes && coverage.foldNotes.length) {
+      if (conf === 'high') conf = 'medium';
+      for (const n of coverage.foldNotes) {
+        model.gaps.push({ dimension: 'fold', reason: n });
+      }
+    }
+    if (baselineMo > 0 && model.modeled && model.total > 0) {
+      const ratio = model.total / baselineMo;
+      if (ratio < FLOOR_FRACTION) {
+        conf = 'low';
+        model.gaps.push({
+          dimension: 'realism',
+          reason: `Modeled ${money(model.total)}/mo is below ${(FLOOR_FRACTION * 100).toFixed(0)}% of stated/baseline ${money(baselineMo)}/mo — likely undercounting add-on SKUs. Confidence forced Low.`
+        });
+      }
+    }
+    model.confidence = conf;
+    return model;
   }
 
   function effortFrom(vdef, fromId) {
@@ -251,18 +392,52 @@ export function createAuditEngine() {
   function pickAlternatives(rates, usage) {
     const primary = usage.primary_vendor;
     const preferSelf = usage.priority === 'selfhost';
-    const preferCost = usage.priority === 'cost' || usage.priority === 'balanced';
     let ids = (rates.default_alternatives || []).slice();
-    // Always consider strong unit-priced options
     const extras = ['dynatrace', 'splunk', 'dash0', 'openobserve', 'observe', 'groundcover', 'honeycomb', 'axiom'];
     for (const e of extras) if (!ids.includes(e)) ids.push(e);
-    // Drop primary from "alternatives" list for comparison table (still model current separately)
     ids = ids.filter((id) => id !== primary && rates.vendors[id]);
     if (preferSelf) {
       ids = ids.filter((id) => rates.vendors[id].oss_self_host).concat(ids.filter((id) => !rates.vendors[id].oss_self_host));
     }
-    // Cap to 6 cloud alternatives
-    return ids.slice(0, 6);
+    return ids.slice(0, 8);
+  }
+
+  /**
+   * Self-host infra + ops range. Software may be $0; this is never $0 when there is usage.
+   *
+   * Assumptions (heuristic TCO, not a quote — documented for defensibility):
+   * - Compute/agents path: ~$3–$8 per host/mo for running collectors + backend footprint
+   *   scaled to fleet size (cheap VMs/spot at low end; reserved/HA at high end).
+   * - Log/hot storage: ~$0.02–$0.06 per GB-day of retained volume
+   *   (log_gb_day × retention_days), rough object/block storage + index overhead.
+   * - Ops labor floor: $500/mo low (part-time caretaking) to max($2,000, $5×hosts)/mo
+   *   for on-call, upgrades, and cardinality firefighting on a small team.
+   * Midpoint of the range is used for ranking totals; UI shows the full range.
+   */
+  function estimateSelfHostInfra(usage) {
+    const hosts = Math.max(0, usage.hosts || 0);
+    const logGbDay = Math.max(0, usage.log_gb_day || 0);
+    const retention = Math.max(1, usage.retention_days || 15);
+    const computeLow = hosts * 3;
+    const computeHigh = hosts * 8;
+    const storageGb = logGbDay * retention;
+    const storageLow = storageGb * 0.02;
+    const storageHigh = storageGb * 0.06;
+    const opsLow = hosts > 0 || logGbDay > 0 ? 500 : 0;
+    const opsHigh = hosts > 0 || logGbDay > 0 ? Math.max(2000, hosts * 5) : 0;
+    const low = Math.round(computeLow + storageLow + opsLow);
+    const high = Math.round(computeHigh + storageHigh + opsHigh);
+    const mid = Math.round((low + high) / 2);
+    return {
+      infra_low_mo: low,
+      infra_high_mo: high,
+      infra_mid_mo: mid,
+      assumptions: [
+        `Compute ~$3–$8/host/mo × ${hosts} hosts`,
+        `Hot storage ~$0.02–$0.06 × (${logGbDay} GB/day × ${retention}d retention)`,
+        `Ops labor floor $500 – $${Math.max(2000, hosts * 5).toLocaleString('en-US')}/mo`
+      ]
+    };
   }
 
   /**
@@ -297,12 +472,10 @@ export function createAuditEngine() {
       };
     }
 
-    // Prefer stated spend as "current" when model under/over shoots badly OR when model has low coverage
     const stated = usage.monthly_spend;
     let currentCost;
     let currentSource;
     if (current.modeled && current.confidence !== 'none' && current.total > 0) {
-      // Blend: if stated spend provided, use stated as baseline for savings math, keep model as estimate
       if (stated > 0) {
         currentCost = stated;
         currentSource = 'stated_invoice';
@@ -331,30 +504,90 @@ export function createAuditEngine() {
     }
 
     const altIds = pickAlternatives(rates, usage);
-    const alternatives = altIds.map((id) => {
-      const m = modelVendor(rates.vendors[id], usage);
-      const eff = effortFrom(rates.vendors[id], usage.primary_vendor);
-      const save = currentCost > 0 && m.modeled ? currentCost - m.total : null;
-      return { ...m, effort: eff, savings_mo: save, savings_pct: save != null && currentCost > 0 ? Math.round((save / currentCost) * 100) : null };
-    });
+    const alternatives = [];
+    const insufficient = [];
 
-    // Self-hosted options
+    for (const id of altIds) {
+      const vdef = rates.vendors[id];
+      const cov = assessCoverage(vdef, usage);
+      const m = modelVendor(vdef, usage);
+      const eff = effortFrom(vdef, usage.primary_vendor);
+
+      if (!cov.complete) {
+        insufficient.push({
+          id: m.id,
+          name: m.name,
+          url: m.url,
+          checked: m.checked,
+          kind: 'saas',
+          missing: cov.missing,
+          required: cov.required,
+          covered: cov.covered,
+          reason: cov.missing.length
+            ? `Missing public unit rates for: ${cov.missing.join(', ')}`
+            : 'No required usage dimensions to model',
+          gaps: m.gaps,
+          // Never attach savings for insufficient coverage
+          modeled_partial_total: m.modeled ? m.total : null,
+          confidence: 'none',
+          effort: eff
+        });
+        continue;
+      }
+
+      applyConfidenceGuards(m, currentCost, cov);
+      const save = currentCost > 0 && m.modeled ? currentCost - m.total : null;
+      alternatives.push({
+        ...m,
+        effort: eff,
+        savings_mo: save,
+        savings_pct: save != null && currentCost > 0 ? Math.round((save / currentCost) * 100) : null,
+        coverage: cov,
+        kind: 'saas'
+      });
+    }
+
+    // Self-hosted options with explicit infra+ops range (never advertised as $0 TCO).
     const selfHosted = (rates.self_hosted || []).map((s) => {
       const gaps = [];
-      if (!s.infra_in_dataset) gaps.push({ dimension: 'infra', reason: 'Compute/storage/ops cost not in O11y Watch dataset' });
-      if (s.software_mo == null) gaps.push({ dimension: 'license', reason: 'Software license price not stated as a monthly unit rate' });
-      const total = s.software_mo == null ? null : s.software_mo;
+      const infra = estimateSelfHostInfra(usage);
+      if (s.software_mo == null) {
+        gaps.push({ dimension: 'license', reason: 'Software license price not stated as a monthly unit rate' });
+      }
+      gaps.push({
+        dimension: 'infra',
+        reason: `Infra+ops estimated ${money(infra.infra_low_mo)}–${money(infra.infra_high_mo)}/mo (heuristic; not in O11y Watch dataset). ${infra.assumptions.join('; ')}.`
+      });
+
+      const software = s.software_mo == null ? null : s.software_mo;
+      const total = software == null ? null : software + infra.infra_mid_mo;
+      const totalLow = software == null ? null : software + infra.infra_low_mo;
+      const totalHigh = software == null ? null : software + infra.infra_high_mo;
       const save = total != null && currentCost > 0 ? currentCost - total : null;
+
+      let confidence = 'low';
+      if (software === 0 && infra.infra_mid_mo > 0) confidence = 'medium';
+      if (software == null) confidence = 'none';
+
       return {
         id: s.id,
         name: s.name,
         vendor_id: s.vendor_id,
         total,
-        software_mo: s.software_mo,
+        total_low_mo: totalLow,
+        total_high_mo: totalHigh,
+        software_mo: software,
+        infra_low_mo: infra.infra_low_mo,
+        infra_high_mo: infra.infra_high_mo,
+        infra_mid_mo: infra.infra_mid_mo,
+        infra_assumptions: infra.assumptions,
         gaps,
-        notes: [s.notes],
-        modeled: s.software_mo != null,
-        confidence: s.software_mo === 0 ? 'medium' : 'low',
+        notes: [
+          s.notes,
+          `TCO uses software ${software == null ? 'n/a' : money(software)}/mo + infra/ops midpoint ${money(infra.infra_mid_mo)}/mo (range ${money(infra.infra_low_mo)}–${money(infra.infra_high_mo)}).`
+        ],
+        modeled: total != null,
+        confidence,
         effort: { key: 'high', label: 'High', score: 3 },
         savings_mo: save,
         savings_pct: save != null && currentCost > 0 ? Math.round((save / currentCost) * 100) : null,
@@ -362,15 +595,16 @@ export function createAuditEngine() {
       };
     });
 
-    // Ranked savings: SaaS first (self-host $0 software is misleading without infra).
-    // Self-host listed after SaaS unless priority === selfhost.
-    const ranked = [...alternatives, ...selfHosted]
+    // Rank only fully covered SaaS + self-host with modeled TCO. Never rank insufficient.
+    const ranked = [...alternatives, ...selfHosted.filter((a) => a.modeled && a.total != null)]
       .filter((a) => a.modeled && a.total != null)
       .map((a) => ({
         id: a.id,
         name: a.name,
         kind: a.kind || 'saas',
         monthly: a.total,
+        monthly_low: a.total_low_mo ?? a.total,
+        monthly_high: a.total_high_mo ?? a.total,
         savings_mo: a.savings_mo,
         savings_pct: a.savings_pct,
         confidence: a.confidence,
@@ -378,9 +612,16 @@ export function createAuditEngine() {
         gaps: a.gaps,
         url: a.url || null,
         checked: a.checked || rates.dataset_checked,
-        caveat: a.kind === 'self_hosted' ? 'Software license only — compute/storage/ops not in dataset' : null
+        caveat: a.kind === 'self_hosted'
+          ? `Software ${money(a.software_mo)}/mo + estimated infra/ops ${money(a.infra_low_mo)}–${money(a.infra_high_mo)}/mo`
+          : null
       }))
       .sort((a, b) => {
+        // Confidence first (never let Low-confidence "$7k savings" outrank Medium TCO).
+        const confScore = { high: 2, medium: 1, low: 0, none: -1 };
+        const ca = confScore[a.confidence] ?? -1;
+        const cb = confScore[b.confidence] ?? -1;
+        if (cb !== ca) return cb - ca;
         const sa = a.savings_mo == null ? -1e12 : a.savings_mo;
         const sb = b.savings_mo == null ? -1e12 : b.savings_mo;
         const aSelf = a.kind === 'self_hosted' ? 1 : 0;
@@ -388,7 +629,7 @@ export function createAuditEngine() {
         if (usage.priority === 'selfhost') {
           if (aSelf !== bSelf) return bSelf - aSelf;
         } else if (aSelf !== bSelf) {
-          return aSelf - bSelf; // SaaS before self-host
+          return aSelf - bSelf; // SaaS before self-host at equal confidence
         }
         if (usage.priority === 'features') {
           if (sa > 0 && sb > 0) return (a.effort.score - b.effort.score) || (sb - sa);
@@ -398,32 +639,69 @@ export function createAuditEngine() {
 
     const levers = applyLevers(rates, usage, currentCost);
 
-    // Top-line savings range for teaser (best modeled saver among SaaS with confidence not none)
-    const savers = ranked.filter((r) => r.savings_mo != null && r.savings_mo > 0 && r.kind === 'saas');
-    const selfSavers = ranked.filter((r) => r.kind === 'self_hosted' && r.savings_mo != null && r.savings_mo > 0);
+    // Teaser: High/Medium-confidence options only, then cap at MAX_TEASER_SAVE_PCT.
+    // Fall back to on-stack levers (also capped) when no credible vendor options exist.
+    const credibleSavers = ranked.filter(
+      (r) =>
+        r.savings_mo != null &&
+        r.savings_mo > 0 &&
+        (r.confidence === 'high' || r.confidence === 'medium') &&
+        r.kind === 'saas'
+    );
+    const credibleSelf = ranked.filter(
+      (r) =>
+        r.kind === 'self_hosted' &&
+        r.savings_mo != null &&
+        r.savings_mo > 0 &&
+        (r.confidence === 'high' || r.confidence === 'medium')
+    );
+
+    const capSave = (n) => {
+      if (n == null || currentCost <= 0) return n;
+      return Math.min(n, Math.round(currentCost * MAX_TEASER_SAVE_PCT));
+    };
+
     let teaserLow = null;
     let teaserHigh = null;
-    if (savers.length) {
-      const saves = savers.map((s) => s.savings_mo).sort((a, b) => a - b);
-      teaserLow = saves[0];
-      teaserHigh = saves[saves.length - 1];
-      // Also consider on-stack levers
-      if (levers.length) {
-        const leverMax = Math.max(...levers.map((l) => l.estimated_save_mo));
-        teaserHigh = Math.max(teaserHigh, leverMax);
+    let teaserBasis = 'none';
+
+    const vendorPool = usage.priority === 'selfhost'
+      ? [...credibleSelf, ...credibleSavers]
+      : [...credibleSavers, ...credibleSelf];
+
+    const vendorSaves = vendorPool
+      .map((s) => capSave(s.savings_mo))
+      .filter((n) => n != null && n > 0)
+      .sort((a, b) => a - b);
+    const leverSaves = (levers.length && currentCost > 0)
+      ? levers.map((l) => capSave(l.estimated_save_mo)).filter((n) => n > 0).sort((a, b) => a - b)
+      : [];
+
+    if (vendorSaves.length) {
+      teaserLow = vendorSaves[0];
+      teaserHigh = vendorSaves[vendorSaves.length - 1];
+      teaserBasis = 'credible_vendors';
+      // Blend on-stack levers so a single vendor option still yields a range, not a point.
+      if (leverSaves.length) {
+        teaserLow = Math.min(teaserLow, leverSaves[0]);
+        teaserHigh = Math.max(teaserHigh, leverSaves[leverSaves.length - 1]);
+        teaserBasis = 'credible_vendors_plus_levers';
       }
-    } else if (levers.length) {
-      const saves = levers.map((l) => l.estimated_save_mo).sort((a, b) => a - b);
-      teaserLow = saves[0];
-      teaserHigh = saves[saves.length - 1];
-    } else if (selfSavers.length && currentCost > 0) {
-      // Do not advertise software-$0 as dollar savings without infra — use levers only if present
-      teaserLow = null;
-      teaserHigh = null;
+    } else if (leverSaves.length) {
+      teaserLow = leverSaves[0];
+      teaserHigh = leverSaves[leverSaves.length - 1];
+      teaserBasis = 'on_stack_levers';
     }
 
-    // Migration plan from top 3 ranked (excluding current-equivalent $0 save noise)
-    const planTargets = ranked.filter((r) => (r.savings_mo == null || r.savings_mo > 0) || r.kind === 'self_hosted').slice(0, 4);
+    // Ensure low ≤ high after caps; collapse only if truly identical.
+    if (teaserLow != null && teaserHigh != null && teaserLow > teaserHigh) {
+      teaserLow = teaserHigh;
+    }
+
+    const planTargets = ranked
+      .filter((r) => r.confidence === 'high' || r.confidence === 'medium' || r.kind === 'self_hosted')
+      .filter((r) => r.savings_mo == null || r.savings_mo > 0)
+      .slice(0, 4);
     const migration = planTargets.map((t, i) => ({
       step: i + 1,
       target: t.name,
@@ -432,6 +710,7 @@ export function createAuditEngine() {
       effort: t.effort,
       monthly: t.monthly,
       savings_mo: t.savings_mo,
+      confidence: t.confidence,
       actions: migrationActions(usage, t),
       gaps: t.gaps
     }));
@@ -449,15 +728,25 @@ export function createAuditEngine() {
     }
     if (currentDef) addSrc(currentDef);
     for (const a of alternatives) addSrc(a);
+    for (const s of insufficient) addSrc(s);
     for (const s of rates.self_hosted || []) {
       const vd = rates.vendors[s.vendor_id];
       if (vd) addSrc(vd);
     }
 
+    const teaserLabel = teaserLow != null
+      ? `Conservative estimated savings ${money(teaserLow)} – ${money(teaserHigh)} / mo (High/Medium confidence only; capped at ${Math.round(MAX_TEASER_SAVE_PCT * 100)}% of baseline)`
+      : 'Insufficient High/Medium-confidence public pricing coverage to estimate a savings range for this profile';
+
     return {
       generated_at: new Date().toISOString(),
       disclaimer: rates.disclaimer,
       dataset_checked: rates.dataset_checked,
+      guardrails: {
+        floor_fraction: FLOOR_FRACTION,
+        max_teaser_save_pct: MAX_TEASER_SAVE_PCT,
+        teaser_basis: teaserBasis
+      },
       usage,
       current: {
         ...current,
@@ -465,6 +754,7 @@ export function createAuditEngine() {
         baseline_source: currentSource
       },
       alternatives,
+      insufficient_pricing: insufficient,
       self_hosted: selfHosted,
       ranked,
       levers,
@@ -473,18 +763,23 @@ export function createAuditEngine() {
         current_mo: currentCost,
         savings_low_mo: teaserLow,
         savings_high_mo: teaserHigh,
-        label: teaserLow != null
-          ? `Estimated savings range ${money(teaserLow)} – ${money(teaserHigh)} / mo`
-          : 'Insufficient public unit rates to estimate a savings range for this profile'
+        basis: teaserBasis,
+        label: teaserLabel
       },
       sources,
-      gaps_summary: collectGaps(current, alternatives, selfHosted)
+      gaps_summary: collectGaps(current, alternatives, selfHosted, insufficient)
     };
   }
 
-  function collectGaps(current, alts, selfH) {
+  function collectGaps(current, alts, selfH, insuff) {
     const g = [];
     for (const x of [current, ...alts, ...selfH]) {
+      for (const gap of x.gaps || []) {
+        g.push({ vendor: x.name, ...gap });
+      }
+    }
+    for (const x of insuff || []) {
+      g.push({ vendor: x.name, dimension: 'coverage', reason: x.reason });
       for (const gap of x.gaps || []) {
         g.push({ vendor: x.name, ...gap });
       }
@@ -498,7 +793,7 @@ export function createAuditEngine() {
       acts.push('Spike: run OSS stack in a non-prod cluster; measure cardinality and retention disk.');
       acts.push('Confirm compliance/region constraints for self-host data plane.');
       acts.push('Plan dual-run (30–60 days) before cutting SaaS ingest.');
-      acts.push('Budget infra separately — not in O11y Watch dataset.');
+      acts.push('Budget infra+ops using the estimated range in this report — software $0 ≠ TCO $0.');
     } else {
       acts.push('Export current dashboards/alerts; map to target product equivalents.');
       acts.push('Pilot one service with OpenTelemetry → new backend; compare cardinality.');
@@ -515,7 +810,6 @@ export function createAuditEngine() {
     const lines = String(text).trim().split(/\r?\n/).filter(Boolean);
     if (lines.length < 2) return { error: 'Need a header row and at least one data row' };
     const split = (row) => {
-      // simple CSV split with quotes
       const out = [];
       let cur = '', q = false;
       for (let i = 0; i < row.length; i++) {
@@ -555,7 +849,6 @@ export function createAuditEngine() {
         }
       }
     }
-    // Also support key,value two-column layout
     if (!matched.length && headers.length >= 2) {
       for (let i = 0; i < lines.length; i++) {
         const cols = split(lines[i]);
@@ -578,8 +871,13 @@ export function createAuditEngine() {
     modelVendor,
     normalizeInput,
     parseUsageCsv,
+    buyerDimensions,
+    assessCoverage,
+    estimateSelfHostInfra,
     money,
-    version: 1
+    version: 2,
+    FLOOR_FRACTION,
+    MAX_TEASER_SAVE_PCT
   };
 }
 

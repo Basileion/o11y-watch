@@ -6,50 +6,129 @@
     "modeled_current": 2625,
     "teaser": {
       "current_mo": 8200,
-      "savings_low_mo": 5646,
-      "savings_high_mo": 8035,
-      "label": "Estimated savings range $5,646 – $8,035 / mo"
+      "savings_low_mo": 820,
+      "savings_high_mo": 3280,
+      "basis": "credible_vendors_plus_levers",
+      "label": "Conservative estimated savings $820 – $3,280 / mo (High/Medium confidence only; capped at 40% of baseline)"
+    },
+    "guardrails": {
+      "floor_fraction": 0.3,
+      "max_teaser_save_pct": 0.4,
+      "teaser_basis": "credible_vendors_plus_levers"
     },
     "top5": [
       {
-        "name": "Uptrace",
-        "monthly": 165,
-        "savings": 8035,
-        "effort": "Medium",
+        "name": "Grafana OSS stack (self-host)",
+        "monthly": 2376,
+        "monthly_low": 1108,
+        "monthly_high": 3643,
+        "savings": 5824,
+        "effort": "High",
         "confidence": "medium",
-        "kind": "saas"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
       },
       {
-        "name": "Middleware",
-        "monthly": 645,
-        "savings": 7555,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "name": "SigNoz OSS (self-host)",
+        "monthly": 2376,
+        "monthly_low": 1108,
+        "monthly_high": 3643,
+        "savings": 5824,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
+      },
+      {
+        "name": "Uptrace Community Edition",
+        "monthly": 2376,
+        "monthly_low": 1108,
+        "monthly_high": 3643,
+        "savings": 5824,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
+      },
+      {
+        "name": "OpenObserve self-host",
+        "monthly": 2376,
+        "monthly_low": 1108,
+        "monthly_high": 3643,
+        "savings": 5824,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
+      },
+      {
+        "name": "Graylog (self-host free)",
+        "monthly": 2376,
+        "monthly_low": 1108,
+        "monthly_high": 3643,
+        "savings": 5824,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
+      }
+    ],
+    "insufficient_pricing": [
+      {
+        "name": "Grafana Cloud",
+        "missing": [
+          "logs",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, traces",
+        "partial_total": 2554
       },
       {
         "name": "SigNoz Cloud",
-        "monthly": 675,
-        "savings": 7525,
-        "effort": "High",
-        "confidence": "medium",
-        "kind": "saas"
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 675
+      },
+      {
+        "name": "Uptrace",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 165
       },
       {
         "name": "Coralogix",
-        "monthly": 945,
-        "savings": 7255,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 945
       },
       {
-        "name": "New Relic",
-        "monthly": 1693,
-        "savings": 6507,
-        "effort": "Medium",
-        "confidence": "medium",
-        "kind": "saas"
+        "name": "Dynatrace",
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 1260
+      },
+      {
+        "name": "Splunk Observability Cloud",
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 2700
       }
     ],
     "levers": [
@@ -58,7 +137,7 @@
       "Log volume filters: ~$2050/mo",
       "Seat / user rationalization: ~$820/mo"
     ],
-    "gap_count": 26,
+    "gap_count": 43,
     "migration_steps": 4
   },
   {
@@ -68,50 +147,138 @@
     "modeled_current": 897,
     "teaser": {
       "current_mo": 3100,
-      "savings_low_mo": 2626,
-      "savings_high_mo": 3047.5,
-      "label": "Estimated savings range $2,626 – $3,048 / mo"
+      "savings_low_mo": 310,
+      "savings_high_mo": 1240,
+      "basis": "credible_vendors_plus_levers",
+      "label": "Conservative estimated savings $310 – $1,240 / mo (High/Medium confidence only; capped at 40% of baseline)"
+    },
+    "guardrails": {
+      "floor_fraction": 0.3,
+      "max_teaser_save_pct": 0.4,
+      "teaser_basis": "credible_vendors_plus_levers"
     },
     "top5": [
       {
-        "name": "Uptrace",
-        "monthly": 52.5,
-        "savings": 3047.5,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "name": "Grafana OSS stack (self-host)",
+        "monthly": 1610,
+        "monthly_low": 695,
+        "monthly_high": 2525,
+        "savings": 1490,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $695–$2,525/mo"
       },
       {
-        "name": "Middleware",
-        "monthly": 195,
-        "savings": 2905,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "name": "SigNoz OSS (self-host)",
+        "monthly": 1610,
+        "monthly_low": 695,
+        "monthly_high": 2525,
+        "savings": 1490,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $695–$2,525/mo"
+      },
+      {
+        "name": "Uptrace Community Edition",
+        "monthly": 1610,
+        "monthly_low": 695,
+        "monthly_high": 2525,
+        "savings": 1490,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $695–$2,525/mo"
+      },
+      {
+        "name": "OpenObserve self-host",
+        "monthly": 1610,
+        "monthly_low": 695,
+        "monthly_high": 2525,
+        "savings": 1490,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $695–$2,525/mo"
+      },
+      {
+        "name": "Graylog (self-host free)",
+        "monthly": 1610,
+        "monthly_low": 695,
+        "monthly_high": 2525,
+        "savings": 1490,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $695–$2,525/mo"
+      }
+    ],
+    "insufficient_pricing": [
+      {
+        "name": "Grafana Cloud",
+        "missing": [
+          "logs",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, traces",
+        "partial_total": 474
       },
       {
         "name": "SigNoz Cloud",
-        "monthly": 225,
-        "savings": 2875,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 225
+      },
+      {
+        "name": "Uptrace",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 52.5
       },
       {
         "name": "Coralogix",
-        "monthly": 315,
-        "savings": 2785,
-        "effort": "Medium",
-        "confidence": "high",
-        "kind": "saas"
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 315
       },
       {
         "name": "Dynatrace",
-        "monthly": 420,
-        "savings": 2680,
-        "effort": "High",
-        "confidence": "medium",
-        "kind": "saas"
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 420
+      },
+      {
+        "name": "Splunk Observability Cloud",
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 900
+      },
+      {
+        "name": "Dash0",
+        "missing": [
+          "logs",
+          "metrics"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics",
+        "partial_total": 2.4
       }
     ],
     "levers": [
@@ -119,7 +286,7 @@
       "Log volume filters: ~$775/mo",
       "Seat / user rationalization: ~$310/mo"
     ],
-    "gap_count": 17,
+    "gap_count": 30,
     "migration_steps": 4
   },
   {
@@ -129,57 +296,136 @@
     "modeled_current": 1384,
     "teaser": {
       "current_mo": 1400,
-      "savings_low_mo": 200,
-      "savings_high_mo": 1370,
-      "label": "Estimated savings range $200 – $1,370 / mo"
+      "savings_low_mo": 140,
+      "savings_high_mo": 560,
+      "basis": "credible_vendors_plus_levers",
+      "label": "Conservative estimated savings $140 – $560 / mo (High/Medium confidence only; capped at 40% of baseline)"
+    },
+    "guardrails": {
+      "floor_fraction": 0.3,
+      "max_teaser_save_pct": 0.4,
+      "teaser_basis": "credible_vendors_plus_levers"
     },
     "top5": [
       {
         "name": "Grafana OSS stack (self-host)",
-        "monthly": 0,
-        "savings": 1400,
+        "monthly": 1488,
+        "monthly_low": 629,
+        "monthly_high": 2347,
+        "savings": -88,
         "effort": "High",
         "confidence": "medium",
-        "kind": "self_hosted"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $629–$2,347/mo"
       },
       {
         "name": "SigNoz OSS (self-host)",
-        "monthly": 0,
-        "savings": 1400,
+        "monthly": 1488,
+        "monthly_low": 629,
+        "monthly_high": 2347,
+        "savings": -88,
         "effort": "High",
         "confidence": "medium",
-        "kind": "self_hosted"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $629–$2,347/mo"
       },
       {
         "name": "Uptrace Community Edition",
-        "monthly": 0,
-        "savings": 1400,
+        "monthly": 1488,
+        "monthly_low": 629,
+        "monthly_high": 2347,
+        "savings": -88,
         "effort": "High",
         "confidence": "medium",
-        "kind": "self_hosted"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $629–$2,347/mo"
       },
       {
         "name": "OpenObserve self-host",
-        "monthly": 0,
-        "savings": 1400,
+        "monthly": 1488,
+        "monthly_low": 629,
+        "monthly_high": 2347,
+        "savings": -88,
         "effort": "High",
         "confidence": "medium",
-        "kind": "self_hosted"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $629–$2,347/mo"
       },
       {
         "name": "Graylog (self-host free)",
-        "monthly": 0,
-        "savings": 1400,
+        "monthly": 1488,
+        "monthly_low": 629,
+        "monthly_high": 2347,
+        "savings": -88,
         "effort": "High",
         "confidence": "medium",
-        "kind": "self_hosted"
+        "kind": "self_hosted",
+        "caveat": "Software $0/mo + estimated infra/ops $629–$2,347/mo"
+      }
+    ],
+    "insufficient_pricing": [
+      {
+        "name": "SigNoz Cloud",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 135
+      },
+      {
+        "name": "Uptrace",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 30
+      },
+      {
+        "name": "Splunk Observability Cloud",
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 600
+      },
+      {
+        "name": "OpenObserve",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 225
+      },
+      {
+        "name": "groundcover",
+        "missing": [
+          "logs",
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: logs, metrics, traces",
+        "partial_total": 1200
+      },
+      {
+        "name": "Coralogix",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 189
       }
     ],
     "levers": [
       "Trace/span sampling: ~$280/mo",
       "Seat / user rationalization: ~$140/mo"
     ],
-    "gap_count": 19,
-    "migration_steps": 4
+    "gap_count": 29,
+    "migration_steps": 1
   }
 ]

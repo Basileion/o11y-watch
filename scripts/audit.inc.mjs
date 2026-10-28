@@ -31,17 +31,17 @@ export default function buildAudit({
 
   const AUDIT_FAQ = [
     ['How does the instant audit work?', 'You answer a short survey (and optionally drop a usage CSV). A deterministic engine runs entirely in your browser against O11y Watch public pricing data. Nothing is uploaded to our servers.'],
-    ['Are the numbers quotes?', 'No — they are estimates labeled with sources and check dates from our dataset. If a vendor has no public unit rate for a dimension (hosts, GB, series, spans, seats), we say so instead of inventing a price.'],
+    ['Are the numbers quotes?', 'No — they are estimates labeled with sources and check dates from our dataset. If a vendor lacks public unit rates for every dimension you use, we list them under “Insufficient public pricing data” and never show them as savings.'],
     ['What is free vs paid?', `The top-line savings range is free. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After purchase, Kit should redirect to the unlisted unlock URL.`],
     ['How is the unlock gate secured?', 'Simplest static-site gate: an unlisted, noindexed unlock URL with a token stored in localStorage on this browser. Anyone with the link can unlock. Do not share the unlock URL publicly. This is not account auth.'],
     ['Is my CSV uploaded?', 'No. CSV parsing happens only in your browser. We never receive the file.'],
-    ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Self-host software may be $0 where stated; compute/storage/ops are outside our dataset.']
+    ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Self-host software may be $0 where stated; we always add an explicit infra+ops cost range with stated assumptions rather than implying $0 TCO.']
   ];
 
   const AUDIT_GET = [
     ['01', 'Instant model', 'Current cost estimate from your usage + public unit rates.'],
-    ['02', '4–6 alternatives', 'Modeled SaaS options at your hosts / GB / series / spans / seats.'],
-    ['03', 'Self-host options', 'OSS stacks where the dataset says self-host is available — software $0, infra called out as unknown.'],
+    ['02', 'Covered alternatives', 'Only SaaS options with public rates for every dimension you use; partial coverage listed separately.'],
+    ['03', 'Self-host options', 'OSS stacks where the dataset says self-host is available — software $0 plus an explicit infra+ops estimate range.'],
     ['04', 'Savings levers', 'Retention, sampling, log filters, seat rationalization — heuristic % only.'],
     ['05', 'Migration plan', 'Ranked sequence with Low / Medium / High effort ratings + Print/PDF.']
   ];
