@@ -89,7 +89,7 @@ const KIT='https://app.kit.com/forms/10093883/subscriptions',KIT_PAGE='https://o
 // ---- Monetization config (edit here). '#pending' = no Stripe link yet -> falls back to mailto.
 const STRIPE_SPONSOR_LINK='https://o11y-watch.kit.com/products/sponsor-bundle-founding', STRIPE_PRO_LINK='https://o11y-watch.kit.com/products/o-11-y-watch-pro', SPONSOR_LINKS={newsletter:'https://o11y-watch.kit.com/products/sponsor-newsletter-slot-founding',site:'https://o11y-watch.kit.com/products/sponsor-site-placement-1-month-founding',bundle:'https://o11y-watch.kit.com/products/sponsor-bundle-founding'}, CONTACT='basileion.ops@gmail.com';
 // Instant Cost Audit (client-side). Kit product checkout + unlisted unlock token.
-const AUDIT_CHECKOUT='#pending'; const AUDIT_PRICE=149; const AUDIT_UNLOCK_TOKEN='owu-7f3a9c2e8b1d';
+const AUDIT_CHECKOUT='https://o11y-watch.kit.com/products/observability-cost-stack-audit-instant'; const AUDIT_PRICE=149; const AUDIT_UNLOCK_TOKEN='owu-7f3a9c2e8b1d';
 // PROPOSED prices (USD), not final. Founding = discount for the first sponsors/subscribers while the audience is new.
 const PRICES={pro:{monthly:6,annual:60},sponsor:{newsletter:{standard:99,founding:49,unit:'issue'},site:{standard:79,founding:39,unit:'month'},bundle:{standard:149,founding:79,unit:'issue + 1 month on site'}},foundingSlots:5};
 const payHref=(link,subj)=>link&&link!=='#pending'?link:'mailto:'+CONTACT+'?subject='+encodeURIComponent(subj);
