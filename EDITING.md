@@ -1,63 +1,86 @@
-# Editing the Cost Audit intake form
+# Editing the Instant Cost Audit
 
-The Observability Cost & Stack Audit page (`/audit`) and its form are generated at build time from one config file:
+The Observability Cost & Stack Audit (`/audit`) is a **fully client-side** wizard: survey → deterministic cost engine → free teaser → paid unlock for the full report. No FormSubmit, no human review queue.
 
-**`data/audit-form.json`**
+## Files to edit
 
-Change that file, rebuild, commit, and push. Cloudflare Pages deploys on push to `main`.
+| File | Purpose |
+|------|---------|
+| `data/audit-form.json` | Multi-step survey questions (labels, options, CSV settings) |
+| `data/audit-rates.json` | Structured unit rates extracted from `data/vendors.json` (never invent rates) |
+| `scripts/build.mjs` | `AUDIT_CHECKOUT`, `AUDIT_PRICE`, `AUDIT_UNLOCK_TOKEN` constants |
+| `assets/js/audit-engine.js` | Deterministic cost model |
+| `assets/js/audit-wizard.js` | Wizard UI, gate, report, Print/PDF |
+| `scripts/audit.inc.mjs` | Landing copy, FAQ, unlock/thanks pages |
+
+Landing hero / FAQ / price cards: edit `scripts/audit.inc.mjs`.
 
 ## Quick edit loop
 
 ```bash
-# 1. Edit fields / labels / options / submit copy
+# 1. Edit survey fields or rates
 $EDITOR data/audit-form.json
+# or
+$EDITOR data/audit-rates.json
 
-# 2. Rebuild static site into dist/
+# 2. Rebuild
 npm run build
 
-# 3. Commit + push (Pages picks it up)
-git add data/audit-form.json
-git commit -m "Update audit intake form fields"
-git push origin main
+# 3. Sanity-check sample profiles (optional)
+node scripts/audit-samples.mjs
+
+# 4. Commit + push (Cloudflare Pages deploys on push to main)
+git add -A && git commit -m "Update audit wizard" && git push origin main
 ```
 
-Landing-page copy (hero, deliverables, price, FAQ) lives in `scripts/build.mjs` near the `audit.html` / `audit-thanks.html` generators — search for `audit.html`.
+## Survey schema (`data/audit-form.json`)
 
-## Field schema (`data/audit-form.json`)
+- `mode`: always `client-wizard`
+- `steps[]`: ordered wizard steps with `id`, `title`, `description`, `fields[]`
+- Field types: `text`, `number`, `select`, `textarea`, `checkbox-group`, `file`
+- Select / checkbox options are `{ "value", "label" }` objects
+- Optional CSV: `csv.enabled` — parsed **only in the browser**, never uploaded
 
-| Key | Meaning |
-|-----|---------|
-| `action` | FormSubmit endpoint (`https://formsubmit.co/basileion.ops@gmail.com`) |
-| `hidden` | FormSubmit controls: `_subject`, `_next` (thank-you URL), `_template`, `_captcha` |
-| `honeypot` | Spam trap field (`_honey`); rendered hidden |
-| `replyToField` | Which field becomes Reply-To (`email`) |
-| `fields[]` | Ordered list of visible inputs |
+## Rates schema (`data/audit-rates.json`)
 
-### Supported `fields[].type` values
+- Every rate must come from `vendors.json` `paid_from` / `pricing_model` / `free_tier` / `oss_self_host`
+- Use `null` when the dataset does not state a unit price for that dimension
+- The engine **must** surface gaps instead of inventing numbers
+- `dataset_checked` should match the vendors check date
 
-| type | Renders as |
-|------|------------|
-| `text` / `email` | Single-line input |
-| `select` | Dropdown; first empty option = placeholder |
-| `textarea` | Multi-line; optional `rows` |
-| `checkbox-group` | Multi-select checkboxes; posts as `name[]` |
-| `checkbox` | Single required consent box |
-| `file` | File input; set `multiple: true` and `accept` |
+## Monetization constants (`scripts/build.mjs`)
 
-Common field keys: `name`, `label`, `required`, `placeholder`, `hint`, `autocomplete`, `options`, `value`, `multiple`, `accept`, `rows`.
+```js
+const AUDIT_CHECKOUT = '#pending';           // Kit product URL when ready
+const AUDIT_PRICE = 149;                     // USD, easy to change
+const AUDIT_UNLOCK_TOKEN = 'owu-7f3a9c2e8b1d'; // unlisted unlock token
+```
 
-## Backend (FormSubmit.co) — $0, no signup card
+### Kit product setup
 
-- Submissions email **basileion.ops@gmail.com** with file attachments.
-- **Free file uploads:** multiple files allowed; **combined size ≤ 10 MB** per submission. Files are emailed as attachments and **not retained** by FormSubmit (text archive kept ~30 days).
-- First-ever submission to a new recipient triggers a **one-time activation email** — open that inbox and click Activate.
-- Honeypot: `_honey` (hidden). reCAPTCHA left off (`_captcha: false`) because uploads + captcha are awkward; honeypot covers basic bots.
-- After submit, users land on `/audit-thanks.html` via `_next`.
+1. Create a Kit product priced at `AUDIT_PRICE`.
+2. Set **AUDIT_CHECKOUT** to that product URL (replace `#pending`) and rebuild.
+3. Set the Kit product **success / thank-you redirect** to:
 
-Docs: https://formsubmit.co/documentation
+```
+https://o11y-watch.pages.dev/audit-unlock.html?t=owu-7f3a9c2e8b1d
+```
 
-## Do not put in this form
+(Use your live origin if different; token must match `AUDIT_UNLOCK_TOKEN`.)
 
-- Payment / Stripe checkout (payment is sent after Kurt accepts the intake)
-- Credential / API-key fields
-- Paid form backends or Cloudflare Workers that need a card
+### Gate limitation (honest)
+
+This is a **static-site** unlock: unlisted URL + token → `localStorage` on that browser. It is **not** account auth. Anyone with the unlock link can open the full report. `noindex` + `robots.txt` Disallow reduce casual discovery; do **not** post the unlock URL publicly. Clearing site data removes unlock on that device.
+
+## URLs
+
+| Path | Indexed? | Role |
+|------|----------|------|
+| `/audit.html` | yes | Marketing + wizard + teaser / locked report |
+| `/audit-unlock.html?t=…` | **no** | Purchase redirect; sets unlock |
+| `/audit-thanks.html` | **no** | Optional mirror with activate link |
+
+## What was removed
+
+- FormSubmit intake to `basileion.ops@gmail.com`
+- “Kurt reviews” / kickoff-call / early-bird $997 human-delivery copy

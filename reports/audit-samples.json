@@ -1,0 +1,185 @@
+[
+  {
+    "profile": "Datadog-heavy mid-size",
+    "baseline_mo": 8200,
+    "baseline_source": "stated_invoice",
+    "modeled_current": 2625,
+    "teaser": {
+      "current_mo": 8200,
+      "savings_low_mo": 5646,
+      "savings_high_mo": 8035,
+      "label": "Estimated savings range $5,646 – $8,035 / mo"
+    },
+    "top5": [
+      {
+        "name": "Uptrace",
+        "monthly": 165,
+        "savings": 8035,
+        "effort": "Medium",
+        "confidence": "medium",
+        "kind": "saas"
+      },
+      {
+        "name": "Middleware",
+        "monthly": 645,
+        "savings": 7555,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "SigNoz Cloud",
+        "monthly": 675,
+        "savings": 7525,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "saas"
+      },
+      {
+        "name": "Coralogix",
+        "monthly": 945,
+        "savings": 7255,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "New Relic",
+        "monthly": 1693,
+        "savings": 6507,
+        "effort": "Medium",
+        "confidence": "medium",
+        "kind": "saas"
+      }
+    ],
+    "levers": [
+      "Retention reduction: ~$1230/mo",
+      "Trace/span sampling: ~$1640/mo",
+      "Log volume filters: ~$2050/mo",
+      "Seat / user rationalization: ~$820/mo"
+    ],
+    "gap_count": 26,
+    "migration_steps": 4
+  },
+  {
+    "profile": "New Relic growth team",
+    "baseline_mo": 3100,
+    "baseline_source": "stated_invoice",
+    "modeled_current": 897,
+    "teaser": {
+      "current_mo": 3100,
+      "savings_low_mo": 2626,
+      "savings_high_mo": 3047.5,
+      "label": "Estimated savings range $2,626 – $3,048 / mo"
+    },
+    "top5": [
+      {
+        "name": "Uptrace",
+        "monthly": 52.5,
+        "savings": 3047.5,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "Middleware",
+        "monthly": 195,
+        "savings": 2905,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "SigNoz Cloud",
+        "monthly": 225,
+        "savings": 2875,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "Coralogix",
+        "monthly": 315,
+        "savings": 2785,
+        "effort": "Medium",
+        "confidence": "high",
+        "kind": "saas"
+      },
+      {
+        "name": "Dynatrace",
+        "monthly": 420,
+        "savings": 2680,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "saas"
+      }
+    ],
+    "levers": [
+      "Trace/span sampling: ~$620/mo",
+      "Log volume filters: ~$775/mo",
+      "Seat / user rationalization: ~$310/mo"
+    ],
+    "gap_count": 17,
+    "migration_steps": 4
+  },
+  {
+    "profile": "Grafana Cloud stack",
+    "baseline_mo": 1400,
+    "baseline_source": "stated_invoice",
+    "modeled_current": 1384,
+    "teaser": {
+      "current_mo": 1400,
+      "savings_low_mo": 200,
+      "savings_high_mo": 1370,
+      "label": "Estimated savings range $200 – $1,370 / mo"
+    },
+    "top5": [
+      {
+        "name": "Grafana OSS stack (self-host)",
+        "monthly": 0,
+        "savings": 1400,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted"
+      },
+      {
+        "name": "SigNoz OSS (self-host)",
+        "monthly": 0,
+        "savings": 1400,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted"
+      },
+      {
+        "name": "Uptrace Community Edition",
+        "monthly": 0,
+        "savings": 1400,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted"
+      },
+      {
+        "name": "OpenObserve self-host",
+        "monthly": 0,
+        "savings": 1400,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted"
+      },
+      {
+        "name": "Graylog (self-host free)",
+        "monthly": 0,
+        "savings": 1400,
+        "effort": "High",
+        "confidence": "medium",
+        "kind": "self_hosted"
+      }
+    ],
+    "levers": [
+      "Trace/span sampling: ~$280/mo",
+      "Seat / user rationalization: ~$140/mo"
+    ],
+    "gap_count": 19,
+    "migration_steps": 4
+  }
+]

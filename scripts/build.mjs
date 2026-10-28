@@ -76,7 +76,7 @@ code,pre{font:13px ui-monospace,Menlo,monospace}pre{background:var(--bg2);border
 .hgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}.hgrid img{width:100%;height:auto}.hero p.sm{font-size:13px}.trust{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--mut);margin-top:14px}.trust b{color:var(--fg)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.steps .card b{font:700 12px ui-monospace,Menlo,monospace;color:var(--acc)}details{border:1px solid var(--bd);border-radius:12px;background:var(--bg2);padding:14px 18px;margin:10px 0}summary{cursor:pointer;font-weight:600}details p{margin:10px 0 0;color:var(--mut)}
 @media(max-width:860px){.hgrid,.steps{grid-template-columns:1fr}}
 .mnav{display:none;margin-left:auto}.mnav select{padding:6px 8px;font-size:13px}
-.aform{display:grid;gap:16px;margin-top:18px}.aform .fg{display:flex;flex-direction:column;gap:6px}.aform label.fl{font-weight:600;font-size:14px}.aform .hint{font-size:12px;color:var(--mut)}.aform textarea{font:inherit;padding:9px 12px;border-radius:9px;border:1px solid var(--bd);background:var(--bg2);color:var(--fg);resize:vertical;min-height:88px}.aform .cbg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px 14px;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg2)}.aform .cbg label{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:400;cursor:pointer}.aform .cbg input{margin-top:3px}.aform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}.aform .consent input{margin-top:3px;flex-shrink:0}.aform .err{color:var(--no);font-size:13px}.price-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.price-row{grid-template-columns:1fr}}.price-row .card.hl{border-color:var(--acc);box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 40%,transparent)}.price-row .card .amt{font-size:36px;letter-spacing:-.03em;font-weight:700}.deliv{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}.deliv .card b{font:700 11px ui-monospace,Menlo,monospace;color:var(--acc);letter-spacing:.06em}`;
+.aform{display:grid;gap:16px;margin-top:18px}.aform .fg{display:flex;flex-direction:column;gap:6px}.aform label.fl{font-weight:600;font-size:14px}.aform .hint{font-size:12px;color:var(--mut)}.aform textarea{font:inherit;padding:9px 12px;border-radius:9px;border:1px solid var(--bd);background:var(--bg2);color:var(--fg);resize:vertical;min-height:88px}.aform .cbg{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px 14px;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg2)}.aform .cbg label{display:flex;gap:8px;align-items:flex-start;font-size:13px;font-weight:400;cursor:pointer}.aform .cbg input{margin-top:3px}.aform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45}.aform .consent input{margin-top:3px;flex-shrink:0}.aform .err{color:var(--no);font-size:13px}.price-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.price-row{grid-template-columns:1fr}}.price-row .card.hl{border-color:var(--acc);box-shadow:0 0 0 1px color-mix(in srgb,var(--acc) 40%,transparent)}.price-row .card .amt{font-size:36px;letter-spacing:-.03em;font-weight:700}.deliv{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}.deliv .card b{font:700 11px ui-monospace,Menlo,monospace;color:var(--acc);letter-spacing:.06em}.wiz-progress{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0 8px;font-size:13px;color:var(--mut)}.wiz-step.on{color:var(--fg);font-weight:700}.wiz-step.done{color:var(--acc2)}.wiz-sep{opacity:.4}.wiz-nav{display:flex;gap:10px;justify-content:space-between;margin-top:18px}.teaser-card .amt,.report .amt{font-size:36px;letter-spacing:-.03em;font-weight:700}.grad-text{background:linear-gradient(90deg,var(--acc),#c026d3);-webkit-background-clip:text;background-clip:text;color:transparent}.locked-wrap{position:relative;margin-top:18px}.locked-preview{max-height:280px;overflow:hidden;filter:blur(5px);opacity:.35;pointer-events:none;user-select:none;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}.gate-card{position:relative;z-index:2;margin-bottom:12px}.report-head{margin-top:28px}.report section{margin-top:28px}@media print{header.top,.sbar,.exitp,.gate-card,.wiz-progress,.wiz-nav,#tt,footer a{display:none!important}.locked-preview{filter:none;opacity:1;max-height:none;-webkit-mask-image:none;mask-image:none;pointer-events:auto}body{background:#fff;color:#000}.card,.box,.tw{break-inside:avoid}}`;
 const mark=`<svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf7"/><stop offset="1" stop-color="#c026d3"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M6 19h4l2.5-7 4 12 3-9 1.5 4H26" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const KEY=/price|free tier|sunset|removed/i;const NAV=[['subscribe.html','Subscribe'],['directory.html','Directory'],['categories.html','Categories'],['compare.html','Compare'],['changes.html','Changes'],['about.html','Methodology'],['for-agents.html','Agents'],['pro.html','Pro'],['audit.html','Cost audit'],['sponsor.html','Sponsor']];
 const FUN=fs.readFileSync(path.join(root,'scripts/funnel.inc.js'),'utf8');
@@ -88,6 +88,8 @@ const ld=o=>Array.isArray(o)?o.map(x=>ld(x)).join(''):`<script type="application
 const KIT='https://app.kit.com/forms/10093883/subscriptions',KIT_PAGE='https://o11y-watch.kit.com/6b567804da';let FID=0;
 // ---- Monetization config (edit here). '#pending' = no Stripe link yet -> falls back to mailto.
 const STRIPE_SPONSOR_LINK='https://o11y-watch.kit.com/products/sponsor-bundle-founding', STRIPE_PRO_LINK='https://o11y-watch.kit.com/products/o-11-y-watch-pro', SPONSOR_LINKS={newsletter:'https://o11y-watch.kit.com/products/sponsor-newsletter-slot-founding',site:'https://o11y-watch.kit.com/products/sponsor-site-placement-1-month-founding',bundle:'https://o11y-watch.kit.com/products/sponsor-bundle-founding'}, CONTACT='basileion.ops@gmail.com';
+// Instant Cost Audit (client-side). Kit product checkout + unlisted unlock token.
+const AUDIT_CHECKOUT='#pending'; const AUDIT_PRICE=149; const AUDIT_UNLOCK_TOKEN='owu-7f3a9c2e8b1d';
 // PROPOSED prices (USD), not final. Founding = discount for the first sponsors/subscribers while the audience is new.
 const PRICES={pro:{monthly:6,annual:60},sponsor:{newsletter:{standard:99,founding:49,unit:'issue'},site:{standard:79,founding:39,unit:'month'},bundle:{standard:149,founding:79,unit:'issue + 1 month on site'}},foundingSlots:5};
 const payHref=(link,subj)=>link&&link!=='#pending'?link:'mailto:'+CONTACT+'?subject='+encodeURIComponent(subj);
@@ -98,7 +100,7 @@ const form=(src,label='Get the weekly email',vendor='')=>{const id='em'+(++FID);
 const OGI=f=>({'index.html':'og/home.png','pro.html':'og/pro.png','sponsor.html':'og/sponsor.png','compare.html':'og/compare.png','changes.html':'og/changes.png','pro-welcome.html':'og/pro.png'})[f]||(f.startsWith('vendors/')?'og/'+f.replace('.html','.png'):'og/home.png');
 const WEBSITE_LD={'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website',name:SITE,url:BASE+'/',description:'Verified free tiers and pricing-page changes for observability tools.',inLanguage:'en'};
 const page=(file,title,desc,body,pre='',jl=null)=>{const url=BASE+'/'+file.replace(/index\.html$/,''),oi=BASE+'/'+OGI(file);return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:site_name" content="${SITE}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${oi}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${oi}"><meta name="theme-color" content="#5b5bf7">${file==='pro-welcome.html'||file==='audit-thanks.html'?'<meta name="robots" content="noindex,nofollow">':''}${HEADSLOT}
+<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${url}"><meta property="og:type" content="website"><meta property="og:site_name" content="${SITE}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}"><meta property="og:image" content="${oi}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(title)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${oi}"><meta name="theme-color" content="#5b5bf7">${file==='pro-welcome.html'||file==='audit-thanks.html'||file==='audit-unlock.html'?'<meta name="robots" content="noindex,nofollow">':''}${HEADSLOT}
 <link rel="icon" href="${pre}favicon.svg" type="image/svg+xml"><link rel="icon" href="${pre}img/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="${pre}img/apple-touch-icon.png"><link rel="manifest" href="${pre}site.webmanifest"><link rel="alternate" type="application/rss+xml" title="${SITE} changes" href="${pre}rss.xml"><link rel="alternate" type="application/feed+json" href="${pre}feed.json"><link rel="alternate" type="text/plain" title="llms.txt" href="${pre}llms.txt"><style>${css}</style>${file==='pro-welcome.html'?'':ld([...(file==='index.html'?[WEBSITE_LD]:[]),...(jl?(Array.isArray(jl)?jl:[jl]):[{'@context':'https://schema.org','@type':'WebPage',name:title,description:desc,url,isPartOf:{'@id':BASE+'/#website'}}])])}
 <script>try{const t=localStorage.t;if(t)document.documentElement.dataset.t=t}catch(e){}</script></head><body>
 <header class="top"><div class="w nav"><a class="logo" href="${pre}index.html">${mark}<span>O11y<span class="mut">Watch</span></span></a><nav>${NAV.map(([h,l])=>`<a href="${pre}${h}"${h===file?' class="on"':''}>${l}</a>`).join('')}</nav>
@@ -205,130 +207,12 @@ W('pro-welcome.html',page('pro-welcome.html',`Welcome to O11y Watch Pro`,'Thanks
 <div class="steps"><div class="card"><b>ALERTS</b><h3 style="margin-top:6px">Arrive by email</h3><p>Same-day pricing alerts go to the email address you paid with, within about a day of a change being detected and reviewed. Add ${CONTACT} to your contacts so they don’t land in spam.</p></div><div class="card"><b>EXPORTS</b><h3 style="margin-top:6px">Being prepared</h3><p>Your CSV/JSON exports (all plan fields + change history) are being prepared and will be emailed to you. Nothing to do on your side.</p></div><div class="card"><b>HELP</b><h3 style="margin-top:6px">Questions, refunds, cancel</h3><p>Email <a href="mailto:${CONTACT}">${CONTACT}</a>. Cancel anytime.</p></div></div>
 <p style="margin-top:28px"><a class="btn" href="changes.html">See the latest changes</a> <a class="btn ghost" href="directory.html">Browse the directory</a></p>`));
 
-// ---- Observability Cost & Stack Audit (/audit) — form fields from data/audit-form.json (see EDITING.md)
-const AUDIT_FORM=J('data/audit-form.json');
-const renderAuditField=f=>{
-  const req=f.required?' required':'';const ph=f.placeholder?` placeholder="${esc(f.placeholder)}"`:'';
-  const ac=f.autocomplete?` autocomplete="${esc(f.autocomplete)}"`:'';
-  const hint=f.hint?`<span class="hint">${esc(f.hint)}</span>`:'';
-  if(f.type==='checkbox-group'){
-    const opts=(f.options||[]).map((o,i)=>{const id=`${f.name}_${i}`;return `<label for="${id}"><input type="checkbox" id="${id}" name="${esc(f.name)}[]" value="${esc(o)}">${esc(o)}</label>`}).join('');
-    return `<div class="fg"><span class="fl">${esc(f.label)}${f.required?' *':''}</span>${hint}<div class="cbg" role="group" aria-label="${esc(f.label)}">${opts}</div></div>`;
-  }
-  if(f.type==='checkbox'){
-    const id=`f_${f.name}`;
-    return `<div class="fg"><label class="consent" for="${id}"><input type="checkbox" id="${id}" name="${esc(f.name)}" value="${esc(f.value||'yes')}"${req}> <span>${esc(f.label)}</span></label></div>`;
-  }
-  if(f.type==='select'){
-    const id=`f_${f.name}`;
-    const opts=(f.options||[]).map((o,i)=>`<option value="${esc(o)}"${i===0&&!o?' disabled selected':''}>${o?esc(o):'Select…'}</option>`).join('');
-    return `<div class="fg"><label class="fl" for="${id}">${esc(f.label)}${f.required?' *':''}</label>${hint}<select id="${id}" name="${esc(f.name)}"${req}>${opts}</select></div>`;
-  }
-  if(f.type==='textarea'){
-    const id=`f_${f.name}`;
-    return `<div class="fg"><label class="fl" for="${id}">${esc(f.label)}${f.required?' *':''}</label>${hint}<textarea id="${id}" name="${esc(f.name)}" rows="${f.rows||4}"${ph}${req}></textarea></div>`;
-  }
-  if(f.type==='file'){
-    const id=`f_${f.name}`;
-    return `<div class="fg"><label class="fl" for="${id}">${esc(f.label)}${f.required?' *':''}</label>${hint}<input type="file" id="${id}" name="${esc(f.name)}"${f.multiple?' multiple':''}${f.accept?` accept="${esc(f.accept)}"`:''}${req}></div>`;
-  }
-  const id=`f_${f.name}`;
-  return `<div class="fg"><label class="fl" for="${id}">${esc(f.label)}${f.required?' *':''}</label>${hint}<input type="${esc(f.type||'text')}" id="${id}" name="${esc(f.name)}"${ph}${ac}${req}></div>`;
-};
-const auditHidden=Object.entries(AUDIT_FORM.hidden||{}).map(([k,v])=>`<input type="hidden" name="${esc(k)}" value="${esc(v)}">`).join('');
-const auditHoney=AUDIT_FORM.honeypot?`<div aria-hidden="true" style="position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden"><label>${esc(AUDIT_FORM.honeypot.label||'Leave blank')}<input type="text" name="${esc(AUDIT_FORM.honeypot.name||'_honey')}" tabindex="-1" autocomplete="off" value=""></label></div>`:'';
-const auditReply=AUDIT_FORM.replyToField?`<input type="hidden" name="_replyto" value="">`:''; // filled by JS from email field on submit
-const auditFieldsHtml=(AUDIT_FORM.fields||[]).map(renderAuditField).join('');
-const auditFormHtml=`<form id="audit-intake" class="aform box" method="${esc(AUDIT_FORM.method||'POST')}" action="${esc(AUDIT_FORM.action)}" enctype="${esc(AUDIT_FORM.enctype||'multipart/form-data')}" novalidate>
-${auditHidden}${auditHoney}
-<input type="hidden" name="_replyto" id="_replyto_dyn" value="">
-${auditFieldsHtml}
-<p class="sm mut">By submitting you agree we may email you about this audit. No payment is taken on this form — if we accept the intake, Kurt sends a payment link and a kickoff time.</p>
-<button class="btn" type="submit">${esc(AUDIT_FORM.submitLabel||'Submit')}</button>
-<p class="sm mut" style="margin:8px 0 0">Files: PDF / CSV / XLSX / PNG · combined under 10 MB · never send credentials.</p>
-</form>
-<script>
-(function(){
-  const form=document.getElementById('audit-intake'); if(!form) return;
-  const email=form.querySelector('[name="email"]');
-  const reply=document.getElementById('_replyto_dyn');
-  const group=form.querySelector('.cbg');
-  form.addEventListener('submit',function(e){
-    if(reply&&email) reply.value=email.value||'';
-    if(group){
-      const any=[...group.querySelectorAll('input[type=checkbox]')].some(c=>c.checked);
-      if(!any){e.preventDefault();alert('Please select at least one current vendor.');return false;}
-    }
-    const fileInput=form.querySelector('input[type=file]');
-    if(fileInput&&fileInput.files&&fileInput.files.length){
-      let total=0; for(const f of fileInput.files) total+=f.size;
-      if(total>10*1024*1024){e.preventDefault();alert('Combined file size must be under 10 MB.');return false;}
-    }
-  });
-})();
-</script>`;
-
-const AUDIT_FAQ=[
-  ['What do I need to send?','Billing invoices and/or usage CSV exports from your current observability vendors. Redacted bills are fine. We never ask for credentials, API keys, or dashboard access.'],
-  ['How is my data handled?','Materials are used only to prepare your audit. After the written report is delivered, submitted files are deleted. FormSubmit emails attachments to us and does not retain uploaded files.'],
-  ['How long does it take?','A written report within 5 business days of a complete intake, plus a 60-minute readout and 14 days of email follow-up.'],
-  ['What is not included?','Implementation, on-call coverage, and multi-cloud FinOps programs. This is a read-only review with recommendations tied to public pricing data.'],
-  ['When do I pay?','After Kurt reviews and accepts your intake. You then get a payment link and a kickoff time — nothing is charged on this form.']
-];
-const AUDIT_GET=[
-  ['01','Spend breakdown','Where the money goes across ingest, retention, seats, and overages.'],
-  ['02','Vendor & retention alternatives','Keep / replace options ranked against public pricing (including O11y Watch data).'],
-  ['03','Savings estimate','Ranked $/mo opportunities with confidence notes — not invented discounts.'],
-  ['04','Migration plan','Practical sequence if a change is worth it; what to leave alone.'],
-  ['05','Written report','PDF within 5 business days + 60-min readout + 14 days email follow-up.']
-];
-
-P('audit.html','Observability Cost & Stack Audit — O11y Watch','Fixed-scope observability cost and stack audit: spend breakdown, vendor alternatives, savings estimate, and migration plan. $997 early-bird / $1,197 standard.',`
-<section class="hero" style="padding-bottom:12px"><div class="eyebrow">Productized service · early-bird through Nov 2, 2026</div>
-<h1>Observability Cost &amp; <span class="grad">Stack Audit</span></h1>
-<p>A fixed-scope, read-only review of your o11y vendors and bill — waste map, ranked savings, and a keep/replace recommendation — delivered as a written report within 5 business days.</p>
-<p><a class="btn" href="#intake">Request the audit</a> <a class="btn ghost" href="#price">See pricing</a></p>
-</section>
-
-<h2>Who it’s for</h2>
-<ul>
-<li>Engineering leads and SREs who own an observability budget and don’t want invoice surprises.</li>
-<li>Teams whose Datadog / New Relic / Grafana / Splunk (or mix) spend grew faster than the stack’s value.</li>
-<li>Founders and FinOps folks comparing retention, seats, and overages before a renewal or migration.</li>
-</ul>
-<p class="mut sm">Best fit when monthly observability spend is roughly $500+ and you can share invoices or usage exports (redacted is fine).</p>
-
-<h2>What you get</h2>
-<div class="deliv">${AUDIT_GET.map(([n,t,d])=>`<div class="card"><b>${n}</b><h3 style="margin:6px 0 4px;font-size:16px">${esc(t)}</h3><p>${esc(d)}</p></div>`).join('')}</div>
-
-<h2 id="price">Price</h2>
-<div class="price-row">
-<div class="card hl"><div class="eyebrow">Early-bird · book by Nov 2, 2026</div><div class="amt">$997</div><p class="mut">One fixed fee. Same scope as standard.</p><p style="margin-top:12px"><a class="btn" href="#intake">Request early-bird</a></p></div>
-<div class="card"><div class="eyebrow">Standard</div><div class="amt">$1,197</div><p class="mut">After the early-bird window.</p><p style="margin-top:12px"><a class="btn ghost" href="#intake">Request standard</a></p></div>
-</div>
-<p class="sm mut">Payment is collected <b>after</b> the intake is accepted — this form does not charge a card. Scope lock: read-only review → waste map → ranked $/mo savings → keep/replace stack rec → PDF + 60-min readout + 14 days email follow-up. Not included: implementation, on-call, multi-cloud FinOps programs.</p>
-
-<h2>FAQ</h2>
-${AUDIT_FAQ.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
-
-<h2 id="intake">Request the audit</h2>
-<p class="mut">Tell us about your stack and upload invoices or usage exports. Kurt reviews every intake personally, then sends a payment link and a kickoff time if it’s a fit.</p>
-${auditFormHtml}
-`,'',[{'@context':'https://schema.org','@type':'Service',name:'Observability Cost & Stack Audit',provider:{'@type':'Organization',name:SITE,url:BASE+'/'},description:'Fixed-scope observability cost and stack audit with spend breakdown, vendor alternatives, savings estimate, migration plan, and written report within 5 business days.',offers:[{'@type':'Offer',price:'997',priceCurrency:'USD',name:'Early-bird',availabilityStarts:'2026-10-27',availabilityEnds:'2026-11-02'},{'@type':'Offer',price:'1197',priceCurrency:'USD',name:'Standard'}]},{'@context':'https://schema.org','@type':'FAQPage',mainEntity:AUDIT_FAQ.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}]);
-
-W('audit-thanks.html',page('audit-thanks.html','Thanks — audit intake received','We received your Observability Cost & Stack Audit request. Kurt will review and reply with next steps.',`
-<section class="hero"><div class="eyebrow">Intake received</div>
-<h1>Thanks — we have your <span class="grad">audit request</span>.</h1>
-<p>Nothing is charged yet. Here’s what happens next:</p></section>
-<div class="steps">
-<div class="card"><b>01 · REVIEW</b><h3 style="margin-top:6px">Kurt reads the intake</h3><p>He checks fit, completeness of the files, and whether the scope matches. Expect a reply within 1–2 business days.</p></div>
-<div class="card"><b>02 · PAYMENT LINK</b><h3 style="margin-top:6px">Only if accepted</h3><p>If it’s a fit, you’ll get a payment link for the agreed price ($997 early-bird through Nov 2, otherwise $1,197) and a proposed kickoff time.</p></div>
-<div class="card"><b>03 · DELIVERY</b><h3 style="margin-top:6px">Report in 5 business days</h3><p>After payment: written PDF report, 60-minute readout, and 14 days of email follow-up. Submitted files are deleted after delivery.</p></div>
-</div>
-<p style="margin-top:28px">Questions meanwhile? Email <a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
-<p><a class="btn" href="audit.html">Back to the audit page</a> <a class="btn ghost" href="index.html">O11y Watch home</a></p>
-`,'',{'@context':'https://schema.org','@type':'WebPage',name:'Audit intake thanks'}));
-W('audit-form.json',JSON.stringify(AUDIT_FORM,null,2));
+// ---- Observability Cost & Stack Audit (/audit) — instant client-side wizard (see EDITING.md)
+const auditMeta = (await import('./audit.inc.mjs')).default({
+  W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
+  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_TOKEN
+});
+console.log('audit unlock URL:', auditMeta.unlockUrl);
 
 fs.readFileSync(path.join(root,'scripts/agents.inc.mjs'),'utf8')&&(await import('./agents.inc.mjs')).default({V,C,TAKES,changes,W,P,BASE,SITE,esc,out,fs,path,files,nVer,nFree});
 if(INDEXNOW_KEY)W(INDEXNOW_KEY+'.txt',INDEXNOW_KEY);

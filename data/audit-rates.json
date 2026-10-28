@@ -1,0 +1,460 @@
+{
+  "$schema_note": "Structured unit rates extracted ONLY from data/vendors.json paid_from / pricing_model / free_tier / oss_self_host. Null = not stated in dataset — engine must say so. Rebuild after edits.",
+  "dataset_checked": "2026-10-24",
+  "disclaimer": "All figures are estimates modeled from public pricing page text captured by O11y Watch. They are not quotes, invoices, or negotiated rates. Verify on each vendor's current pricing page before buying. Self-host software license may be $0 where stated; compute, storage, and ops labor are outside this dataset.",
+  "vendors": {
+    "datadog": {
+      "id": "datadog",
+      "name": "Datadog",
+      "url": "https://www.datadoghq.com/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "per_host_plus_products",
+      "rates": {
+        "host_mo_annual": 15,
+        "host_mo_ondemand": 18,
+        "log_gb": null,
+        "metric_series_1k": null,
+        "span_million": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": { "hosts": 5, "metric_retention_days": 1 },
+      "notes": [
+        "Infrastructure Pro listed at $15/host/mo annual / $18 on-demand.",
+        "APM, logs, custom metrics, and other products are billed separately — unit rates for those dimensions are not captured in the O11y Watch dataset."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "datadog": "none", "newrelic": "high", "grafana": "high", "default": "high" }
+    },
+    "newrelic": {
+      "id": "newrelic",
+      "name": "New Relic",
+      "url": "https://newrelic.com/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "user_plus_gb",
+      "rates": {
+        "host_mo_annual": null,
+        "host_mo_ondemand": null,
+        "log_gb": 0.40,
+        "metric_series_1k": null,
+        "span_million": null,
+        "user_mo": 49,
+        "platform_fee_mo": null,
+        "free_gb_mo": 100,
+        "free_full_users": 1
+      },
+      "free": { "gb_mo": 100, "full_users": 1, "basic_users": "unlimited" },
+      "notes": [
+        "$49/full platform user; $0.40/GB beyond 100 GB free ingest.",
+        "Dataset does not separate logs vs metrics vs traces GB — modeled as combined ingest GB/mo."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "newrelic": "none", "datadog": "medium", "grafana": "medium", "default": "medium" }
+    },
+    "grafana": {
+      "id": "grafana",
+      "name": "Grafana Cloud",
+      "url": "https://grafana.com/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier", "oss_self_host"],
+      "model": "platform_plus_series",
+      "rates": {
+        "host_mo_annual": null,
+        "host_mo_ondemand": null,
+        "log_gb": null,
+        "metric_series_1k": 6.50,
+        "span_million": null,
+        "user_mo": null,
+        "platform_fee_mo": 19
+      },
+      "free": { "active_series": 10000, "retention_days": 14 },
+      "notes": [
+        "$19/mo platform fee + usage; pricing_model cites e.g. $6.50 per 1k series.",
+        "Log GB and trace unit rates are not stated in the captured dataset fields — not modeled."
+      ],
+      "oss_self_host": true,
+      "oss_label": "Grafana OSS stack",
+      "alternative": true,
+      "effort_from": { "grafana": "none", "datadog": "high", "newrelic": "medium", "default": "medium" }
+    },
+    "signoz": {
+      "id": "signoz",
+      "name": "SigNoz Cloud",
+      "url": "https://signoz.io/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier", "oss_self_host"],
+      "model": "usage_gb_samples",
+      "rates": {
+        "host_mo_annual": null,
+        "log_gb": 0.30,
+        "metric_sample_million": 0.10,
+        "span_million": null,
+        "user_mo": null,
+        "platform_fee_mo": null,
+        "min_mo": 49
+      },
+      "free": {},
+      "notes": [
+        "Teams plan $49/mo minimum including $49 usage; $0.30/GB, $0.10/M samples."
+      ],
+      "oss_self_host": true,
+      "oss_label": "SigNoz open source",
+      "alternative": true,
+      "effort_from": { "signoz": "none", "datadog": "high", "newrelic": "medium", "grafana": "low", "default": "medium" }
+    },
+    "uptrace": {
+      "id": "uptrace",
+      "name": "Uptrace",
+      "url": "https://uptrace.dev/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier", "oss_self_host"],
+      "model": "per_gb",
+      "rates": {
+        "log_gb": 0.075,
+        "free_gb_mo": 50,
+        "free_timeseries": 5000,
+        "user_mo": null,
+        "host_mo_annual": null,
+        "platform_fee_mo": null
+      },
+      "free": { "gb_mo": 50, "timeseries": 5000 },
+      "notes": [
+        "$0.075/GB after 50 GB; no seat/host limits stated."
+      ],
+      "oss_self_host": true,
+      "oss_label": "Uptrace Community Edition",
+      "alternative": true,
+      "effort_from": { "uptrace": "none", "default": "medium" }
+    },
+    "coralogix": {
+      "id": "coralogix",
+      "name": "Coralogix",
+      "url": "https://coralogix.com/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "per_gb_logs",
+      "rates": {
+        "log_gb": 0.42,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "$0.42/GB logs listed; usage-based units ($1.50/unit) also mentioned — modeled on GB logs only."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "coralogix": "none", "default": "medium" }
+    },
+    "dash0": {
+      "id": "dash0",
+      "name": "Dash0",
+      "url": "https://www.dash0.com/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model"],
+      "model": "per_million_signals",
+      "rates": {
+        "span_million": 0.060,
+        "log_million": 0.060,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "$0.060 per million spans/logs (ingestion)."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "dash0": "none", "default": "medium" }
+    },
+    "splunk": {
+      "id": "splunk",
+      "name": "Splunk Observability Cloud",
+      "url": "https://www.splunk.com/en_us/software/pricing.html",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model"],
+      "model": "per_host",
+      "rates": {
+        "host_mo_annual": 15,
+        "log_gb": null,
+        "span_million": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "Infrastructure $15/host/mo billed annually; APM per host and spans-based tiers mentioned without unit rates in dataset."
+      ],
+      "oss_self_host": "partial",
+      "alternative": true,
+      "effort_from": { "splunk": "none", "default": "high" }
+    },
+    "dynatrace": {
+      "id": "dynatrace",
+      "name": "Dynatrace",
+      "url": "https://www.dynatrace.com/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model"],
+      "model": "per_host",
+      "rates": {
+        "host_mo_annual": 7,
+        "log_gb": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "$7/mo per host (billed $0.01/host/hour) under annual platform commitment — other product rates not in dataset."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "dynatrace": "none", "default": "high" }
+    },
+    "honeycomb": {
+      "id": "honeycomb",
+      "name": "Honeycomb",
+      "url": "https://www.honeycomb.io/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "tier_floor",
+      "rates": {
+        "pro_floor_mo": 150,
+        "log_gb": null,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null,
+        "free_events_mo": 20000000
+      },
+      "free": { "events_mo": 20000000, "metric_points_mo": 100000000 },
+      "notes": [
+        "Pro from $150/mo; event volume tiers — overage unit rates not in dataset. Modeled as Pro floor when above free tier."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "honeycomb": "none", "default": "medium" }
+    },
+    "axiom": {
+      "id": "axiom",
+      "name": "Axiom",
+      "url": "https://axiom.co/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "compute_opaque",
+      "rates": {
+        "paid_from_mo": 25,
+        "log_gb": null,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": { "loading_compute_gb_mo": 500, "storage_gb": 25 },
+      "notes": [
+        "Paid from $25/mo; limits are compute units not GB of logs — cannot map usage GB to dollars from dataset alone. Teaser uses paid_from floor only when free allowance likely exceeded."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "axiom": "none", "default": "low" }
+    },
+    "middleware": {
+      "id": "middleware",
+      "name": "Middleware",
+      "url": "https://middleware.io/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "per_gb_all",
+      "rates": {
+        "log_gb": 0.3,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null,
+        "free_gb_mo": 100
+      },
+      "free": { "gb_mo": 100 },
+      "notes": [
+        "$0.3/GB metrics, logs, traces; free plan lists 100 GB data volume."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "middleware": "none", "default": "medium" }
+    },
+    "openobserve": {
+      "id": "openobserve",
+      "name": "OpenObserve",
+      "url": "https://openobserve.ai/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "oss_self_host"],
+      "model": "per_gb_ingest_query",
+      "rates": {
+        "log_gb": 0.50,
+        "query_gb": 0.01,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "Cloud: $0.50/GB ingested + $0.01/GB queried. Query volume not collected in survey — ingest only modeled; query line marked unknown."
+      ],
+      "oss_self_host": true,
+      "oss_label": "OpenObserve (AGPL-3.0)",
+      "alternative": true,
+      "effort_from": { "openobserve": "none", "default": "medium" }
+    },
+    "observe": {
+      "id": "observe",
+      "name": "Observe",
+      "url": "https://www.observeinc.com/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model"],
+      "model": "per_gib_logs",
+      "rates": {
+        "log_gb": 0.49,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": [
+        "$0.49/GiB logs; per-DPM metrics rate not captured — metrics dimension unknown."
+      ],
+      "oss_self_host": false,
+      "alternative": true,
+      "effort_from": { "observe": "none", "default": "medium" }
+    },
+    "groundcover": {
+      "id": "groundcover",
+      "name": "groundcover",
+      "url": "https://www.groundcover.com/pricing",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model"],
+      "model": "per_host",
+      "rates": {
+        "host_mo_annual": 30,
+        "log_gb": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": {},
+      "notes": ["$30/host/mo listed."],
+      "oss_self_host": "partial",
+      "alternative": true,
+      "effort_from": { "groundcover": "none", "default": "medium" }
+    },
+    "sentry": {
+      "id": "sentry",
+      "name": "Sentry",
+      "url": "https://sentry.io/pricing/",
+      "checked": "2026-10-24",
+      "source_fields": ["paid_from", "pricing_model", "free_tier"],
+      "model": "tier_floor",
+      "rates": {
+        "paid_from_mo": 26,
+        "log_gb": 0.50,
+        "host_mo_annual": null,
+        "user_mo": null,
+        "platform_fee_mo": null
+      },
+      "free": { "users": 1, "errors_mo": 5000 },
+      "notes": [
+        "Paid from $26/mo; pay-as-you-go e.g. +$0.50/GB logs. Full error/APM tiers not fully modeled."
+      ],
+      "oss_self_host": false,
+      "alternative": false
+    }
+  },
+  "self_hosted": [
+    {
+      "id": "grafana-oss",
+      "name": "Grafana OSS stack (self-host)",
+      "vendor_id": "grafana",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "Grafana OSS stack available per vendors.json. Software license $0; compute/storage/ops not in dataset."
+    },
+    {
+      "id": "signoz-oss",
+      "name": "SigNoz OSS (self-host)",
+      "vendor_id": "signoz",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "SigNoz open source option. Software $0; infra not in dataset."
+    },
+    {
+      "id": "uptrace-ce",
+      "name": "Uptrace Community Edition",
+      "vendor_id": "uptrace",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "Community Edition free self-host. Infra not in dataset."
+    },
+    {
+      "id": "openobserve-oss",
+      "name": "OpenObserve self-host",
+      "vendor_id": "openobserve",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "AGPL-3.0 self-host. Infra not in dataset."
+    },
+    {
+      "id": "elastic-self",
+      "name": "Elastic Observability (self-managed)",
+      "vendor_id": "elastic",
+      "software_mo": null,
+      "infra_in_dataset": false,
+      "notes": "Self-managed option stated; paid_from and pricing_model are 'not stated' in dataset — no dollar model."
+    },
+    {
+      "id": "graylog-oss",
+      "name": "Graylog (self-host free)",
+      "vendor_id": "graylog",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "Free permanently self-hosted (no daily ingest cap stated). Paid license from $15,000 shown for commercial edition — not modeled as monthly SaaS."
+    },
+    {
+      "id": "parseable-oss",
+      "name": "Parseable (self-host)",
+      "vendor_id": "parseable",
+      "software_mo": 0,
+      "infra_in_dataset": false,
+      "notes": "Open source free self-hosted. Cloud paid_from not usable as unit rate."
+    }
+  ],
+  "levers": [
+    {
+      "id": "retention_cut",
+      "name": "Retention reduction",
+      "description": "Lower log/metric retention toward free-tier or 14–30 day defaults where vendors publish them.",
+      "default_pct_save": 15,
+      "applies_when": "retention_days > 30"
+    },
+    {
+      "id": "sampling",
+      "name": "Trace/span sampling",
+      "description": "Sample high-cardinality traces (e.g. 10–25% keep) when span volume drives cost.",
+      "default_pct_save": 20,
+      "applies_when": "spans_mo > 5000000"
+    },
+    {
+      "id": "log_filter",
+      "name": "Log volume filters",
+      "description": "Drop debug/verbose and high-chatter sources before ingest.",
+      "default_pct_save": 25,
+      "applies_when": "log_gb_day > 20"
+    },
+    {
+      "id": "seat_rationalize",
+      "name": "Seat / user rationalization",
+      "description": "Move viewers to basic/read-only seats where the vendor distinguishes full vs basic users (e.g. New Relic).",
+      "default_pct_save": 10,
+      "applies_when": "users > 5"
+    }
+  ],
+  "default_alternatives": ["newrelic", "grafana", "signoz", "uptrace", "coralogix", "middleware"]
+}
