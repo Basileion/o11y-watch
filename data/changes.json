@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-28",
+  "vendor": "Datadog",
+  "type": "new tier",
+  "summary": "Infrastructure pricing adds a \"Basic\" host tier (contact sales, core system metrics, 15-month metric retention, no container monitoring; can be mixed with Pro or Enterprise hosts). The standalone Free card is gone; the FAQ now says the Free tier is up to five Basic hosts with 1-day retention. Pro $15/host ($18 on-demand) and Enterprise $23/host ($27 on-demand) unchanged.",
+  "source": "https://www.datadoghq.com/pricing/"
+ },
+ {
   "date": "2026-10-24",
   "vendor": "Bugsnag",
   "type": "free tier detail",

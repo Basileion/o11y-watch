@@ -23,15 +23,16 @@
   "type": "APM / infra monitoring",
   "url": "https://www.datadoghq.com/pricing/",
   "free_plan": "Free plan",
-  "free_tier": "Up to 5 hosts; 1-day metric retention; core collection & visualization",
+  "free_tier": "Up to 5 Basic hosts; 1-day metric retention (Free tier after trial)",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-10-28",
   "paid_from": "$15/host/mo (Infrastructure Pro, billed annually; $18 on-demand)",
   "pricing_model": "Per host + per product usage",
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [
-   "Each product is billed separately"
+   "Each product is billed separately",
+   "New Basic host tier (Oct 2026) is contact-sales pricing; no container monitoring on Basic hosts"
   ],
   "confidence": "verified"
  },

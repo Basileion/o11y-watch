@@ -131,7 +131,7 @@ Bits Agent Builder — Manual or Autonomous Run
 Bits Code — Code Fix
 ~5 credits
 Bits Investigate — Autonomous Investigation
-~6.5 credits
+~4 credits
 Average credit consumption for each feature set out above is provided only for reference. Actual consumption for any single request may vary with task complexity and the amount of context the model processes.
 Support Plans & Post Sales Services
 From basic plans to bespoke offerings, Datadog offers the right level of support & services for any organization.
@@ -296,16 +296,24 @@ Free Free Free
 Do Feature Flags require APM? Feature Flags can be used independently and don’t require licensing other Datadog products, but they leverage the APM and RUM SDKs for server-side and client-side implementations. Can I investigate feature flag impact in APM, RUM, and Product Analytics? Yes, but you must already be a customer of the relevant Datadog products. Feature flag evaluations are automatically correlated with Datadog APM, RUM, and Product Analytics data, allowing you to investigate errors, performance issues, and user behavior tied to specific flag states. Can I migrate from another feature flag provider? Yes. Datadog Feature Flags is built on the OpenFeature standard, which helps teams avoid vendor lock-in and simplifies migrations from existing providers. OpenFeature is a CNCF (Cloud Native Computing Foundation) project backed by major industry leaders, ensuring long-term portability and ecosystem support. How reliable are Datadog Feature Flags? Feature flag evaluations are designed to be highly reliable and safe by default. Datadog uses a globally distributed CDN-backed architecture to ensure low-latency access and resilience at scale. SDKs cache flag values locally and fall back to safe defaults if connectivity is interrupted, ensuring your application continues to operate even during network or service disruptions. Which SDK languages are supported? Datadog Feature Flags supports SDKs for common backend and frontend languages, including Java, JavaScript, Python, React, Go, Ruby, and mobile platforms. Learn more . Is this available in all regions? Yes. Feature Flags is available in all US-, EU- and APAC-hosted accounts. Feature Flags are not available in GovCloud. How can I start using Feature Flags? Visit the Feature Flags documentation to get started with instrumenting and managing feature flags in your applications.
 Infrastructure
 See inside any stack, any app, at any scale, anywhere
-})" :class="selected_category == 'AWS LAMBDA' || selected_category == 'AWS' ? 'addon-group': ''"> Free
-Core collection and visualization features
-1-day metric retention
-Up to 5 hosts
+Infrastructure Hosts
+Infrastructure DevSecOps Hosts
+Basic
+Priced
+Per host,
+per month
+Contact sales for pricing
+Essential coverage for noncritical workloads
+Core system metrics
+Out-of-the-box dashboards
+15-month metric retention
+Basic hosts can be mixed with either Pro or Enterprise hosts in the same account.
 Pro
 15 Per host,
 Centralize your monitoring of systems, services, and serverless functions
 1,000+ integrations
-Out-of-the-box dashboards
-15-month metric retention
+Container monitoring
+OpenTelemetry support
 *Billed annually or $ 18 on-demand
 Enterprise
 23 Per host,
@@ -314,7 +322,6 @@ Machine learning-based alerts
 Live Processes
 Governance Console
 *Billed annually or $ 27 on-demand
-*Billed annually or $ on-demand
 DevSecOps Pro
 22 Per host,
 Secure your cloud resources and adhere to industry standards
@@ -334,21 +341,23 @@ Workload Protection for Linux, Windows Kubernetes, and Docker
 Increased container allotment (10 containers allotted per host license**)
 *Billed annually or $ 41 on-demand
 Multi-Year/Volume discounts available (500+ hosts/mo)
-Free
 Standard Events and Metrics
 Out-of-the-Box Dashboards
 1,000+ Integrations
+Limited
 Host and Container Maps
+Host map only
 Full-Resolution Data Retention
-1 day
 15 months
 15 months Customizable
 Alerts
 Unlimited
 Container Monitoring
+Not supported
 5 per host allotted
 10 per host allotted
 Custom Metrics
+0 per host allotted
 100 per host allotted
 200 per host allotted
 Custom Events
@@ -384,11 +393,12 @@ Free when triggered from security findings and signals
 Containers
 5 containers allotted per host per month
 10 containers allotted per host per month
-How do you define a host? A host is any physical or virtual OS instance that you monitor with Datadog. It could be a server, VM, or node (in the case of Kubernetes). How do I monitor containers? The Datadog Agent runs in a container alongside any number of other containers on a host. From there it can collect metrics from its neighboring containers and from the host itself. Depending on your plan, you can monitor 5 or 10 containers free for each host license. Additional containers will be billed at $ 0.002 per container per hour. In addition, you can purchase prepaid containers at $ 1 per container per month or $ 1.50 per container per month for DevSecOps Containers. What is a custom metric? Datadog was designed to allow you to monitor your own custom applications and business metrics—not just your infrastructure. You can send any and all of your organization's important metrics to Datadog for graphing, alerting, correlation, anomaly detection and more. Example uses: monitoring ad revenue, the rate at which shopping carts are abandoned, or the health of an in-game economy. Many customers find these metrics invaluable, especially when combined with infrastructure metrics. How many custom metrics are allotted per host? Datadog offers 100 custom metrics for every host monitored with Infrastructure Pro, or 200 custom metrics for every host monitored with Infrastructure Enterprise. How do I get charged for additional custom metrics? Custom metrics beyond your included allocation are billed based on usage. Contact us or reach out to your Sales or Customer Success rep for more details. How does Datadog count and meter custom metrics? Custom metrics are counted hourly and averaged monthly across your entire account, not on a per-host basis. For more details around Custom Metrics metering, please see our Custom Metrics Billing FAQ . What is a custom event? Datadog allows you to send custom events coming from your own custom applications such as custom-built deployment tools or scheduled maintenance jobs. This way, you can correlate any of these events with performance metrics, create monitors for alerting and enrich events at intake with processing pipelines to be queried alongside other standard events. How many events are allotted per host? Datadog offers 500 custom events for every host monitored with infrastructure monitoring for pro plan, or 1000 for enterprise plan. Custom events are averaged across your entire account, not just on a per-host basis. Beyond this limit, Datadog charges $ 2 for 100 000 custom events (billed annually or $ 3 on-demand), although it is rare for our customers to exceed the allotted volume. How can I send custom metrics and events? You can send Datadog custom metrics and events in three ways
+How do you define a host? A host is any physical or virtual OS instance that you monitor with Datadog. It could be a server, VM, or node (in the case of Kubernetes). How do I monitor containers? The Datadog Agent runs in a container alongside any number of other containers on a host. From there it can collect metrics from its neighboring containers and from the host itself. Depending on your plan, you can monitor 5 or 10 containers free for each host license. Additional containers will be billed at $ 0.002 per container per hour. In addition, you can purchase prepaid containers at $ 1 per container per month or $ 1.50 per container per month for DevSecOps Containers. Container monitoring is not available for Basic hosts. What is a custom metric? Datadog was designed to allow you to monitor your own custom applications and business metrics—not just your infrastructure. You can send any and all of your organization's important metrics to Datadog for graphing, alerting, correlation, anomaly detection and more. Example uses: monitoring ad revenue, the rate at which shopping carts are abandoned, or the health of an in-game economy. Many customers find these metrics invaluable, especially when combined with infrastructure metrics. How many custom metrics are allotted per host? Datadog offers 100 custom metrics for every host monitored with Infrastructure Pro, or 200 custom metrics for every host monitored with Infrastructure Enterprise. How do I get charged for additional custom metrics? Custom metrics beyond your included allocation are billed based on usage. Contact us or reach out to your Sales or Customer Success rep for more details. How does Datadog count and meter custom metrics? Custom metrics are counted hourly and averaged monthly across your entire account, not on a per-host basis. For more details around Custom Metrics metering, please see our Custom Metrics Billing FAQ . What is a custom event? Datadog allows you to send custom events coming from your own custom applications such as custom-built deployment tools or scheduled maintenance jobs. This way, you can correlate any of these events with performance metrics, create monitors for alerting and enrich events at intake with processing pipelines to be queried alongside other standard events. How many events are allotted per host? Datadog offers 500 custom events for every host monitored with infrastructure monitoring for pro plan, or 1000 for enterprise plan. Custom events are averaged across your entire account, not just on a per-host basis. Beyond this limit, Datadog charges $ 2 for 100 000 custom events (billed annually or $ 3 on-demand), although it is rare for our customers to exceed the allotted volume. How can I send custom metrics and events? You can send Datadog custom metrics and events in three ways
 The Datadog Agent ships with DogStatsD so you can submit custom metrics via the Agent's non-blocking API functions for many programming languages.
 The Datadog Agent allows for the creation of custom integrations via plugins to the Agent. This plugin system allows the Agent to collect custom metrics on your behalf. Integrations which are contributed back to the Datadog Agent convert to standard metrics.
 Datadog also has a full-featured API that you can send your metrics to—either directly over HTTP or with a language-specific library.
-What compliance frameworks does DevSecOps support? DevSecOps Pro and Enterprise allow you to track conformance to requirements of over 15 industry benchmarks including CIS, PCI DSS, SOC 2, and more . How can I be sure my data is secure? Security is our top priority. This includes, universal HTTPS, strong TLS configuration, and HTTP Strict Transport Security. Our Agent is open-source, which means it can be reviewed to ensure it meets your security requirements. Are there other billing options? Annual, monthly and hourly plans are available. We can customize billing plans to meet your needs. For a detailed explanation of billing, please see our Billing FAQ Do you have special offerings for partners? We're always looking to partner with technology and service providers and resellers. See our Partners page for more. Can I buy the DevSecOps SKU for some of my hosts and standalone Infrastructure or Cloud Security SKUs for the remainder? You cannot purchase any DevSecOps SKU for a subset of your infrastructure, it covers all existing hosts and containers. You also cannot combine the DevSecOps SKU with standalone Infrastructure or Cloud Security SKUs.
+What compliance frameworks does DevSecOps support? DevSecOps Pro and Enterprise allow you to track conformance to requirements of over 15 industry benchmarks including CIS, PCI DSS, SOC 2, and more . How can I be sure my data is secure? Security is our top priority. This includes, universal HTTPS, strong TLS configuration, and HTTP Strict Transport Security. Our Agent is open-source, which means it can be reviewed to ensure it meets your security requirements. Are there other billing options? Annual, monthly and hourly plans are available. We can customize billing plans to meet your needs. For a detailed explanation of billing, please see our Billing FAQ Do you have special offerings for partners? We're always looking to partner with technology and service providers and resellers. See our Partners page for more. What infrastructure monitoring is included in the Free tier? When your free trial ends, you can choose to upgrade to a paid plan or move to the Free tier. On the Free tier, you get up to five Basic hosts with 1-day metric retention, at no cost. To monitor more hosts or retain data longer, upgrade to a paid plan at any time. Can I mix and match infrastructure coverage? You can choose one level of infrastructure coverage for your Datadog account: Pro, Enterprise, DevSecOps Pro, or DevSecOps Enterprise. If you choose Pro or Enterprise, you can also monitor a subset of your hosts with Basic level coverage.
+The DevSecOps bundles cover your entire environment, and can't be combined with standalone infrastructure, container, or cloud security products.
 Application Performance Monitoring
 Improve the performance of your cloud-scale
 applications end to end, down to a single line of code
@@ -768,7 +778,6 @@ Deploy quickly, via app or GitOps
 Cloud Cost Management bundle discounts available
 Export OTLP directly into Datadog
 0.50 per GB of ingested spans,
-per month
 Simple configuration, no collector component required
 Allows routing of telemetry from managed partners like Cloudflare and Mulesoft without any additional infrastructure
 Available in all regions. No multi-year or volume discounts available.
@@ -948,6 +957,7 @@ How do you define an active application instance? Active instances for Azure Fun
 How do you define an active application instance? Active instances for Google Cloud Run are the number of unique active application containers that were observed in an active state during at least one 5-minute metering interval, averaged across the month. Which Cloud Run workloads are supported and included in the pricing plan? Cloud Run services, Cloud Run Functions (Gen 2), and Cloud Run Functions (Gen 1) are included in the pricing plan for both Serverless Application Monitoring and Serverless Application APM. The same pricing applies for all workloads. Is Tracing included in Container App Monitoring? Tracing Cloud Run services and functions is supported via the add on Serverless Apps APM product. It can be enabled with the Datadog Serverless Agent and adding a tracing library to your application. What metrics are included in Serverless Workload Monitoring? Each active application instance includes an allotment of 20 ingested custom metrics and 20 indexed custom metrics under application monitoring. The APM add-on offering provides 30GB of Ingested Spans and Indexed Spans allotment to 195k. See APM common questions for additional retention periods. Can I control how many requests are traced? Yes, you can control the percentage of Cloud Run requests that generate APM data by configuring your tracing settings .
 How do you define an active application instance? Active instances for GKE Autopilot are the number of unique active pods during at least one 5-minute metering interval, averaged across the month. Note: If you are using the Datadog Agent to instrument GKE Autopilot, and are using Agent 7.65.0+ and version 3.113.0+ of the Helm chart, ensure the datadog.kubelet.useApiServer property is enabled. Are OTel instrumented GKE Autopilot workloads billable? For OTel instrumented GKE Autopilot workloads, only Serverless Apps APM is billable. Infra OTel for Serverless will be billable on a future date. Is Tracing Included In GKE Autopilot monitoring? Tracing GKE Autopilot is supported via the add on Serverless Apps APM product. It can be enabled via supported OpenTelemetry setups or the Datadog Agent. What metrics are included in Serverless Application Monitoring? Each active application instance includes an allotment of 20 ingested custom metrics and 20 indexed custom metrics under application monitoring. The APM add-on offering provides 30GB of Ingested Spans and Indexed Spans allotment to 195k. See APM common questions for additional retention periods. Can I control how many pods are monitored? Yes, you can use Container Discovery Management to selectively monitor GKE Autopilot workloads.
 Monitor, evaluate, and improve your AI agents across development and production in one platform
+})" :class="selected_category == 'AWS LAMBDA' || selected_category == 'AWS' ? 'addon-group': ''"> Free
 0 per month
 For individuals and small teams
 Up to 40K LLM spans / month
@@ -1317,7 +1327,7 @@ Remediate floods of backed-up messages
 *Included with APM Pro & APM Enterprise plans.
 **Billed annually or $ 18 on-demand
 Kafka Console
-Self-hosted, Confluent Cloud, Amazon MSK provisioned
+Self-hosted and Amazon MSK provisioned
 100 Per broker host, per month*
 Identify issues across brokers, partitions, and schemas
 Troubleshoot at the message level
@@ -1337,7 +1347,7 @@ Schema and configuration change tracking
 Optimization recommendations across producer, consumer, topic, and broker configurations
 Serverless Applications
 $ 2.90 per active application instances ($ 4.40 on-demand)
-What is Data Streams Monitoring and how does it work? Datadog Data Streams Monitoring (DSM) allows you to track and improve the performance of event-driven applications that use Kafka, SQS, and RabbitMQ. DSM automatically maps dependencies between all services and queues, measures latency between them, and provides additional health metrics, such as consumer lag, across your streaming data pipeline to help you monitor it end to end. What counts as a billable DSM host? A billable Data Streams Monitoring host is a host that has the Datadog Agent installed and producer and consumer services that are running on it and instrumented for DSM. Visit our documentation for additional setup information. What kind of billing plan do I need to run Data Streams Monitoring? Every billable DSM host requires the purchase of Pro or Enterprise Infrastructure Monitoring, regardless if it is combined with APM. Annual, month-to-month, and on-demand billing plans are available. For a detailed explanation of billing, please see our Billing FAQ . Can I purchase Data Streams Monitoring as part of a bundle? Yes, Data Streams Monitoring is available bundled with APM as part of APM Pro and Enterprise and enables DSM across your APM fleet. What Technologies do you support? DSM currently supports Kafka, RabbitMQ, and SQS. For additional queueing technologies, we provide custom instrumentation options. How long is DSM data retained for? Map history is stored for 30 days and all metrics are retained for 15 months. What is Kafka Console? Kafka Console helps you monitor Kafka by collecting data directly from brokers, topics, partitions, and consumer groups. It gives you deeper visibility into Kafka itself – cluster availability, performance, and producer/consumer health – with message querying directly from topics, schema and configuration change tracking, and automatic alerting on cluster and consumer health metrics. When pipeline issues arise, Kafka Console helps you quickly determine whether the root cause sits at the infrastructure layer, what broke, why, and what's at stake. How does Kafka Console differ from Data Streams Monitoring? Kafka Console reads directly from the Kafka broker to show how those same producers and consumers, and the infrastructure underneath them, are actually behaving. Data Streams Monitoring instruments application code to show data flow and latency across your services. They're complementary; you can adopt either independently, or both together to see the full path from broker to application. Does Kafka Console support Amazon MSK Serverless? Kafka Console pricing only applies to MSK Provisioned clusters. You will not be billed for monitoring MSK Serverless.
+What is Data Streams Monitoring and how does it work? Datadog Data Streams Monitoring (DSM) allows you to track and improve the performance of event-driven applications that use Kafka, SQS, and RabbitMQ. DSM automatically maps dependencies between all services and queues, measures latency between them, and provides additional health metrics, such as consumer lag, across your streaming data pipeline to help you monitor it end to end. What counts as a billable DSM host? A billable Data Streams Monitoring host is a host that has the Datadog Agent installed and producer and consumer services that are running on it and instrumented for DSM. Visit our documentation for additional setup information. What kind of billing plan do I need to run Data Streams Monitoring? Every billable DSM host requires the purchase of Pro or Enterprise Infrastructure Monitoring, regardless if it is combined with APM. Annual, month-to-month, and on-demand billing plans are available. For a detailed explanation of billing, please see our Billing FAQ . Can I purchase Data Streams Monitoring as part of a bundle? Yes, Data Streams Monitoring is available bundled with APM as part of APM Pro and Enterprise and enables DSM across your APM fleet. What Technologies do you support? DSM currently supports Kafka, RabbitMQ, and SQS. For additional queueing technologies, we provide custom instrumentation options. How long is DSM data retained for? Map history is stored for 30 days and all metrics are retained for 15 months. What is Kafka Console? Kafka Console helps you monitor Kafka by collecting data directly from brokers, topics, partitions, and consumer groups. It gives you deeper visibility into Kafka itself – cluster availability, performance, and producer/consumer health – with message querying directly from topics, schema and configuration change tracking, and automatic alerting on cluster and consumer health metrics. When pipeline issues arise, Kafka Console helps you quickly determine whether the root cause sits at the infrastructure layer, what broke, why, and what's at stake. How does Kafka Console differ from Data Streams Monitoring? Kafka Console reads directly from the Kafka broker to show how those same producers and consumers, and the infrastructure underneath them, are actually behaving. Data Streams Monitoring instruments application code to show data flow and latency across your services. They're complementary; you can adopt either independently, or both together to see the full path from broker to application. Does Kafka Console support Amazon MSK Serverless? Kafka Console pricing only applies to MSK Provisioned clusters. You will not be billed for monitoring MSK Serverless. Does Kafka Console support Confluent Cloud? Kafka Console pricing does not apply to Confluent Cloud. You will not be billed for monitoring Confluent Cloud clusters.
 A unified cost observability platform for Engineering and FinOps
 })" :class="selected_category == 'AWS LAMBDA' || selected_category == 'AWS' ? 'addon-group': ''"> Datadog Cost Visibility
 0 Free
@@ -1365,6 +1375,7 @@ Manage complex budgets across teams with hierarchical controls
 Pivot seamlessly to Service Catalog to understand Service performance
 Unify cost data with observability data to understand cost drivers
 Datadog Cost Visibility
+Free
 Core Features
 Cost in Dashboards & Notebooks
 Cost Monitors
