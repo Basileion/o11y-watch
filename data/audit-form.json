@@ -1,0 +1,161 @@
+{
+  "$schema_note": "Edit this file to change the Observability Cost & Stack Audit intake form. Rebuild with: npm run build. See EDITING.md.",
+  "formId": "o11y-cost-audit",
+  "action": "https://formsubmit.co/basileion.ops@gmail.com",
+  "method": "POST",
+  "enctype": "multipart/form-data",
+  "submitLabel": "Request the audit",
+  "hidden": {
+    "_subject": "Observability Cost & Stack Audit — new intake",
+    "_template": "table",
+    "_captcha": "false",
+    "_next": "https://o11y-watch.pages.dev/audit-thanks.html"
+  },
+  "honeypot": {
+    "name": "_honey",
+    "label": "Leave blank"
+  },
+  "replyToField": "email",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Full name",
+      "type": "text",
+      "required": true,
+      "autocomplete": "name",
+      "placeholder": "Jane Doe"
+    },
+    {
+      "name": "email",
+      "label": "Work email",
+      "type": "email",
+      "required": true,
+      "autocomplete": "email",
+      "placeholder": "jane@company.com"
+    },
+    {
+      "name": "company",
+      "label": "Company",
+      "type": "text",
+      "required": true,
+      "autocomplete": "organization",
+      "placeholder": "Acme Inc."
+    },
+    {
+      "name": "role",
+      "label": "Your role",
+      "type": "select",
+      "required": true,
+      "options": [
+        "",
+        "Engineering lead / manager",
+        "SRE / Platform",
+        "DevOps",
+        "FinOps / Procurement",
+        "Founder / CTO",
+        "Individual contributor",
+        "Other"
+      ]
+    },
+    {
+      "name": "vendors",
+      "label": "Current observability vendors",
+      "type": "checkbox-group",
+      "required": true,
+      "hint": "Select all that apply.",
+      "options": [
+        "Datadog",
+        "New Relic",
+        "Grafana Cloud / Loki / Tempo / Mimir",
+        "Splunk / Splunk Observability",
+        "Elastic / ELK",
+        "Dynatrace",
+        "Sentry",
+        "Honeycomb",
+        "Chronosphere",
+        "AWS CloudWatch",
+        "Google Cloud Operations",
+        "Azure Monitor",
+        "OpenTelemetry self-hosted",
+        "Other / mix (note below)"
+      ]
+    },
+    {
+      "name": "monthly_spend",
+      "label": "Monthly observability spend",
+      "type": "select",
+      "required": true,
+      "options": [
+        "",
+        "Under $500",
+        "$500 – $2,000",
+        "$2,000 – $5,000",
+        "$5,000 – $15,000",
+        "$15,000 – $50,000",
+        "Over $50,000",
+        "Not sure / prefer not to say"
+      ]
+    },
+    {
+      "name": "hosts_services",
+      "label": "Hosts / services under observation",
+      "type": "select",
+      "required": true,
+      "options": [
+        "",
+        "1 – 10",
+        "11 – 50",
+        "51 – 200",
+        "201 – 1,000",
+        "1,000+",
+        "Not sure"
+      ]
+    },
+    {
+      "name": "main_pain",
+      "label": "Main pain right now",
+      "type": "textarea",
+      "required": true,
+      "rows": 4,
+      "placeholder": "e.g. Datadog bill jumped 40% after adding APM; retention feels too short for the price; evaluating whether to migrate…"
+    },
+    {
+      "name": "timeline",
+      "label": "Decision timeline",
+      "type": "select",
+      "required": true,
+      "options": [
+        "",
+        "This week",
+        "Within 2 weeks",
+        "This month",
+        "This quarter",
+        "Just exploring"
+      ]
+    },
+    {
+      "name": "attachments",
+      "label": "Billing invoices or usage CSV exports",
+      "type": "file",
+      "required": false,
+      "multiple": true,
+      "accept": ".pdf,.csv,.xlsx,.xls,.png,application/pdf,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,image/png",
+      "hint": "PDF, CSV, XLSX, or PNG. Multiple files OK. Combined size under 10 MB. Redact account numbers if you like — never send credentials or API keys."
+    },
+    {
+      "name": "notes",
+      "label": "Anything else we should know?",
+      "type": "textarea",
+      "required": false,
+      "rows": 3,
+      "placeholder": "Constraints, preferred vendors to keep, compliance needs…"
+    },
+    {
+      "name": "consent",
+      "label": "I understand O11y Watch will use the uploaded materials only to prepare my audit, will not ask for credentials, and will delete submitted files after the report is delivered.",
+      "type": "checkbox",
+      "required": true,
+      "value": "yes"
+    }
+  ]
+}
