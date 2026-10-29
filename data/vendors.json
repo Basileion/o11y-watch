@@ -217,14 +217,16 @@
   "type": "Uptime monitoring",
   "url": "https://uptimerobot.com/pricing/",
   "free_plan": "Free",
-  "free_tier": "50 monitors; 5-min interval; basic status pages (non-commercial/hobby use)",
+  "free_tier": "50 monitors; 5-min interval; basic status pages (commercial use allowed per pricing page, Oct 2026)",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-10-29",
   "paid_from": "$12/mo Solo (annual; $13 monthly)",
   "pricing_model": "Tiered plans by monitors",
   "card_required": "No",
   "oss_self_host": "not stated",
-  "gotchas": [],
+  "gotchas": [
+   "Commercial use on the free plan is new as of Oct 2026 (previously labelled hobby/non-profit)"
+  ],
   "confidence": "verified",
   "affiliate": {
    "program": true,

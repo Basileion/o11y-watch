@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-29",
+  "vendor": "UptimeRobot",
+  "type": "free tier detail",
+  "summary": "Free plan is no longer limited to hobby/non-profit use: the pricing page now says \"Good for personal and commercial projects\" (was \"Good for hobby and non-profit projects\"). Still $0 with 50 monitors, 5-min interval and no card. Solo unchanged at $12/mo annual ($13 monthly). Note: repeated fetches tonight alternated between two Team/Scale price sets (Team $39 or $33/mo annual, Scale $79 or $67/mo annual), which looks like a pricing test, so we have not changed Team/Scale. The page also adds re-checks from a second data center before alerting and expiry-day SSL/domain alerts.",
+  "source": "https://uptimerobot.com/pricing/"
+ },
+ {
   "date": "2026-10-28",
   "vendor": "Datadog",
   "type": "new tier",
