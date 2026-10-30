@@ -271,9 +271,9 @@ Frequently Asked Questions
 How does the trial work?
 During our trial period, you get access to our full set of features at no costs. No credit card is required.
 What payment options are available?
-We offer payment by credit card, SEPA direct debit, and invoice. Invoice payment is available for Enterprise customers and for annual subscriptions of €2,000 or more (currently limited to Germany).
+We offer payment by credit card, SEPA direct debit, and invoice. Invoice payment is available for Enterprise customers and for annual subscriptions of €2,000 or more (Supported countries for invoice payment: Austria, Belgium, Switzerland, Germany, Denmark, Spain, Finland, France, Greece, Ireland, Italy, Luxembourg, Netherlands, Norway, Poland, Portugal and Sweden).
 Can we pay by invoice?
-Payment by invoice is available for Enterprise customers as well as for annual subscriptions of €2,000 or more, fully automated, with no manual steps required. Invoice payment for annual subscriptions is rolling out gradually, starting with German customers, with expansion to other EU countries and the US to follow. For all other plans, you can pay by credit card or SEPA direct debit.
+Payment by invoice is available for Enterprise customers as well as for annual subscriptions of €2,000 or more, fully automated, with no manual steps required. Invoice payment for annual subscriptions is available for Austria, Belgium, Switzerland, Germany, Denmark, Spain, Finland, France, Greece, Ireland, Italy, Luxembourg, Netherlands, Norway, Poland, Portugal and Sweden, with expansion to other EU countries and the US to follow. For all other plans, you can pay by credit card or SEPA direct debit.
 How many monitoring tools can I connect to ilert?
 You can integrate as many monitoring tools as you want at no additional charge.
 Do you have a demo?
@@ -294,6 +294,8 @@ Built for teams that run always-on services.
 Start for free Learn more
 © 2011 - 2026 ilert
 Follow us:
+Ask AI about ilert:
+Download our app:
 Product
 Alerting & Notifications On-call Management & Escalations Call Routing Status Pages Integrations ChatOps ilert AI Terraform provider Pricing More features
 PRTG Network Monitor Datto Autotask Prometheus Checkmk Datadog Zabbix More Integrations

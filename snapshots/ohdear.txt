@@ -124,8 +124,8 @@ headers: {
 },
 body: JSON.stringify({
 url: this.url,
-'my_name_e9uEjGfXyhrJtOSX': '',
-'valid_from': 'eyJpdiI6IjQrZkNjNFJMSDFQREdBZmVtbjVkN1E9PSIsInZhbHVlIjoia3h3RkttMFJRdC8wYmN5MGNsbGo5Zz09IiwibWFjIjoiN2NiYTc3MGVlNjM5MDNiZGVhZTFlNDE0YzU2ZDlhMzkxMjhhOGM4YWFkNzNmMTcxYjNlM2UwYTQyNGM2YjgzNiIsInRhZyI6IiJ9',
+'my_name_ZVDBKGfihsqf8KH6': '',
+'valid_from': 'eyJpdiI6ImFRbmJScTNlNkh5TXFWSENlMzhHRUE9PSIsInZhbHVlIjoiUUYra1pvSnpFWmdqVnhOUUk1UHA0dz09IiwibWFjIjoiOTYwOWEwM2JiZmUyMDFmY2NjNWNiNjgwZWZjYjlmM2VkZGI4ZmU1ZWE1YTk4YWI0ZGU1NzkxMjA1Yjg1NDlkYyIsInRhZyI6IiJ9',
 }),
 }).catch(() => null);
 this.loading = false;
@@ -166,38 +166,52 @@ Read our full security page &rarr;
 Reseller? Sell Oh Dear under your own brand.
 Offer monitoring to your clients as your own branded service, and create and manage each client's team from a single reseller account.
 See the reseller program &rarr;
-Don't take our word for it
-We built an incredibly powerful website monitor we know you'll love. Don’t
-just take our word for it, here's what our users think:
-With Oh Dear we replaced multiple tools , gained features and a much better UX. Love the product and the team behind it.
+In their own words
+Don't take our word for it.
+Reviews from developers, agencies and SaaS teams who run Oh Dear on their own sites and their clients' sites.
+Oh Dear is an excellent platform for website and server monitoring, and there are several standout aspect like comprehensive monitoring features, proactive alerts through email, Slack etc.
+It&#039;s very developer-friendly, plenty of customization is available and there&#039;s enough transparency as well. Unlike some competitors, however, Oh Dear does not offer a free tier for users who want basic monitoring.
+Very well-suited for developers, agencies, and businesses that prioritize performance and security.
+Sagar Nakul, Associate Director, Ascendion
+From a review rated 10/10.
+Oh Dear keeps you calm and alerts you instantly!
+The extensive checks suite makes it the central place for monitoring our applications. The dasshboard is slow sometimes when searching for a website or performing an action; it&#039;s not always clear that the website is in a &#039;loading&#039; state. On the flip side, Oh Dear has many more checks available, with a more modern look.
+Mark de Vries
+CTO, Lama Lama
+&ldquo;With Oh Dear we replaced multiple tools, gained features and a much better UX. Love the product and the team behind it.&rdquo;
 Franco Gilio
 CTO at Publica
-Oh Dear Is the bomb, awesome simple UI, easy to setup & maintain.
-Lee Stables
-Laravel Developer
-It's always the first tool that notifies me when something goes wrong.
-Kevin Petit
-Engineer
-Decent monitoring service!
-Albert Cui
-Technical Lead
-Oh Dear provides so much more confidence than just status checks - knowing my site is up, responding quickly and having no broken links.
-Dwight Conrad Watson
-CEO of roommates.com
-Oh Dear enables me to sleep well at night . A simple “does what it says on the tin” services with huge power and extensive features.
-James Mills
-Maintainer of Treeware
-Great tool for tracking your site health!
-Marco Rivadeneyra
-CTO
-Oh Dear is easy to set up and dependable and at a good price point.
-Nick Brandt
-Co-founder
-Oh Dear really helps me to focus on developing PHPMap! I don’t need to check my site manually . Oh Dear
-does it for me. ❤️
-Florian Wartner
-Creator of PHPMap.co
+Highly recommended tool for site owners.
+Nothing but positive. We&#039;ve been using it for years and it has never let us down. It&#039;s straightforward to set up and gives us tons of useful info. Just the fact that it lets us know if any of our sites have a problem before my client even knows about it!
+Jim Peters
+Co-founder, Pavin&#039; The Way
+Excellent website monitoring tool.
+Excellent for website monitoring, though not as easy to use for web apps with multiple services, domains, daemons, etc. Our apps have many modules on multiple domains. This forces us to use the "pro" subscription which is not that bad, but the tracking of multiple services, daemons, schedules, on different servers behind load balancing is not easy, but we realize this is a tough requirement.
+Dave Latshaw II
+CEO, Biophy
+Simple, reliable and affordable website monitoring.
+It is very easy to setup and integrate while being flexible enough to handle different cases. Also since it covers everything from websites to APIs, from SSL certificates to response times to first load etc. it is a single solution that covers all of our external monitoring needs. Just great value for the money.
+Lukas Kahwe Smith
+CTO, Witty Works
+No more worrying if a website is down, simple as that.
+Oh Dear monitors the health of our website and notifies us when it goes down, then comes back up. We learned that my site goes down much more often than we thought, but never for more than a few minutes at a time. The notification email has an option to snooze, when there are too many events. We like the friendly tone of the messages as well. Setting things up was trivial, and we haven&#039;t had to do anything else to keep it going.
+David Foster
+CEO, TypedCMS
+Worth every penny.
+The best. Never had any issues with Oh Dear, and will continue to use them for a long time. Pricing for the sheer amount of features you get is very good. No mobile version of the dashboard is a minor flaw for us, but willing to look past it considering the use case. Reliability and broken link checking bundled into one product.
+Matt Robitaille
+Director of Development, Anchour
+It really is an all-in-one monitoring tool.
+Oh Dear combines many monitoring features into one tool. It even allows us to track custom metrics via custom Health Checks. It would be cool though to see snoozed notifications on the dashboard so that you do not forget to "unsnooze" them after fixing the issue.
+NW
+Nils Walter Lüpke
+Co-founder, Biotaktix
+&ldquo;I think this is the first Spark application in the wild that I have joined as a paying customer. Pretty neat. 👏&rdquo;
+Taylor Otwell
+Creator of Laravel
 Show more
+Read every review
+&rarr;
 Frequently asked questions
 Does Oh Dear offer a free trial?
 Yes! We offer a 10-day free trial with all features included. No credit card required to start - just sign up and start monitoring your websites immediately.
@@ -214,11 +228,11 @@ Do you offer refunds?
 Yes, we offer a 30-day money-back guarantee for new customers. If Oh Dear isn't right for you, just contact us within 30 days of your first payment for a full refund - no questions asked.
 What&#039;s included in every plan?
 Every plan includes all features : uptime monitoring, SSL certificate monitoring, broken link checking, performance monitoring, DNS monitoring, scheduled task monitoring, status pages, domain expiration monitoring, ping monitoring, TCP port monitoring, unlimited users, and unlimited notifications. The only difference between plans is the number of sites you can monitor.
-See all other FAQ items &rarr;
+More answers in the full FAQ
 Start monitoring instantly
 Start a free 10-day trial with no commitment. You're all set in less than a minute.
 (No credit card needed.)
-'my_name_CTGRNnxax6U6ejiX': '',
-'valid_from': 'eyJpdiI6ImVsTjF6dEJ2VjJFQVdwWkpwVWphc3c9PSIsInZhbHVlIjoic2lIS0F6Zm93RE02UUM1UjRjVlNIdz09IiwibWFjIjoiMWJmMTdhMzU4NzAyYWI2ODkxZjQzOGE0NDZlYzUzNDE1MWE5ZTRkODU1MWUwNWQ4ZDI0MzIwNjc0NzM0NTg3NyIsInRhZyI6IiJ9',
+'my_name_NaFmcZA4X3YCiLDb': '',
+'valid_from': 'eyJpdiI6IjYzVWlDb21XUUxVVjcvUzRiYjVFMkE9PSIsInZhbHVlIjoiOTByYW1zeHhKSzlWdTVYYUl6dTJaQT09IiwibWFjIjoiYWJiMjBhYzYyNzA4ODI4ZWIxNTU1NzFkOTU2ZWQyNDlmMDBjN2UzYjFhYjlkZTBlZTEwY2VjMTJmZjBlNzA5NiIsInRhZyI6IiJ9',
 Not convinced yet? Need help?
 Get in touch via support@ohdear.app .

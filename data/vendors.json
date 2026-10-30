@@ -219,13 +219,14 @@
   "free_plan": "Free",
   "free_tier": "50 monitors; 5-min interval; basic status pages (commercial use allowed per pricing page, Oct 2026)",
   "has_free_tier": true,
-  "checked": "2026-10-29",
+  "checked": "2026-10-30",
   "paid_from": "$12/mo Solo (annual; $13 monthly)",
   "pricing_model": "Tiered plans by monitors",
   "card_required": "No",
   "oss_self_host": "not stated",
   "gotchas": [
-   "Commercial use on the free plan is new as of Oct 2026 (previously labelled hobby/non-profit)"
+   "Commercial use on the free plan is new as of Oct 2026 (previously labelled hobby/non-profit)",
+   "Team/Scale prices are under a live pricing test (Oct 2026): default (control) shows Team $39/mo annual ($46 monthly) and Scale $79/mo annual ($98 monthly); a test group sees Team $33 ($39) and Scale $67 ($83)"
   ],
   "confidence": "verified",
   "affiliate": {
@@ -491,12 +492,15 @@
   "free_plan": null,
   "free_tier": "14-day unlimited free trial only",
   "has_free_tier": false,
-  "checked": "2026-10-24",
+  "checked": "2026-10-30",
   "paid_from": "$0.060 per million spans/logs (ingestion)",
-  "pricing_model": "Per signal ingested + storage",
-  "card_required": "not stated",
+  "pricing_model": "Per signal ingested + storage; Session Replay $2.00 per 1K sessions stored (30-day retention)",
+  "card_required": "No (\"no credit card required\" for trial)",
   "oss_self_host": "not stated",
-  "gotchas": [],
+  "gotchas": [
+   "Session Replay added Oct 2026 at $2.00 per thousand sessions (storage only, 30-day retention)",
+   "Agent0 AI billed separately at $0.60/credit"
+  ],
   "confidence": "verified"
  },
  {

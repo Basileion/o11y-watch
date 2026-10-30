@@ -1,6 +1,6 @@
 updown.io – Website monitoring, simple and inexpensive
 Simple & inexpensive website monitoring.
-92794413468
+92963115862
 requests performed
 HTTP(S), TCP(S), ICMP
 Five check types to cover most of your online services (not just web).
@@ -31,84 +31,103 @@ v6
 v4
 h2
 Valid SSL certificate
-Tested on Oct 26, 2026 06:19
+Tested on Oct 30, 2026 07:02
 subject: *.google.com
 *.appengine.google.com, *.bdn.dev, *.origin-test.bdn.dev, *.cloud.google.com, *.crowdsource.google.com, *.datacompute.google.com, *.google.ca, *.google.cl, *.google.co.in, *.google.co.jp, and 54 others (SAN)
-validity: Sep 28, 2026 18:38 — Dec 21, 2026 18:38
-Expires in 56 days
+validity: Oct 07, 2026 19:07 — Dec 30, 2026 19:07
+Expires in 61 days
 algorithm: ECDSA with SHA-256
 issuer: WE2 (Google Trust Services)
-Domain name expires in 689 days
-Updated on Oct 25, 2026 20:42
+Domain name expires in 685 days
+Updated on Oct 30, 2026 02:17
 domain: google.com
 expires: Sep 14, 2028 04:00 (RDAP)
 " rel="tooltip">https :// google.com
 24h uptime
 apdex(0.25)
-.94
-.96
-.93
-.95
 .92
+.95
+.94
+.93
 .91
+.9
+.96
 .97
 .89
 .98
 30 secs
 0.94
 100%
+Tested on Oct 30, 2026 06:57
 subject: *.facebook.com (Meta Platforms, Inc.)
 *.facebook.net, *.fbcdn.net, *.fbsbx.com, *.m.facebook.com, *.messenger.com, *.xx.fbcdn.net, *.xy.fbcdn.net, *.xz.fbcdn.net, facebook.com, and messenger.com (SAN)
-validity: Aug 04, 2026 00:00 — Nov 02, 2026 23:59
+validity: Aug 08, 2026 00:00 — Nov 06, 2026 23:59
 Expires in 7 days
 algorithm: SHA-256 with RSA encryption
 issuer: DigiCert Global G2 TLS RSA SHA256 2020 CA1 (DigiCert Inc)
-Domain name expires in 2712 days
-Updated on Oct 26, 2026 04:49
+Domain name expires in 2708 days
+Updated on Oct 29, 2026 00:05
 domain: facebook.com
 expires: Mar 30, 2034 04:00 (RDAP)
 " rel="tooltip">https :// facebook.com
 apdex(0.5)
 1.0
+.99
 1 min
-Tested on Oct 26, 2026 06:18
 subject: github.com
 www.github.com (SAN)
-validity: Sep 01, 2026 00:00 — Nov 29, 2026 23:59
-Expires in 34 days
+validity: Oct 30, 2026 00:00 — Jan 27, 2027 23:59
+Expires in 89 days
 issuer: Sectigo Public Server Authentication CA DV E36 (Sectigo Limited)
-Domain name expires in 714 days
-Updated on Oct 25, 2026 14:39
+Domain name expires in 710 days
+Updated on Oct 29, 2026 02:35
 domain: github.com
 expires: Oct 09, 2028 18:20 (RDAP)
 " rel="tooltip">https :// github.com
-99.99%
-Tested on Oct 26, 2026 06:15
+99.98%
+Tested on Oct 30, 2026 07:00
 subject: stripe.com (Stripe, LLC)
 www.stripe.com (SAN)
 validity: Oct 23, 2026 00:00 — May 09, 2027 23:59
-Expires in 195 days
+Expires in 191 days
 algorithm: ECDSA with SHA-384
 issuer: DigiCert G5 TLS ECC SHA384 2021 CA1 (DigiCert, Inc.)
-Domain name expires in 320 days
-Updated on Oct 25, 2026 00:33
+Domain name expires in 316 days
+Updated on Oct 29, 2026 21:51
 domain: stripe.com
 expires: Sep 11, 2027 04:00 (RDAP)
 " rel="tooltip">https :// stripe.com
 apdex(1.0)
-Tested on Oct 26, 2026 06:21
+503
+Tested on Oct 30, 2026 06:58
 subject: news.ycombinator.com
 validity: Sep 20, 2026 08:03 — Dec 19, 2026 08:03
-Expires in 54 days
+Expires in 50 days
 issuer: YE1 (Let's Encrypt)
-Domain name expires in 145 days
-Updated on Oct 26, 2026 03:01
+Domain name expires in 141 days
+Updated on Oct 30, 2026 00:32
 domain: ycombinator.com
 expires: Mar 20, 2027 22:51 (RDAP)
 " rel="tooltip">https :// news.ycombinator.com
-.99
+Oct 30, 2026 07:00 - now : 503 Service Unavailable"> Oct 29, 2026 04:42 - 07:09 : 503 Service Unavailable"> Oct 29, 2026 07:24 - 08:22 : 503 Service Unavailable"> Oct 29, 2026 10:13 - 10:49 : 503 Service Unavailable"> Oct 29, 2026 11:02 - 12:29 : 503 Service Unavailable"> Oct 29, 2026 13:07 - 13:57 : 503 Service Unavailable"> Oct 29, 2026 14:03 - 14:11 : 503 Service Unavailable"> Oct 29, 2026 14:25 - 14:39 : 503 Service Unavailable"> Oct 29, 2026 15:34 - 15:49 : 503 Service Unavailable"> Oct 29, 2026 15:53 - 16:12 : 503 Service Unavailable"> Oct 29, 2026 16:18 - 16:22 : 503 Service Unavailable"> Oct 29, 2026 17:03 - 17:07 : 503 Service Unavailable"> Oct 29, 2026 20:43 - 21:03 : 503 Service Unavailable"> Oct 29, 2026 22:30 - 22:34 : 503 Service Unavailable"> Oct 29, 2026 23:24 - 23:35 : 503 Service Unavailable"> Oct 30, 2026 01:09 - 01:19 : 503 Service Unavailable"> Oct 30, 2026 01:43 - 01:55 : 503 Service Unavailable"> Oct 30, 2026 02:18 - 02:24 : IPv6 connectivity issue (IPv4 up): 503 Service Unavailable "> Oct 30, 2026 03:29 - 03:33 : 503 Service Unavailable"> Oct 30, 2026 03:59 - 04:03 : IPv6 connectivity issue (IPv4 up): 503 Service Unavailable ">
+.73
+.76
+.59
+.56
+.57
+.55
+.58
+.8
+.85
+.74
+.84
+.86
+.78
+.87
+.5
 2 mins
-0.99
+0.98
+98.1%
 Pricing
 You only pay for what you use, check by check. 1 credit = 1 check.
 For example, check 10 websites every 2 minutes from 1.83 €/month (up to 5.49 €/m):
@@ -142,89 +161,89 @@ Save up by purchasing more credits upfront
 We accept credit cards, Paypal, crypto and more.
 Extra: SMS alerts costs 7500 credits (≈ 0.10€) per message.
 Try now with 100,000 free credits : Sign in
-@updownio PERFECT, you guys rock. this tool has been so helpful to us this past month with some DDoS issues on Linode.
-&mdash; Matt Heerema (@mheerema) January 9, 2016
-Just closed my expensive @pingdom account, moved all my checks to the awesomely affordable @updownio !
-&mdash; david füchslin (@dfuchslin) October 17, 2016
-If you need a simple, cost effective Website Uptime and speed monitor, try @updownio
-Great service. Simple to setup. Nice GUI for status.
-&mdash; TopHatDeveloper (@indiealexh) November 18, 2016
-Setting up @updownio was insanely easy. Zero to https://t.co/lwOFg0RBIX in about thirty seconds.
-&mdash; Alex Parella (@aaparella) September 21, 2017
-@updownio has now replaced pingdom as my monitoring tool of choice. Simple, clean. Straightforward billing terms and they accept BITCOIN!
-&mdash; pinacodelada (@pinacodelada) January 17, 2015
-@updownio - btw, overall extremely happy so far. Thanks for a great product.
-&mdash; Matt Heerema (@mheerema) December 22, 2015
+We are using @updownio for #monitoring . It's work awesome and is really easy to set up. #Excellent #SpractoTechnologies
+&mdash; Spracto (@spractotech) November 12, 2015
 @updownio Thanks for the fantastic service, I'm a big fan.
 &mdash; Helder Vilela (@LderVilela) April 19, 2017
-Good job to you! Updown.io is simply the nicest looking uptime checker on earth 💅🏼 🚀🚀 And pricing is really good :)
-&mdash; Gladys Project (@gladysproject) July 30, 2017
-Wow!! @updownio you are truly awesome.. I got exactly what I needed.
-&mdash; Aditya Patadia (@adityapatadia) March 10, 2017
-Started tracking my uptime/status with @updownio - awesome service, cool data to see 😎 https://t.co/Sl0TjV7DFJ
-&mdash; Scott Mathson (@scottmathson) March 20, 2017
-Oooooooh per site webhooks! Neat! :D
-&mdash; Matt Cavanagh (@Maelstromeous) August 16, 2017
-Buying credits with @updownio and @stripe was easier then my morning cuppa coffee. pic.twitter.com/knESjDljTK
-&mdash; Pete Heslop (@Pwheslop) August 3, 2016
-@updownio Really loving your monitoring service! The status pages are very, very sweet as well! Miles better and cleaner than Pingdom.
-&mdash; Matt Cavanagh (@Maelstromeous) January 3, 2016
-<3 @updownio —blissfully simple web monitoring, with awesome credits system that can be free/super cheap. And, SSL cert alerts + Slack integ. pic.twitter.com/wwwmNsUkRw
-&mdash; Tony Webster (@webster) November 25, 2016
-With this auto renewal feature, @updownio is now the must-have tool to monitor your servers. #finally https://t.co/0PEr5oaNiu
-&mdash; Jice Lavocat (@Jice_Lavocat) January 8, 2017
-@updownio SSL expiration warnings emails are a nice touch. Great to find out we get more than we paid for!
-&mdash; Jean-Michel Lacroix (@jmlacroix) May 11, 2017
-And damned awesome, switched from Pingdom a few years ago and have never looked back. ❤️❤️❤️
-&mdash; Ben Everard (@_beneverard) August 15, 2017
-If you are looking around for a web monitoring tool, check @updownio . Great service with plenty of free credit to try it out!
-&mdash; Thanasis Delenikas (@TDelenikas) May 14, 2017
-You guys @updownio , LOVE the product. Simply put, the best UI ever of a status page site. #website #monitoring
-&mdash; AA (@thesauditiger) April 24, 2017
-Am quite thrilled with this piece of engineering, simple,quick,cheap does what it says on the tin 😎✅ https://t.co/7svwsh3eqr
-&mdash; jim (@jnorthr) December 17, 2015
-I am using @updownio for my personal #website #monitoring . Works awesome and is really easy to set up. Thumbs up! pic.twitter.com/2zBHo2OhSA
-&mdash; michi lehr (@michilehr) December 20, 2014
-If you think Pingdom is neglecting SSL cert trouble, try @updownio or @StatusCakeTeam , they're both doing a brilliant job with SSL/certs!
-&mdash; Markus Hausammann (@m_hausammann) October 19, 2017
-If you never tried this service, I strongly advice you to test http://t.co/8jT83T7kCF a deadly simple monitoring solution @updownio
-&mdash; Arnaud Dupuis (@ArnaudDupuis) June 25, 2013
-Hey @updownio , I do love your UI and your product. That's the kind of product I would love to build. #website #monitoring #musthave
-&mdash; Jérémie Loosfelt (@jloosfelt) May 5, 2014
-Love using @updownio as one of our server monitoring providers, easily the best interface in the business and always had top notch support the rare time I have needed it.
-&mdash; Ollie Castle (@olliecastle) November 30, 2017
-I really like the simplicity of @updownio ! And their support is great too :)
-&mdash; Loïc Mathaud (@loicmathaud) March 1, 2016
-@updownio Absolutely love your business model. Straightforward no bullshit.
-&mdash; Noj Vek (@nojvek) March 26, 2016
-Really liking the reporting from @updownio . Clearly breaks down lookups, handshake, connection, etc. Also offers 30s checks. pic.twitter.com/ln5R9VDwLA
-&mdash; Chris Nagele (@cnagele) March 17, 2017
-@updownio Just started using you. Love the service - super slick, friendly, and well executed! Thank you :)
-&mdash; ErgoDox EZ (@ErgoDoxEZ) September 16, 2016
+This simple yet powerful and very good uptime monitoring service updown.io just added a new feature. Recommended! https://t.co/vg8DUILsOb
+&mdash; Pietari Heino (@PietariHeino) June 28, 2016
 This looks very useful: https://t.co/QbycpKaqa8 / @updownio . Simple website availability monitoring with sensible/affordable pricing.
 &mdash; Dan Dyer (@dwdyer) January 10, 2016
+If you are looking around for a web monitoring tool, check @updownio . Great service with plenty of free credit to try it out!
+&mdash; Thanasis Delenikas (@TDelenikas) May 14, 2017
+Thanks to @jsfiddle for putting me on to @updownio - been using it for @js_bin and other projects, and am swapping status.jsbin to it now 👍
+&mdash; @rem (@rem) May 11, 2017
+@updownio Absolutely love your business model. Straightforward no bullshit.
+&mdash; Noj Vek (@nojvek) March 26, 2016
 I was looking for a @goserverless alternative to @updownio so I can check many different websites for few $ a month but it was just before checking the pricing page.
 Signup.
 It's really an "inexpensive website monitoring" 👌
 &mdash; Jérémy (@j0k) January 1, 2018
+If you never tried this service, I strongly advice you to test http://t.co/8jT83T7kCF a deadly simple monitoring solution @updownio
+&mdash; Arnaud Dupuis (@ArnaudDupuis) June 25, 2013
+<3 @updownio —blissfully simple web monitoring, with awesome credits system that can be free/super cheap. And, SSL cert alerts + Slack integ. pic.twitter.com/wwwmNsUkRw
+&mdash; Tony Webster (@webster) November 25, 2016
+Buying credits with @updownio and @stripe was easier then my morning cuppa coffee. pic.twitter.com/knESjDljTK
+&mdash; Pete Heslop (@Pwheslop) August 3, 2016
+Hey @updownio , I do love your UI and your product. That's the kind of product I would love to build. #website #monitoring #musthave
+&mdash; Jérémie Loosfelt (@jloosfelt) May 5, 2014
 I wrote my own website monitoring system instead of paying for existing services. Then I discovered @updownio . 🙌 https://t.co/UvAQO7BiAi
 &mdash; Waldo Jaquith (@waldojaquith) November 26, 2016
-There are few tools I aspire to when building my own - this is one of them!
-Couldn't recommend @updownio any more. I love that they do a single thing, really well. I don't always want something as complex as others.
-&mdash; Pete Heslop (@Pwheslop) June 23, 2016
-Can't recommend @updownio enough for simple uptime monitoring.
-&mdash; ˡᵃᵐᵇʸ 🇬🇧 (@lolamby) April 18, 2017
-This simple yet powerful and very good uptime monitoring service updown.io just added a new feature. Recommended! https://t.co/vg8DUILsOb
-&mdash; Pietari Heino (@PietariHeino) June 28, 2016
+@updownio PERFECT, you guys rock. this tool has been so helpful to us this past month with some DDoS issues on Linode.
+&mdash; Matt Heerema (@mheerema) January 9, 2016
+Oooooooh per site webhooks! Neat! :D
+&mdash; Matt Cavanagh (@Maelstromeous) August 16, 2017
+Just closed my expensive @pingdom account, moved all my checks to the awesomely affordable @updownio !
+&mdash; david füchslin (@dfuchslin) October 17, 2016
+And damned awesome, switched from Pingdom a few years ago and have never looked back. ❤️❤️❤️
+&mdash; Ben Everard (@_beneverard) August 15, 2017
+@updownio Really loving your monitoring service! The status pages are very, very sweet as well! Miles better and cleaner than Pingdom.
+&mdash; Matt Cavanagh (@Maelstromeous) January 3, 2016
 Oh and if you hadn't heard of @updownio yet, check it out it's a brilliant uptime monitoring app 👍 https://t.co/MrLjTzK2Cl
 &mdash; Wouter Buckens (@woubuc) January 15, 2016
-Really digging the @updownio uptime monitoring. Simple, elegant, great price and super quick to setup. Highly recommended!
-&mdash; Greg Ratner (@GregRatner) May 9, 2016
-@updownio Perfect alternative to pingdom. You will have 2 paying customers soon plus more. Beautiful job!
-&mdash; Kacper Wikieł (@kacperwikiel) October 23, 2016
-Thanks to @jsfiddle for putting me on to @updownio - been using it for @js_bin and other projects, and am swapping status.jsbin to it now 👍
-&mdash; @rem (@rem) May 11, 2017
+@updownio - btw, overall extremely happy so far. Thanks for a great product.
+&mdash; Matt Heerema (@mheerema) December 22, 2015
+If you think Pingdom is neglecting SSL cert trouble, try @updownio or @StatusCakeTeam , they're both doing a brilliant job with SSL/certs!
+&mdash; Markus Hausammann (@m_hausammann) October 19, 2017
 I just found way I like to do website monitoring via @updownio https://t.co/lTRc5gIEdS
 &mdash; Ray Vahey (@rayvahey) August 29, 2016
-We are using @updownio for #monitoring . It's work awesome and is really easy to set up. #Excellent #SpractoTechnologies
-&mdash; Spracto (@spractotech) November 12, 2015
+If you need a simple, cost effective Website Uptime and speed monitor, try @updownio
+Great service. Simple to setup. Nice GUI for status.
+&mdash; TopHatDeveloper (@indiealexh) November 18, 2016
+@updownio Just started using you. Love the service - super slick, friendly, and well executed! Thank you :)
+&mdash; ErgoDox EZ (@ErgoDoxEZ) September 16, 2016
+@updownio Perfect alternative to pingdom. You will have 2 paying customers soon plus more. Beautiful job!
+&mdash; Kacper Wikieł (@kacperwikiel) October 23, 2016
+Good job to you! Updown.io is simply the nicest looking uptime checker on earth 💅🏼 🚀🚀 And pricing is really good :)
+&mdash; Gladys Project (@gladysproject) July 30, 2017
+I really like the simplicity of @updownio ! And their support is great too :)
+&mdash; Loïc Mathaud (@loicmathaud) March 1, 2016
+I am using @updownio for my personal #website #monitoring . Works awesome and is really easy to set up. Thumbs up! pic.twitter.com/2zBHo2OhSA
+&mdash; michi lehr (@michilehr) December 20, 2014
+Really liking the reporting from @updownio . Clearly breaks down lookups, handshake, connection, etc. Also offers 30s checks. pic.twitter.com/ln5R9VDwLA
+&mdash; Chris Nagele (@cnagele) March 17, 2017
+Setting up @updownio was insanely easy. Zero to https://t.co/lwOFg0RBIX in about thirty seconds.
+&mdash; Alex Parella (@aaparella) September 21, 2017
+There are few tools I aspire to when building my own - this is one of them!
+@updownio has now replaced pingdom as my monitoring tool of choice. Simple, clean. Straightforward billing terms and they accept BITCOIN!
+&mdash; pinacodelada (@pinacodelada) January 17, 2015
+Started tracking my uptime/status with @updownio - awesome service, cool data to see 😎 https://t.co/Sl0TjV7DFJ
+&mdash; Scott Mathson (@scottmathson) March 20, 2017
+Love using @updownio as one of our server monitoring providers, easily the best interface in the business and always had top notch support the rare time I have needed it.
+&mdash; Ollie Castle (@olliecastle) November 30, 2017
+Can't recommend @updownio enough for simple uptime monitoring.
+&mdash; ˡᵃᵐᵇʸ 🇬🇧 (@lolamby) April 18, 2017
+Am quite thrilled with this piece of engineering, simple,quick,cheap does what it says on the tin 😎✅ https://t.co/7svwsh3eqr
+&mdash; jim (@jnorthr) December 17, 2015
+Wow!! @updownio you are truly awesome.. I got exactly what I needed.
+&mdash; Aditya Patadia (@adityapatadia) March 10, 2017
+Really digging the @updownio uptime monitoring. Simple, elegant, great price and super quick to setup. Highly recommended!
+&mdash; Greg Ratner (@GregRatner) May 9, 2016
+With this auto renewal feature, @updownio is now the must-have tool to monitor your servers. #finally https://t.co/0PEr5oaNiu
+&mdash; Jice Lavocat (@Jice_Lavocat) January 8, 2017
+You guys @updownio , LOVE the product. Simply put, the best UI ever of a status page site. #website #monitoring
+&mdash; AA (@thesauditiger) April 24, 2017
+@updownio SSL expiration warnings emails are a nice touch. Great to find out we get more than we paid for!
+&mdash; Jean-Michel Lacroix (@jmlacroix) May 11, 2017
+Couldn't recommend @updownio any more. I love that they do a single thing, really well. I don't always want something as complex as others.
+&mdash; Pete Heslop (@Pwheslop) June 23, 2016

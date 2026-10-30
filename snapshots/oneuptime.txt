@@ -124,7 +124,6 @@ If you need more than 10M tokens per month, contact [email&#160;protected] for v
 Bring Your Own LLM Provider
 On the Growth plan and above, connect your own LLM provider (OpenAI, Anthropic, or others) and OneUptime charges nothing for the tokens it uses. You only pay your provider directly at their rates.
 Trusted by engineering teams at
-Pause the moving logos
 OneUptime is 10+ tools combined into one.
 With OneUptime, you get a complete SRE
 toolchain out-of-the-box. One interface. One conversation. One permission model. Thousands of features.

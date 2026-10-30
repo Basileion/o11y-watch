@@ -233,7 +233,7 @@ OpenTelemetry Native — SigNoz Cloud supports any language or framework that Op
 View Full Documentation
 Why select SigNoz Cloud?
 Built for scale
-Our powerful ingestion engine has a proven track record of handling 10TB+ data ingestion per day.
+Our powerful ingestion engine has a proven track record of handling 2PB+ data ingestion per month.
 Trusted across the globe
 Used by teams in all 5 continents ⎯ across the mountains, rivers, and the high seas.
 Powering observability for teams of all sizes

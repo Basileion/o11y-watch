@@ -27,9 +27,9 @@ Contact sales
 Ideal for small- to medium-sized DevOps and SecOps teams requiring ad-hoc investigation and troubleshooting.
 Focus on what matters with high-fidelity entity-centric detection, threats mapped to MITRE ATT&CK, and UEBA-driven coverage
 Add-on
-Dojo AI
+DojoAI
 Power your team with autonomous AI agents across security and operations without daily prompt caps or unmanaged token bills.
-Explore Dojo AI
+Explore DojoAI
 Automate complex incident investigations
 Deploy autonomous agents that pick up alerts, gather telemetry, and deliver root-cause evidence in minutes instead of hours.
 Trust and verify
@@ -40,7 +40,6 @@ Get what you need for monitoring, troubleshooting and security
 Product configuration elements listed are only activated for data processing when quoted with data volume at the time of subscription creation. Activation for products not initially activated is available at any time during the subscription, subject to minimum transaction requirements.
 Contact Sales
 Calculate flex pricing
-DojoAI
 Expand
 Mobot conversational interface Analyze log data, investigate incidents, manage content, and optimize the platform with natural language
 Included 10 prompts per user/day

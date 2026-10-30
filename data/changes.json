@@ -1,5 +1,19 @@
 [
  {
+  "date": "2026-10-30",
+  "vendor": "Dash0",
+  "type": "new SKU",
+  "summary": "Pricing table adds Session Replays at $2.00 per thousand sessions (storage only, 30-day retention; a session is one visit by one user across tabs), and session replay is now in the 14-day free trial. The $10/user/month AI SDLC Insights add-on and Darkplane are no longer listed. Spans, logs and web events stay $0.060/M ingest + $0.540/M storage; metrics $0.020/M + $0.180/M.",
+  "source": "https://www.dash0.com/pricing"
+ },
+ {
+  "date": "2026-10-30",
+  "vendor": "UptimeRobot",
+  "type": "verification",
+  "summary": "Re-checked the 2026-10-24 ~18% increase. The pricing page is running a server-side price test (cookie ur_pd=control or variant). The default control group sees Team $39/mo annual ($46 monthly, $468/yr) and Scale $79/mo annual ($98 monthly, from $948/yr), matching our 2026-10-24 entry, so it stands. The test group (about 3 in 8 fetches tonight) still sees the old prices: Team $33 ($39 monthly, $396/yr) and Scale $67 ($83 monthly, from $804/yr). Solo ($12 annual / $13 monthly) and Free are the same in both groups.",
+  "source": "https://uptimerobot.com/pricing/"
+ },
+ {
   "date": "2026-10-29",
   "vendor": "UptimeRobot",
   "type": "free tier detail",

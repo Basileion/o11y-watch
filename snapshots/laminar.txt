@@ -49,11 +49,11 @@ Included 0.2 GB / 3 GB
 Included 0.2 GB / 10 GB
 Signals
 Not included
-$3.50
+$2.45
 Estimated monthly total
 Not available
-$33.50 /mo
-$153.50 /mo
+$32.45 /mo
+$152.45 /mo
 Prices above are estimates only. Storage costs are not proportional to token count due to trace compression. Signals are billed by tokens used during analysis by our internal Signals Agent. Signal estimates use measured median flow-1 costs for each trace-size bucket and exclude the one-time $5 sign-up credit; actual billing costs may differ.
 Usage limits
 Data included

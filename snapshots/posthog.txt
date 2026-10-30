@@ -12,8 +12,9 @@ Experiments Billed with feature flags
 Error tracking 100K exceptions
 Surveys 1500 responses
 Sources 1M rows + FREE historical
+Marketing analytics Beta Billed with sources
 Destinations 10K events + 1M rows
-AI Observability 100K events
+AI Observability 100K events/month, shared with evaluations
 Evaluations Billed with AI observability
 PostHog AI 500 credits (worth $5)
 Inbox Beta 3 PRs
@@ -65,7 +66,7 @@ Replay Vision
 Feature Flags
 Error Tracking
 PostHog AI
-Add a product 9 more
+Add a product 10 more
 Platform packages $0
 See all products and per-unit rates
 Remove

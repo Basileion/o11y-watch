@@ -14,27 +14,61 @@ $29
 5 team members
 5 metrics
 Email notifications
+Slack notifications
+Microsoft Teams notifications
+Basic customization
+Custom domain
+Access to REST APIs
 Startup
 $99
 1,000 subscribers
 10 team members
 10 metrics
 Email/SMS/webhook notifications
+Custom CSS
+Team member SSO (with Atlassian Guard)
 Business
-$300
+$399
 5,000 subscribers
 25 team members
 25 metrics
+Custom CSS/HTML/JS
+Component subscriptions
+Role-based access control
 Enterprise
 $1,499
 25,000 subscribers
 50 team members
 50 metrics
+Yearly purchase orders and invoicing available
 Communicate privately with your employees about issues with internal tools and services.
+Starter
+$79
+50 employees
+Incident templates
+Email support
+Growth
+$249
+15 team members
+300 employees
+15 metrics
+IP allowlisting
+Corporate
+$599
+35 team members
+1,000 employees
+35 metrics
+Yearly purchase orders, and invoicing available (for eligible purchases)
+5,000 employees
+Alerting integrations
+Account representative support
 Starting at
+$300
 Team members starting at 25
 Groups starting at 10
 Users starting at 500
+Metrics starting at 30
+Manage API
 Learn more about Audience-specific pages
 Different views for different sets of users
 Pricing FAQ for Public Pages

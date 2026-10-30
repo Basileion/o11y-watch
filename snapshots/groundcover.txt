@@ -14,14 +14,14 @@ Start free trial
 Slack Community support
 No credit card required, free forever
 Pro
-Monthly
-Yearly
+Monthly Yearly
 $30
 Per host, per month
 For teams of all sizes who like to move fast
 All available integrations and data sources
 SSO support
-Standard data retention
+Standard data retention * Up to 30 days of logs, traces and events
+* Up to 13 months of metrics
 Standard support
 Enterprise
 $35
@@ -40,8 +40,6 @@ Everything in Enterprise plan, plus:
 Self-hosted data plane
 Self-hosted UI
 Isolated authentication
-Trusted by teams who refuse to
-compromise on data, control, or cost.
 Trusted by teams who refuse to compromise on data, control, or cost.
 Our deployment modes
 groundcover’s unique architecture enables all of your observability data to remain inside your environments, at all times, regardless of the deployment mode you choose.
@@ -51,11 +49,11 @@ Fully On-Prem
 A single, centralized backend instance for all your environments, and the UI, are all deployed and hosted on your premises (cloud or physical servers) with fully dedicated support from the groundcover team.
 Need more clarity on our support options?
 See what’s included in each plan and find the right fit for your team.
-Explore support plans
-Book a demo
+Explore support plans Book a demo
 See it all. Store what matters. Pay Accordingly.
 Our predictable pricing is based solely on the monthly average of the amount of Kubernetes Nodes (of any size or machine type) that are actively monitored by the groundcover eBPF sensor for logs, metrics, traces and events. You decide what to cover, and you can adjust at any time.
-Understand your true observability cost Compare your true observability cost
+Understand your true observability cost
+Compare your true observability cost
 At groundcover, we believe observability costs should be predictable and transparent. This calculator estimates your total cost of ownership and compares it to other platforms — based on real usage.
 Learn how costs are calculated
 Cost Calculator
@@ -75,8 +73,4 @@ A Kubernetes host or any Linux host (of any size) that is actively monitored by 
 Observability
 for what comes next.
 Start in minutes. No migrations. No data leaving your infrastructure. No surprises on the bill.
-Start Free
-Start free
-Learn more
-Launch Playground
-See the platform
+start free start free Learn more

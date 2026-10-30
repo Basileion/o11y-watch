@@ -1,19 +1,20 @@
 Control the noise.
 Discount the volume.
-Shape your data to keep only what matters, and unlock automatic tiered pricing on everything you store.
+Shape your data to keep only what matters, and unlock automatic tiered pricing on what you store.
 Start free trial
 Book a demo
 14 days free trial
 Telemetry
 Price per Ingestion Applies to every signal ingested, before any filtering by SignalControl. Storage Billed only on what you keep in SignalStore.
-Spans million $0.060 $0.540 30-day retention
+Spans and span events million $0.060 $0.540 30-day retention
 Log records million $0.060 $0.540 30-day retention
 Web events million $0.060 $0.540 30-day retention
 Metric data points million $0.020 $0.180 13-month retention
 Synthetic API Check Runs thousand – $0.20 13-month retention
+Session Replays thousand – $2.00 30-day retention
 Ingestion Applies to every signal ingested, before filtering by SignalControl.
 Storage Billed only on what you keep in SignalStore.
-Spans
+Spans and span events
 per million
 Ingestion $0.060
 Storage $0.540 30-day retention
@@ -26,27 +27,26 @@ Synthetic API Check Runs
 per thousand
 Ingestion –
 Storage $0.20 13-month retention
+Session Replays
+Storage $2.00 30-day retention
 Ingestion tiered discounts are available for self hosted plans over 200B signals per signal type per month.
-Storage tiered discounts are available for over 15B events (or 15M synthetic runs) a month, and your price automatically drops each time that volume doubles, up to our maximum discount tier.
+Storage tiered discounts are available for spans, log records, web events, metric data points, and synthetic API check runs over 15B events (or 15M synthetic runs) a month, and your price automatically drops each time that volume doubles, up to our maximum discount tier.
 Contact sales for custom rates.
-Agent0 and Darkplane
+Agent0
 Agent0 Credits
 $0.60 /credit
 Metered on Agent0 credits usage per month.
-AI SDLC Insights
-$10 /user /month
-Per-seat AI insights into your codebase and pull requests.
 FAQ
 What happens to data I filter out with SignalControl? You pay the ingestion rate on it and nothing else.
 Is ingestion pricing tiered? Yes, for self-hosted. Tiered pricing on ingestion is available when using SignalControl Edge to ingest over 200B signals per signal type per month.
 How does tiered pricing work? The rate per million drops automatically as your monthly volume grows, each time that volume doubles, up to our maximum volume tier. You are billed at each tier’s rate only for the volume within it.
+What counts as a session for session replay? The same session as in Website Monitoring: one visit by one user, across every tab they open.
 What is an Agent0 Credit? Agent0 Credits are the unit of consumption for Agent0, the autonomous production AI built into Dash0. Every interaction that causes Agent0 to take action consumes credits. Simple tasks, like checking service health, consume a fraction of a credit. Complex tasks, like a full root cause analysis across logs, traces, and metrics, or generating a pull request, consume between one and two credits. Credit usage is visible in real time in your account.
-What is AI SDLC Insights? An AI intelligence product that surfaces insights into your codebase and pull requests. Priced per user seat.
-Are Agent0 and Darkplane in the free trial? Yes. Agent0 Credits and Darkplane are both available during your 14-day free trial alongside all other Dash0 features.
+Is Agent0 in the free trial? Yes. Agent0 Credits are available during your 14-day free trial alongside all other Dash0 features.
 Billing
 How much does Dash0 cost? Dash0 uses consumption-based pricing with no hidden fees. Full cost visibility is built in.
 Is there a free trial? Yes. Dash0 offers a 14-day unlimited free trial with no credit card required. You get full access to all features during the trial period.
-What is included in free trial? Every feature. Infrastructure, Kubernetes, APM, tracing, logs, web, synthetics, dashboards, alerting, Agent0 Credits, and AI SDLC Insights.
+What is included in free trial? Every feature. Infrastructure, Kubernetes, APM, tracing, logs, web, session replay, synthetics, dashboards, alerting, and Agent0 Credits.
 Can I control and predict my costs? Yes. Monthly budget limits, spam filters to suppress noisy data, and a cost forecast are built in.
 Does Dash0 usage count against my cloud provider commitments? Yes, generally Dash0 can count against your committed spend, but it differs depending on marketplace, payment terms, and individual contractual regulations. We are happy to check this for you.
 Can I buy through a marketplace? AWS, GCP, Azure, and Vercel. Usage generally counts against committed spend, depending on your contract.
