@@ -69,9 +69,9 @@ await import('./js/audit-wizard.js');
     `Instant automated observability cost audit: modeled current spend, alternative vendors, savings levers, and migration plan. Free teaser; full report $${AUDIT_PRICE}.`,
     `
 <section class="hero" style="padding-bottom:12px"><div class="eyebrow">Instant · automated · runs in your browser</div>
-<h1>Observability Cost &amp; <span class="grad">Stack Audit</span></h1>
-<p>Answer a short survey. Get an instant cost model against O11y Watch public pricing data — estimated current spend, alternative vendors, savings levers, and a migration plan. No intake call. No human review queue.</p>
-<p><a class="btn" href="#wizard-anchor">Start the free audit</a> <a class="btn ghost" href="#price">See pricing</a></p>
+<h1>Datadog bill jumped? See what you’d pay elsewhere <span class="grad">before you migrate anything.</span></h1>
+<p>Enter rough hosts, log GB/day, custom metrics, spans and seats. We price that usage against O11y Watch’s sourced public pricing data, entirely in your browser, so you get the numbers without a 3–4 sprint migration or a sales call. Vendors without public rates for your usage are listed separately, never shown as savings.</p>
+<p><a class="btn" href="#wizard-anchor" data-grow="audit-lede">See what you’d pay elsewhere →</a> <a class="sm mut" href="#price" style="margin-left:10px">Free estimate · full report $${AUDIT_PRICE}</a></p>
 </section>
 
 <h2>Who it’s for</h2>
