@@ -2,7 +2,7 @@
  * grow.js — tiny shared event + A/B helper (no cookies, privacy-friendly).
  * Include once per page. Config via window.__GROW__ = { site, experiments? }.
  *
- * Events POSTed to Worker https://growth-ingest.basileion-ops.workers.dev (Pages Function → Analytics Engine).
+ * Anonymous page events are sent to our first-party analytics endpoint.
  * UTM params persisted in localStorage for the session attribution window.
  * A/B: sticky via localStorage key grow:ab:<experimentId>.
  */
