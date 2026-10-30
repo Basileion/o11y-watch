@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Example O11y Watch alert: UptimeRobot Team plan rose from $33 to $39 per month on annual billing, detected 2026-10-24">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Example O11y Watch alert: UptimeRobot is A/B testing paid prices, Team $33 to $39 and Scale $67 to $79 per month on annual billing; +18% only if the higher prices stick">
 <defs><linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf7"/><stop offset="1" stop-color="#c026d3"/></linearGradient><filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1e1b4b" flood-opacity=".25"/></filter></defs>
 <rect x="20" y="16" width="520" height="360" rx="18" fill="#101217" filter="url(#s)"/><rect x="20" y="16" width="520" height="44" rx="18" fill="#171a21"/><rect x="20" y="42" width="520" height="18" fill="#171a21"/>
 <circle cx="46" cy="38" r="6" fill="#f87171"/><circle cx="66" cy="38" r="6" fill="#fbbf24"/><circle cx="86" cy="38" r="6" fill="#4ade80"/>
@@ -10,5 +10,6 @@
 <rect x="40" y="186" width="480" height="30" rx="6" fill="#0f2e1c"/><text x="52" y="206" fill="#86efac">+ Scale   $98/mo monthly</text></g>
 <rect x="40" y="236" width="480" height="118" rx="12" fill="#0b0d12" stroke="#2a2f3a"/><rect x="56" y="254" width="96" height="24" rx="12" fill="url(#hb)"/><text x="104" y="271" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="700">PRICE ALERT</text>
 <text x="164" y="271" fill="#8b93a1" font-family="Inter,sans-serif" font-size="13">O11y Watch · source linked</text>
-<text x="56" y="308" fill="#eceef2" font-family="Inter,sans-serif" font-size="21" font-weight="700">UptimeRobot paid plans up ~18%</text>
-<text x="56" y="336" fill="#8b93a1" font-family="Inter,sans-serif" font-size="15">Annual Team: $396 → $468/yr (+$72). Free plan unchanged.</text></svg>
+<text x="56" y="304" fill="#eceef2" font-family="Inter,sans-serif" font-size="20" font-weight="700">UptimeRobot is testing higher prices</text>
+<text x="56" y="326" fill="#8b93a1" font-family="Inter,sans-serif" font-size="14">Team $33–$39 · Scale $67–$79/mo (annual), A/B test.</text>
+<text x="56" y="344" fill="#8b93a1" font-family="Inter,sans-serif" font-size="14">+18% only if the test settles on $39/$79.</text></svg>

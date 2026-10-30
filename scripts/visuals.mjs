@@ -10,7 +10,7 @@ const vendors=JSON.parse(fs.readFileSync(path.join(root,'data/vendors.json'),'ut
 const nV=vendors.length,nVer=vendors.filter(v=>v.has_free_tier===true||v.has_free_tier===false).length,nFree=vendors.filter(v=>v.has_free_tier===true).length,nCh=changes.length;
 const mark=s=>`<svg width="${s}" height="${s}" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf7"/><stop offset="1" stop-color="#c026d3"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><path d="M6 19h4l2.5-7 4 12 3-9 1.5 4H26" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 // ---- Hero "pricing diff" card (real data: UptimeRobot 2026-10-24 change) — SVG used on site + PNG
-const diff=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Example O11y Watch alert: UptimeRobot Team plan rose from $33 to $39 per month on annual billing, detected 2026-10-24">
+const diff=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Example O11y Watch alert: UptimeRobot is A/B testing paid prices, Team $33 to $39 and Scale $67 to $79 per month on annual billing; +18% only if the higher prices stick">
 <defs><linearGradient id="hb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf7"/><stop offset="1" stop-color="#c026d3"/></linearGradient><filter id="s" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1e1b4b" flood-opacity=".25"/></filter></defs>
 <rect x="20" y="16" width="520" height="360" rx="18" fill="#101217" filter="url(#s)"/><rect x="20" y="16" width="520" height="44" rx="18" fill="#171a21"/><rect x="20" y="42" width="520" height="18" fill="#171a21"/>
 <circle cx="46" cy="38" r="6" fill="#f87171"/><circle cx="66" cy="38" r="6" fill="#fbbf24"/><circle cx="86" cy="38" r="6" fill="#4ade80"/>
@@ -22,8 +22,9 @@ const diff=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width=
 <rect x="40" y="186" width="480" height="30" rx="6" fill="#0f2e1c"/><text x="52" y="206" fill="#86efac">+ Scale   $98/mo monthly</text></g>
 <rect x="40" y="236" width="480" height="118" rx="12" fill="#0b0d12" stroke="#2a2f3a"/><rect x="56" y="254" width="96" height="24" rx="12" fill="url(#hb)"/><text x="104" y="271" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="700">PRICE ALERT</text>
 <text x="164" y="271" fill="#8b93a1" font-family="Inter,sans-serif" font-size="13">O11y Watch · source linked</text>
-<text x="56" y="308" fill="#eceef2" font-family="Inter,sans-serif" font-size="21" font-weight="700">UptimeRobot paid plans up ~18%</text>
-<text x="56" y="336" fill="#8b93a1" font-family="Inter,sans-serif" font-size="15">Annual Team: $396 → $468/yr (+$72). Free plan unchanged.</text></svg>`;
+<text x="56" y="304" fill="#eceef2" font-family="Inter,sans-serif" font-size="20" font-weight="700">UptimeRobot is testing higher prices</text>
+<text x="56" y="326" fill="#8b93a1" font-family="Inter,sans-serif" font-size="14">Team $33–$39 · Scale $67–$79/mo (annual), A/B test.</text>
+<text x="56" y="344" fill="#8b93a1" font-family="Inter,sans-serif" font-size="14">+18% only if the test settles on $39/$79.</text></svg>`;
 fs.writeFileSync(A('img/hero-diff.svg'),diff);
 // ---- Pro feature visual (alert email + CSV export mock) — illustrative, built from real change data
 const proSvg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380" role="img" aria-label="Illustration of O11y Watch Pro: a same-day alert email and a CSV price-history export">
@@ -65,7 +66,7 @@ shot(D+'/index.html',A('img/shot-home.png'),1280,820);
 shot(D+'/directory.html',A('img/shot-directory.png'),1280,820);
 // ---- Launch gallery (1270x760, Product Hunt size)
 const frame=(img,t,s)=>`<div style="${bg};width:1270px;height:760px;padding:48px 60px;display:flex;flex-direction:column;align-items:center"><div style="font-size:44px;font-weight:800;letter-spacing:-.03em">${t}</div><div style="font-size:22px;color:#b4bac6;margin:8px 0 26px">${s}</div>${img}</div>`;
-render(frame(`<img src="file://${A('img/hero-diff.svg')}" width="760">`,'Every pricing change, as a diff','UptimeRobot raised paid plans ~18% on 2026-10-24. We caught it and linked the source.'),A('launch/1-pricing-diff.png'),1270,760);
+render(frame(`<img src="file://${A('img/hero-diff.svg')}" width="760">`,'Every pricing change, as a diff','UptimeRobot started testing ~18% higher prices on 2026-10-24. We caught both versions and linked the source.'),A('launch/1-pricing-diff.png'),1270,760);
 render(frame(`<img src="file://${A('img/shot-compare.png')}" width="1000" style="border-radius:14px;border:1px solid #2a2f3a;box-shadow:0 20px 60px rgba(0,0,0,.5)">`,`Compare ${nV} free tiers side by side`,'Limits, gotchas, check date and the vendor’s own pricing page — no guesses.'),A('launch/2-compare.png'),1270,760);
 render(frame(`<img src="file://${A('img/pro-visual.svg')}" width="820">`,'Pro: same-day alerts + exports','$6/mo. Within ~24h of detection, with full history as CSV/JSON. Cancel anytime.'),A('launch/3-pro.png'),1270,760);
 fs.rmSync(tmp,{recursive:true,force:true});console.log('visuals done');

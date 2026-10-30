@@ -10,7 +10,7 @@
   "date": "2026-10-30",
   "vendor": "UptimeRobot",
   "type": "verification",
-  "summary": "Re-checked the 2026-10-24 ~18% increase. The pricing page is running a server-side price test (cookie ur_pd=control or variant). The default control group sees Team $39/mo annual ($46 monthly, $468/yr) and Scale $79/mo annual ($98 monthly, from $948/yr), matching our 2026-10-24 entry, so it stands. The test group (about 3 in 8 fetches tonight) still sees the old prices: Team $33 ($39 monthly, $396/yr) and Scale $67 ($83 monthly, from $804/yr). Solo ($12 annual / $13 monthly) and Free are the same in both groups.",
+  "summary": "Re-checked the 2026-10-24 ~18% increase. The pricing page is running a server-side price test (cookie ur_pd=control or variant). The default control group sees Team $39/mo annual ($46 monthly, $468/yr) and Scale $79/mo annual ($98 monthly, from $948/yr), matching our 2026-10-24 entry. The test group (about 3 in 8 fetches tonight) still sees the old prices: Team $33 ($39 monthly, $396/yr) and Scale $67 ($83 monthly, from $804/yr). Solo ($12 annual / $13 monthly) and Free are the same in both groups. Until the test settles, we treat the ~18% increase as provisional.",
   "source": "https://uptimerobot.com/pricing/"
  },
  {
@@ -44,8 +44,8 @@
  {
   "date": "2026-10-24",
   "vendor": "UptimeRobot",
-  "type": "price increase",
-  "summary": "Paid prices rose ~18%: Team $39→$46/mo (monthly) and $33→$39/mo (annual); Scale $83→$98/mo (monthly) and $67→$79/mo (annual); annual Team $396→$468/yr. Free plan unchanged in our snapshot.",
+  "type": "price test (possible increase)",
+  "summary": "First seen 2026-10-24 as a ~18% rise on paid plans: Team $39→$46/mo (monthly) and $33→$39/mo (annual); Scale $83→$98/mo (monthly) and $67→$79/mo (annual); annual Team $396→$468/yr. Free plan unchanged in our snapshot. Requalified 2026-10-30: UptimeRobot is running a cookie-based price test, so some visitors still see the old prices (Team $33, Scale $67/mo annual). Team is $33–$39 and Scale $67–$79/mo annual depending on the group; the ~18% applies only if the test settles on the higher (control) prices.",
   "source": "https://uptimerobot.com/pricing/"
  },
  {

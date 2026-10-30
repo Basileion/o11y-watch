@@ -1,11 +1,11 @@
-# O11y Watch #002 — UptimeRobot +18%, Lunary ends free signups
+# O11y Watch #002 — UptimeRobot tests higher prices, Lunary ends free signups
 
 *Week of 2026-10-24. We re-checked all 73 tracked pricing pages. Every claim links to the vendor's own page.*
 
 ---
 
 ## TL;DR
-- **UptimeRobot raised paid prices by about 18%.** Team is now $46/mo on monthly billing (was $39). The free plan is unchanged.
+- **UptimeRobot is testing ~18% higher paid prices.** Default visitors see Team at $46/mo on monthly billing (was $39); a test group still sees the old prices. The free plan is unchanged. *(Requalified 2026-10-30: this is a cookie-based price test, so the +18% applies only if it settles on the higher prices.)*
 - **Lunary ended free signups.** New cloud workspaces require payment and start at $20/user/mo. Existing Free workspaces are grandfathered.
 - **The directory is now fully reviewed:** 70 of 73 vendors verified, plus entry prices, billing model, card and self-host fields.
 
@@ -13,7 +13,7 @@
 
 | Vendor | Change | Source |
 |---|---|---|
-| UptimeRobot | Team $39→$46/mo monthly, $33→$39/mo annual ($396→$468/yr). Scale $83→$98/mo monthly, $67→$79/mo annual. | [uptimerobot.com/pricing](https://uptimerobot.com/pricing/) |
+| UptimeRobot | Price test: Team $39 or $46/mo monthly, $33 or $39/mo annual ($396 or $468/yr). Scale $83 or $98/mo monthly, $67 or $79/mo annual. Higher prices are the default group. | [uptimerobot.com/pricing](https://uptimerobot.com/pricing/) |
 | Lunary | "Payment is required to activate your workspace." Cloud from $20/user/mo; existing Free workspaces stay the same. | [lunary.ai/pricing](https://lunary.ai/pricing) |
 | Bugsnag | Free plan listed as 1 user, 7.5K events + 1M spans/mo. (We can't confirm whether this is new or just a fuller reading.) | [bugsnag.com/pricing](https://www.bugsnag.com/pricing/) |
 | Uptrace | Cloud free tier stated as 50 GB + 5,000 timeseries/mo; self-hosted Community Edition free with no limits. | [uptrace.dev/pricing](https://uptrace.dev/pricing) |
