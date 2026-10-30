@@ -262,3 +262,7 @@ console.log('built dist/:',files.length,'pages,',V.length,'vendors,',changes.len
 {const bad=[];const re=new RegExp('(?:href|value)=["\'](?![a-z][a-z0-9+.-]*:|//)[^"\'?#]*\\.html\\b|\\+\\s*["\']\\.html\\b|'+RXE(BASE)+'/[^\\s"\'<>)\\]]*\\.html\\b|["\'`]/[a-z0-9_/-]+\\.html\\b','gi');
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+x[0])}}};walk(out);
 if(bad.length){console.error(`Build guard: ${bad.length} internal .html link(s) found:\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('link guard: 0 internal .html links')}
+// Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
+{const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
+const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);
+if(bad.length){console.error(`Ops-leak guard: ${bad.length} internal note(s) in public output:\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('ops-leak guard: 0 internal notes')}

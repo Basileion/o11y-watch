@@ -200,7 +200,7 @@
         <p class="sm mut">${pending
           ? 'Checkout link is a placeholder (<code>AUDIT_CHECKOUT</code>). Until Kit is wired, use the email link or set the constant and rebuild.'
           : 'After purchase, Kit redirects you to the unlock URL which stores access in this browser.'}</p>
-        <p class="sm mut"><b>Gate limitation:</b> unlock requires the Kit thank-you link (validated by our Worker). The full report is not embedded pre-purchase. This is still not account auth — do not share the unlock link.</p>
+        <p class="sm mut"><b>Gate limitation:</b> unlock requires the private link you get right after Kit checkout. The full report is not embedded pre-purchase. This is still not account auth — do not share the unlock link.</p>
       </div>`;
   }
 

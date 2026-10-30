@@ -4,8 +4,9 @@ export default function buildAudit({
   W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
   AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API
 }) {
-  const AUDIT_FORM = JSON.parse(fs.readFileSync(path.join(root, 'data/audit-form.json'), 'utf8'));
-  const AUDIT_RATES = JSON.parse(fs.readFileSync(path.join(root, 'data/audit-rates.json'), 'utf8'));
+  const stripNotes = o => { const c = { ...o }; for (const k of Object.keys(c)) if (k.startsWith('$')) delete c[k]; return c; };
+  const AUDIT_FORM = stripNotes(JSON.parse(fs.readFileSync(path.join(root, 'data/audit-form.json'), 'utf8')));
+  const AUDIT_RATES = stripNotes(JSON.parse(fs.readFileSync(path.join(root, 'data/audit-rates.json'), 'utf8')));
   const unlockPath = 'audit-unlock.html';
   const unlockApi = AUDIT_UNLOCK_API || 'https://growth-ingest.basileion-ops.workers.dev';
   // Full unlock URL with ?t= is NOT built into the site — token lives only in Worker secret
@@ -38,8 +39,8 @@ export default function buildAudit({
   const AUDIT_FAQ = [
     ['How does the instant audit work?', 'You answer a short survey (and optionally drop a usage CSV). A deterministic engine runs entirely in your browser against O11y Watch public pricing data. Nothing is uploaded to our servers.'],
     ['Are the numbers quotes?', 'No — they are estimates labeled with sources and check dates from our dataset. If a vendor lacks public unit rates for every dimension you use, we list them under “Insufficient public pricing data” and never show them as savings.'],
-    ['What is free vs paid?', `The top-line savings range is free. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After purchase, Kit should redirect to the unlisted unlock URL.`],
-    ['How is the unlock gate secured?', 'Pre-purchase pages show only the free teaser — the full report is not in the DOM. Kit’s thank-you redirect includes an unguessable token; our growth-ingest Worker validates it and stores a proof in this browser. Anyone with the unlock link can still open the report. This is not account auth. The cost engine itself is public client-side code.'],
+    ['What is free vs paid?', `The top-line savings range is free. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After payment you are sent straight back to unlock the full report in this browser.`],
+    ['How is the unlock gate secured?', 'Pre-purchase pages show only the free teaser — the full report is not in the DOM. Kit’s thank-you redirect includes an unguessable token; our server validates it and stores a proof in this browser. Anyone with the unlock link can still open the report. This is not account auth. The cost engine itself is public client-side code.'],
     ['Is my CSV uploaded?', 'No. CSV parsing happens only in your browser. We never receive the file.'],
     ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Self-host software may be $0 where stated; we always add an explicit infra+ops cost range with stated assumptions rather than implying $0 TCO.']
   ];
@@ -90,7 +91,7 @@ await import('./js/audit-wizard.js');
 <div class="card"><div class="eyebrow">Free</div><div class="amt">$0</div><p class="mut">Multi-step survey + top-line estimated savings range. Fully client-side.</p><p style="margin-top:12px"><a class="btn ghost" href="#wizard-anchor">Run free teaser</a></p></div>
 <div class="card hl"><div class="eyebrow">Full report unlock</div><div class="amt">$${AUDIT_PRICE}</div><p class="mut">Ranked table, alternatives, self-host options, levers, migration plan, Print/PDF. One-time.</p><p style="margin-top:12px"><a class="btn" href="#wizard-anchor">Start audit → unlock</a></p></div>
 </div>
-<p class="sm mut">Checkout is a Kit product. After payment, Kit must redirect to the unlisted unlock URL (see EDITING.md). Gate: full report is omitted from the pre-purchase DOM; unlock token is validated by our Worker.</p>
+<p class="sm mut">Secure one-time checkout via Kit. Your full report unlocks in this browser right after payment.</p>
 
 <h2>FAQ</h2>
 ${AUDIT_FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
@@ -129,7 +130,7 @@ ${boot2}
 <p>Access is stored locally in this browser. Return to the audit page to see the full report for any survey you run here.</p>
 <p id="unlock-status" class="ph">Checking token…</p>
 <p style="margin-top:18px"><a class="btn" href="audit.html#results">Open the audit</a> <a class="btn ghost" href="audit.html#wizard-anchor">Re-run survey</a></p>
-<p class="sm mut">Limitation: this is an unlisted token URL validated by our Worker, not a login. Do not share it. Clearing site data removes unlock on this device.</p>
+<p class="sm mut">Limitation: this is a private unlock link, not a login. Do not share it. Clearing site data removes unlock on this device.</p>
 </section>
 <script>window.__AUDIT__=${publicCfgJson};</script>
 <script type="module">
