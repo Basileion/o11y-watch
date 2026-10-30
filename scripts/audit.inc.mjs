@@ -29,13 +29,9 @@ export default function buildAudit({
     unlockApi,
     contact: CONTACT
   };
-  // Unlock / thanks pages may include the token for Worker fallback if ingest is down.
-  const unlockCfg = {
-    ...publicCfg,
-    unlockToken: AUDIT_UNLOCK_TOKEN
-  };
-  const publicCfgJson = JSON.stringify(publicCfg).replace(/</g, '\\u003c');
-  const unlockCfgJson = JSON.stringify(unlockCfg).replace(/</g, '\\u003c');
+  // Unlock / thanks pages use the same public config — NEVER embed unlockToken in HTML.
+  // Token arrives only via Kit redirect ?t= and is validated by the Worker.
+  const publicCfgJson = JSON.stringify(publicCfg).replace(/</g, '\u003c');
 
   const AUDIT_FAQ = [
     ['How does the instant audit work?', 'You answer a short survey (and optionally drop a usage CSV). A deterministic engine runs entirely in your browser against O11y Watch public pricing data. Nothing is uploaded to our servers.'],
@@ -133,7 +129,7 @@ ${boot2}
 <p style="margin-top:18px"><a class="btn" href="audit.html#results">Open the audit</a> <a class="btn ghost" href="audit.html#wizard-anchor">Re-run survey</a></p>
 <p class="sm mut">Limitation: this is an unlisted token URL validated by our Worker, not a login. Do not share it. Clearing site data removes unlock on this device.</p>
 </section>
-<script>window.__AUDIT__=${unlockCfgJson};</script>
+<script>window.__AUDIT__=${publicCfgJson};</script>
 <script type="module">
 import O11yAudit from './js/audit-engine.js';
 window.O11yAudit = O11yAudit;
@@ -147,7 +143,7 @@ if (!tok) {
 } else if (wiz && wiz.redeemToken) {
   const ok = await wiz.redeemToken(tok);
   if (ok) {
-    el.textContent = 'Token accepted. Full report is unlocked on this browser.';
+    el.textContent = 'Token accepted. Full report is unlocked on this browser. Opening your audit…';
     el.className = 'ph';
     el.style.borderColor = 'var(--acc2)';
     el.style.color = 'var(--acc2)';
@@ -157,6 +153,7 @@ if (!tok) {
       u.searchParams.delete('token');
       history.replaceState({}, '', u.pathname + u.search);
     } catch (e) {}
+    setTimeout(() => { location.href = 'audit.html#results'; }, 1000);
   } else {
     el.textContent = 'Token did not validate. Check the Kit redirect URL, or try again in a moment.';
     el.style.borderColor = 'var(--no)';
@@ -180,7 +177,7 @@ if (!tok) {
 <p style="margin-top:18px"><a class="btn" href="audit.html#wizard-anchor">Go to audit wizard</a> <a class="btn ghost" href="audit-unlock.html">Open unlock page</a></p>
 <p class="sm mut">Questions? Email <a href="mailto:${CONTACT}">${CONTACT}</a>.</p>
 </section>
-<script>window.__AUDIT__=${unlockCfgJson};</script>
+<script>window.__AUDIT__=${publicCfgJson};</script>
 <script type="module">
 import O11yAudit from './js/audit-engine.js';
 window.O11yAudit = O11yAudit;
@@ -193,10 +190,18 @@ if (!tok) {
 } else if (window.O11yAuditWizard) {
   const ok = await window.O11yAuditWizard.redeemToken(tok);
   el.textContent = ok
-    ? 'Unlocked on this browser. Continue to the audit wizard for the full report.'
+    ? 'Unlocked on this browser. Opening your audit…'
     : 'Token present but did not validate. Open the unlock link from Kit.';
-  if (ok) { el.style.borderColor = 'var(--acc2)'; el.style.color = 'var(--acc2)'; }
-  else { el.style.borderColor = 'var(--no)'; el.style.color = 'var(--no)'; }
+  if (ok) {
+    el.style.borderColor = 'var(--acc2)'; el.style.color = 'var(--acc2)';
+    try {
+      const u = new URL(location.href);
+      u.searchParams.delete('t');
+      u.searchParams.delete('token');
+      history.replaceState({}, '', u.pathname + u.search);
+    } catch (e) {}
+    setTimeout(() => { location.href = 'audit.html#results'; }, 1000);
+  } else { el.style.borderColor = 'var(--no)'; el.style.color = 'var(--no)'; }
 }
 </script>
 `));

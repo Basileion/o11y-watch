@@ -104,7 +104,7 @@ const KIT='https://app.kit.com/forms/10093883/subscriptions',KIT_PAGE='https://o
 // ---- Monetization config (edit here). '#pending' = no Stripe link yet -> falls back to mailto.
 const STRIPE_SPONSOR_LINK='https://o11y-watch.kit.com/products/sponsor-bundle-founding', STRIPE_PRO_LINK='https://o11y-watch.kit.com/products/o-11-y-watch-pro', SPONSOR_LINKS={newsletter:'https://o11y-watch.kit.com/products/sponsor-newsletter-slot-founding',site:'https://o11y-watch.kit.com/products/sponsor-site-placement-1-month-founding',bundle:'https://o11y-watch.kit.com/products/sponsor-bundle-founding'}, CONTACT='basileion.ops@gmail.com';
 // Instant Cost Audit (client-side). Kit product checkout + unlisted unlock token.
-const AUDIT_CHECKOUT='https://o11y-watch.kit.com/products/observability-cost-stack-audit-instant'; const AUDIT_PRICE=149; const AUDIT_UNLOCK_TOKEN='owu-d489943e190eb29eeb900643706e061f'; const AUDIT_UNLOCK_API='https://growth-ingest.basileion-ops.workers.dev';
+const AUDIT_CHECKOUT='https://o11y-watch.kit.com/products/observability-cost-stack-audit-instant'; const AUDIT_PRICE=149; const AUDIT_UNLOCK_TOKEN='owu-103306498d50a247913eab6968407cc3'; const AUDIT_UNLOCK_API='https://growth-ingest.basileion-ops.workers.dev';
 // PROPOSED prices (USD), not final. Founding = discount for the first sponsors/subscribers while the audience is new.
 const PRICES={pro:{monthly:6,annual:60},sponsor:{newsletter:{standard:99,founding:49,unit:'issue'},site:{standard:79,founding:39,unit:'month'},bundle:{standard:149,founding:79,unit:'issue + 1 month on site'}},foundingSlots:5};
 const payHref=(link,subj)=>link&&link!=='#pending'?link:'mailto:'+CONTACT+'?subject='+encodeURIComponent(subj);
@@ -231,7 +231,7 @@ const auditMeta = (await import('./audit.inc.mjs')).default({
   W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
   AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_TOKEN, AUDIT_UNLOCK_API
 });
-console.log('audit unlock URL:', auditMeta.unlockUrl);
+console.log('audit unlock URL: (redacted — see Kit redirect; token only in Worker secret + build.mjs)');
 
 const FLY=(await import('./flywheel.inc.mjs')).default({V,C,TAKES,changes,W,P,BASE,SITE,esc,form,cta,pill,proBox,files,nVer,nFree,LAST,fs,path,out});
 fs.readFileSync(path.join(root,'scripts/agents.inc.mjs'),'utf8')&&(await import('./agents.inc.mjs')).default({V,C,TAKES,changes,W,P,BASE,SITE,esc,out,fs,path,files,nVer,nFree,ORG:FLY.org});

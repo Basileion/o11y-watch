@@ -1,7 +1,7 @@
 /**
  * Multi-step audit wizard + monetization gate + report renderer.
  * Expects window.__AUDIT__ = { form, rates, checkout, price, unlockPath, unlockApi }
- * Unlock pages may also include unlockToken (never on the public /audit page).
+ * Unlock requires Worker validation of ?t= token (never embed unlockToken in HTML).
  * Full report HTML is rendered only after unlock — never as a blurred pre-purchase preview.
  */
 (function () {
@@ -82,12 +82,7 @@
         }
       } catch (e) { /* fall through to local fallback */ }
     }
-    // Fallback only when unlockToken is present (unlock/thanks pages — not public /audit)
-    const expect = CFG().unlockToken;
-    if (expect && token === expect) {
-      try { localStorage.setItem(LS_UNLOCK, 'local-ok'); } catch (e) {}
-      return true;
-    }
+    // No client-side token fallback — unlockToken must never appear in built HTML.
     return false;
   }
 

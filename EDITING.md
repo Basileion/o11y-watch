@@ -83,8 +83,8 @@ npx wrangler deploy
 **What we protect ($0, static + free Worker):**
 
 1. Pre-purchase `/audit` never injects the full report into the DOM (no blurred “locked preview”). Teaser + paywall only.
-2. `unlockToken` / unlock URL are **not** embedded in the public `/audit` page config.
-3. Kit thank-you hits `/audit-unlock.html?t=…`; the page POSTs the token to growth-ingest; Worker compares to secret env and returns an HMAC proof stored in `localStorage`.
+2. `unlockToken` / unlock URL are **not** embedded in **any** built HTML (`/audit`, `/audit-unlock`, `/audit-thanks`). Unlock is Worker-only.
+3. Kit thank-you hits `/audit-unlock.html?t=…`; the page POSTs the token to growth-ingest; Worker compares to secret env and returns an HMAC proof stored in `localStorage`. After success, `?t=` is stripped and the page auto-navigates to `/audit.html#results` (~1s).
 4. Showing the full report re-checks the proof with the Worker when possible (`audit_unlock_check`).
 
 **What a static/client engine cannot protect:**
@@ -99,7 +99,7 @@ npx wrangler deploy
 |------|----------|------|
 | `/audit.html` | yes | Marketing + wizard + teaser / locked report |
 | `/audit-unlock.html?t=…` | **no** | Purchase redirect; Worker-validated unlock |
-| `/audit-thanks.html` | **no** | Optional mirror; redeems `?t=` if present (no hardcoded token link) |
+| `/audit-thanks.html` | **no** | Optional mirror; redeems `?t=` via Worker only (no embedded token) |
 
 ## What was removed
 
