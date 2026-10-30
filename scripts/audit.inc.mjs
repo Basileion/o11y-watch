@@ -2,13 +2,15 @@
 // Called from build.mjs. Edit questions in data/audit-form.json, rates in data/audit-rates.json.
 export default function buildAudit({
   W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
-  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_TOKEN, AUDIT_UNLOCK_API
+  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API
 }) {
   const AUDIT_FORM = JSON.parse(fs.readFileSync(path.join(root, 'data/audit-form.json'), 'utf8'));
   const AUDIT_RATES = JSON.parse(fs.readFileSync(path.join(root, 'data/audit-rates.json'), 'utf8'));
   const unlockPath = 'audit-unlock.html';
   const unlockApi = AUDIT_UNLOCK_API || 'https://growth-ingest.basileion-ops.workers.dev';
-  const unlockUrl = `${BASE}/${unlockPath}?t=${encodeURIComponent(AUDIT_UNLOCK_TOKEN)}`;
+  // Full unlock URL with ?t= is NOT built into the site — token lives only in Worker secret
+  // (+ local /workspace/secrets/audit-unlock-url.txt for Kit). Path alone for docs/meta:
+  const unlockUrl = `${BASE}/${unlockPath}`;
 
   // Copy client assets
   const jsOut = path.join(out, 'js');
@@ -206,5 +208,5 @@ if (!tok) {
 </script>
 `));
 
-  return { unlockUrl, unlockPath, AUDIT_PRICE, AUDIT_UNLOCK_TOKEN, unlockApi };
+  return { unlockUrl, unlockPath, AUDIT_PRICE, unlockApi };
 }

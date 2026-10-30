@@ -8,7 +8,7 @@ The Observability Cost & Stack Audit (`/audit`) is a **fully client-side** wizar
 |------|---------|
 | `data/audit-form.json` | Multi-step survey questions (labels, options, CSV settings) |
 | `data/audit-rates.json` | Structured unit rates extracted from `data/vendors.json` (never invent rates) |
-| `scripts/build.mjs` | `AUDIT_CHECKOUT`, `AUDIT_PRICE`, `AUDIT_UNLOCK_TOKEN`, `AUDIT_UNLOCK_API` |
+| `scripts/build.mjs` | `AUDIT_CHECKOUT`, `AUDIT_PRICE`, `AUDIT_UNLOCK_API` (token is **not** in the repo) |
 | `assets/js/audit-engine.js` | Deterministic cost model |
 | `assets/js/audit-wizard.js` | Wizard UI, gate, report, Print/PDF |
 | `scripts/audit.inc.mjs` | Landing copy, FAQ, unlock/thanks pages |
@@ -54,28 +54,28 @@ git add -A && git commit -m "Update audit wizard" && git push origin main
 ```js
 const AUDIT_CHECKOUT = 'https://o11y-watch.kit.com/products/observability-cost-stack-audit-instant';
 const AUDIT_PRICE = 149;
-const AUDIT_UNLOCK_TOKEN = 'owu-…'; // unguessable; rotate if leaked
 const AUDIT_UNLOCK_API = 'https://growth-ingest.basileion-ops.workers.dev';
 ```
+
+**Unlock token is never committed.** It exists only as:
+- Cloudflare Worker secret `AUDIT_UNLOCK_TOKEN` on `growth-ingest`
+- Local box file `/workspace/secrets/audit-unlock-token.txt` (chmod 600) and unlock URL `/workspace/secrets/audit-unlock-url.txt`
 
 ### Kit product setup
 
 1. Create a Kit product priced at `AUDIT_PRICE`.
 2. Set **AUDIT_CHECKOUT** to that product URL and rebuild.
-3. Set the Kit product **success / thank-you redirect** to:
-
-```
-https://o11y-watch.pages.dev/audit-unlock.html?t=<AUDIT_UNLOCK_TOKEN>
-```
-
-(Use your live origin if different; token must match `AUDIT_UNLOCK_TOKEN` **and** the Worker secret `AUDIT_UNLOCK_TOKEN`.)
-
-4. After rotating the token, also update the Worker secret:
+3. Set the Kit product **success / thank-you redirect** to the URL in `/workspace/secrets/audit-unlock-url.txt` (includes `?t=`).
+4. To rotate the token:
 
 ```bash
-cd /workspace/growth/tracker/worker
-npx wrangler secret put AUDIT_UNLOCK_TOKEN   # paste same token
-npx wrangler deploy
+# generate + store locally (never commit)
+umask 077
+TOK="owu-$(openssl rand -hex 16)"
+printf '%s' "$TOK" > /workspace/secrets/audit-unlock-token.txt
+printf '%s' "https://o11y-watch.pages.dev/audit-unlock.html?t=${TOK}" > /workspace/secrets/audit-unlock-url.txt
+chmod 600 /workspace/secrets/audit-unlock-token.txt /workspace/secrets/audit-unlock-url.txt
+# put the same value on the Worker (MCP/wrangler), then update Kit redirect
 ```
 
 ### Gate design (honest)
