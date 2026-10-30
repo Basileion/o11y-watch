@@ -1,7 +1,8 @@
 /**
  * Multi-step audit wizard + monetization gate + report renderer.
- * Expects window.__AUDIT__ = { form, rates, checkout, price, unlockToken, unlockPath }
- * and window.O11yAudit from audit-engine.js
+ * Expects window.__AUDIT__ = { form, rates, checkout, price, unlockPath, unlockApi }
+ * Unlock pages may also include unlockToken (never on the public /audit page).
+ * Full report HTML is rendered only after unlock — never as a blurred pre-purchase preview.
  */
 (function () {
   'use strict';
@@ -14,18 +15,80 @@
   function $all(sel, el) { return [...(el || document).querySelectorAll(sel)]; }
   function money(n) { return (window.O11yAudit && O11yAudit.money) ? O11yAudit.money(n) : '$' + n; }
 
-  function isUnlocked() {
+  function hasLocalProof() {
     try {
-      const tok = CFG().unlockToken;
-      return !!(tok && localStorage.getItem(LS_UNLOCK) === tok);
+      const v = localStorage.getItem(LS_UNLOCK);
+      return !!(v && String(v).length >= 8);
     } catch (e) { return false; }
   }
 
-  function unlock(token) {
+  function isUnlockedSync() {
+    return hasLocalProof();
+  }
+
+  async function confirmUnlock() {
+    if (!hasLocalProof()) return false;
+    const api = CFG().unlockApi;
+    if (!api) return true;
+    const proof = localStorage.getItem(LS_UNLOCK);
+    try {
+      const r = await fetch(api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: 'audit_unlock_check',
+          proof,
+          site: location.hostname,
+          path: location.pathname
+        }),
+        mode: 'cors',
+        credentials: 'omit',
+        keepalive: true
+      });
+      const d = await r.json().catch(() => ({}));
+      if (d && d.ok) return true;
+      if (d && d.error === 'bad_proof') {
+        try { localStorage.removeItem(LS_UNLOCK); } catch (e) {}
+        return false;
+      }
+      // Soft-fail on misconfig/network so paying buyers keep access if Worker blips
+      return true;
+    } catch (e) {
+      return true;
+    }
+  }
+
+  async function redeemToken(token) {
+    if (!token) return false;
+    const api = CFG().unlockApi;
+    if (api) {
+      try {
+        const r = await fetch(api, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'audit_unlock',
+            token,
+            site: location.hostname,
+            path: location.pathname
+          }),
+          mode: 'cors',
+          credentials: 'omit'
+        });
+        const d = await r.json().catch(() => ({}));
+        if (d && d.ok && d.proof) {
+          try { localStorage.setItem(LS_UNLOCK, d.proof); } catch (e) {}
+          return true;
+        }
+      } catch (e) { /* fall through to local fallback */ }
+    }
+    // Fallback only when unlockToken is present (unlock/thanks pages — not public /audit)
     const expect = CFG().unlockToken;
-    if (!expect || token !== expect) return false;
-    try { localStorage.setItem(LS_UNLOCK, expect); } catch (e) {}
-    return true;
+    if (expect && token === expect) {
+      try { localStorage.setItem(LS_UNLOCK, 'local-ok'); } catch (e) {}
+      return true;
+    }
+    return false;
   }
 
   function checkoutHref() {
@@ -138,11 +201,11 @@
           <li>Migration plan with effort ratings</li>
           <li>Print / Save-as-PDF branded report</li>
         </ul>
-        <p style="margin-top:14px"><a class="btn" id="buy-audit" href="${esc(href)}"${pending ? '' : ' target="_blank" rel="noopener"'}>Unlock for $${price}</a></p>
+        <p style="margin-top:14px"><a class="btn" id="buy-audit" data-grow="audit" href="${esc(href)}"${pending ? '' : ' target="_blank" rel="noopener"'}>Unlock for $${price}</a></p>
         <p class="sm mut">${pending
           ? 'Checkout link is a placeholder (<code>AUDIT_CHECKOUT</code>). Until Kit is wired, use the email link or set the constant and rebuild.'
           : 'After purchase, Kit redirects you to the unlock URL which stores access in this browser.'}</p>
-        <p class="sm mut"><b>Gate limitation:</b> unlock is an unlisted token URL + localStorage in this browser — not a signed account. Anyone with the unlock link can open the report. Do not post the unlock URL publicly.</p>
+        <p class="sm mut"><b>Gate limitation:</b> unlock requires the Kit thank-you link (validated by our Worker). The full report is not embedded pre-purchase. This is still not account auth — do not share the unlock link.</p>
       </div>`;
   }
 
@@ -279,18 +342,20 @@
       </article>`;
   }
 
-  function showResults(report) {
+  async function showResults(report) {
     const mount = $('#audit-results');
     if (!mount) return;
-    const unlocked = isUnlocked();
+    // Optimistic paint from local proof, then confirm with Worker when possible
+    let unlocked = isUnlockedSync();
+    if (unlocked) unlocked = await confirmUnlock();
+
     let html = `<h2 id="results">Your audit results</h2>`;
     html += renderTeaser(report);
     if (unlocked) {
       html += renderFullReport(report);
     } else {
-      html += `<div class="locked-wrap">${renderGate()}
-        <div class="locked-preview" aria-hidden="true">${renderFullReport(report)}</div>
-      </div>`;
+      // Strong static gate: teaser + paywall only. Never inject full report into the DOM pre-purchase.
+      html += `<div class="locked-wrap">${renderGate()}</div>`;
     }
     mount.innerHTML = html;
     mount.hidden = false;
@@ -307,17 +372,16 @@
       return;
     }
 
-    // Unlock page handling
     const params = new URLSearchParams(location.search);
     const hashTok = (location.hash || '').replace(/^#unlock=/, '');
     const tok = params.get('t') || params.get('token') || hashTok;
-    if (tok && unlock(tok)) {
+
+    const afterUnlockUi = () => {
       const banner = $('#unlock-banner');
       if (banner) {
         banner.hidden = false;
         banner.textContent = 'Full audit unlocked on this browser. Run or re-open your results below.';
       }
-      // Clean token from URL without reload
       try {
         const u = new URL(location.href);
         u.searchParams.delete('t');
@@ -325,108 +389,118 @@
         u.hash = '';
         history.replaceState({}, '', u.pathname + u.search);
       } catch (e) {}
-    }
+    };
 
-    const root = $('#audit-wizard');
-    if (!root) return;
+    const start = async () => {
+      if (tok) {
+        const ok = await redeemToken(tok);
+        if (ok) afterUnlockUi();
+      }
 
-    const state = { step: 0, values: {}, csv_overrides: null };
-    try {
-      const saved = sessionStorage.getItem(SS_ANSWERS);
-      if (saved) Object.assign(state.values, JSON.parse(saved));
-    } catch (e) {}
+      const root = $('#audit-wizard');
+      if (!root) return;
 
-    function persist() {
-      try { sessionStorage.setItem(SS_ANSWERS, JSON.stringify(state.values)); } catch (e) {}
-    }
+      const state = { step: 0, values: {}, csv_overrides: null };
+      try {
+        const saved = sessionStorage.getItem(SS_ANSWERS);
+        if (saved) Object.assign(state.values, JSON.parse(saved));
+      } catch (e) {}
 
-    function paint() {
-      const steps = formCfg.steps;
-      const step = steps[state.step];
-      const progress = steps.map((s, i) => `<span class="wiz-step${i === state.step ? ' on' : ''}${i < state.step ? ' done' : ''}">${i + 1}. ${esc(s.title)}</span>`).join('<span class="wiz-sep">→</span>');
-      root.innerHTML = `
-        <div class="wiz-progress">${progress}</div>
-        <div class="box aform" id="wiz-panel">
-          <h2 style="margin-top:0;font-size:20px">${esc(step.title)}</h2>
-          <p class="mut">${esc(step.description || '')}</p>
-          <div id="wiz-fields">${step.fields.map((f) => renderField(f, state.values)).join('')}</div>
-          <p class="err" id="wiz-err" hidden></p>
-          <div class="wiz-nav">
-            <button type="button" class="btn ghost" id="wiz-back" ${state.step === 0 ? 'disabled' : ''}>Back</button>
-            <button type="button" class="btn" id="wiz-next">${state.step === steps.length - 1 ? esc(formCfg.submitLabel || 'Run my audit') : 'Continue'}</button>
-          </div>
-        </div>`;
+      function persist() {
+        try { sessionStorage.setItem(SS_ANSWERS, JSON.stringify(state.values)); } catch (e) {}
+      }
 
-      const fileInput = $('#w_usage_csv');
-      if (fileInput) {
-        fileInput.addEventListener('change', async () => {
-          const status = $('#csv-status');
-          const file = fileInput.files && fileInput.files[0];
-          if (!file) return;
-          if (file.size > (formCfg.csv && formCfg.csv.maxBytes) || 2e6) {
-            status.textContent = 'File too large (max 2 MB).';
+      function paint() {
+        const steps = formCfg.steps;
+        const step = steps[state.step];
+        const progress = steps.map((s, i) => `<span class="wiz-step${i === state.step ? ' on' : ''}${i < state.step ? ' done' : ''}">${i + 1}. ${esc(s.title)}</span>`).join('<span class="wiz-sep">→</span>');
+        root.innerHTML = `
+          <div class="wiz-progress">${progress}</div>
+          <div class="box aform" id="wiz-panel">
+            <h2 style="margin-top:0;font-size:20px">${esc(step.title)}</h2>
+            <p class="mut">${esc(step.description || '')}</p>
+            <div id="wiz-fields">${step.fields.map((f) => renderField(f, state.values)).join('')}</div>
+            <p class="err" id="wiz-err" hidden></p>
+            <div class="wiz-nav">
+              <button type="button" class="btn ghost" id="wiz-back" ${state.step === 0 ? 'disabled' : ''}>Back</button>
+              <button type="button" class="btn" id="wiz-next">${state.step === steps.length - 1 ? esc(formCfg.submitLabel || 'Run my audit') : 'Continue'}</button>
+            </div>
+          </div>`;
+
+        const fileInput = $('#w_usage_csv');
+        if (fileInput) {
+          fileInput.addEventListener('change', async () => {
+            const status = $('#csv-status');
+            const file = fileInput.files && fileInput.files[0];
+            if (!file) return;
+            if (file.size > (formCfg.csv && formCfg.csv.maxBytes) || 2e6) {
+              status.textContent = 'File too large (max 2 MB).';
+              return;
+            }
+            const text = await file.text();
+            const parsed = O11yAudit.parseUsageCsv(text);
+            if (parsed.error) {
+              status.textContent = parsed.error;
+              state.csv_overrides = null;
+            } else {
+              state.csv_overrides = parsed.overrides;
+              status.textContent = 'Parsed locally: ' + parsed.matched.join(', ') + '. Values will override matching fields.';
+              for (const [k, v] of Object.entries(parsed.overrides)) {
+                const el = $(`[name="${k}"]`);
+                if (el && el.type === 'number') el.value = v;
+                state.values[k] = v;
+              }
+            }
+          });
+        }
+
+        $('#wiz-back').addEventListener('click', () => {
+          if (state.step > 0) { state.step--; paint(); }
+        });
+        $('#wiz-next').addEventListener('click', () => {
+          const panel = $('#wiz-panel');
+          const data = readStep(panel, step);
+          const err = validateStep(step, data);
+          const errEl = $('#wiz-err');
+          if (err) {
+            errEl.hidden = false;
+            errEl.textContent = err;
             return;
           }
-          const text = await file.text();
-          const parsed = O11yAudit.parseUsageCsv(text);
-          if (parsed.error) {
-            status.textContent = parsed.error;
-            state.csv_overrides = null;
-          } else {
-            state.csv_overrides = parsed.overrides;
-            status.textContent = 'Parsed locally: ' + parsed.matched.join(', ') + '. Values will override matching fields.';
-            // Apply to visible number fields if present
-            for (const [k, v] of Object.entries(parsed.overrides)) {
-              const el = $(`[name="${k}"]`);
-              if (el && el.type === 'number') el.value = v;
-              state.values[k] = v;
-            }
+          Object.assign(state.values, data);
+          persist();
+          if (state.step < steps.length - 1) {
+            state.step++;
+            paint();
+            return;
           }
+          const input = { ...state.values, csv_overrides: state.csv_overrides };
+          const report = O11yAudit.runAudit(input, rates);
+          try { sessionStorage.setItem(SS_REPORT, JSON.stringify(report)); } catch (e) {}
+          showResults(report);
         });
       }
 
-      $('#wiz-back').addEventListener('click', () => {
-        if (state.step > 0) { state.step--; paint(); }
-      });
-      $('#wiz-next').addEventListener('click', () => {
-        const panel = $('#wiz-panel');
-        const data = readStep(panel, step);
-        const err = validateStep(step, data);
-        const errEl = $('#wiz-err');
-        if (err) {
-          errEl.hidden = false;
-          errEl.textContent = err;
-          return;
-        }
-        Object.assign(state.values, data);
-        persist();
-        if (state.step < steps.length - 1) {
-          state.step++;
-          paint();
-          return;
-        }
-        // Run audit
-        const input = { ...state.values, csv_overrides: state.csv_overrides };
-        const report = O11yAudit.runAudit(input, rates);
-        try { sessionStorage.setItem(SS_REPORT, JSON.stringify(report)); } catch (e) {}
-        showResults(report);
-      });
-    }
+      paint();
 
-    paint();
+      try {
+        const prev = sessionStorage.getItem(SS_REPORT);
+        if (prev) showResults(JSON.parse(prev));
+      } catch (e) {}
+    };
 
-    // Restore report if unlocked / returning
-    try {
-      const prev = sessionStorage.getItem(SS_REPORT);
-      if (prev) showResults(JSON.parse(prev));
-    } catch (e) {}
+    start();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initWizard);
   else initWizard();
 
-  // Expose for unlock page
-  window.O11yAuditWizard = { unlock, isUnlocked, showResults };
+  window.O11yAuditWizard = {
+    redeemToken,
+    confirmUnlock,
+    isUnlocked: isUnlockedSync,
+    showResults
+  };
 })();
 
 export {};
