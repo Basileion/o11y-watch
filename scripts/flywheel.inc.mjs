@@ -1,6 +1,6 @@
 // Programmatic SEO + GEO flywheel pages for O11y Watch. Called from build.mjs.
 // Only cites fields from vendors.json / changes.json — never invents numbers.
-export default function flywheel({V, C, TAKES, changes, W, P, BASE, SITE, esc, form, cta, pill, proBox, files, nVer, nFree, LAST, fs, path, out}){
+export default function flywheel({V, C, TAKES, changes, W, P, BASE, SITE, esc, form, cta, pill, proBox, auditCta:auditCtaIn, files, nVer, nFree, LAST, fs, path, out, AUDIT_PRICE=149}){
 const AUDIT=`${BASE}/audit.html`;
 const ORG={
   '@context':'https://schema.org','@type':'Organization','@id':BASE+'/#org',
@@ -18,7 +18,12 @@ const crumbLd=(parts)=>({'@context':'https://schema.org','@type':'BreadcrumbList
 const cite=(label)=>`<div class="box" style="margin-top:18px"><h3 style="margin-top:0">Cite this</h3><p class="sm mut">Copy for AI tools, writers and procurement docs. Attribution requested under CC BY 4.0.</p><pre style="white-space:pre-wrap;font-size:12px">${esc(`Data: ${label}. Source: ${SITE} (${BASE}). License: CC BY 4.0. Please attribute "${SITE}" with a link to ${BASE}/.`)}</pre></div>`;
 const keyStats=(items)=>`<div class="box" style="margin:18px 0"><div class="eyebrow">Key stats</div><ul style="margin:10px 0 0;padding-left:18px">${items.map(([k,v])=>`<li><b>${esc(k)}:</b> ${esc(v)}</li>`).join('')}</ul></div>`;
 const related=(links)=>`<h2>Related</h2><ul>${links.map(([h,l])=>`<li><a href="${h}">${esc(l)}</a></li>`).join('')}</ul>`;
-const auditCta=(ctx)=>`<section class="cta" style="margin-top:28px"><div class="eyebrow">Observability Cost &amp; Stack Audit · $${149}</div><h3 style="margin:6px 0">Get a free savings estimate for your stack</h3><p>${esc(ctx)} The automated audit uses the same verified rates — free estimate, full report $${149}.</p><p><a class="btn" href="audit.html">Start free audit estimate →</a> <a class="btn ghost" href="subscribe.html?src=guide">Get the weekly newsletter</a></p></section>`;
+const auditCta=(ctx,headline,grow='audit-guide')=>{
+  if(typeof auditCtaIn==='function'){
+    return auditCtaIn(headline||'See what you’d save on Datadog / New Relic in 2 minutes',esc(ctx),grow,'../');
+  }
+  return `<section class="cta" style="margin-top:28px"><div class="eyebrow">Free savings estimate · 2 minutes</div><h3 style="margin:6px 0">${esc(headline||'See what you’d save on Datadog / New Relic in 2 minutes')}</h3><p>${esc(ctx)} Free top-line range; full report $${AUDIT_PRICE}.</p><p><a class="btn" href="../audit.html" data-grow="${grow}">Start free savings estimate →</a> <a class="btn ghost" href="../subscribe.html?src=guide">Get the weekly newsletter</a></p></section>`;
+};
 const byId=id=>V.find(v=>v.id===id);
 const verified=V.filter(v=>v.verified);
 
@@ -41,7 +46,7 @@ const PAIRS=[
 ].map(([a,b])=>{const A=byId(a),B=byId(b);return A&&B?[A,B]:null}).filter(Boolean);
 
 // ---- Vendor pricing explained pages (high-intent, verified only with enough fields)
-const PRICING_IDS=['datadog','newrelic','grafana','sentry','dynatrace','honeycomb','axiom','pagerduty','groundcover','signoz','elastic','posthog','uptimerobot','langfuse'];
+const PRICING_IDS=['datadog','newrelic','grafana','sentry','dynatrace','honeycomb','axiom','pagerduty','groundcover','signoz','elastic','posthog','uptimerobot','langfuse','betterstack','coralogix','helicone','glitchtip','honeybadger','checkly','incidentio','middleware','uptrace','dash0','observe','openobserve','appsignal','healthchecks','statuscake','splunk','rollbar','bugsnag','scoutapm','rootly','langsmith','braintrust','arize','opik','portkey','wandb','oneuptime','firehydrant','zenduty','hyperping','cronitor','papertrail','sematext','loggly','airbrake','trackjs','bugsink','exceptionless','site24x7','openstatus','ilert','squadcast','statuspage','statusgator','laminar','lunary','ohdear'];
 const pricingVendors=PRICING_IDS.map(byId).filter(v=>v&&v.verified);
 
 // ---- Hub
@@ -104,11 +109,13 @@ ${keyStats([
 <div class="grid">${alts.map(a=>`<a class="card" href="../vendors/${a.id}.html"><h3>${esc(a.name)}</h3><p>${pill(a.free)} ${esc((a.free_tier||a.paid_from||'').slice(0,120))}</p></a>`).join('')}</div>
 ${related([
   [`../vendors/${v.id}.html`,`${v.name} free tier page`],
+  [`${v.id}-alternatives.html`,`${v.name} alternatives (cheaper)`],
+  ...((v.id==='datadog'||v.id==='newrelic'||v.id==='grafana')?[[`${v.id}-cost-calculator.html`,`${v.name} cost calculator`]]:[]),
   [`../category/${v.cat}.html`,`${C[v.cat].name} category`],
   ['../compare.html',`Interactive compare`],
   ['index.html','All pricing guides'],
 ])}
-${auditCta(`Comparing ${v.name} against your actual usage?`)}
+${auditCta(`Comparing ${v.name} against your actual usage?`,`See what you’d save on ${esc(v.name)} in 2 minutes`,'audit-guide-pricing-'+v.id)}
 ${cta(`Alert me when ${esc(v.name)} changes pricing`,`We re-check this pricing page weekly.`,'guide-'+v.id,'Subscribe free')}
 ${cite(`${v.name} pricing summary as of ${v.checked}`)}
 ${proBox('../',`Watch ${esc(v.name)} same-day`,`Pro emails within a day of a detected change plus CSV/JSON history.`)}
@@ -168,7 +175,7 @@ ${related([
   [`../vendors/${B.id}.html`,`${B.name} vendor page`],
   [`../compare.html?v=${A.id},${B.id}`,'Interactive compare tool'],
 ])}
-${auditCta(`Choosing between ${A.name} and ${B.name}?`)}
+${auditCta(`Choosing between ${A.name} and ${B.name}?`,`See what you’d save switching stacks in 2 minutes`,'audit-guide-vs-'+A.id+'-'+B.id)}
 ${cta('Get weekly pricing-change alerts','When either vendor moves a free tier or price, we log it with a source.','guide-vs','Subscribe free')}
 ${cite(`${A.name} vs ${B.name} comparison as of ${[A.checked,B.checked].sort().at(-1)}`)}
 `,'../',[
@@ -219,7 +226,7 @@ ${related([
   [`${pick.id}-pricing.html`,`${pick.name} pricing (2026)`],
   ['index.html','All guides'],
 ])}
-${auditCta(`Modeling ${c.name} spend across vendors?`)}
+${auditCta(`Modeling ${c.name} spend across vendors?`,`See what you’d save on ${esc(c.name)} tools in 2 minutes`,'audit-guide-cheap-'+c.id)}
 ${cta(`Watch ${esc(c.name)} pricing weekly`,`When any of these free tiers shrink, we email you with the source.`,'guide-cheap-'+c.id,'Subscribe free')}
 ${cite(`Cheapest ${c.name} free tiers as of ${LAST}`)}
 `,'../',[
@@ -276,7 +283,7 @@ ${alts.map(a=>`<tr><td><a href="../vendors/${a.id}.html">${esc(a.name)}</a></td>
 <li><a href="../subscribe.html?src=cut-${id}">Subscribe</a> so you hear when ${esc(v.name)} changes limits.</li>
 </ol>
 ${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
-${auditCta(`Ready to quantify ${v.name} savings on your numbers?`)}
+${auditCta(`Ready to quantify ${v.name} savings on your numbers?`,`See what you’d save on ${esc(v.name)} in 2 minutes`,'audit-guide-cut-'+id)}
 ${cta(`Watch ${esc(v.name)} for price moves`,'Weekly email when the pricing page changes, with the source link.','guide-cut-'+id,'Subscribe free')}
 ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
 `,'../',[
@@ -285,6 +292,145 @@ ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
     {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
   ]);
   hubLinks.push([file,`How to cut your ${v.name} bill`,`Paid from ${v.paid_from||'n/s'}; free: ${v.has_free_tier?'yes':'no'}.`]);
+}
+
+
+// ---- Alternatives (cheaper) pages for high-intent vendors
+const ALT_IDS=['datadog','newrelic','grafana','sentry','dynatrace','honeycomb','pagerduty','splunk','elastic','axiom','rollbar','bugsnag','uptimerobot','langfuse'];
+for(const id of ALT_IDS){
+  const v=byId(id); if(!v||!v.verified) continue;
+  const file=`guides/${id}-alternatives.html`;
+  const peers=C[v.cat].vs.filter(x=>x.id!==id&&x.verified);
+  if(peers.length<2) continue;
+  const parsePaid=s=>{
+    if(!s||s==='not stated') return null;
+    const m=String(s).replace(/,/g,'').match(/\$?\s*(\d+(?:\.\d+)?)/);
+    return m?Number(m[1]):null;
+  };
+  const vPaid=parsePaid(v.paid_from);
+  const scored=peers.map(a=>{
+    let score=0;
+    if(a.free==='yes') score+=100;
+    const ap=parsePaid(a.paid_from);
+    if(vPaid!=null&&ap!=null&&ap<vPaid) score+=50+(vPaid-ap);
+    else if(ap!=null&&vPaid==null) score+=10;
+    if(a.oss_self_host&&a.oss_self_host!=='not stated'&&/self|oss|open/i.test(String(a.oss_self_host))) score+=15;
+    return {a,score,ap};
+  }).sort((x,y)=>y.score-x.score||x.a.name.localeCompare(y.a.name));
+  const cheaper=scored.filter(x=>x.score>=50||x.a.free==='yes');
+  const top=cheaper.length?cheaper:scored.slice(0,8);
+  const answer=`As of ${v.checked}, ${v.name} states paid entry as ${v.paid_from||'not stated'}${v.has_free_tier?` and a free plan (${v.free_tier})`:` with no free plan (${v.free_tier||'trial / paid only'})`}. Among ${peers.length} verified ${C[v.cat].name} peers in our dataset, ${top.filter(x=>x.a.free==='yes').length} list a free plan and ${top.filter(x=>vPaid!=null&&x.ap!=null&&x.ap<vPaid).length} state a lower numeric paid_from than ${v.name}. We never invent a blended bill — compare stated fields below or run the free savings estimate.`;
+  const faq=[
+    [`What are cheaper ${v.name} alternatives?`, answer],
+    [`Does ${v.name} have a free tier?`, v.has_free_tier?`Yes: ${v.free_tier}`:`No free plan stated: ${v.free_tier||'trial / paid only'}`],
+    ['How do you decide “cheaper”?', 'Only from recorded free-tier presence and stated paid_from figures in vendors.json. No invented unit costs. Use the free audit estimate for usage-based savings.'],
+    ['Last verified?', `${v.name}: ${v.checked} (${v.url}). Peers use their own check dates in the table.`],
+  ];
+  const rows=top.slice(0,12).map(({a,ap})=>`<tr>
+<td><a href="../vendors/${a.id}.html"><b>${esc(a.name)}</b></a></td>
+<td>${pill(a.free)}</td>
+<td class="sm">${esc(a.free_tier||'—')}</td>
+<td class="sm">${esc(a.paid_from||'not stated')}</td>
+<td class="sm mut">${esc(a.checked)}</td>
+<td class="sm">${vPaid!=null&&ap!=null&&ap<vPaid?'Lower stated paid_from':a.free==='yes'?'Has free plan':'Peer'}</td>
+</tr>`).join('');
+  P(file,`${v.name} alternatives (cheaper) 2026 — free tiers & paid entry | ${SITE}`,`Cheaper ${v.name} alternatives from verified free tiers and stated paid_from prices (checked ${v.checked}).`,`
+${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'},{href:'#',label:`${v.name} alternatives`}])}
+<div class="eyebrow">Alternatives · sourced · verified ${esc(v.checked)}</div>
+<h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">${esc(v.name)} alternatives (cheaper)</h1>
+<p class="lede" style="font-size:18px;color:var(--mut);max-width:760px"><b>Answer:</b> ${esc(answer)}</p>
+${keyStats([
+  [`${v.name} paid from`, v.paid_from||'not stated'],
+  [`${v.name} free`, v.has_free_tier?v.free_tier:'No free plan'],
+  ['Verified peers in category', String(peers.length)],
+  ['Listed alternatives', String(top.slice(0,12).length)],
+  ['Last verified', v.checked],
+  ['Source', v.url],
+])}
+<h2>${esc(v.name)} at a glance</h2>
+<div class="tw"><table><thead><tr><th>Field</th><th>Recorded value</th></tr></thead><tbody>
+<tr><td>Free plan</td><td>${esc(v.free_plan||(v.has_free_tier?'Free':'None'))}</td></tr>
+<tr><td>Free limits</td><td>${esc(v.free_tier||'—')}</td></tr>
+<tr><td>Paid from</td><td>${esc(v.paid_from||'not stated')}</td></tr>
+<tr><td>Pricing model</td><td>${esc(v.pricing_model||'not stated')}</td></tr>
+</tbody></table></div>
+<h2>Verified alternatives in ${esc(C[v.cat].name)}</h2>
+<div class="tw"><table><thead><tr><th>Vendor</th><th>Free?</th><th>Free limits</th><th>Paid from</th><th>Checked</th><th>Why listed</th></tr></thead><tbody>${rows}</tbody></table></div>
+${related([
+  [`${id}-pricing.html`,`${v.name} pricing (2026)`],
+  ...(id==='datadog'||id==='newrelic'||id==='grafana'?[[`${id}-cost-calculator.html`,`${v.name} cost calculator`]]:[]),
+  [`../vendors/${id}.html`,`${v.name} vendor page`],
+  [`../category/${v.cat}.html`,`${C[v.cat].name} category`],
+  [`../compare.html?v=${id},${top[0]?.a.id||''}`,'Interactive compare'],
+])}
+${auditCta(`Quantify switching off ${v.name} on your real usage.`, `See what you’d save on ${esc(v.name)} in 2 minutes`, 'audit-guide-alts-'+id)}
+${cta(`Watch ${esc(v.name)} and peers for price moves`,'Weekly email when a free tier or paid_from changes, with the source.','guide-alts-'+id,'Subscribe free')}
+${cite(`${v.name} alternatives as of ${v.checked}`)}
+`,'../',[
+    ORG,
+    crumbLd([{label:'Home',href:BASE+'/'},{label:'Guides',href:BASE+'/guides/'},{label:`${v.name} alternatives`,href:BASE+'/'+file}]),
+    {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
+  ]);
+  hubLinks.push([file,`${v.name} alternatives (cheaper)`,`Peers with free plans / lower stated paid_from vs ${v.paid_from||'n/s'}.`]);
+}
+
+// ---- Cost calculator landing pages (SEO → free audit)
+for(const id of ['datadog','newrelic','grafana']){
+  const v=byId(id); if(!v||!v.verified) continue;
+  const file=`guides/${id}-cost-calculator.html`;
+  const alts=C[v.cat].vs.filter(x=>x.id!==id&&x.verified).slice(0,6);
+  const answer=`The ${v.name} cost calculator on O11y Watch is the free Observability Cost & Stack Audit: enter hosts, log GB/day, metric series, spans, retention and seats; it models spend from public rates in our dataset (checked ${v.checked}). ${v.name} paid_from is recorded as ${v.paid_from||'not stated'}; pricing model: ${v.pricing_model||'not stated'}. Free teaser shows a savings range; full report is $${AUDIT_PRICE}.`;
+  const faq=[
+    [`Is there a free ${v.name} cost calculator?`, `Yes — start the free savings estimate at ${AUDIT}. It runs in your browser against O11y Watch rates.`],
+    [`What ${v.name} price does it use?`, `Stated fields from ${v.url} checked ${v.checked}: paid_from ${v.paid_from||'not stated'}; model ${v.pricing_model||'not stated'}. Gaps are labeled, never invented.`],
+    ['Is this a quote?', 'No. Estimates only. Verify on the vendor pricing page before buying.'],
+  ];
+  P(file,`${v.name} cost calculator (2026) — free savings estimate | ${SITE}`,`Free ${v.name} cost calculator: model spend from your usage and O11y Watch public rates (checked ${v.checked}).`,`
+${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'},{href:'#',label:`${v.name} cost calculator`}])}
+<div class="eyebrow">Cost calculator · free estimate · verified rates ${esc(v.checked)}</div>
+<h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">${esc(v.name)} cost calculator</h1>
+<p class="lede" style="font-size:18px;color:var(--mut);max-width:760px"><b>Answer:</b> ${esc(answer)}</p>
+${keyStats([
+  ['Paid from (dataset)', v.paid_from||'not stated'],
+  ['Pricing model', v.pricing_model||'not stated'],
+  ['Free tier', v.has_free_tier?v.free_tier:'None stated'],
+  ['Last verified', v.checked],
+  ['Source', v.url],
+  ['Full report', '$'+AUDIT_PRICE],
+])}
+${auditCta(`Open the calculator with ${v.name} as your primary vendor context.`, `See what you’d save on ${esc(v.name)} in 2 minutes`, 'audit-calc-'+id)}
+<h2>What the dataset knows about ${esc(v.name)}</h2>
+<div class="tw"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody>
+<tr><td>Free plan</td><td>${esc(v.free_plan||(v.has_free_tier?'Free':'None'))}</td></tr>
+<tr><td>Free limits</td><td>${esc(v.free_tier||'—')}</td></tr>
+<tr><td>Paid from</td><td>${esc(v.paid_from||'not stated')}</td></tr>
+<tr><td>Model</td><td>${esc(v.pricing_model||'not stated')}</td></tr>
+<tr><td>Gotchas</td><td>${esc((v.gotchas||[]).join('; ')||'none recorded')}</td></tr>
+</tbody></table></div>
+<h2>How to use it</h2>
+<ol style="max-width:720px">
+<li>Click <b>Start free savings estimate</b> (runs entirely in your browser).</li>
+<li>Select ${esc(v.name)} as your primary vendor and enter hosts, GB/day, series, spans, retention and seats.</li>
+<li>Read the free top-line savings range. Unlock the full ranked report for $${AUDIT_PRICE} if you need levers and a migration plan.</li>
+</ol>
+<h2>Related alternatives</h2>
+<div class="grid">${alts.map(a=>`<a class="card" href="../vendors/${a.id}.html"><h3>${esc(a.name)}</h3><p>${pill(a.free)} ${esc((a.paid_from||a.free_tier||'').slice(0,100))}</p></a>`).join('')}</div>
+${related([
+  [`${id}-pricing.html`,`${v.name} pricing (2026)`],
+  [`${id}-alternatives.html`,`${v.name} alternatives (cheaper)`],
+  ...(id==='datadog'||id==='newrelic'?[[`cut-${id}-bill.html`,`How to cut your ${v.name} bill`]]:[]),
+  [`../vendors/${id}.html`,`${v.name} vendor page`],
+  ['../audit.html','Observability Cost & Stack Audit'],
+])}
+${cta(`Alert me when ${esc(v.name)} pricing changes`,'Weekly email with the source link.','guide-calc-'+id,'Subscribe free')}
+${cite(`${v.name} cost calculator context as of ${v.checked}`)}
+`,'../',[
+    ORG,
+    crumbLd([{label:'Home',href:BASE+'/'},{label:'Guides',href:BASE+'/guides/'},{label:`${v.name} cost calculator`,href:BASE+'/'+file}]),
+    {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))},
+    {'@context':'https://schema.org','@type':'WebApplication',name:`${v.name} cost calculator`,url:BASE+'/'+file,applicationCategory:'BusinessApplication',offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}
+  ]);
+  hubLinks.push([file,`${v.name} cost calculator`,`Free usage-based estimate → /audit (rates checked ${v.checked}).`]);
 }
 
 // ---- Hub page
@@ -305,7 +451,7 @@ ${keyStats([
   ['Dataset last check', LAST||'—'],
 ])}
 <div class="grid">${hubLinks.map(([h,t,d])=>`<a class="card" href="${h.split('/').pop()}"><h3>${esc(t)}</h3><p>${esc(d)}</p></a>`).join('')}</div>
-${auditCta('Use these guides to shortlist vendors, then estimate your stack.')}
+${auditCta('Use these guides to shortlist vendors, then estimate your stack.','See what you’d save on Datadog / New Relic in 2 minutes','audit-guides-hub')}
 ${cta('Get every pricing change by email','Free weekly digest across all tracked vendors.','guides-hub','Subscribe free')}
 ${cite(`O11y Watch pricing guides hub as of ${LAST}`)}
 `,'../',[
