@@ -1,6 +1,13 @@
 [
  {
   "date": "2026-10-31",
+  "vendor": "Middleware",
+  "type": "correction",
+  "summary": "O11y Watch correction: our cost audit could show Middleware (and New Relic) at $0/mo for 20 APM hosts and 50M spans, and rank it first. Per middleware.io/pricing (re-read 2026-10-31), Middleware charges $0.3 per GB of uncompressed logs, metrics and traces, with 100 GB/month free. It publishes no per-host fee, per-span rate or bytes-per-span factor, so span counts cannot be priced. The audit now lists Middleware as insufficient data in that case instead of $0. Any paid alternative that would compute to $0 for real usage is now treated the same way unless a published free allowance covers it. The audit also ranks by savings first: an option that costs more than your current bill is always ranked below cheaper options and labelled 'costs more than your current bill'. Example: for 20 infrastructure-only hosts on a $400/mo bill, Dynatrace ($580/mo) is now labelled +$180/mo. Confidence is still shown as a secondary signal.",
+  "source": "https://middleware.io/pricing/"
+ },
+ {
+  "date": "2026-10-31",
   "vendor": "Dynatrace",
   "type": "correction",
   "summary": "O11y Watch correction: our cost audit priced every Dynatrace host at $7/mo, which is the Foundation & Discovery tier (basic infrastructure only). It could show Dynatrace as a cheap APM alternative. Per dynatrace.com/pricing (re-read 2026-10-31), the audit now uses the tier that matches what you are replacing. For APM/full-stack, that is Full-Stack Monitoring at $58/mo per 8 GiB host (billed $0.01 per memory-GiB-hour, so larger hosts cost more). For infrastructure only, it is Infrastructure Monitoring at $29/mo per host. Rates draw down from an annual Dynatrace Platform Subscription commitment. Example: 20 APM hosts was modeled at $140/mo and is now $1,160/mo.",

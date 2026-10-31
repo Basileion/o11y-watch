@@ -314,6 +314,30 @@ for(const [k,inp] of scen){const res=eng.runAudit(inp,R);const d=(res.alternativ
 const tot=d?d.total:ins?ins.modeled_partial_total:null;if(tot==null){bad.push(`${k}: Dynatrace not modeled`);continue}
 const per=tot/inp.hosts;if(per<apmT.mo-0.01)bad.push(`${k}: Dynatrace APM modeled at ${per.toFixed(2)}/host (< Full-Stack ${apmT.mo})`);}
 if(bad.length){console.error(`Dynatrace tier guard: ${bad.length} problem(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log(`dynatrace tier guard: APM modeled at Full-Stack $${apmT.mo}/${apmT.unit}, infra-only at $${infT.mo}/${infT.unit}, never the $${BASIC} basic tier`)}
+// Build guard (RT-20261031-54 + RT-20261031-55): run the BUILT audit engine on red-team scenarios and fail on regression.
+// -54: an option that costs more than the current bill is never ranked above a cheaper option and is always labelled.
+// -55: a paid alternative may not compute to $0 for non-zero usage unless a published free allowance explains every used dimension
+//      (Middleware bills GB only, so spans without GB volume must be "insufficient data", never $0).
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?r='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const bad=[];
+const dd={vendors:['datadog'],primary_vendor:'datadog'};
+const scen=[['RT-54 infra-only 20 hosts $400 bill',{...dd,plans:'Infrastructure Pro',hosts:20,monthly_spend:400}],['infra-only 20 hosts no bill',{...dd,plans:'Infrastructure Pro',hosts:20}],
+['RT-55 20 APM hosts + 50M spans $2,000 bill',{...dd,plans:'Pro + APM',hosts:20,spans_mo:5e7,monthly_spend:2000}],['20 APM hosts + 50M spans no bill',{...dd,hosts:20,spans_mo:5e7}],
+['logs 10 GB/day + 50M spans',{...dd,log_gb_day:10,spans_mo:5e7,monthly_spend:500}],['logs 2 GB/day (within free GB)',{...dd,log_gb_day:2,monthly_spend:300}],['logs 10 GB/day',{...dd,log_gb_day:10,monthly_spend:500}],
+['NR 60 hosts mixed',{vendors:['newrelic'],primary_vendor:'newrelic',hosts:60,log_gb_day:25,metric_series:80000,spans_mo:4e7,users:14,monthly_spend:3100}],
+['Grafana 40 hosts',{vendors:['grafana'],primary_vendor:'grafana',hosts:40,log_gb_day:15,metric_series:220000,spans_mo:1.5e7,users:8,monthly_spend:1400}],
+['Datadog 180 hosts',{...dd,plans:'Infra Pro + APM + Logs',hosts:180,log_gb_day:75,metric_series:400000,spans_mo:1.2e8,users:18,monthly_spend:8200}]];
+for(const h of [5,20,100])for(const bill of [0,150,600,3000])scen.push([`grid ${h} hosts bill ${bill}`,{...dd,hosts:h,monthly_spend:bill}],[`grid ${h} hosts + spans bill ${bill}`,{...dd,hosts:h,spans_mo:2e7,monthly_spend:bill}]);
+const out55={},out54={};
+for(const [k,inp] of scen){const r=eng.runAudit(inp,R),rk=r.ranked||[],base=r.current.baseline_mo;
+ rk.forEach((x,i)=>{if(base>0&&x.savings_mo!=null&&x.savings_mo<0&&!(x.costs_more&&/costs more than your current bill/i.test(x.costs_more_label||'')))bad.push(`${k}: #${i+1} ${x.name} costs ${x.monthly} > bill ${base} but is not labelled 'costs more'`);
+  for(let j=i+1;j<rk.length;j++){const y=rk[j];if(base>0&&x.costs_more&&!y.costs_more)bad.push(`${k}: #${i+1} ${x.name} (costs more) ranked above cheaper #${j+1} ${y.name}`);if(x.costs_more&&y.costs_more&&x.monthly>y.monthly)bad.push(`${k}: #${i+1} ${x.name} ${x.monthly} ranked above cheaper #${j+1} ${y.name} ${y.monthly}`)}});
+ for(const a of r.alternatives||[]){if(a.kind!=='saas'||!a.modeled||a.total!==0)continue;const used=eng.buyerDimensions(r.usage);if(!used.length)continue;const dims=new Set((a.lines||[]).map(l=>l.dim));const req=(a.coverage&&a.coverage.required)||used;const un=req.filter(d=>!dims.has(d));
+  if(un.length)bad.push(`${k}: paid alternative ${a.name} computes to $0/mo for non-zero usage (${un.join(', ')}) with no published free allowance covering it`)}
+ if(k.startsWith('RT-54')){const i=rk.findIndex(x=>x.id==='dynatrace');out54.rank=i+1;out54.d=rk[i];if(i<0||!rk[i].costs_more)bad.push(`${k}: Dynatrace (+$180/mo) not ranked/labelled 'costs more'`);}
+ if(k.startsWith('RT-55')){const m=rk.find(x=>x.id==='middleware');const ins=(r.insufficient_pricing||[]).find(x=>x.id==='middleware');out55.ins=!!ins;if(m)bad.push(`${k}: Middleware ranked at ${m.monthly}/mo; it publishes no per-host/per-span rate, must be insufficient data`);if(!ins)bad.push(`${k}: Middleware not listed under insufficient data`);}}
+const mw=R.vendors?.middleware?.rates||{};if(!mw.telemetry_gb_only)bad.push('audit-rates middleware.rates.telemetry_gb_only must be true (bills GB of logs+metrics+traces only; no per-host/span rate published)');
+if(bad.length){console.error(`Audit ranking/$0 guard: ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+console.log(`audit ranking/$0 guard: ${scen.length} scenarios OK; RT-54 Dynatrace #${out54.rank} labelled '${out54.d.costs_more_label}'; RT-55 Middleware = insufficient data (not $0); no paid $0 without a covering free allowance`)}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);

@@ -111,6 +111,15 @@
         "partial_total": 945
       },
       {
+        "name": "Middleware",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 645
+      },
+      {
         "name": "Dynatrace",
         "missing": [
           "logs",
@@ -137,7 +146,7 @@
       "Log volume filters: ~$2050/mo",
       "Seat / user rationalization: ~$820/mo"
     ],
-    "gap_count": 42,
+    "gap_count": 43,
     "migration_steps": 4
   },
   {
@@ -252,6 +261,15 @@
         "partial_total": 315
       },
       {
+        "name": "Middleware",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 195
+      },
+      {
         "name": "Dynatrace",
         "missing": [
           "logs",
@@ -286,7 +304,7 @@
       "Log volume filters: ~$775/mo",
       "Seat / user rationalization: ~$310/mo"
     ],
-    "gap_count": 29,
+    "gap_count": 30,
     "migration_steps": 4
   },
   {
@@ -419,13 +437,22 @@
         ],
         "reason": "Missing public unit rates for: metrics, traces",
         "partial_total": 189
+      },
+      {
+        "name": "Middleware",
+        "missing": [
+          "metrics",
+          "traces"
+        ],
+        "reason": "Missing public unit rates for: metrics, traces",
+        "partial_total": 105
       }
     ],
     "levers": [
       "Trace/span sampling: ~$280/mo",
       "Seat / user rationalization: ~$140/mo"
     ],
-    "gap_count": 29,
+    "gap_count": 30,
     "migration_steps": 0
   }
 ]

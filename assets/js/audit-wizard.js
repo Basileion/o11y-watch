@@ -211,9 +211,12 @@
 
   function renderFullReport(report) {
     const cur = report.current;
-    const rankedRows = report.ranked.map((r) => `
+    // RT-20261031-54: options that cost more than the current bill sit below every cheaper option, under their own divider.
+    const firstMore = report.ranked.findIndex((r) => r.costs_more);
+    const rankedRows = report.ranked.map((r, i) => `${i === firstMore ? `
+      <tr><td colspan="5" class="sm" style="background:#fdf1f1"><b>Costs more than your current bill</b> — shown for comparison only, cheapest first. Not counted as savings.</td></tr>` : ''}
       <tr>
-        <td><b>${esc(r.name)}</b><div class="sm mut">${esc(r.kind)}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
+        <td><b>${esc(r.name)}</b>${r.costs_more ? `<div class="sm" style="color:#a40000;font-weight:600">${esc(r.costs_more_label || 'Costs more than your current bill')}</div>` : ''}<div class="sm mut">${esc(r.kind)}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
         <td>${money(r.monthly)}/mo${r.monthly_low != null && r.monthly_high != null && r.kind === 'self_hosted' ? ` <span class="sm mut">(${money(r.monthly_low)}–${money(r.monthly_high)})</span>` : ''}</td>
         <td>${r.savings_mo == null ? '—' : money(r.savings_mo) + '/mo'}${r.savings_pct != null ? ` <span class="sm mut">(${r.savings_pct}%)</span>` : ''}</td>
         <td><span class="pill">${esc(r.effort.label)}</span></td>
@@ -224,6 +227,7 @@
       <div class="card">
         <h3 style="margin:0 0 6px;font-size:16px">${esc(a.name)}</h3>
         <div class="amt" style="font-size:28px">${money(a.total)}<span class="sm">/mo est.</span></div>
+        ${a.savings_mo != null && a.savings_mo < 0 && cur.baseline_mo > 0 ? `<p class="sm" style="color:#a40000;font-weight:600">Costs more than your current bill (+${money(-a.savings_mo)}/mo)</p>` : ''}
         <p class="sm mut">Savings vs baseline: ${a.savings_mo == null ? '—' : money(a.savings_mo) + '/mo'} · Effort: ${esc(a.effort.label)} · Confidence: ${esc(a.confidence)}</p>
         <div class="sm">${(a.lines || []).map((l) => `<div>${esc(l.label)}: <b>${money(l.amount)}</b></div>`).join('') || '<i class="mut">No modeled lines</i>'}</div>
         ${gapList(a.gaps)}
@@ -291,7 +295,7 @@
 
         <section>
           <h3>Ranked savings</h3>
-          <p class="sm mut">Only vendors with public rates for every dimension you use. Confidence High / Medium / Low reflects coverage folds and realism floor vs your invoice.</p>
+          <p class="sm mut">Only vendors with public rates for every dimension you use. Ranked by savings vs your current bill: options that cost more than your bill always sit below cheaper ones. Confidence (High / Medium / Low) is a secondary signal that reflects coverage folds and the realism floor vs your invoice.</p>
           <div class="tw"><table>
             <thead><tr><th>Option</th><th>Est. monthly</th><th>Savings</th><th>Effort</th><th>Confidence</th></tr></thead>
             <tbody>${rankedRows}</tbody>

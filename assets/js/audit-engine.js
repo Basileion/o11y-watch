@@ -129,9 +129,16 @@ export function createAuditEngine() {
     // All-in-one GB meter: vendor publishes one $/GB for metrics+logs+traces.
     if (model === 'per_gb_all' && rates.log_gb != null) {
       covered.add('logs');
-      covered.add('metrics');
-      covered.add('traces');
-      foldNotes.push('Single $/GB meter covers logs+metrics+traces; volume proxy is survey log GB/mo only (metrics/trace bytes not converted).');
+      if (rates.telemetry_gb_only) {
+        // RT-20261031-55: vendor bills only GB of (uncompressed) telemetry and publishes no
+        // per-host / per-span / per-series rate or bytes-per-span factor. Span and series
+        // COUNTS cannot be converted to GB without inventing a factor → not covered
+        // (vendor goes to "insufficient data" instead of being modeled at $0).
+      } else {
+        covered.add('metrics');
+        covered.add('traces');
+        foldNotes.push('Single $/GB meter covers logs+metrics+traces; volume proxy is survey log GB/mo only (metrics/trace bytes not converted).');
+      }
     }
 
     // New Relic-style user + ingest GB: ingest GB stands in for logs; metrics/traces
@@ -319,7 +326,13 @@ export function createAuditEngine() {
         if (rates.log_gb != null) add(`Logs/data (${billGb.toFixed(0)} GB × ${money(rates.log_gb)})`, billGb * rates.log_gb, { dim: 'logs' });
         if (vdef.model === 'per_gib_logs') gap('metrics', 'Per-DPM metrics rate not in dataset');
         if (vdef.model === 'per_gb_all') {
-          gap('volume_proxy', 'All-in-one $/GB applied to log GB/mo only — metrics/trace byte volume not added');
+          if (rates.telemetry_gb_only) {
+            if (usage.spans_mo >= MATERIAL.spans_mo) gap('traces', `${vdef.name} bills traces by GB of data volume (${money(rates.log_gb)}/GB); it publishes no per-span rate or bytes-per-span factor, so ${(usage.spans_mo / 1e6).toLocaleString('en-US')}M spans/mo cannot be priced`);
+            if (usage.metric_series >= MATERIAL.metric_series) gap('metrics', `${vdef.name} bills metrics by GB of data volume; it publishes no per-series rate, so active series cannot be priced`);
+            if (usage.hosts >= MATERIAL.hosts) gap('hosts', `${vdef.name} has no per-host fee; host telemetry is billed as GB of data volume, which this survey does not collect per host`);
+          } else {
+            gap('volume_proxy', 'All-in-one $/GB applied to log GB/mo only — metrics/trace byte volume not added');
+          }
         }
         break;
       }
@@ -569,7 +582,18 @@ export function createAuditEngine() {
       const m = modelVendor(vdef, usage);
       const eff = effortFrom(vdef, usage.primary_vendor);
 
-      if (!cov.complete) {
+      // RT-20261031-55: a paid alternative may only compute to $0 for non-zero usage when every
+      // required dimension is explained by a modeled line (i.e. a published free allowance in the
+      // survey's units, e.g. "within 100 GB free"). Otherwise it is "insufficient data", never $0.
+      let zeroReason = null;
+      if (cov.complete && m.modeled && m.total === 0 && cov.required.length) {
+        const lineDims = new Set(m.lines.map((l) => l.dim));
+        const unexplained = cov.required.filter((d) => !lineDims.has(d));
+        if (unexplained.length) zeroReason = `Computes to $0/mo for non-zero usage, but no published free allowance covers: ${unexplained.join(', ')} — insufficient data, not shown as $0`;
+        cov.missing = unexplained;
+      }
+
+      if (!cov.complete || zeroReason) {
         insufficient.push({
           id: m.id,
           name: m.name,
@@ -579,9 +603,9 @@ export function createAuditEngine() {
           missing: cov.missing,
           required: cov.required,
           covered: cov.covered,
-          reason: cov.missing.length
+          reason: zeroReason || (cov.missing.length
             ? `Missing public unit rates for: ${cov.missing.join(', ')}`
-            : 'No required usage dimensions to model',
+            : 'No required usage dimensions to model'),
           gaps: m.gaps,
           // Never attach savings for insufficient coverage
           modeled_partial_total: m.modeled ? m.total : null,
@@ -663,6 +687,9 @@ export function createAuditEngine() {
         monthly_high: a.total_high_mo ?? a.total,
         savings_mo: a.savings_mo,
         savings_pct: a.savings_pct,
+        // RT-20261031-54: options that cost more than the current bill are flagged and ranked below every cheaper option.
+        costs_more: currentCost > 0 && a.savings_mo != null && a.savings_mo < 0,
+        costs_more_label: currentCost > 0 && a.savings_mo != null && a.savings_mo < 0 ? `Costs more than your current bill (+${money(-a.savings_mo)}/mo)` : null,
         confidence: a.confidence,
         effort: a.effort,
         gaps: a.gaps,
@@ -673,7 +700,12 @@ export function createAuditEngine() {
           : null
       }))
       .sort((a, b) => {
-        // Confidence first (never let Low-confidence "$7k savings" outrank Medium TCO).
+        // RT-20261031-54: savings come first. An option that costs more than the current bill is
+        // never ranked above a cheaper option; among those, cheapest first. Confidence is secondary.
+        if (a.costs_more !== b.costs_more) return a.costs_more ? 1 : -1;
+        if (a.costs_more && b.costs_more) return (a.monthly - b.monthly) || 0;
+        // Among options that save money (or when no baseline exists): confidence first
+        // (never let Low-confidence "$7k savings" outrank Medium TCO), then savings.
         const confScore = { high: 2, medium: 1, low: 0, none: -1 };
         const ca = confScore[a.confidence] ?? -1;
         const cb = confScore[b.confidence] ?? -1;
@@ -934,7 +966,7 @@ export function createAuditEngine() {
     assessCoverage,
     estimateSelfHostInfra,
     money,
-    version: 2,
+    version: 3,
     FLOOR_FRACTION,
     MAX_TEASER_SAVE_PCT
   };

@@ -280,19 +280,25 @@
       "id": "middleware",
       "name": "Middleware",
       "url": "https://middleware.io/pricing/",
-      "checked": "2026-10-24",
+      "checked": "2026-10-31",
       "source_fields": ["paid_from", "pricing_model", "free_tier"],
       "model": "per_gb_all",
       "rates": {
         "log_gb": 0.3,
+        "data_gb": 0.3,
+        "telemetry_gb_only": true,
         "host_mo_annual": null,
+        "span_million": null,
+        "metric_series_1k": null,
         "user_mo": null,
         "platform_fee_mo": null,
         "free_gb_mo": 100
       },
       "free": { "gb_mo": 100 },
       "notes": [
-        "$0.3/GB metrics, logs, traces; free plan lists 100 GB data volume."
+        "middleware.io/pricing (re-read 2026-10-31): Pay As You Go is $0.3 per GB of metrics, logs and traces. Data volume is the sum of uncompressed logs, metrics and traces, measured daily (10 GB/day = 300 GB/month). Free Forever includes 100 GB data/month, 14-day retention and unlimited users; Pay As You Go has 30-day default retention.",
+        "Middleware publishes no per-host fee, no per-span or per-series rate, and no bytes-per-span factor, so host, span and series counts are not converted to GB. With spans or custom metrics but no GB volume for them, Middleware is listed as insufficient data rather than priced.",
+        "RUM $1 per 1K sessions, synthetics $1 per 5K checks and browser tests $10 per 1K runs are published but not modeled (the survey does not collect them)."
       ],
       "oss_self_host": false,
       "alternative": true,
