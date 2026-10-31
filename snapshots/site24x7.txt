@@ -39,7 +39,7 @@ Default plan offerings
 Includes 25 websites
 Transaction monitors
 1 min polling interval
-32 monitoring locations
+1 monitoring location
 Includes RUM page views
 3 status pages
 Supports multiple users
@@ -801,6 +801,7 @@ Collecting and incorporating distributed tracing data.
 Duration for which APM stores data for detailed tracing.
 A poll frequency of 30 seconds will utilize 2 basic monitor licenses, whereas all other polling frequencies will consume 1 basic license each.
 Monitoring locations are customer vantage points geographically dispersed worldwide by Site24x7 or Private locations deployed internally using on-premises poller. There will be a limit on from how many locations a monitor can be checked appropriate to the plan chosen.
+During polling, the availability is collected from only one location, which is randomly selected across the locations.
 You can purchase additional monitoring location checks by purchasing required add-on. This add-on will provide additional checks which can be used to increase number of locations from where the monitoring checks can be performed. Reach out to sales@site24x7.com for details.
 Public page communicating the current operational health of your service.
 Multi-user support enables sharing of resource permissions and functionalities across users.

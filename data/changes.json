@@ -1,5 +1,12 @@
 [
  {
+  "date": "2026-10-31",
+  "vendor": "Site24x7",
+  "type": "plan limit cut",
+  "summary": "The Web Uptime plan ($10/mo, $9/mo annual, 25 websites, 1-min polling) now lists 1 monitoring location instead of 32. The page adds that availability is collected from only one location, randomly selected across locations, on each poll. Price is unchanged; Web Perf ($39/mo, $36 annual) still lists 8 locations and Enterprise Plus Web 16.",
+  "source": "https://www.site24x7.com/site24x7-pricing.html"
+ },
+ {
   "date": "2026-10-30",
   "vendor": "Dash0",
   "type": "new SKU",

@@ -1,25 +1,11 @@
-Transparent Pricing designed for
-Modern Observability
-No user-based pricing | No complex pricing tiers | No misconfiguration penalties
-No hidden fees or surprise overages | No credit card required
-APM
-RUM
-Infrastructure
-Logs
-Serverless
-Database
-Kubernetes
-API analytics
-Synthetic
-Infra vulnerability
-App vulnerability
-APM RUM Infrastructure Logs Serverless Database Kubernetes API analytics Synthetic Infra vulnerability App vulnerability
-Application Performance Monitoring
+Pricing APM · RUM · Infra · Logs · Security
+Transparent Pricing designed for Modern Observability
+No user-based pricing No complex pricing tiers No misconfiguration penalties No hidden fees or surprise overages No credit card required
+APM Application Performance Monitoring
 Track transactions, optimize performance, and monitor every request without overpaying. Atatus APM offers 3x more cost-effective observability than Datadog, with transparent pricing and no hidden fees.
-Custom Pricing
+Plan Custom Pricing
 Get a tailored pricing plan based on your infrastructure size, data volume, and specific monitoring needs.
-Schedule a Call
-14-day free trial included. No credit card needed.
+Schedule a Call 14-day free trial included. No credit card needed.
 What’s Included with Application Performance Monitoring?
 Full-stack transaction visibility
 Code-level performance tracing
@@ -45,3 +31,14 @@ What happens if I exceed my plan's request limit?
 If you exceed your plan's request limit, Atatus will notify you. You can then choose to upgrade your plan to accommodate the increased volume.
 Is support included in the APM pricing?
 Yes, Atatus includes support in all subscription plans, with priority support available for enterprise plans.
+Compare & Estimate Why teams switch to Atatus for predictable costs
+Avoid per-seat user fees, custom metrics overages, and surprise renewal bills. Estimate your ROI or compare Atatus side-by-side against legacy APM vendors.
+ROI & TCO Observability Value Calculator
+Estimate how much engineering time and cloud monitoring spend your team can save by consolidating APM, logs, RUM, and infra into Atatus.
+Open Value Calculator
+Pricing Breakdown Atatus vs Datadog vs New Relic Pricing
+See how host-based pricing with unlimited team seats compares against per-user licensing and complex ingestion tiers at 10, 50, and 200+ hosts.
+Read Pricing Guide
+15-Minute Switch Migrate from Datadog, New Relic or Dynatrace
+Drop-in OpenTelemetry and lightweight agent migration with zero downtime. Compare features side-by-side before you switch.
+vs Datadog vs New Relic vs Dynatrace
