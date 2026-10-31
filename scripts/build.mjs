@@ -164,7 +164,7 @@ W('og.svg',`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><r
 const LAST=raw.map(v=>v.checked||'').sort().at(-1);
 const FAQ=[['Where does the data come from?',`From each vendor’s own public pricing page. We save a snapshot, a person records the plan limits (verbatim where possible), and every vendor page links to the source and shows the date it was checked. ${nVer} of ${V.length} vendors are verified so far; the rest are labeled Unverified.`],
 ['How often is it updated?','An automated check re-reads every pricing page weekly. Meaningful changes are reviewed by hand and added to the public change log and RSS feed.'],
-['Is it free?','Yes. The directory, comparisons, change log, JSON API and weekly newsletter are free. Pro ($6/mo, cancel anytime) adds same-day alerts, CSV/JSON exports and the saved snapshot history (since ${SH_FIRST}, gaps marked).'],
+['Is it free?',`Yes. The directory, comparisons, change log, JSON API and weekly newsletter are free. Pro ($6/mo, cancel anytime) adds same-day alerts, CSV/JSON exports and the saved snapshot history (since ${SH_FIRST}, gaps marked).`],
 ['Do vendors pay to be listed or ranked?','No. Sponsorships are always labeled and can’t change data, gotchas or picks. Some “Try it” links may be affiliate links; they are disclosed next to the link.'],
 ['What counts as a pricing change?','Price increases or cuts, free tiers removed, shrunk or added, plan sunsets, and pricing pages that move. Each entry links to the page it came from.'],
 ['Can my AI agent use this?','Yes — see /llms.txt and the free JSON API with an OpenAPI spec. No key needed.']];
@@ -330,7 +330,7 @@ const scen=[['RT-54 infra-only 20 hosts $400 bill',{...dd,plans:'Infrastructure 
 for(const h of [5,20,100])for(const bill of [0,150,600,3000])scen.push([`grid ${h} hosts bill ${bill}`,{...dd,hosts:h,monthly_spend:bill}],[`grid ${h} hosts + spans bill ${bill}`,{...dd,hosts:h,spans_mo:2e7,monthly_spend:bill}]);
 const out55={},out54={};
 for(const [k,inp] of scen){const r=eng.runAudit(inp,R),rk=r.ranked||[],base=r.current.baseline_mo;
- rk.forEach((x,i)=>{if(base>0&&x.savings_mo!=null&&x.savings_mo<0&&!(x.costs_more&&/costs more than your current bill/i.test(x.costs_more_label||'')))bad.push(`${k}: #${i+1} ${x.name} costs ${x.monthly} > bill ${base} but is not labelled 'costs more'`);
+ rk.forEach((x,i)=>{if(base>0&&x.savings_mo!=null&&x.savings_mo<0&&!(x.costs_more&&/costs more/i.test(x.costs_more_label||'')))bad.push(`${k}: #${i+1} ${x.name} costs ${x.monthly} > bill ${base} but is not labelled 'costs more'`);
   for(let j=i+1;j<rk.length;j++){const y=rk[j];if(base>0&&x.costs_more&&!y.costs_more)bad.push(`${k}: #${i+1} ${x.name} (costs more) ranked above cheaper #${j+1} ${y.name}`);if(x.costs_more&&y.costs_more&&x.monthly>y.monthly)bad.push(`${k}: #${i+1} ${x.name} ${x.monthly} ranked above cheaper #${j+1} ${y.name} ${y.monthly}`)}});
  for(const a of r.alternatives||[]){if(a.kind!=='saas'||!a.modeled||a.total!==0)continue;const used=eng.buyerDimensions(r.usage);if(!used.length)continue;const dims=new Set((a.lines||[]).map(l=>l.dim));const req=(a.coverage&&a.coverage.required)||used;const un=req.filter(d=>!dims.has(d));
   if(un.length)bad.push(`${k}: paid alternative ${a.name} computes to $0/mo for non-zero usage (${un.join(', ')}) with no published free allowance covering it`)}
@@ -424,3 +424,58 @@ if(bad.length){console.error(`Answer-box unit guard: ${bad.length} problem(s):\n
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-30),x.index+50).replace(/\s+/g,' '))}}};walk(out);
 if(!SH_FIRST)bad.push('data/snapshot-history.json missing first date (run node scripts/snapshot-history.mjs)');
 if(bad.length){console.error(`Promise guard: ${bad.length} over-promise(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log(`promise guard: 0 over-promises; snapshot history ${SH_N} versions since ${SH_FIRST}`)}
+
+// Build guard (RT-20261031-115): no uninterpolated ${CONST} leftovers in public HTML/JSON-LD (homepage FAQ previously leaked ${SH_FIRST}).
+{const bad=[];const re=/\$\{[A-Z_][A-Z0-9_]*\}/g;
+ // HTML/JSON-LD/XML only — shipped JS legitimately contains runtime templates like ${SPAN_BYTES}.
+const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|json|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s))){const snip=s.slice(Math.max(0,x.index-20),x.index+40).replace(/\s+/g,' ');
+ bad.push(path.relative(out,p)+': '+snip)}}}};walk(out);
+ // Homepage FAQ must interpolate SH_FIRST (regression of RT-115).
+const home=fs.readFileSync(path.join(out,'index.html'),'utf8');
+if(home.includes('${SH_FIRST}'))bad.push('index.html still contains literal ${SH_FIRST}');
+if(!/since 20\d{2}-\d{2}-\d{2}/.test(home))bad.push('index.html FAQ missing interpolated snapshot-history start date');
+if(bad.length){console.error(`Template-literal guard: ${bad.length} uninterpolated \${CONST} in dist:\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('template-literal guard: 0 uninterpolated ${CONST} in HTML/JSON-LD; homepage FAQ date OK')}
+// Build guard (RT-20261031-111): pre-unlock storage/HTML must never hold full-report fields; wizard must not stringify the full report into sessionStorage.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?p0='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const bad=[];
+const P40={vendors:['datadog'],primary_vendor:'datadog',plans:'APM, infrastructure, logs',monthly_spend:8000,hosts:40,log_gb_day:30,metric_series:50000,spans_mo:2e8,trace_gb_mo:300,users:30,retention_days:15,team_size:'21-50',priority:'balanced',compliance:['none']};
+const full=eng.runAudit(P40,R);const teaser=eng.toTeaserPayload(full);const FORBIDDEN=['ranked','alternatives','levers','migration','insufficient_pricing','self_hosted','sources','gaps_summary'];
+for(const k of FORBIDDEN){if(Object.prototype.hasOwnProperty.call(teaser,k) && teaser[k]!=null)bad.push(`toTeaserPayload still has top-level ${k}`);if(full[k]==null)bad.push(`full report missing expected ${k} (engine broken)`)}
+if(!teaser.teaser||!teaser.usage)bad.push('teaser payload missing teaser/usage');
+if(Array.isArray(teaser.teaser.levers)&&teaser.teaser.levers.some(x=>x&&typeof x==='object'))bad.push('teaser.teaser.levers must be name strings only');
+if(eng.hasFullReportFields(teaser))bad.push('hasFullReportFields(teaser) true');
+if(!eng.isTeaserPayload(teaser))bad.push('isTeaserPayload(teaser) false');
+if(eng.isTeaserPayload(full))bad.push('isTeaserPayload(full) true');
+const teaserJson=JSON.stringify(teaser);
+if(/"ranked"\s*:|"migration"\s*:|"alternatives"\s*:|"insufficient_pricing"\s*:|"self_hosted"\s*:|"gaps_summary"\s*:|"sources"\s*:/.test(teaserJson))bad.push('teaser JSON contains a full-report field name');
+if(/estimated_save_mo/.test(teaserJson))bad.push('teaser JSON contains sized lever field estimated_save_mo');
+if(teaserJson.length>8000)bad.push(`teaser payload too large (${teaserJson.length} bytes); expected << full ~40KB`);
+const fullJson=JSON.stringify(full);if(!(fullJson.length>20000))bad.push(`full report unexpectedly small (${fullJson.length}B)`);
+const wz=fs.readFileSync(path.join(out,'js','audit-wizard.js'),'utf8');
+if(/sessionStorage\.setItem\(\s*SS_REPORT\s*,\s*JSON\.stringify\(\s*report\s*\)\s*\)/.test(wz))bad.push('wizard still sessionStorage.setItem(SS_REPORT, JSON.stringify(report)) — must persist via payload/toTeaserPayload');
+if(!/persistReport\s*\(/.test(wz)||!/toTeaserPayload/.test(wz))bad.push('wizard missing toTeaserPayload/persistReport');
+if(!/clearFullReportStorage|hasFullReportFields/.test(wz))bad.push('wizard missing full-report field guards');
+if(!/const payload\s*=/.test(wz))bad.push('wizard persistReport must assign a payload (teaser vs full) before setItem');
+// Static HTML must not embed a sample full report with ranked/migration.
+for(const f of ['audit.html','audit-unlock.html','audit-thanks.html','index.html']){const s=fs.readFileSync(path.join(out,f),'utf8');
+ if(/"ranked"\s*:\s*\[/.test(s)||/"migration"\s*:\s*\[/.test(s))bad.push(`${f} embeds full-report ranked/migration JSON`)}
+if(bad.length){console.error(`Paywall storage guard (RT-111): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+console.log(`paywall storage guard: teaser ${teaserJson.length}B vs full ${fullJson.length}B (ranked=${(full.ranked||[]).length}); wizard persists teaser-only pre-unlock`)}
+// Build guard (RT-20261031-112): never label a more-expensive like-for-like option as savings; Dynatrace must not "save" vs Datadog when it costs more than modeled Datadog for the same usage.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?ll='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const bad=[];
+const P40={vendors:['datadog'],primary_vendor:'datadog',plans:'APM, infrastructure, logs',monthly_spend:8000,hosts:40,log_gb_day:30,metric_series:50000,spans_mo:2e8,trace_gb_mo:300,users:30,retention_days:15,team_size:'21-50',priority:'balanced',compliance:['none']};
+const r=eng.runAudit(P40,R);const modeled=r.current.modeled_total||r.current.total;const dt=(r.ranked||[]).find(x=>x.id==='dynatrace');
+if(!(modeled>0))bad.push('40-host case: modeled Datadog total missing');
+if(!dt)bad.push('40-host case: Dynatrace not ranked');
+else{
+ if(dt.monthly>modeled&&!dt.costs_more)bad.push(`Dynatrace ${dt.monthly} > modeled Datadog ${modeled} but costs_more=false`);
+ if(dt.monthly>modeled&&dt.savings_mo!=null&&dt.savings_mo>0)bad.push(`Dynatrace labelled savings_mo=${dt.savings_mo} while costing more like-for-like`);
+ if(dt.costs_more&&!/like-for-like|costs more/i.test(dt.costs_more_label||''))bad.push(`Dynatrace costs_more_label weak: ${dt.costs_more_label}`);
+}
+for(const x of r.ranked||[]){
+ if(modeled>0&&x.monthly>modeled&&x.savings_mo!=null&&x.savings_mo>0)bad.push(`${x.name}: savings_mo=${x.savings_mo} but monthly ${x.monthly} > modeled ${modeled}`);
+ if(modeled>0&&x.monthly>modeled&&!x.costs_more)bad.push(`${x.name}: costs more than modeled ${modeled} but not flagged`);
+}
+const mig=(r.migration||[])[0];
+if(mig&&modeled>0&&mig.monthly>modeled)bad.push(`migration step 1 is ${mig.target} at ${mig.monthly} > modeled ${modeled}`);
+if(bad.length){console.error(`Like-for-like savings guard (RT-112): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+console.log(`like-for-like savings guard: modeled Datadog ${modeled}/mo; Dynatrace ${dt?dt.monthly+'/mo costs_more='+dt.costs_more:'n/a'}; migration#1=${mig?mig.target:'none'}`)}

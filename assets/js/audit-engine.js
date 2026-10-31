@@ -713,7 +713,7 @@ export function createAuditEngine() {
           if (ratio < 0.4 || ratio > 2.5) {
             current.gaps.push({
               dimension: 'reconcile',
-              reason: `Modeled ${money(current.total)}/mo vs stated ${money(stated)}/mo — large gap usually means missing product lines (APM/logs/metrics) in the dataset. Savings ranked against stated spend.`
+              reason: `Modeled ${money(current.total)}/mo vs stated ${money(stated)}/mo — large gap usually means missing product lines (APM/logs/metrics) in the dataset. Ranked savings use like-for-like modeled current; the free teaser still compares to your stated bill.`
             });
           }
         }
@@ -728,6 +728,13 @@ export function createAuditEngine() {
       currentCost = 0;
       currentSource = 'unavailable';
     }
+
+    // RT-20261031-112: when public list prices model the current stack for the same usage,
+    // rank SaaS/self-host savings against that modeled total (like-for-like). Never label an
+    // option that costs more than modeled current as "savings" just because the stated bill is higher.
+    // Teaser (RT-77) still compares only to the stated bill.
+    const modeledCurrent = (current.modeled && current.total > 0) ? current.total : null;
+    const likeForLikeBase = modeledCurrent != null ? modeledCurrent : currentCost;
 
     const altIds = pickAlternatives(rates, usage);
     const alternatives = [];
@@ -781,12 +788,15 @@ export function createAuditEngine() {
         m.confidence = 'medium';
         m.gaps.push({ dimension: 'reconcile', reason: `Public list prices for your entered usage explain only ${Math.round(current.model_vs_stated * 100)}% of your stated bill, so the rest is products we did not ask about. Savings against your bill are not High confidence.` });
       }
-      const save = currentCost > 0 && m.modeled ? currentCost - m.total : null;
+      const saveVsStated = currentCost > 0 && m.modeled ? currentCost - m.total : null;
+      const save = likeForLikeBase > 0 && m.modeled ? likeForLikeBase - m.total : null;
       alternatives.push({
         ...m,
         effort: eff,
         savings_mo: save,
-        savings_pct: save != null && currentCost > 0 ? Math.round((save / currentCost) * 100) : null,
+        savings_pct: save != null && likeForLikeBase > 0 ? Math.round((save / likeForLikeBase) * 100) : null,
+        savings_vs_stated_mo: saveVsStated,
+        savings_basis: modeledCurrent != null ? 'like_for_like_modeled' : (currentCost > 0 ? 'stated_or_modeled_baseline' : 'none'),
         coverage: cov,
         kind: 'saas'
       });
@@ -808,7 +818,8 @@ export function createAuditEngine() {
       const total = software == null ? null : software + infra.infra_mid_mo;
       const totalLow = software == null ? null : software + infra.infra_low_mo;
       const totalHigh = software == null ? null : software + infra.infra_high_mo;
-      const save = total != null && currentCost > 0 ? currentCost - total : null;
+      const saveVsStated = total != null && currentCost > 0 ? currentCost - total : null;
+      const save = total != null && likeForLikeBase > 0 ? likeForLikeBase - total : null;
 
       let confidence = 'low';
       if (software === 0 && infra.infra_mid_mo > 0) confidence = 'medium';
@@ -835,7 +846,9 @@ export function createAuditEngine() {
         confidence,
         effort: { key: 'high', label: 'High', score: 3 },
         savings_mo: save,
-        savings_pct: save != null && currentCost > 0 ? Math.round((save / currentCost) * 100) : null,
+        savings_pct: save != null && likeForLikeBase > 0 ? Math.round((save / likeForLikeBase) * 100) : null,
+        savings_vs_stated_mo: saveVsStated,
+        savings_basis: modeledCurrent != null ? 'like_for_like_modeled' : (currentCost > 0 ? 'stated_or_modeled_baseline' : 'none'),
         kind: 'self_hosted'
       };
     });
@@ -852,9 +865,17 @@ export function createAuditEngine() {
         monthly_high: a.total_high_mo ?? a.total,
         savings_mo: a.savings_mo,
         savings_pct: a.savings_pct,
-        // RT-20261031-54: options that cost more than the current bill are flagged and ranked below every cheaper option.
-        costs_more: currentCost > 0 && a.savings_mo != null && a.savings_mo < 0,
-        costs_more_label: currentCost > 0 && a.savings_mo != null && a.savings_mo < 0 ? `Costs more than your current bill (+${money(-a.savings_mo)}/mo)` : null,
+        savings_vs_stated_mo: a.savings_vs_stated_mo,
+        savings_basis: a.savings_basis,
+        // RT-20261031-54 + RT-20261031-112: options that cost more than the like-for-like baseline
+        // (modeled current when available, else stated bill) are flagged and ranked below every cheaper option.
+        // Never label a more-expensive like-for-like option as savings.
+        costs_more: likeForLikeBase > 0 && a.savings_mo != null && a.savings_mo < 0,
+        costs_more_label: (likeForLikeBase > 0 && a.savings_mo != null && a.savings_mo < 0)
+          ? (modeledCurrent != null
+            ? `Costs more like-for-like than modeled ${current.name || 'current'} (+${money(-a.savings_mo)}/mo)`
+            : `Costs more than your current bill (+${money(-a.savings_mo)}/mo)`)
+          : null,
         confidence: a.confidence,
         effort: a.effort,
         gaps: a.gaps,
@@ -1113,6 +1134,44 @@ export function createAuditEngine() {
     return { overrides, matched };
   }
 
+  // Paid-report fields — must never appear in pre-unlock sessionStorage/localStorage (RT-20261031-111).
+  const FULL_REPORT_KEYS = [
+    'ranked', 'alternatives', 'levers', 'migration',
+    'insufficient_pricing', 'self_hosted', 'sources', 'gaps_summary'
+  ];
+
+  /** Strip a full runAudit() result down to what the free teaser may persist/render. */
+  function toTeaserPayload(report) {
+    const cur = report && report.current ? report.current : {};
+    return {
+      unlocked: false,
+      generated_at: report && report.generated_at,
+      disclaimer: report && report.disclaimer,
+      dataset_checked: report && report.dataset_checked,
+      guardrails: report && report.guardrails,
+      usage: report && report.usage,
+      current: {
+        id: cur.id,
+        name: cur.name,
+        baseline_mo: cur.baseline_mo,
+        baseline_source: cur.baseline_source,
+        stated_spend: cur.stated_spend,
+        modeled_total: cur.modeled_total
+      },
+      teaser: report && report.teaser
+    };
+  }
+
+  function hasFullReportFields(obj) {
+    if (!obj || typeof obj !== 'object') return false;
+    return FULL_REPORT_KEYS.some((k) => obj[k] != null);
+  }
+
+  function isTeaserPayload(obj) {
+    if (!obj || typeof obj !== 'object' || !obj.teaser) return false;
+    return !hasFullReportFields(obj);
+  }
+
   return {
     runAudit,
     modelVendor,
@@ -1124,7 +1183,11 @@ export function createAuditEngine() {
     estimateSelfHostInfra,
     money,
     hasMaterialGap,
-    version: 4,
+    toTeaserPayload,
+    hasFullReportFields,
+    isTeaserPayload,
+    FULL_REPORT_KEYS,
+    version: 5,
     FLOOR_FRACTION,
     MAX_TEASER_SAVE_PCT
   };

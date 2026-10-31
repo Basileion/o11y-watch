@@ -3,6 +3,8 @@
  * Expects window.__AUDIT__ = { form, rates, checkout, price, unlockPath, unlockApi }
  * Unlock requires Worker validation of ?t= token (never embed unlockToken in HTML).
  * Full report HTML is rendered only after unlock — never as a blurred pre-purchase preview.
+ * Pre-unlock sessionStorage holds only the teaser payload (usage + teaser); full ranked/levers/
+ * migration are generated only after unlock is validated (RT-20261031-111).
  */
 (function () {
   'use strict';
@@ -14,6 +16,61 @@
   function $(sel, el) { return (el || document).querySelector(sel); }
   function $all(sel, el) { return [...(el || document).querySelectorAll(sel)]; }
   function money(n) { return (window.O11yAudit && O11yAudit.money) ? O11yAudit.money(n) : '$' + n; }
+
+  function toTeaserPayload(report) {
+    if (window.O11yAudit && O11yAudit.toTeaserPayload) return O11yAudit.toTeaserPayload(report);
+    // Fallback strip if an older engine build is cached
+    return {
+      unlocked: false,
+      generated_at: report.generated_at,
+      disclaimer: report.disclaimer,
+      dataset_checked: report.dataset_checked,
+      guardrails: report.guardrails,
+      usage: report.usage,
+      current: report.current && {
+        id: report.current.id,
+        name: report.current.name,
+        baseline_mo: report.current.baseline_mo,
+        baseline_source: report.current.baseline_source,
+        stated_spend: report.current.stated_spend,
+        modeled_total: report.current.modeled_total
+      },
+      teaser: report.teaser
+    };
+  }
+
+  function hasFullReportFields(obj) {
+    if (window.O11yAudit && O11yAudit.hasFullReportFields) return O11yAudit.hasFullReportFields(obj);
+    if (!obj || typeof obj !== 'object') return false;
+    return ['ranked', 'alternatives', 'levers', 'migration', 'insufficient_pricing', 'self_hosted', 'sources', 'gaps_summary']
+      .some((k) => obj[k] != null);
+  }
+
+  function isTeaserPayload(obj) {
+    if (window.O11yAudit && O11yAudit.isTeaserPayload) return O11yAudit.isTeaserPayload(obj);
+    return !!(obj && obj.teaser) && !hasFullReportFields(obj);
+  }
+
+  /** Persist only what the current unlock state allows. Never write full paid fields pre-unlock. */
+  function persistReport(report, unlocked) {
+    try {
+      const payload = (unlocked && report && hasFullReportFields(report))
+        ? report
+        : toTeaserPayload(report);
+      sessionStorage.setItem(SS_REPORT, JSON.stringify(payload));
+    } catch (e) {}
+  }
+
+  function clearFullReportStorage() {
+    try {
+      const raw = sessionStorage.getItem(SS_REPORT);
+      if (!raw) return;
+      const obj = JSON.parse(raw);
+      if (hasFullReportFields(obj)) sessionStorage.setItem(SS_REPORT, JSON.stringify(toTeaserPayload(obj)));
+    } catch (e) {
+      try { sessionStorage.removeItem(SS_REPORT); } catch (e2) {}
+    }
+  }
 
   function hasLocalProof() {
     try {
@@ -234,7 +291,7 @@
         <p class="sm mut">${pending
           ? 'Checkout link is a placeholder (<code>AUDIT_CHECKOUT</code>). Until Kit is wired, use the email link or set the constant and rebuild.'
           : 'After purchase, Kit redirects you to the unlock URL which stores access in this browser.'}</p>
-        <p class="sm mut"><b>Gate limitation:</b> unlock requires the private link you get right after Kit checkout. The full report is not embedded pre-purchase. This is still not account auth — do not share the unlock link.</p>
+        <p class="sm mut"><b>Gate limitation:</b> unlock requires the private link you get right after Kit checkout. The full report is not in the DOM or browser storage pre-purchase — only the free teaser is. This is still not account auth — do not share the unlock link.</p>
       </div>`;
   }
 
@@ -248,7 +305,7 @@
     // RT-20261031-54: options that cost more than the current bill sit below every cheaper option, under their own divider.
     const firstMore = report.ranked.findIndex((r) => r.costs_more);
     const rankedRows = report.ranked.map((r, i) => `${i === firstMore ? `
-      <tr><td colspan="5" class="sm" style="background:#fdf1f1"><b>Costs more than your current bill</b> — shown for comparison only, cheapest first. Not counted as savings.</td></tr>` : ''}
+      <tr><td colspan="5" class="sm" style="background:#fdf1f1"><b>Costs more like-for-like</b> — shown for comparison only, cheapest first. Not counted as savings.</td></tr>` : ''}
       <tr>
         <td><b>${esc(r.name)}</b>${r.costs_more ? `<div class="sm" style="color:#a40000;font-weight:600">${esc(r.costs_more_label || 'Costs more than your current bill')}</div>` : ''}<div class="sm mut">${esc(plain(KIND_LABEL, r.kind))}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
         <td>${money(r.monthly)}/mo${r.monthly_low != null && r.monthly_high != null && r.kind === 'self_hosted' ? ` <span class="sm mut">(${money(r.monthly_low)}–${money(r.monthly_high)})</span>` : ''}</td>
@@ -261,8 +318,8 @@
       <div class="card">
         <h3 style="margin:0 0 6px;font-size:16px">${esc(a.name)}</h3>
         <div class="amt" style="font-size:28px">${money(a.total)}<span class="sm">/mo est.</span></div>
-        ${a.savings_mo != null && a.savings_mo < 0 && cur.baseline_mo > 0 ? `<p class="sm" style="color:#a40000;font-weight:600">Costs more than your current bill (+${money(-a.savings_mo)}/mo)</p>` : ''}
-        <p class="sm mut">Savings vs baseline: ${a.savings_mo == null ? '—' : money(a.savings_mo) + '/mo'} · Effort: ${esc(a.effort.label)} · Confidence: ${esc(plain(CONF_LABEL, a.confidence))}</p>
+        ${a.savings_mo != null && a.savings_mo < 0 ? `<p class="sm" style="color:#a40000;font-weight:600">${esc((report.ranked.find((r) => r.id === a.id) || {}).costs_more_label || ('Costs more (+' + money(-a.savings_mo) + '/mo)'))}</p>` : ''}
+        <p class="sm mut">Savings vs ${a.savings_basis === 'like_for_like_modeled' ? 'modeled current (like-for-like)' : 'baseline'}: ${a.savings_mo == null ? '—' : money(a.savings_mo) + '/mo'}${a.savings_vs_stated_mo != null && a.savings_basis === 'like_for_like_modeled' ? ` <span class="mut">(vs stated bill: ${money(a.savings_vs_stated_mo)}/mo)</span>` : ''} · Effort: ${esc(a.effort.label)} · Confidence: ${esc(plain(CONF_LABEL, a.confidence))}</p>
         <div class="sm">${(a.lines || []).map((l) => `<div>${esc(l.label)}: <b>${money(l.amount)}</b></div>`).join('') || '<i class="mut">No modeled lines</i>'}</div>
         ${gapList(a.gaps)}
         ${a.url ? `<p class="sm"><a href="${esc(a.url)}" rel="nofollow noopener" target="_blank">Pricing source ↗</a> · checked ${esc(a.checked)}</p>` : ''}
@@ -375,16 +432,36 @@
       </article>`;
   }
 
-  async function showResults(report) {
+  async function showResults(reportIn, ratesOpt) {
     const mount = $('#audit-results');
     if (!mount) return;
     // Optimistic paint from local proof, then confirm with Worker when possible
     let unlocked = isUnlockedSync();
     if (unlocked) unlocked = await confirmUnlock();
 
+    const rates = ratesOpt || CFG().rates;
+    let report = reportIn;
+
+    if (unlocked) {
+      // Full report only after unlock is validated. If storage only has the teaser, regenerate.
+      if (!hasFullReportFields(report) && report && report.usage && window.O11yAudit && rates) {
+        report = O11yAudit.runAudit(report.usage, rates);
+      }
+      if (hasFullReportFields(report)) persistReport(report, true);
+      else clearFullReportStorage();
+    } else {
+      // Pre-unlock: never leave full paid fields in storage or render them.
+      if (hasFullReportFields(report)) {
+        persistReport(report, false);
+        report = toTeaserPayload(report);
+      } else {
+        persistReport(report, false);
+      }
+    }
+
     let html = `<h2 id="results">Your audit results</h2>`;
     html += renderTeaser(report);
-    if (unlocked) {
+    if (unlocked && hasFullReportFields(report)) {
       html += renderFullReport(report);
     } else {
       // Strong static gate: teaser + paywall only. Never inject full report into the DOM pre-purchase.
@@ -508,18 +585,53 @@
             return;
           }
           const input = { ...state.values, csv_overrides: state.csv_overrides };
+          // Always compute locally (engine is public); persist/render only teaser until unlock.
           const report = O11yAudit.runAudit(input, rates);
-          try { sessionStorage.setItem(SS_REPORT, JSON.stringify(report)); } catch (e) {}
-          showResults(report);
+          (async () => {
+            let unlocked = isUnlockedSync();
+            if (unlocked) unlocked = await confirmUnlock();
+            persistReport(report, unlocked);
+            await showResults(unlocked ? report : toTeaserPayload(report), rates);
+          })();
         });
       }
 
       paint();
 
-      try {
-        const prev = sessionStorage.getItem(SS_REPORT);
-        if (prev) showResults(JSON.parse(prev));
-      } catch (e) {}
+      // If we just redeemed an unlock token and have answers/teaser, materialize the full report now.
+      (async () => {
+        let unlocked = isUnlockedSync();
+        if (unlocked) unlocked = await confirmUnlock();
+        try {
+          const prevRaw = sessionStorage.getItem(SS_REPORT);
+          const ansRaw = sessionStorage.getItem(SS_ANSWERS);
+          if (unlocked) {
+            let usage = null;
+            if (ansRaw) {
+              try { usage = { ...JSON.parse(ansRaw), csv_overrides: state.csv_overrides }; } catch (e) {}
+            }
+            if (!usage && prevRaw) {
+              try { usage = JSON.parse(prevRaw).usage; } catch (e) {}
+            }
+            if (usage && window.O11yAudit) {
+              const full = O11yAudit.runAudit(usage, rates);
+              persistReport(full, true);
+              await showResults(full, rates);
+              return;
+            }
+          }
+          if (prevRaw) {
+            const prev = JSON.parse(prevRaw);
+            if (!unlocked && hasFullReportFields(prev)) {
+              // Migrate any legacy full report left in sessionStorage from older builds.
+              persistReport(prev, false);
+              await showResults(toTeaserPayload(prev), rates);
+            } else {
+              await showResults(prev, rates);
+            }
+          }
+        } catch (e) {}
+      })();
     };
 
     start();
