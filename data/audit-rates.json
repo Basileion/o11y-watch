@@ -7,7 +7,7 @@
       "id": "datadog",
       "name": "Datadog",
       "url": "https://www.datadoghq.com/pricing/",
-      "checked": "2026-10-24",
+      "checked": "2026-10-31",
       "source_fields": ["paid_from", "pricing_model", "free_tier"],
       "model": "per_host_plus_products",
       "rates": {
@@ -19,9 +19,9 @@
         "user_mo": null,
         "platform_fee_mo": null
       },
-      "free": { "hosts": 5, "metric_retention_days": 1 },
+      "free": { "hosts": 5, "metric_retention_days": 1, "separate_plan": true, "note": "Free tier: up to five Basic hosts with 1-day metric retention (datadoghq.com/pricing, re-read 2026-10-31). A separate plan, not 5 free Pro hosts, so never deducted from paid Infrastructure Pro hosts." },
       "notes": [
-        "Infrastructure Pro listed at $15/host/mo annual / $18 on-demand.",
+        "Infrastructure Pro listed at $15/host/mo annual / $18 on-demand (re-read 2026-10-31). Every monitored host is billed; the Free tier (up to 5 Basic hosts, 1-day retention) is a separate plan.",
         "APM, logs, custom metrics, and other products are billed separately — unit rates for those dimensions are not captured in the O11y Watch dataset."
       ],
       "oss_self_host": false,

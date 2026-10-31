@@ -3,7 +3,7 @@
     "profile": "Datadog-heavy mid-size",
     "baseline_mo": 8200,
     "baseline_source": "stated_invoice",
-    "modeled_current": 2625,
+    "modeled_current": 2700,
     "teaser": {
       "current_mo": 8200,
       "savings_low_mo": null,

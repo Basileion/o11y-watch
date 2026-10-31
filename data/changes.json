@@ -3,6 +3,13 @@
   "date": "2026-10-31",
   "vendor": "Datadog",
   "type": "correction",
+  "summary": "O11y Watch correction: our cost audit treated Datadog's Free tier as 5 free Pro hosts and subtracted them from paid Infrastructure Pro, so 40 hosts were modeled as 35 × $15 = $525/mo. Per datadoghq.com/pricing (re-read 2026-10-31), the Free tier is a separate plan ('up to five Basic hosts with 1-day metric retention'). Infrastructure Pro starts at $15/host/mo billed annually ($18 on-demand) for every monitored host. The audit now models 40 hosts as 40 × $15 = $600/mo. APM, log, custom-metric and container charges are still listed as not modeled. They are not estimated.",
+  "source": "https://www.datadoghq.com/pricing/"
+ },
+ {
+  "date": "2026-10-31",
+  "vendor": "Datadog",
+  "type": "correction",
   "summary": "O11y Watch correction: the free audit teaser called its savings range 'conservative' when it was not. For a 40-host Datadog shop (APM, 30 GB/day of logs, 200M spans, 30 seats) stating an $8,000/mo bill, it showed '$800 – $3,200 / mo'. The top of that range came from six self-hosted open-source stacks that we had all estimated at about $1,488/mo, using our own assumptions for ops labor ($500–$2,000/mo) and compute, with no allowance for span or metric storage. The bottom came from rule-of-thumb cleanup percentages. The only SaaS option fully priced from public list prices (New Relic, about $10,790/mo) costs more than that bill. The teaser's dollar figure now counts only SaaS options whose public list prices cover all of your usage, with high confidence, and that come in below the bill you state. When none qualifies, it says 'No fully priced cheaper SaaS option yet for this setup'. Self-host is shown separately as an assumption-based running cost with its assumptions listed. Cleanup levers are listed by name and are not counted. The teaser now says 'Your stated bill' instead of an internal label.",
   "source": "https://o11y-watch.pages.dev/audit"
  },

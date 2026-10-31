@@ -208,7 +208,10 @@ export function createAuditEngine() {
     const gaps = [];
     let total = 0;
     let modeled = false;
-    const billHosts = Math.max(0, usage.hosts - (vdef.free && vdef.free.hosts ? vdef.free.hosts : 0));
+    // RT-20261031-78: a free tier that is a separate plan (Datadog Free = up to 5 Basic hosts, 1-day retention)
+    // is never deducted from paid hosts.
+    const freeHosts = vdef.free && vdef.free.hosts && !vdef.free.separate_plan ? vdef.free.hosts : 0;
+    const billHosts = Math.max(0, usage.hosts - freeHosts);
 
     function add(label, amount, meta) {
       if (amount == null || !Number.isFinite(amount)) return;

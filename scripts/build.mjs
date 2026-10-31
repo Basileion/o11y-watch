@@ -370,6 +370,11 @@ const wz=fs.readFileSync(path.join(out,'js','audit-wizard.js'),'utf8');
 for(const raw of ['esc(report.current.baseline_source)','esc(cur.baseline_source)','esc(String(t.basis)','esc(r.kind)','esc(g.dimension)','Modeled current baseline'])if(wz.includes(raw))bad.push(`RT-84: wizard renders raw enum/jargon via ${raw}`);
 if(bad.length){console.error(`Audit teaser guard: ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
 console.log(`audit teaser guard: ${scen.length} scenarios OK (${withRange} with a range, all from high-confidence cheaper SaaS only); RT-77 40-host teaser: ${t77.savings_low_mo==null?'"'+t77.label.slice(0,60)+'…"':t77.savings_low_mo+'-'+t77.savings_high_mo}`)}
+// Build guard (RT-20261031-78): Datadog's Free tier (up to 5 Basic hosts, 1-day retention) is a separate plan; paid Infrastructure Pro bills every host.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?d='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const bad=[];const u=R.vendors.datadog.rates.host_mo_annual;
+for(const h of [1,5,20,40,180]){const r=eng.runAudit({vendors:['datadog'],primary_vendor:'datadog',hosts:h,spans_mo:2e8,log_gb_day:30,monthly_spend:8000},R);const l=(r.current.lines||[]).find(x=>x.dim==='hosts');
+ if(!l||l.amount!==h*u||!new RegExp('\\('+h+' hosts').test(l.label))bad.push(`${h} Datadog hosts modeled as '${l&&l.label}' = ${l&&l.amount}, expected ${h} hosts x $${u}`)}
+if(bad.length){console.error(`Datadog free-host guard: ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}console.log(`datadog free-host guard: paid Infra Pro bills every host at $${u}; Free tier (5 Basic hosts) never deducted`)}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);
