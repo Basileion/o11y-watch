@@ -203,18 +203,29 @@
       "id": "dynatrace",
       "name": "Dynatrace",
       "url": "https://www.dynatrace.com/pricing/",
-      "checked": "2026-10-24",
-      "source_fields": ["paid_from", "pricing_model"],
+      "checked": "2026-10-31",
+      "source_fields": ["paid_from", "apm_paid_from", "pricing_model"],
       "model": "per_host",
       "rates": {
-        "host_mo_annual": 7,
+        "host_mo_annual": 58,
+        "host_tiers": {
+          "foundation": { "label": "Foundation & Discovery", "mo": 7, "unit": "host", "billed": "$0.01 per hour per host", "scope": "basic infrastructure monitoring and IT inventory only, not APM", "rank": false },
+          "infrastructure": { "label": "Infrastructure Monitoring", "mo": 29, "unit": "host", "billed": "$0.04 per hour per host", "scope": "infrastructure observability (process, disk, memory, network, custom metrics), not APM" },
+          "fullstack": { "label": "Full-Stack Monitoring", "mo": 58, "unit": "8 GiB host", "gib_per_unit": 8, "billed": "$0.01 per memory-GiB-hour", "scope": "APM + infrastructure; includes a trace allowance (size not stated on the pricing page)" }
+        },
+        "apm_tier": "fullstack",
+        "infra_tier": "infrastructure",
+        "trace_allowance_included_tier": "fullstack",
         "log_gb": null,
+        "span_million": null,
         "user_mo": null,
         "platform_fee_mo": null
       },
       "free": {},
       "notes": [
-        "$7/mo per host (billed $0.01/host/hour) under annual platform commitment — other product rates not in dataset."
+        "Tier matches what you replace (dynatrace.com/pricing, checked 2026-10-31): APM/full-stack → Full-Stack Monitoring $58/mo per 8 GiB host (billed $0.01 per memory-GiB-hour, so larger hosts cost proportionally more); infrastructure-only → Infrastructure Monitoring $29/mo per host ($0.04/host/hour). Foundation & Discovery ($7/mo per host) is basic infrastructure only and is never used for APM.",
+        "Rates are rate-card prices drawn down from a Dynatrace Platform Subscription (DPS): a minimum annual spend commitment; unit prices fall as the commit grows; usage above the commit is billed monthly at the same rates.",
+        "Unlimited seats (no per-user fees). Log, trace-overage, RUM and other product rates are not modeled."
       ],
       "oss_self_host": false,
       "alternative": true,

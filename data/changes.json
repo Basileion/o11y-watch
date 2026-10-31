@@ -3,6 +3,13 @@
   "date": "2026-10-31",
   "vendor": "Dynatrace",
   "type": "correction",
+  "summary": "O11y Watch correction: our cost audit priced every Dynatrace host at $7/mo, which is the Foundation & Discovery tier (basic infrastructure only). It could show Dynatrace as a cheap APM alternative. Per dynatrace.com/pricing (re-read 2026-10-31), the audit now uses the tier that matches what you are replacing. For APM/full-stack, that is Full-Stack Monitoring at $58/mo per 8 GiB host (billed $0.01 per memory-GiB-hour, so larger hosts cost more). For infrastructure only, it is Infrastructure Monitoring at $29/mo per host. Rates draw down from an annual Dynatrace Platform Subscription commitment. Example: 20 APM hosts was modeled at $140/mo and is now $1,160/mo.",
+  "source": "https://www.dynatrace.com/pricing/"
+ },
+ {
+  "date": "2026-10-31",
+  "vendor": "Dynatrace",
+  "type": "correction",
   "summary": "O11y Watch correction: we listed Dynatrace's paid entry as \"$7/mo per host\" without saying that this is the Foundation & Discovery tier (basic infrastructure monitoring, not APM), and our alternatives guides counted it as cheaper than Datadog's $15/host. Per dynatrace.com/pricing (re-read 2026-10-31): Infrastructure Monitoring is $29/mo per host and Full-Stack Monitoring (incl. APM) is $58/mo per 8 GiB host, under an annual platform commitment. Alternatives guides now compare entry prices only when the billing unit matches.",
   "source": "https://www.dynatrace.com/pricing/"
  },

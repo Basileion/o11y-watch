@@ -59,6 +59,7 @@ export function createAuditEngine() {
       plans: String(raw.plans || ''),
       monthly_spend: num(raw.monthly_spend),
       hosts: num(raw.hosts),
+      host_mem_gib: num(raw.host_mem_gib, 0),
       log_gb_day: num(raw.log_gb_day),
       log_gb_mo: num(raw.log_gb_day) * 30,
       metric_series: num(raw.metric_series),
@@ -87,6 +88,25 @@ export function createAuditEngine() {
   }
 
   /**
+   * Is the buyer replacing APM / full-stack monitoring (vs infrastructure-only)?
+   * RT-20261031-45: tiered host vendors (Dynatrace) must be priced at the tier that
+   * matches the workload — never the basic infra tier for APM.
+   */
+  function needsApm(usage) {
+    if (usage.spans_mo >= MATERIAL.spans_mo) return true;
+    return /\b(apm|full[\s-]?stack|trac(e|es|ing)|profil(e|er|ing)|code[\s-]?level)\b/i.test(usage.plans || '');
+  }
+
+  /** Pick the host tier for a tiered per-host vendor. Returns { key, tier, apm } or null. */
+  function hostTier(rates, usage) {
+    const T = rates.host_tiers;
+    if (!T) return null;
+    const apm = needsApm(usage);
+    const key = apm ? rates.apm_tier : rates.infra_tier;
+    return T[key] ? { key, tier: T[key], apm } : null;
+  }
+
+  /**
    * Which workload dimensions this vendor can defensibly price from dataset rates.
    * Returns { covered: string[], foldNotes: string[] }.
    *
@@ -94,7 +114,7 @@ export function createAuditEngine() {
    * (N/A), not counted as covered. Folded meters (one $/GB for logs+metrics+traces)
    * mark all three covered and attach a fold note that lowers confidence.
    */
-  function vendorCoverage(vdef) {
+  function vendorCoverage(vdef, usage) {
     const rates = vdef.rates || {};
     const model = vdef.model;
     const covered = new Set();
@@ -153,7 +173,7 @@ export function createAuditEngine() {
    */
   function assessCoverage(vdef, usage) {
     const buyer = buyerDimensions(usage);
-    const { covered, na, foldNotes } = vendorCoverage(vdef);
+    const { covered, na, foldNotes } = vendorCoverage(vdef, usage);
     const coveredSet = new Set(covered);
     const naSet = new Set(na);
     const required = buyer.filter((d) => !naSet.has(d));
@@ -205,11 +225,27 @@ export function createAuditEngine() {
         break;
       }
       case 'per_host': {
-        const unit = rates.host_mo_annual;
-        if (unit != null) add(`Hosts (${usage.hosts} × ${money(unit)}/mo)`, usage.hosts * unit, { dim: 'hosts' });
-        else gap('hosts', 'No host rate');
+        const ht = hostTier(rates, usage);
+        if (ht) {
+          // RT-20261031-45: tier matches the workload being replaced (APM → Full-Stack, infra-only → Infrastructure).
+          const t = ht.tier;
+          if (t.gib_per_unit) {
+            const mem = usage.host_mem_gib > 0 ? usage.host_mem_gib : t.gib_per_unit;
+            const perHost = t.mo * (mem / t.gib_per_unit);
+            add(`${t.label} (${usage.hosts} hosts × ${money(perHost)}/mo; ${money(t.mo)} per ${t.unit}, billed ${t.billed}${usage.host_mem_gib > 0 ? `; ${mem} GiB hosts` : '; assumes 8 GiB hosts — larger hosts cost proportionally more'})`, usage.hosts * perHost, { dim: 'hosts', tier: ht.key });
+          } else {
+            add(`${t.label} (${usage.hosts} × ${money(t.mo)}/mo per ${t.unit}${ht.apm ? '' : '; infrastructure only — APM needs Full-Stack'})`, usage.hosts * t.mo, { dim: 'hosts', tier: ht.key });
+          }
+        } else {
+          const unit = rates.host_mo_annual;
+          if (unit != null) add(`Hosts (${usage.hosts} × ${money(unit)}/mo)`, usage.hosts * unit, { dim: 'hosts' });
+          else gap('hosts', 'No host rate');
+        }
         if (rates.log_gb == null) gap('logs', 'Log unit rate not in dataset');
-        if (rates.span_million == null) gap('traces', 'Span/APM unit rate not in dataset');
+        if (rates.span_million == null) {
+          if (ht && ht.key === rates.trace_allowance_included_tier) gap('traces', `${ht.tier.label} includes a trace allowance, but its size and the overage rate per span are not stated on the pricing page — span volume not modeled`);
+          else gap('traces', 'Span/APM unit rate not in dataset');
+        }
         break;
       }
       case 'user_plus_gb': {
@@ -848,6 +884,7 @@ export function createAuditEngine() {
 
     const aliases = {
       hosts: ['hosts', 'host', 'host_count', 'containers', 'nodes'],
+      host_mem_gib: ['host_mem_gib', 'host_memory_gib', 'host_memory_gb', 'mem_gib', 'memory_gib'],
       log_gb_day: ['log_gb_day', 'logs_gb_day', 'log_gb', 'logs_gb', 'gb_day', 'log_volume_gb_day'],
       metric_series: ['metric_series', 'metrics', 'series', 'active_series', 'timeseries', 'custom_metrics'],
       spans_mo: ['spans_mo', 'spans', 'traces', 'spans_per_month', 'trace_spans'],
@@ -893,6 +930,7 @@ export function createAuditEngine() {
     normalizeInput,
     parseUsageCsv,
     buyerDimensions,
+    needsApm,
     assessCoverage,
     estimateSelfHostInfra,
     money,

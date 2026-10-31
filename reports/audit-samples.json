@@ -118,7 +118,7 @@
           "traces"
         ],
         "reason": "Missing public unit rates for: logs, metrics, traces",
-        "partial_total": 1260
+        "partial_total": 10440
       },
       {
         "name": "Splunk Observability Cloud",
@@ -259,7 +259,7 @@
           "traces"
         ],
         "reason": "Missing public unit rates for: logs, metrics, traces",
-        "partial_total": 420
+        "partial_total": 3480
       },
       {
         "name": "Splunk Observability Cloud",

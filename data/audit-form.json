@@ -96,6 +96,16 @@
           "placeholder": "120"
         },
         {
+          "name": "host_mem_gib",
+          "label": "Typical host memory (GiB) — optional",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "8",
+          "hint": "Some vendors (e.g. Dynatrace Full-Stack) bill per memory-GiB. Blank = 8 GiB."
+        },
+        {
           "name": "log_gb_day",
           "label": "Log volume (GB / day)",
           "type": "number",

@@ -1,8 +1,12 @@
 // O11y Watch static generator: data/*.json + snapshots/*.txt -> dist/ (no dependencies)
-import fs from 'node:fs'; import path from 'node:path';
+import fs from 'node:fs'; import path from 'node:path'; import { pathToFileURL } from 'node:url';
 const root=path.resolve(path.dirname(new URL(import.meta.url).pathname),'..'); const out=path.join(root,'dist');
 const BASE=(process.env.SITE_URL||'https://o11y-watch.pages.dev').replace(/\/$/,''); const SITE='O11y Watch';
 const J=f=>JSON.parse(fs.readFileSync(path.join(root,f),'utf8'));
+// RT-20261031-45 follow-up: keep data/snapshot-history.json current on every local build (it is derived from git history of snapshots/).
+// Skipped on Cloudflare Pages (CF_PAGES) and in shallow clones (e.g. actions/checkout default), where git log would undercount; the committed file is used there.
+{let shallow=true;try{const {execFileSync}=await import('node:child_process');shallow=execFileSync('git',['rev-parse','--is-shallow-repository'],{cwd:root}).toString().trim()!=='false';
+if(!process.env.CF_PAGES&&!shallow&&!process.env.SKIP_SNAPSHOT_HISTORY)execFileSync(process.execPath,[path.join(root,'scripts/snapshot-history.mjs')],{cwd:root,stdio:'inherit'});else console.log('snapshot history: using committed data/snapshot-history.json');}catch(e){console.log('snapshot history: refresh skipped ('+String(e.message||e).split('\n')[0]+')')}}
 const SH=J('data/snapshot-history.json').vendors; // RT-20261031-32: real per-vendor snapshot counts from git history
 const raw=J('data/vendors.json'), changes=J('data/changes.json').sort((a,b)=>b.date.localeCompare(a.date));
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -297,6 +301,19 @@ for(const k of ['standard_first','standard_additional','pro_annual','pro_monthly
 const re=/\$49\s*\/\s*(?:full[ -]?platform user|user\s*\(full[ -]?platform)/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-30),x.index+50).replace(/\s+/g,' '))}}};walk(out);
 if(bad.length){console.error(`New Relic price guard: ${bad.length} problem(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('newrelic price guard: full platform users modeled by edition, 0 "$49/full user" claims')}
+// Build guard (RT-20261031-45): the audit engine must never model Dynatrace APM at the basic $7 Foundation & Discovery rate. APM -> Full-Stack per 8 GiB host; infra-only -> Infrastructure tier.
+{const dr=J('data/audit-rates.json').vendors?.dynatrace||{},r=dr.rates||{},T=r.host_tiers||{},bad=[],BASIC=(T.foundation&&T.foundation.mo)||7;
+if(!r.host_tiers)bad.push('audit-rates dynatrace.rates.host_tiers missing (tier-matched host pricing required)');
+if(r.host_mo_annual===BASIC||r.host_mo_annual===7)bad.push(`audit-rates dynatrace.rates.host_mo_annual=${r.host_mo_annual} (basic Foundation & Discovery rate)`);
+const apmT=T[r.apm_tier]||{},infT=T[r.infra_tier]||{};
+if(!apmT.mo||apmT.mo<=BASIC||apmT.mo===7)bad.push(`dynatrace apm_tier "${r.apm_tier}" rate ${apmT.mo} is the basic rate or missing`);
+if(!infT.mo||infT.mo===BASIC||r.infra_tier==='foundation')bad.push(`dynatrace infra_tier "${r.infra_tier}" uses the basic Foundation rate`);
+const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?g='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));
+const scen=[['APM by plan text',{vendors:['datadog'],primary_vendor:'datadog',plans:'Datadog Pro + APM',hosts:20}],['APM by spans',{vendors:['datadog'],primary_vendor:'datadog',hosts:20,spans_mo:5e7}],['current=Dynatrace full-stack',{vendors:['dynatrace'],primary_vendor:'dynatrace',plans:'Full-Stack',hosts:20}]];
+for(const [k,inp] of scen){const res=eng.runAudit(inp,R);const d=(res.alternatives||[]).find(a=>a.id==='dynatrace')||(res.current&&res.current.id==='dynatrace'?res.current:null)||null;const ins=(res.insufficient_pricing||[]).find(a=>a.id==='dynatrace');
+const tot=d?d.total:ins?ins.modeled_partial_total:null;if(tot==null){bad.push(`${k}: Dynatrace not modeled`);continue}
+const per=tot/inp.hosts;if(per<apmT.mo-0.01)bad.push(`${k}: Dynatrace APM modeled at ${per.toFixed(2)}/host (< Full-Stack ${apmT.mo})`);}
+if(bad.length){console.error(`Dynatrace tier guard: ${bad.length} problem(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log(`dynatrace tier guard: APM modeled at Full-Stack $${apmT.mo}/${apmT.unit}, infra-only at $${infT.mo}/${infT.unit}, never the $${BASIC} basic tier`)}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);
