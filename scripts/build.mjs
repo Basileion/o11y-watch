@@ -262,6 +262,14 @@ console.log('built dist/:',files.length,'pages,',V.length,'vendors,',changes.len
 {const bad=[];const re=new RegExp('(?:href|value)=["\'](?![a-z][a-z0-9+.-]*:|//)[^"\'?#]*\\.html\\b|\\+\\s*["\']\\.html\\b|'+RXE(BASE)+'/[^\\s"\'<>)\\]]*\\.html\\b|["\'`]/[a-z0-9_/-]+\\.html\\b','gi');
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+x[0])}}};walk(out);
 if(bad.length){console.error(`Build guard: ${bad.length} internal .html link(s) found:\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('link guard: 0 internal .html links')}
+// Build guard (RT-20261031-29): New Relic full platform users are NOT $49 ($49 is the core-user price). Fail if the audit engine or any public output models/claims $49 per full platform user.
+{const nr=J('data/audit-rates.json').vendors?.newrelic||{},r=nr.rates||{},T=r.full_user_tiers||{},bad=[];
+if(r.user_mo===49)bad.push('audit-rates newrelic.rates.user_mo=49 (core price used as full-user price)');
+if(!r.full_user_tiers)bad.push('audit-rates newrelic.rates.full_user_tiers missing (edition-aware full-seat pricing required)');
+for(const k of ['standard_first','standard_additional','pro_annual','pro_monthly'])if(T[k]===49)bad.push(`audit-rates newrelic full_user_tiers.${k}=49`);
+const re=/\$49\s*\/\s*(?:full[ -]?platform user|user\s*\(full[ -]?platform)/gi;
+const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-30),x.index+50).replace(/\s+/g,' '))}}};walk(out);
+if(bad.length){console.error(`New Relic price guard: ${bad.length} problem(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}console.log('newrelic price guard: full platform users modeled by edition, 0 "$49/full user" claims')}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);

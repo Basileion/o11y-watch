@@ -1,6 +1,13 @@
 [
  {
   "date": "2026-10-31",
+  "vendor": "New Relic",
+  "type": "correction",
+  "summary": "O11y Watch correction: we listed New Relic’s paid entry as $49 per full platform user, but $49 is the price of a core user. Full platform users cost $10 for the first user plus $99 per additional user on Standard (max 5 full users), or $349/user/mo on Pro with an annual commitment ($418.80 monthly pay-as-you-go). Data stays 100 GB/mo free, then $0.40/GB ($0.60/GB Data Plus). The vendor page, guides, API/CSV and the cost audit now use these tiers; the audit previously priced 25 full seats at $1,176/mo instead of $8,725/mo (Pro, annual).",
+  "source": "https://newrelic.com/pricing"
+ },
+ {
+  "date": "2026-10-31",
   "vendor": "Site24x7",
   "type": "plan limit cut",
   "summary": "The Web Uptime plan ($10/mo, $9/mo annual, 25 websites, 1-min polling) now lists 1 monitoring location instead of 32. The page adds that availability is collected from only one location, randomly selected across locations, on each poll. Price is unchanged; Web Perf ($39/mo, $36 annual) still lists 8 locations and Enterprise Plus Web 16.",

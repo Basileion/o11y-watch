@@ -41,7 +41,9 @@ export function createAuditEngine() {
     if (n == null || !Number.isFinite(n)) return '—';
     const a = Math.abs(n);
     if (a >= 1000) return (n < 0 ? '-' : '') + '$' + Math.round(a).toLocaleString('en-US');
-    return (n < 0 ? '-$' : '$') + (Math.round(a * 100) / 100).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+    // Keep cents on small unit rates (e.g. $0.40/GB) instead of rounding them to $0.
+    const frac = a < 100 && Math.round(a * 100) % 100 !== 0 ? 2 : 0;
+    return (n < 0 ? '-$' : '$') + (Math.round(a * 100) / 100).toLocaleString('en-US', { minimumFractionDigits: frac, maximumFractionDigits: frac });
   }
 
   function clone(o) {
@@ -63,6 +65,7 @@ export function createAuditEngine() {
       spans_mo: num(raw.spans_mo),
       retention_days: Math.max(1, num(raw.retention_days, 15)),
       users: num(raw.users),
+      core_users: num(raw.core_users),
       team_size: String(raw.team_size || ''),
       priority: String(raw.priority || 'balanced'),
       compliance: Array.isArray(raw.compliance) ? raw.compliance : [],
@@ -98,7 +101,7 @@ export function createAuditEngine() {
     const foldNotes = [];
 
     if (rates.host_mo_annual != null || rates.host_mo_ondemand != null) covered.add('hosts');
-    if (rates.user_mo != null) covered.add('seats');
+    if (rates.user_mo != null || rates.full_user_tiers) covered.add('seats');
     if (rates.metric_series_1k != null) covered.add('metrics');
     if (rates.span_million != null) covered.add('traces');
     if (rates.log_gb != null) covered.add('logs');
@@ -210,12 +213,29 @@ export function createAuditEngine() {
         break;
       }
       case 'user_plus_gb': {
-        const freeUsers = rates.free_full_users || 0;
-        const billUsers = Math.max(0, usage.users - freeUsers);
-        if (rates.user_mo != null) add(`Full platform users (${billUsers} × ${money(rates.user_mo)})`, billUsers * rates.user_mo, { dim: 'seats' });
-        else gap('seats', 'User rate missing');
         const freeGb = rates.free_gb_mo || 0;
         const ingestGb = usage.log_gb_mo;
+        const T = rates.full_user_tiers;
+        const nFull = Math.max(0, Math.round(usage.users));
+        const nCore = Math.max(0, Math.round(usage.core_users || 0));
+        if (T) {
+          // Edition-aware full platform seats (all full users sit on one edition).
+          const freeUsers = rates.free_full_users || 0;
+          if (nFull <= freeUsers && nCore === 0 && ingestGb <= freeGb) {
+            add(`Full platform users (${nFull}, Free edition: ${freeUsers} free full user)`, 0, { dim: 'seats' });
+          } else if (nFull <= T.standard_max_full_users) {
+            const cost = nFull > 0 ? T.standard_first + T.standard_additional * (nFull - 1) : 0;
+            add(`Full platform users — Standard (${nFull}: ${money(T.standard_first)} first + ${Math.max(0, nFull - 1)} × ${money(T.standard_additional)})`, cost, { dim: 'seats' });
+          } else {
+            const unit = opts.ondemand ? T.pro_monthly : T.pro_annual;
+            add(`Full platform users — Pro (${nFull} × ${money(unit)}/mo, ${opts.ondemand ? 'monthly pay-as-you-go' : 'annual commitment'}; Standard caps at ${T.standard_max_full_users})`, nFull * unit, { dim: 'seats' });
+          }
+          if (nCore > 0 && rates.core_user_mo != null) add(`Core users (${nCore} × ${money(rates.core_user_mo)})`, nCore * rates.core_user_mo, { dim: 'seats' });
+        } else if (rates.user_mo != null) {
+          const freeUsers = rates.free_full_users || 0;
+          const billUsers = Math.max(0, usage.users - freeUsers);
+          add(`Full platform users (${billUsers} × ${money(rates.user_mo)})`, billUsers * rates.user_mo, { dim: 'seats' });
+        } else gap('seats', 'User rate missing');
         const billGb = Math.max(0, ingestGb - freeGb);
         if (rates.log_gb != null) add(`Data ingest (${billGb.toFixed(0)} GB × ${money(rates.log_gb)}/GB after ${freeGb} GB free)`, billGb * rates.log_gb, { dim: 'logs' });
         else gap('logs', 'GB rate missing');
@@ -833,6 +853,7 @@ export function createAuditEngine() {
       spans_mo: ['spans_mo', 'spans', 'traces', 'spans_per_month', 'trace_spans'],
       retention_days: ['retention_days', 'retention', 'retain_days'],
       users: ['users', 'seats', 'full_users'],
+      core_users: ['core_users', 'core_seats'],
       monthly_spend: ['monthly_spend', 'spend', 'bill', 'cost_mo', 'invoice']
     };
     const overrides = {};

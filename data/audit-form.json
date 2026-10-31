@@ -141,6 +141,15 @@
           "placeholder": "12"
         },
         {
+          "name": "core_users",
+          "label": "Core / limited seats (optional, e.g. New Relic core users)",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "0"
+        },
+        {
           "name": "team_size",
           "label": "Engineering team size",
           "type": "select",

@@ -18,6 +18,17 @@
     },
     "top5": [
       {
+        "name": "New Relic",
+        "monthly": 7142,
+        "monthly_low": 7142,
+        "monthly_high": 7142,
+        "savings": 1058,
+        "effort": "Medium",
+        "confidence": "medium",
+        "kind": "saas",
+        "caveat": null
+      },
+      {
         "name": "Grafana OSS stack (self-host)",
         "monthly": 2376,
         "monthly_low": 1108,
@@ -52,17 +63,6 @@
       },
       {
         "name": "OpenObserve self-host",
-        "monthly": 2376,
-        "monthly_low": 1108,
-        "monthly_high": 3643,
-        "savings": 5824,
-        "effort": "High",
-        "confidence": "medium",
-        "kind": "self_hosted",
-        "caveat": "Software $0/mo + estimated infra/ops $1,108–$3,643/mo"
-      },
-      {
-        "name": "Graylog (self-host free)",
         "monthly": 2376,
         "monthly_low": 1108,
         "monthly_high": 3643,
@@ -137,14 +137,14 @@
       "Log volume filters: ~$2050/mo",
       "Seat / user rationalization: ~$820/mo"
     ],
-    "gap_count": 43,
+    "gap_count": 42,
     "migration_steps": 4
   },
   {
     "profile": "New Relic growth team",
     "baseline_mo": 3100,
     "baseline_source": "stated_invoice",
-    "modeled_current": 897,
+    "modeled_current": 5146,
     "teaser": {
       "current_mo": 3100,
       "savings_low_mo": 310,
@@ -286,7 +286,7 @@
       "Log volume filters: ~$775/mo",
       "Seat / user rationalization: ~$310/mo"
     ],
-    "gap_count": 30,
+    "gap_count": 29,
     "migration_steps": 4
   },
   {
@@ -297,14 +297,14 @@
     "teaser": {
       "current_mo": 1400,
       "savings_low_mo": 140,
-      "savings_high_mo": 560,
-      "basis": "credible_vendors_plus_levers",
-      "label": "Conservative estimated savings $140 – $560 / mo (High/Medium confidence only; capped at 40% of baseline)"
+      "savings_high_mo": 280,
+      "basis": "on_stack_levers",
+      "label": "Conservative estimated savings $140 – $280 / mo (High/Medium confidence only; capped at 40% of baseline)"
     },
     "guardrails": {
       "floor_fraction": 0.3,
       "max_teaser_save_pct": 0.4,
-      "teaser_basis": "credible_vendors_plus_levers"
+      "teaser_basis": "on_stack_levers"
     },
     "top5": [
       {
@@ -426,6 +426,6 @@
       "Seat / user rationalization: ~$140/mo"
     ],
     "gap_count": 29,
-    "migration_steps": 1
+    "migration_steps": 0
   }
 ]
