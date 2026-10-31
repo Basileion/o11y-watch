@@ -45,7 +45,13 @@
           "container_mo": 1,
           "containers_allot_per_pro_host": 5,
           "checked": "2026-10-31",
-          "note": "All annual list prices from datadoghq.com/pricing/list (Billed Annually column) + allotments from datadoghq.com/pricing FAQs, read 2026-10-31."
+          "note": "All annual list prices from datadoghq.com/pricing/list (Billed Annually column) + allotments from datadoghq.com/pricing FAQs, read 2026-10-31.",
+          "container_hr_ondemand": 0.002,
+          "fargate_app_instance_mo_annual": 3,
+          "fargate_app_instance_mo_ondemand": 4.32,
+          "fargate_apm_instance_mo_annual": 6,
+          "fargate_apm_instance_mo_ondemand": 9,
+          "billing_note_2026_10_31": "Re-read 2026-10-31: datadoghq.com/pricing says additional containers are billed at $0.002 per container per hour; prepaid containers $1 per container per month. The AWS Fargate tab of datadoghq.com/pricing lists Serverless Application Monitoring from $3 per active application instance per month (billed annually, $4.32 on-demand) and Serverless Application APM from $6 ($9 on-demand), averaged over 5-minute intervals. Host billing (high-water mark of the lower 99% of hourly counts) from docs.datadoghq.com/account_management/billing/ and /billing/pricing/."
         }
       },
       "free": {

@@ -27,7 +27,7 @@ const diff=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width=
 <text x="56" y="344" fill="#8b93a1" font-family="Inter,sans-serif" font-size="14">+18% only if the test settles on $39/$79.</text></svg>`;
 fs.writeFileSync(A('img/hero-diff.svg'),diff);
 // ---- Pro feature visual (alert email + CSV export mock) — illustrative, built from real change data
-const proSvg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380" role="img" aria-label="Illustration of O11y Watch Pro: a same-day alert email and a CSV price-history export">
+const proSvg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" width="560" height="380" role="img" aria-label="Illustration of O11y Watch Pro: an alert email and a CSV price-history export">
 <defs><filter id="s2" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#1e1b4b" flood-opacity=".22"/></filter><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5bf7"/><stop offset="1" stop-color="#c026d3"/></linearGradient></defs>
 <rect x="16" y="20" width="330" height="220" rx="16" fill="#fff" stroke="#e6e7eb" filter="url(#s2)"/>
 <text x="36" y="52" fill="#5c6370" font-family="Inter,sans-serif" font-size="12">From: O11y Watch Pro · within ~24h of detection</text>
@@ -51,7 +51,7 @@ const og=(eyebrow,title,sub,right='',foot=`${nV} vendors · ${nVer} verified · 
 <div style="font-size:19px;color:#8b93a1;border-top:1px solid #23262f;padding-top:18px">${esc(foot)}</div></div>`;
 const diffImg=`<img src="file://${A('img/hero-diff.svg')}" width="470">`;
 render(og('Observability pricing tracker','The free tier is the product. We watch it.',`Free tiers & pricing changes for ${nV} observability tools — sourced, dated, diffed weekly.`,diffImg),A('og/home.png'));
-render(og('O11y Watch Pro · $6/mo','Same-day pricing alerts + exports',`Know within about a day when a vendor moves its pricing. Saved snapshot history since 2026-10-24, CSV/JSON. Cancel anytime.`,`<img src="file://${A('img/pro-visual.svg')}" width="480">`),A('og/pro.png'));
+render(og('O11y Watch Pro · $6/mo','Pricing alerts within a day of our check + exports',`An email within about a day of our check detecting a change; pages re-checked about weekly. Saved snapshot history since 2026-10-24, CSV/JSON. Cancel anytime.`,`<img src="file://${A('img/pro-visual.svg')}" width="480">`),A('og/pro.png'));
 render(og('Sponsor · founding rates','Reach engineers choosing observability tools',`One labeled sponsor per weekly issue, plus site placement. Founding rates from $39.`),A('og/sponsor.png'));
 render(og('Compare free tiers','Side-by-side observability free tiers',`Pick any 3 of ${nV} tools: limits, gotchas, check date and source link.`),A('og/compare.png'));
 render(og('Change log',`${nCh} pricing changes logged`,`Price increases, removed free tiers and sunsets — each with a source link.`,diffImg),A('og/changes.png'));
@@ -68,5 +68,5 @@ shot(D+'/directory.html',A('img/shot-directory.png'),1280,820);
 const frame=(img,t,s)=>`<div style="${bg};width:1270px;height:760px;padding:48px 60px;display:flex;flex-direction:column;align-items:center"><div style="font-size:44px;font-weight:800;letter-spacing:-.03em">${t}</div><div style="font-size:22px;color:#b4bac6;margin:8px 0 26px">${s}</div>${img}</div>`;
 render(frame(`<img src="file://${A('img/hero-diff.svg')}" width="760">`,'Every pricing change, as a diff','UptimeRobot started testing ~18% higher prices on 2026-10-24. We caught both versions and linked the source.'),A('launch/1-pricing-diff.png'),1270,760);
 render(frame(`<img src="file://${A('img/shot-compare.png')}" width="1000" style="border-radius:14px;border:1px solid #2a2f3a;box-shadow:0 20px 60px rgba(0,0,0,.5)">`,`Compare ${nV} free tiers side by side`,'Limits, gotchas, check date and the vendor’s own pricing page — no guesses.'),A('launch/2-compare.png'),1270,760);
-render(frame(`<img src="file://${A('img/pro-visual.svg')}" width="820">`,'Pro: same-day alerts + exports','$6/mo. Within ~24h of detection, with saved history as CSV/JSON. Cancel anytime.'),A('launch/3-pro.png'),1270,760);
+render(frame(`<img src="file://${A('img/pro-visual.svg')}" width="820">`,'Pro: alerts within a day of our check + exports','$6/mo. Within ~24h of detection, with saved history as CSV/JSON. Cancel anytime.'),A('launch/3-pro.png'),1270,760);
 fs.rmSync(tmp,{recursive:true,force:true});console.log('visuals done');

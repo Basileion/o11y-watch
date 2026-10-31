@@ -2,6 +2,7 @@
 // Only cites fields from vendors.json / changes.json — never invents numbers.
 import {parsePrice,compareLower,UNIT_LABEL} from './units.inc.mjs';
 import aiMetersGuide from './ai-meters.inc.mjs';
+import autoscalingGuide from './autoscaling.inc.mjs';
 export default function flywheel({V, C, TAKES, changes, W, P, BASE, SITE, esc, form, cta, pill, proBox, auditCta:auditCtaIn, files, nVer, nFree, LAST, fs, path, out, AUDIT_PRICE=149}){
 const AUDIT=`${BASE}/audit.html`;
 const ORG={
@@ -121,7 +122,7 @@ ${related([
 ${auditCta(`Comparing ${v.name} against your actual usage?`,`See what you’d save on ${esc(v.name)} in 2 minutes`,'audit-guide-pricing-'+v.id)}
 ${cta(`Alert me when ${esc(v.name)} changes pricing`,`We re-check this pricing page weekly.`,'guide-'+v.id,'Subscribe free')}
 ${cite(`${v.name} pricing summary as of ${v.checked}`)}
-${proBox('../',`Watch ${esc(v.name)} same-day`,`Pro emails within a day of a detected change plus CSV/JSON history.`)}
+${proBox('../',`Watch ${esc(v.name)} for price moves`,`Pro emails within about a day of our check detecting a change (pages re-checked about weekly), plus CSV/JSON history.`)}
 `,'../',[
     ORG,
     crumbLd([{label:'Home',href:BASE+'/'},{label:'Guides',href:BASE+'/guides/'},{label:`${v.name} pricing`,href:BASE+'/'+file}]),
@@ -285,7 +286,7 @@ ${alts.map(a=>`<tr><td><a href="../vendors/${a.id}.html">${esc(a.name)}</a></td>
 <li>Run the <a href="../audit.html">free audit estimate</a> with your host/GB/user counts — it uses the same rates dataset.</li>
 <li><a href="../subscribe.html?src=cut-${id}">Subscribe</a> so you hear when ${esc(v.name)} changes limits.</li>
 </ol>
-${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],...(id==='datadog'?[['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)']]:[]),[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
+${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],...(id==='datadog'?[['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill (99th-percentile hosts)']]:[]),[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
 ${auditCta(`Ready to quantify ${v.name} savings on your numbers?`,`See what you’d save on ${esc(v.name)} in 2 minutes`,'audit-guide-cut-'+id)}
 ${cta(`Watch ${esc(v.name)} for price moves`,'Weekly email when the pricing page changes, with the source link.','guide-cut-'+id,'Subscribe free')}
 ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
@@ -413,7 +414,7 @@ ${keyStats([
 
 <h3>5. How hosts and containers are counted</h3>
 <ul>
-<li>Hosts are metered hourly. The billable count is the high-water mark of the lowest 99% of hours, so the top 1% of hours is ignored. Non-reporting hosts don't count (${L(D.bill,'Billing docs')}).</li>
+<li>Hosts are metered hourly. The billable count is the high-water mark of the lowest 99% of hours, so the top 1% of hours is ignored. Non-reporting hosts don't count (${L(D.bill,'Billing docs')}). If you autoscale, read <a href="datadog-autoscaling-cost.html" data-grow="cut-to-autoscaling-guide">why autoscaling raises your Datadog bill</a>: a repeating scale-out sets the month's host count.</li>
 <li>If you install the Agent inside every container, <b>each container is billed as a host</b>. Datadog recommends one containerized Agent per host.</li>
 <li>Containers: ${PR.containers_allot_per_pro_host} per Pro host (10 per Enterprise host) are included and averaged across your infrastructure. Pause containers and Agent containers don't count. Fargate is billed on the number of tasks or pods running at the same time (${L(D.cont,'Containers Billing docs')}).</li>
 </ul>
@@ -444,7 +445,7 @@ ${auditCta('Price your own Datadog usage line by line, free, in your browser.','
 <h2>FAQ</h2>
 ${faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
 
-${related([['cut-datadog-bill.html','How to cut your Datadog bill (limits + alternatives)'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
+${related([['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill.html','How to cut your Datadog bill (limits + alternatives)'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
 ${cta('Get told when Datadog changes these prices','Weekly email when a pricing page changes, with the source link.','guide-cut-dd-nomigrate','Subscribe free')}
 ${cite(`Datadog cleanup checklist, Datadog list prices read ${CHK}`)}
 `,'../',[
@@ -614,6 +615,9 @@ ${cite(`${v.name} cost calculator context as of ${v.checked}`)}
 // ---- AI / agent observability meters guide (RT-20261031-119): rates from data/ai-meters.json, guarded in build.mjs
 {const AIM=JSON.parse(fs.readFileSync(path.join(out,'..','data','ai-meters.json'),'utf8'));
  aiMetersGuide({D:AIM,P,BASE,SITE,esc,crumbs,crumbLd,ORG,auditCta,cta,cite,related,hubLinks});}
+// ---- Datadog autoscaling / 99th-percentile host billing guide (RT-20261031-121): rates from data/audit-rates.json, guarded in build.mjs
+{const RJA=JSON.parse(fs.readFileSync(path.join(out,'..','data','audit-rates.json'),'utf8'));
+ autoscalingGuide({RJ:RJA,P,BASE,SITE,esc,crumbs,crumbLd,ORG,auditCta,cta,cite,related,hubLinks});}
 
 // ---- Hub page
 const hubFaq=[
