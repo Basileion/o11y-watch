@@ -300,7 +300,7 @@ export function createAuditEngine() {
           if (usage.indexed_logs_m_mo > 0 && ret) {
             add(`Indexed log events (${usage.indexed_logs_m_mo.toLocaleString('en-US')}M × ${money(P.indexed_logs_m[ret])}/M, ${ret}-day retention)`, usage.indexed_logs_m_mo * P.indexed_logs_m[ret], { dim: 'logs', product: 'log_index' });
           } else {
-            gap('indexed_logs', `Indexed log events are billed per million events (${money(P.indexed_logs_m['15'])}/M at 15-day retention${ret ? '' : '; retention over 30 days is not on the public list'}). ${usage.indexed_logs_m_mo > 0 ? '' : 'Enter indexed log events per month to add this line; '}GB cannot be converted to events without an assumption, so it is not added. This is usually the biggest missing line.`);
+            gap('indexed_logs', `Indexed log events are billed per million events (${money(P.indexed_logs_m['15'])}/M at 15-day retention${ret ? '' : '; retention over 30 days is not on the public list'}). ${usage.indexed_logs_m_mo > 0 ? '' : 'Enter indexed log events per month to add this line; '}GB cannot be converted to events without an assumption, so it is not added.`);
           }
         }
         if (usage.metric_series >= MATERIAL.metric_series) {

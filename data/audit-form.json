@@ -228,7 +228,7 @@
           "min": 0,
           "step": 1,
           "placeholder": "500",
-          "hint": "Datadog: Plan & Usage → Indexed logs. Prices Datadog's per-million indexed-log line, usually the biggest one."
+          "hint": "Datadog: Plan & Usage → Indexed logs. Prices Datadog's per-million indexed-log line exactly."
         },
         {
           "name": "retention_days",
