@@ -1,6 +1,7 @@
 // Programmatic SEO + GEO flywheel pages for O11y Watch. Called from build.mjs.
 // Only cites fields from vendors.json / changes.json — never invents numbers.
 import {parsePrice,compareLower,UNIT_LABEL} from './units.inc.mjs';
+import aiMetersGuide from './ai-meters.inc.mjs';
 export default function flywheel({V, C, TAKES, changes, W, P, BASE, SITE, esc, form, cta, pill, proBox, auditCta:auditCtaIn, files, nVer, nFree, LAST, fs, path, out, AUDIT_PRICE=149}){
 const AUDIT=`${BASE}/audit.html`;
 const ORG={
@@ -609,6 +610,10 @@ ${cite(`${v.name} cost calculator context as of ${v.checked}`)}
   ]);
   hubLinks.push([file,`${v.name} cost calculator`,`Free usage-based estimate → /audit (rates checked ${v.checked}).`]);
 }
+
+// ---- AI / agent observability meters guide (RT-20261031-119): rates from data/ai-meters.json, guarded in build.mjs
+{const AIM=JSON.parse(fs.readFileSync(path.join(out,'..','data','ai-meters.json'),'utf8'));
+ aiMetersGuide({D:AIM,P,BASE,SITE,esc,crumbs,crumbLd,ORG,auditCta,cta,cite,related,hubLinks});}
 
 // ---- Hub page
 const hubFaq=[

@@ -201,6 +201,7 @@ P(`vendors/${v.id}.html`,`${v.name} free tier & pricing — ${SITE}`,v.verified?
 <div class="crumbs"><a href="../directory.html">Directory</a> / <a href="../category/${v.cat}.html">${esc(C[v.cat].name)}</a></div><h1 style="font-size:44px">${esc(v.name)} ${pill(v.free)}</h1><p class="mut">${esc(v.type)}</p>
 ${auditCta(`See what you’d save on ${esc(v.name)} in 2 minutes`,`Model ${esc(v.name)} against your hosts, GB and seats using the same verified rates on this page.`,'audit-vendor-'+v.id,'../')}
 ${tryCta(v)}
+${['datadog','grafana','splunk','dynatrace'].includes(v.id)?`<p class="sm" style="margin:10px 0"><b>AI / agent meters:</b> <a href="../guides/ai-agent-observability-pricing-2026.html">AI agent observability pricing (2026)</a>: ${esc(v.name)}'s AI and agent billing next to other vendors, with effective dates and sources.</p>`:''}
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Not ready to migrate?</b> <a href="../guides/cut-datadog-bill-without-migrating.html">Cut your Datadog bill without migrating</a>: a cleanup checklist for unqueried custom metrics, health-check logs and retention, priced with Datadog list prices.</p>`:''}
 <div class="two"><div><h2 style="margin-top:12px">Free tier</h2>${v.verified?`<blockquote><b>${esc(v.free_plan||(v.has_free_tier?'Free':'No free plan'))}</b><br>${esc(v.free_tier)}</blockquote>`:`<blockquote><b>Unknown.</b> We have saved a snapshot of this pricing page but haven’t verified the plan by hand yet.</blockquote>${v.snip.length?`<p class="sm mut" style="margin-top:14px">Raw lines from our page snapshot mentioning free / trial (unreviewed, may be out of context):</p><ul class="sm">${v.snip.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:''}`}
 <h2>Gotchas</h2>${v.gotchas.length?`<ul>${v.gotchas.map(g=>`<li>${esc(g)}</li>`).join('')}</ul>`:`<p class="mut">${v.verified?'None stated in the plan summary we recorded. Read the pricing page’s fine print.':'Unknown until verified.'}</p>`}
@@ -507,3 +508,25 @@ for(const inp of [P40,{...P40,trace_gb_mo:300}]){const r=eng.runAudit(inp,R),t=r
 if(bad.length){console.error(`Lever sizing guard (RT-113/114): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
 const fmt=ls=>(ls||[]).map(l=>`${l.name.split(' ')[0]} ${l.sized?'$'+l.estimated_save_mo:'not sized'}`).join(', ');
 console.log(`lever sizing guard: ${scen.length} scenarios, every lever <= its modeled line; 40-host: ${fmt(seen['40-host preset + trace GB'])}; negative test caught ${negBad.length}; 40-host teaser: "${r40.teaser.options_below_bill?r40.teaser.options_below_bill.label.slice(0,70):'range'}…"`)}
+// Build guard (RT-20261031-119): every printed rate on the AI agent observability guide must equal data/ai-meters.json
+// (re-read from vendor pages on its checked date); example rows must recompute from the same data. Negative test must be caught.
+{const {exampleCalc,SLUG}=await import('./ai-meters.inc.mjs');const D=J('data/ai-meters.json');const f=path.join(out,SLUG);const bad=[];
+const he=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const check=(html,sink)=>{const seen=new Set();
+ for(const [,id,price,txt] of html.matchAll(/<span data-rate="([^"]+)" data-price="([^"]+)">([^<]*)<\/span>/g)){const m=D.meters.find(x=>x.id===id);seen.add(id);
+  if(!m){sink.push(`printed rate for unknown meter ${id}`);continue}
+  if(Number(price)!==m.price)sink.push(`${id}: printed data-price ${price} != data ${m.price}`);
+  if(txt!==he(m.price_display)&&txt!==m.price_display)sink.push(`${id}: printed '${txt}' != data '${m.price_display}'`)}
+ for(const m of D.meters)if(!seen.has(m.id))sink.push(`${m.id}: rate not printed on guide`);
+ const X=exampleCalc(D);for(const [m,,v] of X.rows){const r=html.match(new RegExp(`data-ex="${m.id}" data-v="([^"]+)"`));if(!r||Math.abs(Number(r[1])-Math.round(v*100)/100)>0.005)sink.push(`${m.id}: example ${r&&r[1]} != recomputed ${v}`)}
+ if(!html.includes('Prices checked '+D.checked))sink.push('guide missing "Prices checked '+D.checked+'"');
+ for(const m of D.meters)if(m.effective&&!html.includes(m.effective))sink.push(`${m.id}: effective date ${m.effective} not printed`);};
+const EXPECT={'grafana-agent-obs':1.5,'datadog-agent-obs':160,'datadog-ai-guard':0.8,'splunk-agent-obs':100,'dynatrace-ai-units':0.1,'grafana-assistant':2,'cloudflare-observability':0.25};for(const [k,v] of Object.entries(EXPECT)){const m=D.meters.find(x=>x.id===k);if(!m||m.price!==v)bad.push(`data/ai-meters.json ${k} price ${m&&m.price} != ${v} read from the vendor page 2026-10-31; re-read the vendor page and update both`)}
+if(!fs.existsSync(f))bad.push(SLUG+' missing');else{const html=fs.readFileSync(f,'utf8');check(html,bad);
+ const ld=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(x=>{try{return JSON.parse(x[1])}catch(e){bad.push('JSON-LD parse error: '+e.message);return null}});
+ const types=new Set(ld.flat().filter(Boolean).flatMap(o=>Array.isArray(o)?o.map(x=>x['@type']):(o['@graph']||[o]).map(x=>x['@type'])));
+ for(const t of ['Article','FAQPage','BreadcrumbList'])if(!types.has(t))bad.push('guide JSON-LD missing '+t);
+ const neg=[];check(html.replace(/(data-rate="grafana-agent-obs" data-price=")[^"]+(">)\$1\.50/,'$11.25$2$1.25'),neg);if(!neg.length)bad.push('negative test failed: guard did not flag a drifted Grafana rate');
+ if(bad.length){console.error(`AI meters rate guard (RT-119): ${bad.length} problem(s):\n`+bad.slice(0,20).join('\n'));process.exit(1)}
+ console.log(`ai meters rate guard: ${D.meters.length} printed rates == data/ai-meters.json (checked ${D.checked}); example rows recompute; JSON-LD ${[...types].join('+')}; negative test caught ${neg.length}`)}
+if(bad.length){console.error(`AI meters rate guard (RT-119): ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}}
