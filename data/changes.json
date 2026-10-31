@@ -1,149 +1,156 @@
 [
- {
-  "date": "2026-10-31",
-  "vendor": "Datadog",
-  "type": "correction",
-  "summary": "O11y Watch correction: our cost audit treated Datadog's Free tier as 5 free Pro hosts and subtracted them from paid Infrastructure Pro, so 40 hosts were modeled as 35 × $15 = $525/mo. Per datadoghq.com/pricing (re-read 2026-10-31), the Free tier is a separate plan ('up to five Basic hosts with 1-day metric retention'). Infrastructure Pro starts at $15/host/mo billed annually ($18 on-demand) for every monitored host. The audit now models 40 hosts as 40 × $15 = $600/mo. APM, log, custom-metric and container charges are still listed as not modeled. They are not estimated.",
-  "source": "https://www.datadoghq.com/pricing/"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "Datadog",
-  "type": "correction",
-  "summary": "O11y Watch correction: the free audit teaser called its savings range 'conservative' when it was not. For a 40-host Datadog shop (APM, 30 GB/day of logs, 200M spans, 30 seats) stating an $8,000/mo bill, it showed '$800 – $3,200 / mo'. The top of that range came from six self-hosted open-source stacks that we had all estimated at about $1,488/mo, using our own assumptions for ops labor ($500–$2,000/mo) and compute, with no allowance for span or metric storage. The bottom came from rule-of-thumb cleanup percentages. The only SaaS option fully priced from public list prices (New Relic, about $10,790/mo) costs more than that bill. The teaser's dollar figure now counts only SaaS options whose public list prices cover all of your usage, with high confidence, and that come in below the bill you state. When none qualifies, it says 'No fully priced cheaper SaaS option yet for this setup'. Self-host is shown separately as an assumption-based running cost with its assumptions listed. Cleanup levers are listed by name and are not counted. The teaser now says 'Your stated bill' instead of an internal label.",
-  "source": "https://o11y-watch.pages.dev/audit"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "Middleware",
-  "type": "correction",
-  "summary": "O11y Watch correction: our cost audit could show Middleware (and New Relic) at $0/mo for 20 APM hosts and 50M spans, and rank it first. Per middleware.io/pricing (re-read 2026-10-31), Middleware charges $0.3 per GB of uncompressed logs, metrics and traces, with 100 GB/month free. It publishes no per-host fee, per-span rate or bytes-per-span factor, so span counts cannot be priced. The audit now lists Middleware as insufficient data in that case instead of $0. Any paid alternative that would compute to $0 for real usage is now treated the same way unless a published free allowance covers it. The audit also ranks by savings first: an option that costs more than your current bill is always ranked below cheaper options and labelled 'costs more than your current bill'. Example: for 20 infrastructure-only hosts on a $400/mo bill, Dynatrace ($580/mo) is now labelled +$180/mo. Confidence is still shown as a secondary signal.",
-  "source": "https://middleware.io/pricing/"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "Dynatrace",
-  "type": "correction",
-  "summary": "O11y Watch correction: our cost audit priced every Dynatrace host at $7/mo, which is the Foundation & Discovery tier (basic infrastructure only). It could show Dynatrace as a cheap APM alternative. Per dynatrace.com/pricing (re-read 2026-10-31), the audit now uses the tier that matches what you are replacing. For APM/full-stack, that is Full-Stack Monitoring at $58/mo per 8 GiB host (billed $0.01 per memory-GiB-hour, so larger hosts cost more). For infrastructure only, it is Infrastructure Monitoring at $29/mo per host. Rates draw down from an annual Dynatrace Platform Subscription commitment. Example: 20 APM hosts was modeled at $140/mo and is now $1,160/mo.",
-  "source": "https://www.dynatrace.com/pricing/"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "Dynatrace",
-  "type": "correction",
-  "summary": "O11y Watch correction: we listed Dynatrace's paid entry as \"$7/mo per host\" without saying that this is the Foundation & Discovery tier (basic infrastructure monitoring, not APM), and our alternatives guides counted it as cheaper than Datadog's $15/host. Per dynatrace.com/pricing (re-read 2026-10-31): Infrastructure Monitoring is $29/mo per host and Full-Stack Monitoring (incl. APM) is $58/mo per 8 GiB host, under an annual platform commitment. Alternatives guides now compare entry prices only when the billing unit matches.",
-  "source": "https://www.dynatrace.com/pricing/"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "New Relic",
-  "type": "correction",
-  "summary": "O11y Watch correction: we listed New Relic’s paid entry as $49 per full platform user, but $49 is the price of a core user. Full platform users cost $10 for the first user plus $99 per additional user on Standard (max 5 full users), or $349/user/mo on Pro with an annual commitment ($418.80 monthly pay-as-you-go). Data stays 100 GB/mo free, then $0.40/GB ($0.60/GB Data Plus). The vendor page, guides, API/CSV and the cost audit now use these tiers; the audit previously priced 25 full seats at $1,176/mo instead of $8,725/mo (Pro, annual).",
-  "source": "https://newrelic.com/pricing"
- },
- {
-  "date": "2026-10-31",
-  "vendor": "Site24x7",
-  "type": "plan limit cut",
-  "summary": "The Web Uptime plan ($10/mo, $9/mo annual, 25 websites, 1-min polling) now lists 1 monitoring location instead of 32. The page adds that availability is collected from only one location, randomly selected across locations, on each poll. Price is unchanged; Web Perf ($39/mo, $36 annual) still lists 8 locations and Enterprise Plus Web 16.",
-  "source": "https://www.site24x7.com/site24x7-pricing.html"
- },
- {
-  "date": "2026-10-30",
-  "vendor": "Dash0",
-  "type": "new SKU",
-  "summary": "Pricing table adds Session Replays at $2.00 per thousand sessions (storage only, 30-day retention; a session is one visit by one user across tabs), and session replay is now in the 14-day free trial. The $10/user/month AI SDLC Insights add-on and Darkplane are no longer listed. Spans, logs and web events stay $0.060/M ingest + $0.540/M storage; metrics $0.020/M + $0.180/M.",
-  "source": "https://www.dash0.com/pricing"
- },
- {
-  "date": "2026-10-30",
-  "vendor": "UptimeRobot",
-  "type": "verification",
-  "summary": "Re-checked the 2026-10-24 ~18% increase. The pricing page is running a server-side price test (cookie ur_pd=control or variant). The default control group sees Team $39/mo annual ($46 monthly, $468/yr) and Scale $79/mo annual ($98 monthly, from $948/yr), matching our 2026-10-24 entry. The test group (about 3 in 8 fetches tonight) still sees the old prices: Team $33 ($39 monthly, $396/yr) and Scale $67 ($83 monthly, from $804/yr). Solo ($12 annual / $13 monthly) and Free are the same in both groups. Until the test settles, we treat the ~18% increase as provisional.",
-  "source": "https://uptimerobot.com/pricing/"
- },
- {
-  "date": "2026-10-29",
-  "vendor": "UptimeRobot",
-  "type": "free tier detail",
-  "summary": "Free plan is no longer limited to hobby/non-profit use: the pricing page now says \"Good for personal and commercial projects\" (was \"Good for hobby and non-profit projects\"). Still $0 with 50 monitors, 5-min interval and no card. Solo unchanged at $12/mo annual ($13 monthly). Note: repeated fetches tonight alternated between two Team/Scale price sets (Team $39 or $33/mo annual, Scale $79 or $67/mo annual), which looks like a pricing test, so we have not changed Team/Scale. The page also adds re-checks from a second data center before alerting and expiry-day SSL/domain alerts.",
-  "source": "https://uptimerobot.com/pricing/"
- },
- {
-  "date": "2026-10-28",
-  "vendor": "Datadog",
-  "type": "new tier",
-  "summary": "Infrastructure pricing adds a \"Basic\" host tier (contact sales, core system metrics, 15-month metric retention, no container monitoring; can be mixed with Pro or Enterprise hosts). The standalone Free card is gone; the FAQ now says the Free tier is up to five Basic hosts with 1-day retention. Pro $15/host ($18 on-demand) and Enterprise $23/host ($27 on-demand) unchanged.",
-  "source": "https://www.datadoghq.com/pricing/"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "Bugsnag",
-  "type": "free tier detail",
-  "summary": "Free plan now listed as 1 user with 7.5K events and 1M spans per month (we previously recorded \"solo users; 7 days retention\"). Old snapshot was overwritten, so we cannot confirm whether this is a change or a fuller reading.",
-  "source": "https://www.bugsnag.com/pricing/"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "Uptrace",
-  "type": "free tier detail",
-  "summary": "Cloud free tier stated as 50 GB and 5,000 timeseries per month; self-hosted Community Edition is free with no limits.",
-  "source": "https://uptrace.dev/pricing"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "UptimeRobot",
-  "type": "price test (possible increase)",
-  "summary": "First seen 2026-10-24 as a ~18% rise on paid plans: Team $39→$46/mo (monthly) and $33→$39/mo (annual); Scale $83→$98/mo (monthly) and $67→$79/mo (annual); annual Team $396→$468/yr. Free plan unchanged in our snapshot. Requalified 2026-10-30: UptimeRobot is running a cookie-based price test, so some visitors still see the old prices (Team $33, Scale $67/mo annual). Team is $33–$39 and Scale $67–$79/mo annual depending on the group; the ~18% applies only if the test settles on the higher (control) prices.",
-  "source": "https://uptimerobot.com/pricing/"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "Lunary",
-  "type": "free tier removed (new users)",
-  "summary": "Pricing page: \"Payment is required to activate your workspace.\" Cloud starts at $20/user/mo; existing Free workspaces stay the same.",
-  "source": "https://lunary.ai/pricing"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "Bugsink",
-  "type": "source moved",
-  "summary": "/pricing/ now returns 404; pricing lives on the homepage. Source URL updated.",
-  "source": "https://www.bugsink.com/"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "StatusGator",
-  "type": "source moved",
-  "summary": "/pricing now returns 404; pricing moved to /plans. Source URL updated.",
-  "source": "https://statusgator.com/plans"
- },
- {
-  "date": "2026-10-24",
-  "vendor": "All tracked vendors",
-  "type": "verification",
-  "summary": "Remaining 34 vendors reviewed from fresh pricing page snapshots; 31 marked verified, 3 uncertain (page does not state free limits).",
-  "source": "reports/diff-2026-10-24.md"
- },
- {
-  "date": "2026-10-16",
-  "vendor": "Highlight.io",
-  "type": "product sunset / redirect",
-  "summary": "highlight.io/pricing now redirects to launchdarkly.com (Highlight was acquired by LaunchDarkly). Removed from directory.",
-  "source": "https://www.highlight.io/pricing"
- },
- {
-  "date": "2026-10-16",
-  "vendor": "Logz.io",
-  "type": "price change (announced)",
-  "summary": "Pricing page states: \"New Metrics pricing starts Oct. 1, 2026 for new consumption plans only. Existing plans keep their current rate.\"",
-  "source": "https://logz.io/pricing/"
- },
- {
-  "date": "2026-10-16",
-  "vendor": "All tracked vendors",
-  "type": "baseline",
-  "summary": "Baseline snapshots saved for 70 vendor pricing pages (39 hand-verified at the time). Future weekly diffs will be logged here.",
-  "source": "reports/diff-2026-10-16.md"
- }
+  {
+    "date": "2026-10-31",
+    "vendor": "Datadog",
+    "type": "correction",
+    "summary": "O11y Watch correction: our cost audit priced a Datadog bill as infrastructure hosts only and left 7 of 8 alternatives as 'insufficient data' on a 40-host APM + logs setup. From public list prices re-read 2026-10-31, the audit now adds Datadog APM ($31 per APM host/mo annual, 150 GB ingested spans and 1M indexed spans included per host), log ingestion ($0.10/GB), custom metrics ($5 per 100 beyond 100 per Pro host) and, when you enter it, indexed log events ($1.70/M at 15-day retention). 40 hosts with APM, 30 GB/day of logs and 50k custom metrics now model at $4,230/mo before indexed logs and spans (was $600). Grafana Cloud, SigNoz, Coralogix, Uptrace and Dynatrace are now priced per signal from their own pricing pages; Middleware and Splunk stay 'insufficient data'. An option is High confidence only when nothing you use is assumed: span counts converted to GB, or series converted to datapoints, cap it at Medium. New optional fields for trace GB/month and indexed log events price those exactly.",
+    "source": "https://www.datadoghq.com/pricing/list/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Datadog",
+    "type": "correction",
+    "summary": "O11y Watch correction: our cost audit treated Datadog's Free tier as 5 free Pro hosts and subtracted them from paid Infrastructure Pro, so 40 hosts were modeled as 35 × $15 = $525/mo. Per datadoghq.com/pricing (re-read 2026-10-31), the Free tier is a separate plan ('up to five Basic hosts with 1-day metric retention'). Infrastructure Pro starts at $15/host/mo billed annually ($18 on-demand) for every monitored host. The audit now models 40 hosts as 40 × $15 = $600/mo. APM, log, custom-metric and container charges are still listed as not modeled. They are not estimated.",
+    "source": "https://www.datadoghq.com/pricing/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Datadog",
+    "type": "correction",
+    "summary": "O11y Watch correction: the free audit teaser called its savings range 'conservative' when it was not. For a 40-host Datadog shop (APM, 30 GB/day of logs, 200M spans, 30 seats) stating an $8,000/mo bill, it showed '$800 – $3,200 / mo'. The top of that range came from six self-hosted open-source stacks that we had all estimated at about $1,488/mo, using our own assumptions for ops labor ($500–$2,000/mo) and compute, with no allowance for span or metric storage. The bottom came from rule-of-thumb cleanup percentages. The only SaaS option fully priced from public list prices (New Relic, about $10,790/mo) costs more than that bill. The teaser's dollar figure now counts only SaaS options whose public list prices cover all of your usage, with high confidence, and that come in below the bill you state. When none qualifies, it says 'No fully priced cheaper SaaS option yet for this setup'. Self-host is shown separately as an assumption-based running cost with its assumptions listed. Cleanup levers are listed by name and are not counted. The teaser now says 'Your stated bill' instead of an internal label.",
+    "source": "https://o11y-watch.pages.dev/audit"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Middleware",
+    "type": "correction",
+    "summary": "O11y Watch correction: our cost audit could show Middleware (and New Relic) at $0/mo for 20 APM hosts and 50M spans, and rank it first. Per middleware.io/pricing (re-read 2026-10-31), Middleware charges $0.3 per GB of uncompressed logs, metrics and traces, with 100 GB/month free. It publishes no per-host fee, per-span rate or bytes-per-span factor, so span counts cannot be priced. The audit now lists Middleware as insufficient data in that case instead of $0. Any paid alternative that would compute to $0 for real usage is now treated the same way unless a published free allowance covers it. The audit also ranks by savings first: an option that costs more than your current bill is always ranked below cheaper options and labelled 'costs more than your current bill'. Example: for 20 infrastructure-only hosts on a $400/mo bill, Dynatrace ($580/mo) is now labelled +$180/mo. Confidence is still shown as a secondary signal.",
+    "source": "https://middleware.io/pricing/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Dynatrace",
+    "type": "correction",
+    "summary": "O11y Watch correction: our cost audit priced every Dynatrace host at $7/mo, which is the Foundation & Discovery tier (basic infrastructure only). It could show Dynatrace as a cheap APM alternative. Per dynatrace.com/pricing (re-read 2026-10-31), the audit now uses the tier that matches what you are replacing. For APM/full-stack, that is Full-Stack Monitoring at $58/mo per 8 GiB host (billed $0.01 per memory-GiB-hour, so larger hosts cost more). For infrastructure only, it is Infrastructure Monitoring at $29/mo per host. Rates draw down from an annual Dynatrace Platform Subscription commitment. Example: 20 APM hosts was modeled at $140/mo and is now $1,160/mo.",
+    "source": "https://www.dynatrace.com/pricing/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Dynatrace",
+    "type": "correction",
+    "summary": "O11y Watch correction: we listed Dynatrace's paid entry as \"$7/mo per host\" without saying that this is the Foundation & Discovery tier (basic infrastructure monitoring, not APM), and our alternatives guides counted it as cheaper than Datadog's $15/host. Per dynatrace.com/pricing (re-read 2026-10-31): Infrastructure Monitoring is $29/mo per host and Full-Stack Monitoring (incl. APM) is $58/mo per 8 GiB host, under an annual platform commitment. Alternatives guides now compare entry prices only when the billing unit matches.",
+    "source": "https://www.dynatrace.com/pricing/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "New Relic",
+    "type": "correction",
+    "summary": "O11y Watch correction: we listed New Relic’s paid entry as $49 per full platform user, but $49 is the price of a core user. Full platform users cost $10 for the first user plus $99 per additional user on Standard (max 5 full users), or $349/user/mo on Pro with an annual commitment ($418.80 monthly pay-as-you-go). Data stays 100 GB/mo free, then $0.40/GB ($0.60/GB Data Plus). The vendor page, guides, API/CSV and the cost audit now use these tiers; the audit previously priced 25 full seats at $1,176/mo instead of $8,725/mo (Pro, annual).",
+    "source": "https://newrelic.com/pricing"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Site24x7",
+    "type": "plan limit cut",
+    "summary": "The Web Uptime plan ($10/mo, $9/mo annual, 25 websites, 1-min polling) now lists 1 monitoring location instead of 32. The page adds that availability is collected from only one location, randomly selected across locations, on each poll. Price is unchanged; Web Perf ($39/mo, $36 annual) still lists 8 locations and Enterprise Plus Web 16.",
+    "source": "https://www.site24x7.com/site24x7-pricing.html"
+  },
+  {
+    "date": "2026-10-30",
+    "vendor": "Dash0",
+    "type": "new SKU",
+    "summary": "Pricing table adds Session Replays at $2.00 per thousand sessions (storage only, 30-day retention; a session is one visit by one user across tabs), and session replay is now in the 14-day free trial. The $10/user/month AI SDLC Insights add-on and Darkplane are no longer listed. Spans, logs and web events stay $0.060/M ingest + $0.540/M storage; metrics $0.020/M + $0.180/M.",
+    "source": "https://www.dash0.com/pricing"
+  },
+  {
+    "date": "2026-10-30",
+    "vendor": "UptimeRobot",
+    "type": "verification",
+    "summary": "Re-checked the 2026-10-24 ~18% increase. The pricing page is running a server-side price test (cookie ur_pd=control or variant). The default control group sees Team $39/mo annual ($46 monthly, $468/yr) and Scale $79/mo annual ($98 monthly, from $948/yr), matching our 2026-10-24 entry. The test group (about 3 in 8 fetches tonight) still sees the old prices: Team $33 ($39 monthly, $396/yr) and Scale $67 ($83 monthly, from $804/yr). Solo ($12 annual / $13 monthly) and Free are the same in both groups. Until the test settles, we treat the ~18% increase as provisional.",
+    "source": "https://uptimerobot.com/pricing/"
+  },
+  {
+    "date": "2026-10-29",
+    "vendor": "UptimeRobot",
+    "type": "free tier detail",
+    "summary": "Free plan is no longer limited to hobby/non-profit use: the pricing page now says \"Good for personal and commercial projects\" (was \"Good for hobby and non-profit projects\"). Still $0 with 50 monitors, 5-min interval and no card. Solo unchanged at $12/mo annual ($13 monthly). Note: repeated fetches tonight alternated between two Team/Scale price sets (Team $39 or $33/mo annual, Scale $79 or $67/mo annual), which looks like a pricing test, so we have not changed Team/Scale. The page also adds re-checks from a second data center before alerting and expiry-day SSL/domain alerts.",
+    "source": "https://uptimerobot.com/pricing/"
+  },
+  {
+    "date": "2026-10-28",
+    "vendor": "Datadog",
+    "type": "new tier",
+    "summary": "Infrastructure pricing adds a \"Basic\" host tier (contact sales, core system metrics, 15-month metric retention, no container monitoring; can be mixed with Pro or Enterprise hosts). The standalone Free card is gone; the FAQ now says the Free tier is up to five Basic hosts with 1-day retention. Pro $15/host ($18 on-demand) and Enterprise $23/host ($27 on-demand) unchanged.",
+    "source": "https://www.datadoghq.com/pricing/"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "Bugsnag",
+    "type": "free tier detail",
+    "summary": "Free plan now listed as 1 user with 7.5K events and 1M spans per month (we previously recorded \"solo users; 7 days retention\"). Old snapshot was overwritten, so we cannot confirm whether this is a change or a fuller reading.",
+    "source": "https://www.bugsnag.com/pricing/"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "Uptrace",
+    "type": "free tier detail",
+    "summary": "Cloud free tier stated as 50 GB and 5,000 timeseries per month; self-hosted Community Edition is free with no limits.",
+    "source": "https://uptrace.dev/pricing"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "UptimeRobot",
+    "type": "price test (possible increase)",
+    "summary": "First seen 2026-10-24 as a ~18% rise on paid plans: Team $39→$46/mo (monthly) and $33→$39/mo (annual); Scale $83→$98/mo (monthly) and $67→$79/mo (annual); annual Team $396→$468/yr. Free plan unchanged in our snapshot. Requalified 2026-10-30: UptimeRobot is running a cookie-based price test, so some visitors still see the old prices (Team $33, Scale $67/mo annual). Team is $33–$39 and Scale $67–$79/mo annual depending on the group; the ~18% applies only if the test settles on the higher (control) prices.",
+    "source": "https://uptimerobot.com/pricing/"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "Lunary",
+    "type": "free tier removed (new users)",
+    "summary": "Pricing page: \"Payment is required to activate your workspace.\" Cloud starts at $20/user/mo; existing Free workspaces stay the same.",
+    "source": "https://lunary.ai/pricing"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "Bugsink",
+    "type": "source moved",
+    "summary": "/pricing/ now returns 404; pricing lives on the homepage. Source URL updated.",
+    "source": "https://www.bugsink.com/"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "StatusGator",
+    "type": "source moved",
+    "summary": "/pricing now returns 404; pricing moved to /plans. Source URL updated.",
+    "source": "https://statusgator.com/plans"
+  },
+  {
+    "date": "2026-10-24",
+    "vendor": "All tracked vendors",
+    "type": "verification",
+    "summary": "Remaining 34 vendors reviewed from fresh pricing page snapshots; 31 marked verified, 3 uncertain (page does not state free limits).",
+    "source": "reports/diff-2026-10-24.md"
+  },
+  {
+    "date": "2026-10-16",
+    "vendor": "Highlight.io",
+    "type": "product sunset / redirect",
+    "summary": "highlight.io/pricing now redirects to launchdarkly.com (Highlight was acquired by LaunchDarkly). Removed from directory.",
+    "source": "https://www.highlight.io/pricing"
+  },
+  {
+    "date": "2026-10-16",
+    "vendor": "Logz.io",
+    "type": "price change (announced)",
+    "summary": "Pricing page states: \"New Metrics pricing starts Oct. 1, 2026 for new consumption plans only. Existing plans keep their current rate.\"",
+    "source": "https://logz.io/pricing/"
+  },
+  {
+    "date": "2026-10-16",
+    "vendor": "All tracked vendors",
+    "type": "baseline",
+    "summary": "Baseline snapshots saved for 70 vendor pricing pages (39 hand-verified at the time). Future weekly diffs will be logged here.",
+    "source": "reports/diff-2026-10-16.md"
+  }
 ]

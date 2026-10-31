@@ -173,7 +173,11 @@
   const DIM_LABEL = {
     hosts: 'hosts', log_gb_day: 'log GB/day', metric_series: 'metric series', spans_mo: 'spans/month', users: 'user seats',
     coverage: 'Pricing coverage', fold: 'Bundled line', infra: 'Infra + ops estimate', license: 'License', realism: 'Realism check',
-    reconcile: 'Model vs your bill', vendor: 'Vendor'
+    reconcile: 'Model vs your bill', vendor: 'Vendor',
+    logs: 'logs', metrics: 'metrics', traces: 'traces', seats: 'user seats', platform: 'platform fee', floor: 'plan minimum',
+    trace_gb_mo: 'trace GB/month', indexed_logs_m_mo: 'indexed log events',
+    indexed_spans: 'Indexed spans', indexed_logs: 'Indexed log events', containers: 'Containers / Fargate', assumption: 'Assumption',
+    rates: 'Published rate', retention: 'Retention'
   };
   const CONF_LABEL = { high: 'High', medium: 'Medium', low: 'Low', none: 'None' };
   function plain(map, v) { return map[v] || String(v ?? '').replace(/_/g, ' '); }
@@ -190,7 +194,7 @@
       : 'No current bill entered.';
     const basis = t.savings_low_mo != null
       ? `<p class="sm mut">Counted: ${cnt} SaaS option${cnt === 1 ? '' : 's'} whose public list prices cover all of your usage, with high confidence, and come in below your bill. Capped at ${Math.round(((report.guardrails && report.guardrails.max_teaser_save_pct) || 0.4) * 100)}% of your bill. Self-host and cleanup ideas are not counted.</p>`
-      : `<p class="sm mut">We only show a dollar figure when a vendor's public list prices cover all of your usage with high confidence and come in below your bill.</p>`;
+      : `<p class="sm mut">We only show a dollar figure when a vendor's public list prices cover all of your usage with high confidence and come in below your bill.${report.usage && report.usage.spans_mo > 0 && !(report.usage.trace_gb_mo > 0) ? ' Your traces are a span count, so vendors that bill traces per GB are estimated (Medium at best). Add your ingested trace GB/month (Datadog: Plan &amp; Usage) to price them exactly.' : ''}</p>`;
     const self = t.self_host
       ? `<p class="sm mut"><b>Self-host (not counted above):</b> about ${money(t.self_host.cost_low_mo)}–${money(t.self_host.cost_high_mo)}/mo to run, based on our assumptions, not a quote: ${esc(t.self_host.assumptions.join('; '))}. If your team's time costs more, the saving shrinks or disappears.</p>`
       : '';

@@ -375,6 +375,37 @@ console.log(`audit teaser guard: ${scen.length} scenarios OK (${withRange} with 
 for(const h of [1,5,20,40,180]){const r=eng.runAudit({vendors:['datadog'],primary_vendor:'datadog',hosts:h,spans_mo:2e8,log_gb_day:30,monthly_spend:8000},R);const l=(r.current.lines||[]).find(x=>x.dim==='hosts');
  if(!l||l.amount!==h*u||!new RegExp('\\('+h+' hosts').test(l.label))bad.push(`${h} Datadog hosts modeled as '${l&&l.label}' = ${l&&l.amount}, expected ${h} hosts x $${u}`)}
 if(bad.length){console.error(`Datadog free-host guard: ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}console.log(`datadog free-host guard: paid Infra Pro bills every host at $${u}; Free tier (5 Basic hosts) never deducted`)}
+// Build guard (RT-20261031-78 + RT-20261031-79): a Datadog APM/logs scenario must model APM and log lines from the public list,
+// and any option marked High must price EVERY used dimension from a published rate (no assumption, no gap). Negative-tested below.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?h='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));
+const MATERIAL_EXTRA=new Set(['retention','assumption','volume_proxy','overage','compute','fold','reconcile']);
+function check(r,inp,k){const bad=[];const used=eng.buyerDimensions(r.usage);const apm=eng.needsApm(r.usage);
+ if(r.current&&r.current.id==='datadog'&&r.current.modeled){const L=r.current.lines||[];
+  if(apm&&r.usage.hosts>0&&!L.some(l=>l.product==='apm'&&l.amount>0))bad.push(`${k}: Datadog APM scenario has no APM host line`);
+  if(r.usage.log_gb_mo>0&&!L.some(l=>l.product==='log_ingest'&&l.amount>0))bad.push(`${k}: Datadog logs scenario has no log ingestion line`);
+  if(r.usage.metric_series>r.usage.hosts*100&&!L.some(l=>l.product==='custom_metrics'))bad.push(`${k}: Datadog custom metrics over the per-host allotment not priced`);
+  if(r.usage.log_gb_mo>0&&!L.some(l=>l.product==='log_index')&&!(r.current.gaps||[]).some(g=>g.dimension==='indexed_logs'))bad.push(`${k}: Datadog indexed logs neither priced nor listed as a gap`)}
+ for(const a of [...(r.alternatives||[]),...(r.ranked||[]).filter(x=>x.kind==='saas')]){if(a.confidence!=='high')continue;
+  const g=(a.gaps||[]).filter(x=>used.includes(x.dimension)||MATERIAL_EXTRA.has(x.dimension));if(g.length)bad.push(`${k}: ${a.name} marked High with unpriced/assumed material dimension(s): ${g.map(x=>x.dimension).join(', ')}`);
+  if((a.assumptions||[]).length)bad.push(`${k}: ${a.name} marked High but uses assumption(s)`);
+  if(a.lines){const dims=new Set(a.lines.map(l=>l.dim));const req=(a.coverage&&a.coverage.required)||[];const miss=req.filter(d=>!dims.has(d));if(miss.length)bad.push(`${k}: ${a.name} marked High but no priced line for: ${miss.join(', ')}`)}}
+ return bad}
+const dd={vendors:['datadog'],primary_vendor:'datadog'};
+const P40={...dd,plans:'APM, infrastructure, logs',monthly_spend:8000,hosts:40,log_gb_day:30,metric_series:50000,spans_mo:2e8,users:30,retention_days:15,team_size:'21-50',priority:'balanced',compliance:['none']};
+const scen=[['40-host APM+logs preset',P40],['40-host + trace GB + indexed logs',{...P40,trace_gb_mo:2000,indexed_logs_m_mo:600}],['20 APM hosts trace GB $2,000',{...dd,plans:'APM',hosts:20,log_gb_day:10,metric_series:20000,spans_mo:6e7,trace_gb_mo:300,users:10,retention_days:15,monthly_spend:2000}],
+ ['APM by spans only',{...dd,hosts:20,spans_mo:5e7,log_gb_day:5,monthly_spend:3000}],['logs only 10 GB/day',{...dd,log_gb_day:10,monthly_spend:500}],['retention 90d',{...dd,hosts:30,log_gb_day:40,retention_days:90,users:12,spans_mo:3e7,trace_gb_mo:200,monthly_spend:6000}],
+ ['Datadog 180 hosts',{...dd,plans:'Infra Pro + APM + Logs',hosts:180,log_gb_day:75,metric_series:400000,spans_mo:1.2e8,users:18,monthly_spend:8200}]];
+for(const h of [5,20,40,100])for(const bill of [600,3000,8000])scen.push([`grid ${h}h APM+logs bill ${bill}`,{...dd,plans:'APM',hosts:h,log_gb_day:h/2,metric_series:h*300,spans_mo:h*2e6,trace_gb_mo:h*5,users:10,monthly_spend:bill}]);
+const bad=[];let highN=0;let p40;
+for(const [k,inp] of scen){const r=eng.runAudit(inp,R);bad.push(...check(r,inp,k));highN+=(r.alternatives||[]).filter(a=>a.confidence==='high').length;if(k==='40-host APM+logs preset')p40=r}
+const ins=(p40.insufficient_pricing||[]).length;if(ins>2)bad.push(`40-host preset: ${ins} SaaS vendors 'insufficient data' (target <= 2)`);
+if(!highN)bad.push('No scenario produces any High-confidence fully priced option (expected when exact trace GB is entered)');
+// Negative tests: the guard must catch (a) a Datadog model with APM/logs removed, (b) a High option that hides an assumption.
+const R2=JSON.parse(JSON.stringify(R));delete R2.vendors.datadog.rates.products;const neg1=check(eng.runAudit(P40,R2),P40,'neg1');
+const r3=eng.runAudit(P40,R);const a3=(r3.alternatives||[]).find(a=>(a.assumptions||[]).length);if(a3)a3.confidence='high';const neg2=a3?check(r3,P40,'neg2'):[];
+if(neg1.length<2)bad.push('negative test failed: guard did not flag a Datadog model without APM/log lines');if(!neg2.length)bad.push('negative test failed: guard did not flag a High option with an assumption');
+if(bad.length){console.error(`Audit coverage/High guard: ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+console.log(`audit coverage/High guard: ${scen.length} scenarios OK; 40-host preset ${(p40.alternatives||[]).length} SaaS priced, ${ins} insufficient; Datadog current modeled ${p40.current.modeled_total}/mo (APM+logs+custom metrics); ${highN} High options all fully priced; negative tests caught ${neg1.length}+${neg2.length}`)}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);

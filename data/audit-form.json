@@ -26,20 +26,62 @@
           "required": true,
           "hint": "Select all that apply. Primary vendor should be the one driving most of the bill.",
           "options": [
-            { "value": "datadog", "label": "Datadog" },
-            { "value": "newrelic", "label": "New Relic" },
-            { "value": "grafana", "label": "Grafana Cloud / Loki / Tempo / Mimir" },
-            { "value": "splunk", "label": "Splunk / Splunk Observability" },
-            { "value": "elastic", "label": "Elastic / ELK" },
-            { "value": "dynatrace", "label": "Dynatrace" },
-            { "value": "honeycomb", "label": "Honeycomb" },
-            { "value": "signoz", "label": "SigNoz" },
-            { "value": "coralogix", "label": "Coralogix" },
-            { "value": "axiom", "label": "Axiom" },
-            { "value": "sentry", "label": "Sentry" },
-            { "value": "middleware", "label": "Middleware" },
-            { "value": "groundcover", "label": "groundcover" },
-            { "value": "other", "label": "Other / mix (note in constraints)" }
+            {
+              "value": "datadog",
+              "label": "Datadog"
+            },
+            {
+              "value": "newrelic",
+              "label": "New Relic"
+            },
+            {
+              "value": "grafana",
+              "label": "Grafana Cloud / Loki / Tempo / Mimir"
+            },
+            {
+              "value": "splunk",
+              "label": "Splunk / Splunk Observability"
+            },
+            {
+              "value": "elastic",
+              "label": "Elastic / ELK"
+            },
+            {
+              "value": "dynatrace",
+              "label": "Dynatrace"
+            },
+            {
+              "value": "honeycomb",
+              "label": "Honeycomb"
+            },
+            {
+              "value": "signoz",
+              "label": "SigNoz"
+            },
+            {
+              "value": "coralogix",
+              "label": "Coralogix"
+            },
+            {
+              "value": "axiom",
+              "label": "Axiom"
+            },
+            {
+              "value": "sentry",
+              "label": "Sentry"
+            },
+            {
+              "value": "middleware",
+              "label": "Middleware"
+            },
+            {
+              "value": "groundcover",
+              "label": "groundcover"
+            },
+            {
+              "value": "other",
+              "label": "Other / mix (note in constraints)"
+            }
           ]
         },
         {
@@ -48,18 +90,54 @@
           "type": "select",
           "required": true,
           "options": [
-            { "value": "", "label": "Select…" },
-            { "value": "datadog", "label": "Datadog" },
-            { "value": "newrelic", "label": "New Relic" },
-            { "value": "grafana", "label": "Grafana Cloud" },
-            { "value": "splunk", "label": "Splunk" },
-            { "value": "elastic", "label": "Elastic" },
-            { "value": "dynatrace", "label": "Dynatrace" },
-            { "value": "honeycomb", "label": "Honeycomb" },
-            { "value": "signoz", "label": "SigNoz" },
-            { "value": "coralogix", "label": "Coralogix" },
-            { "value": "axiom", "label": "Axiom" },
-            { "value": "other", "label": "Other" }
+            {
+              "value": "",
+              "label": "Select…"
+            },
+            {
+              "value": "datadog",
+              "label": "Datadog"
+            },
+            {
+              "value": "newrelic",
+              "label": "New Relic"
+            },
+            {
+              "value": "grafana",
+              "label": "Grafana Cloud"
+            },
+            {
+              "value": "splunk",
+              "label": "Splunk"
+            },
+            {
+              "value": "elastic",
+              "label": "Elastic"
+            },
+            {
+              "value": "dynatrace",
+              "label": "Dynatrace"
+            },
+            {
+              "value": "honeycomb",
+              "label": "Honeycomb"
+            },
+            {
+              "value": "signoz",
+              "label": "SigNoz"
+            },
+            {
+              "value": "coralogix",
+              "label": "Coralogix"
+            },
+            {
+              "value": "axiom",
+              "label": "Axiom"
+            },
+            {
+              "value": "other",
+              "label": "Other"
+            }
           ]
         },
         {
@@ -133,6 +211,26 @@
           "placeholder": "80000000"
         },
         {
+          "name": "trace_gb_mo",
+          "label": "Ingested trace volume (GB / month) — optional",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "300",
+          "hint": "Datadog: Plan & Usage → APM ingested spans (GB). Lets us price GB-billed vendors exactly instead of estimating from span count."
+        },
+        {
+          "name": "indexed_logs_m_mo",
+          "label": "Indexed log events (millions / month) — optional",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "500",
+          "hint": "Datadog: Plan & Usage → Indexed logs. Prices Datadog's per-million indexed-log line, usually the biggest one."
+        },
+        {
           "name": "retention_days",
           "label": "Retention (days)",
           "type": "number",
@@ -165,12 +263,30 @@
           "type": "select",
           "required": true,
           "options": [
-            { "value": "", "label": "Select…" },
-            { "value": "1-5", "label": "1 – 5" },
-            { "value": "6-20", "label": "6 – 20" },
-            { "value": "21-50", "label": "21 – 50" },
-            { "value": "51-200", "label": "51 – 200" },
-            { "value": "200+", "label": "200+" }
+            {
+              "value": "",
+              "label": "Select…"
+            },
+            {
+              "value": "1-5",
+              "label": "1 – 5"
+            },
+            {
+              "value": "6-20",
+              "label": "6 – 20"
+            },
+            {
+              "value": "21-50",
+              "label": "21 – 50"
+            },
+            {
+              "value": "51-200",
+              "label": "51 – 200"
+            },
+            {
+              "value": "200+",
+              "label": "200+"
+            }
           ]
         }
       ]
@@ -186,11 +302,26 @@
           "type": "select",
           "required": true,
           "options": [
-            { "value": "", "label": "Select…" },
-            { "value": "cost", "label": "Cost / savings first" },
-            { "value": "features", "label": "Features / depth first" },
-            { "value": "selfhost", "label": "Self-host / open stack first" },
-            { "value": "balanced", "label": "Balanced" }
+            {
+              "value": "",
+              "label": "Select…"
+            },
+            {
+              "value": "cost",
+              "label": "Cost / savings first"
+            },
+            {
+              "value": "features",
+              "label": "Features / depth first"
+            },
+            {
+              "value": "selfhost",
+              "label": "Self-host / open stack first"
+            },
+            {
+              "value": "balanced",
+              "label": "Balanced"
+            }
           ]
         },
         {
@@ -199,12 +330,30 @@
           "type": "checkbox-group",
           "required": false,
           "options": [
-            { "value": "none", "label": "None / not sure" },
-            { "value": "soc2", "label": "SOC 2" },
-            { "value": "hipaa", "label": "HIPAA" },
-            { "value": "gdpr", "label": "GDPR / data residency" },
-            { "value": "fedramp", "label": "FedRAMP / gov" },
-            { "value": "pci", "label": "PCI" }
+            {
+              "value": "none",
+              "label": "None / not sure"
+            },
+            {
+              "value": "soc2",
+              "label": "SOC 2"
+            },
+            {
+              "value": "hipaa",
+              "label": "HIPAA"
+            },
+            {
+              "value": "gdpr",
+              "label": "GDPR / data residency"
+            },
+            {
+              "value": "fedramp",
+              "label": "FedRAMP / gov"
+            },
+            {
+              "value": "pci",
+              "label": "PCI"
+            }
           ]
         },
         {
@@ -213,12 +362,30 @@
           "type": "select",
           "required": false,
           "options": [
-            { "value": "", "label": "No preference / not sure" },
-            { "value": "us", "label": "United States" },
-            { "value": "eu", "label": "EU / EEA" },
-            { "value": "uk", "label": "United Kingdom" },
-            { "value": "apac", "label": "APAC" },
-            { "value": "multi", "label": "Multi-region required" }
+            {
+              "value": "",
+              "label": "No preference / not sure"
+            },
+            {
+              "value": "us",
+              "label": "United States"
+            },
+            {
+              "value": "eu",
+              "label": "EU / EEA"
+            },
+            {
+              "value": "uk",
+              "label": "United Kingdom"
+            },
+            {
+              "value": "apac",
+              "label": "APAC"
+            },
+            {
+              "value": "multi",
+              "label": "Multi-region required"
+            }
           ]
         },
         {

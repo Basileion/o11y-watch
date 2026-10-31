@@ -66,6 +66,10 @@ export function createAuditEngine() {
       log_gb_mo: num(raw.log_gb_day) * 30,
       metric_series: num(raw.metric_series),
       spans_mo: num(raw.spans_mo),
+      // RT-20261031-78/79: optional exact volumes. When given, GB-billed trace pricing and Datadog
+      // indexed-log pricing use them instead of an assumption / gap.
+      trace_gb_mo: num(raw.trace_gb_mo),
+      indexed_logs_m_mo: num(raw.indexed_logs_m_mo),
       retention_days: Math.max(1, num(raw.retention_days, 15)),
       users: num(raw.users),
       core_users: num(raw.core_users),
@@ -152,10 +156,24 @@ export function createAuditEngine() {
       foldNotes.push('Ingest GB used as combined proxy for logs/metrics/traces; dataset does not separate those meters.');
     }
 
+    // RT-20261031-79: per-signal published rates (logs/traces $ per GB, metrics per series / GB / samples).
+    // Traces given only as a span COUNT are still "covered" but via a stated conversion assumption
+    // (modelVendor records it and confidence is capped at Medium).
+    const sig = model === 'signal_gb' ? rates : (rates.signals || null);
+    if (sig) {
+      if (sig.logs && (sig.logs.gb != null || sig.logs.gib != null)) covered.add('logs');
+      if (sig.traces && (sig.traces.gb != null || sig.traces.included_tier)) covered.add('traces');
+      if (sig.metrics) covered.add('metrics');
+    }
+
     // Dimensions this pricing model does not charge (N/A for coverage checks).
     const na = new Set();
     const hostModels = new Set(['per_host', 'per_host_plus_products']);
-    if (!hostModels.has(model)) na.add('hosts');
+    if (model === 'signal_gb') {
+      // Hosts are only charged when the vendor publishes an APM per-host fee and the buyer replaces APM.
+      if (rates.apm_host_mo != null && needsApm(usage)) covered.add('hosts');
+      else na.add('hosts');
+    } else if (!hostModels.has(model)) na.add('hosts');
     if (rates.user_mo == null && model !== 'user_plus_gb') na.add('seats');
 
     // Opaque floors cannot defensibly cover usage dimensions.
@@ -224,16 +242,73 @@ export function createAuditEngine() {
     function gap(dim, why) {
       gaps.push({ dimension: dim, reason: why });
     }
+    const assumptions = [];
+    function assume(dim, why) {
+      assumptions.push({ dimension: dim, reason: why });
+    }
+    const conv = (opts.conversions) || {};
+    const SPAN_BYTES = (conv.span_bytes && conv.span_bytes.value) || null;
+    const DP_PER_SERIES = (conv.datapoints_per_series_mo && conv.datapoints_per_series_mo.value) || null;
+    /** Trace GB/mo: exact when the buyer gave it; else span count x published average span size (assumption). */
+    function traceGb() {
+      if (usage.trace_gb_mo > 0) return { gb: usage.trace_gb_mo, assumed: false };
+      if (usage.spans_mo >= MATERIAL.spans_mo && SPAN_BYTES) {
+        const gb = (usage.spans_mo * SPAN_BYTES) / 1e9;
+        return { gb, assumed: true, why: `Trace GB estimated from ${(usage.spans_mo / 1e6).toLocaleString('en-US')}M spans × ${SPAN_BYTES} bytes (Uptrace's published average span size, before custom attributes) = ${gb.toFixed(0)} GB. Real spans with attributes are larger; enter your trace GB/month for an exact figure.` };
+      }
+      return { gb: 0, assumed: false };
+    }
+    /** Metric datapoints/mo from active series at a 1-minute interval (assumption). */
+    function datapoints() {
+      const dp = usage.metric_series * (DP_PER_SERIES || 43200);
+      return { dp, why: `Datapoints estimated as ${usage.metric_series.toLocaleString('en-US')} series × 1 per minute × 30 days = ${(dp / 1e6).toLocaleString('en-US', { maximumFractionDigits: 0 })}M (the OpenTelemetry/Prometheus default interval; 30s doubles it).` };
+    }
 
     switch (vdef.model) {
       case 'per_host_plus_products': {
         const unit = opts.ondemand ? rates.host_mo_ondemand : rates.host_mo_annual;
         if (unit != null) add(`Infrastructure (${billHosts} hosts × ${money(unit)}/mo)`, billHosts * unit, { dim: 'hosts' });
         else gap('hosts', 'No host rate in dataset');
-        if (rates.log_gb == null) gap('logs', 'Log $/GB not in O11y Watch dataset for ' + vdef.name + ' (products billed separately)');
-        if (rates.metric_series_1k == null) gap('metrics', 'Custom metrics unit rate not in dataset for ' + vdef.name);
-        if (rates.span_million == null) gap('traces', 'APM/span unit rate not in dataset for ' + vdef.name);
-        if (rates.user_mo == null) gap('seats', 'Seat pricing not stated for ' + vdef.name);
+        const P = rates.products;
+        if (!P) {
+          if (rates.log_gb == null) gap('logs', 'Log $/GB not in O11y Watch dataset for ' + vdef.name + ' (products billed separately)');
+          if (rates.metric_series_1k == null) gap('metrics', 'Custom metrics unit rate not in dataset for ' + vdef.name);
+          if (rates.span_million == null) gap('traces', 'APM/span unit rate not in dataset for ' + vdef.name);
+          if (rates.user_mo == null) gap('seats', 'Seat pricing not stated for ' + vdef.name);
+          break;
+        }
+        // RT-20261031-78: full Datadog bill from the public list (APM, span ingest, logs, indexed logs, custom metrics).
+        const apm = needsApm(usage);
+        const apmHosts = apm ? usage.hosts : 0;
+        if (apm && usage.hosts > 0) {
+          const au = opts.ondemand ? P.apm_host_mo_ondemand : P.apm_host_mo_annual;
+          add(`APM (${apmHosts} APM hosts × ${money(au)}/mo; assumes every host runs APM)`, apmHosts * au, { dim: 'traces', product: 'apm' });
+          const tg = traceGb();
+          const allot = apmHosts * P.span_ingest_allot_gb_per_apm_host;
+          if (tg.gb > 0) {
+            const over = Math.max(0, tg.gb - allot);
+            add(`Ingested spans (${tg.gb.toFixed(0)} GB vs ${allot.toLocaleString('en-US')} GB included; ${over.toFixed(0)} GB × ${money(P.span_ingest_gb)})`, over * P.span_ingest_gb, { dim: 'traces', product: 'span_ingest' });
+            if (tg.assumed) assume('traces', tg.why);
+          }
+          gap('indexed_spans', `Indexed spans: ${apmHosts}M included (1M per APM host, 15-day); extra billed ${money(P.indexed_spans_m['15'])}/M (15-day). The survey does not ask how many spans your retention filters index, so extra indexed spans are not added.`);
+        } else if (usage.spans_mo >= MATERIAL.spans_mo) {
+          gap('traces', 'Spans reported but no hosts entered, so APM host fees cannot be computed');
+        }
+        if (usage.log_gb_mo > 0) {
+          add(`Log ingestion (${usage.log_gb_mo.toFixed(0)} GB × ${money(P.log_ingest_gb)})`, usage.log_gb_mo * P.log_ingest_gb, { dim: 'logs', product: 'log_ingest' });
+          const ret = usage.retention_days <= 3 ? '3' : usage.retention_days <= 7 ? '7' : usage.retention_days <= 15 ? '15' : usage.retention_days <= 30 ? '30' : null;
+          if (usage.indexed_logs_m_mo > 0 && ret) {
+            add(`Indexed log events (${usage.indexed_logs_m_mo.toLocaleString('en-US')}M × ${money(P.indexed_logs_m[ret])}/M, ${ret}-day retention)`, usage.indexed_logs_m_mo * P.indexed_logs_m[ret], { dim: 'logs', product: 'log_index' });
+          } else {
+            gap('indexed_logs', `Indexed log events are billed per million events (${money(P.indexed_logs_m['15'])}/M at 15-day retention${ret ? '' : '; retention over 30 days is not on the public list'}). ${usage.indexed_logs_m_mo > 0 ? '' : 'Enter indexed log events per month to add this line; '}GB cannot be converted to events without an assumption, so it is not added. This is usually the biggest missing line.`);
+          }
+        }
+        if (usage.metric_series >= MATERIAL.metric_series) {
+          const incl = usage.hosts * P.custom_metrics_allot_per_pro_host;
+          const over = Math.max(0, usage.metric_series - incl);
+          add(`Custom metrics (${usage.metric_series.toLocaleString('en-US')} − ${incl.toLocaleString('en-US')} included = ${over.toLocaleString('en-US')} × ${money(P.custom_metrics_per_100)}/100)`, (over / 100) * P.custom_metrics_per_100, { dim: 'metrics', product: 'custom_metrics' });
+        }
+        gap('containers', `Containers/Fargate are not in the survey: Container Monitoring is ${money(P.container_mo)}/container/mo beyond ${P.containers_allot_per_pro_host} per Pro host; Fargate tasks are billed separately.`);
         break;
       }
       case 'per_host': {
@@ -249,12 +324,33 @@ export function createAuditEngine() {
             add(`${t.label} (${usage.hosts} × ${money(t.mo)}/mo per ${t.unit}${ht.apm ? '' : '; infrastructure only — APM needs Full-Stack'})`, usage.hosts * t.mo, { dim: 'hosts', tier: ht.key });
           }
         } else {
-          const unit = rates.host_mo_annual;
-          if (unit != null) add(`Hosts (${usage.hosts} × ${money(unit)}/mo)`, usage.hosts * unit, { dim: 'hosts' });
+          const apmU = needsApm(usage) && rates.apm_host_mo_annual != null ? rates.apm_host_mo_annual : null;
+          const unit = apmU != null ? apmU : rates.host_mo_annual;
+          if (unit != null) add(`${apmU != null ? 'APM + infrastructure hosts' : 'Hosts'} (${usage.hosts} × ${money(unit)}/mo)`, usage.hosts * unit, { dim: 'hosts' });
           else gap('hosts', 'No host rate');
         }
+        const S = rates.signals;
+        if (S && ht) {
+          // RT-20261031-79: Dynatrace rate card (logs per GiB + retain per GiB-day; metrics per 100k datapoints).
+          if (S.logs && usage.log_gb_mo > 0) {
+            const ing = usage.log_gb_mo * S.logs.gib;
+            const keep = usage.log_gb_day * usage.retention_days * 30 * (S.logs.retain_gib_day || 0);
+            add(`Logs (${usage.log_gb_mo.toFixed(0)} GB × ${money(S.logs.gib)}/GiB ingest + retain ${usage.log_gb_day} GB/day × ${usage.retention_days} days kept × $${S.logs.retain_gib_day}/GiB-day)`, ing + keep, { dim: 'logs' });
+          }
+          if (S.metrics && usage.metric_series >= MATERIAL.metric_series) {
+            const d = datapoints();
+            add(`Metrics (${(d.dp / 1e5).toLocaleString('en-US', { maximumFractionDigits: 0 })} × 100k datapoints × ${money(S.metrics.datapoints_100k)})`, (d.dp / 1e5) * S.metrics.datapoints_100k, { dim: 'metrics' });
+            assume('metrics', d.why + ' Full-Stack may include a metrics allowance that the pricing page does not size, so this may overstate.');
+          }
+          if (S.traces && usage.spans_mo >= MATERIAL.spans_mo) {
+            if (ht.key === S.traces.included_tier) {
+              add(`Traces (included with ${ht.tier.label})`, 0, { dim: 'traces' });
+              assume('traces', `${ht.tier.label} includes trace ingest, but the allowance size is not stated on the pricing page; overage ($0.20/GiB) not added.`);
+            } else gap('traces', 'Traces need Full-Stack Monitoring');
+          }
+        }
         if (rates.log_gb == null) gap('logs', 'Log unit rate not in dataset');
-        if (rates.span_million == null) {
+        if (S && ht) { /* traces handled above */ } else if (rates.span_million == null) {
           if (ht && ht.key === rates.trace_allowance_included_tier) gap('traces', `${ht.tier.label} includes a trace allowance, but its size and the overage rate per span are not stated on the pricing page — span volume not modeled`);
           else gap('traces', 'Span/APM unit rate not in dataset');
         }
@@ -300,6 +396,51 @@ export function createAuditEngine() {
         else gap('metrics', 'Series rate missing');
         if (rates.log_gb == null) gap('logs', 'Log $/GB not stated in captured dataset fields for Grafana Cloud');
         if (rates.span_million == null) gap('traces', 'Trace unit rate not stated in captured dataset fields for Grafana Cloud');
+        break;
+      }
+      case 'signal_gb': {
+        // RT-20261031-79: every used signal priced from the vendor's published per-signal rate.
+        if (rates.platform_fee_mo != null) add(`Platform fee`, rates.platform_fee_mo, { dim: 'platform' });
+        if (rates.apm_host_mo != null && needsApm(usage) && usage.hosts > 0) {
+          add(`${rates.apm_label || 'APM'} (${usage.hosts} hosts × ${money(rates.apm_host_mo)}/mo)`, usage.hosts * rates.apm_host_mo, { dim: 'hosts' });
+        }
+        if (rates.user_mo != null && usage.users >= MATERIAL.users) {
+          const billU = Math.max(0, Math.round(usage.users) - (rates.free_users || 0));
+          add(`Active users (${billU} × ${money(rates.user_mo)}/mo after ${rates.free_users || 0} included)`, billU * rates.user_mo, { dim: 'seats' });
+        }
+        let sharedFree = null;
+        const L = rates.logs, Tr = rates.traces, M = rates.metrics;
+        if (L && usage.log_gb_mo > 0) {
+          let free = L.free_gb || 0;
+          if (L.shared_free) { sharedFree = free; }
+          const bill = Math.max(0, usage.log_gb_mo - free);
+          if (L.shared_free) sharedFree = Math.max(0, free - usage.log_gb_mo);
+          add(`Logs (${bill.toFixed(0)} GB × ${money(L.gb)}${free ? ` after ${free} GB included` : ''})`, bill * L.gb, { dim: 'logs' });
+        }
+        if (Tr && (usage.spans_mo >= MATERIAL.spans_mo || usage.trace_gb_mo > 0)) {
+          const tg = traceGb();
+          const free = Tr.shared_free ? (sharedFree ?? Tr.free_gb ?? 0) : (Tr.free_gb || 0);
+          const bill = Math.max(0, tg.gb - free);
+          add(`Traces (${bill.toFixed(0)} GB × ${money(Tr.gb)}${free ? ` after ${free} GB included` : ''}${tg.assumed ? '; GB estimated from span count' : ''})`, bill * Tr.gb, { dim: 'traces' });
+          if (tg.assumed) assume('traces', tg.why);
+        }
+        if (M && usage.metric_series >= MATERIAL.metric_series) {
+          if (M.series_1k != null) {
+            const bill = Math.max(0, usage.metric_series - (M.free_series || 0));
+            add(`Active series (${(bill / 1000).toFixed(1)}k × ${money(M.series_1k)}/1k${M.free_series ? ` after ${(M.free_series / 1000).toFixed(0)}k included` : ''})`, (bill / 1000) * M.series_1k, { dim: 'metrics' });
+          } else if (M.gb != null && M.series_per_gb) {
+            const gb = usage.metric_series / M.series_per_gb;
+            add(`Metrics (${usage.metric_series.toLocaleString('en-US')} series ÷ ${M.series_per_gb} per GB = ${gb.toFixed(1)} GB × ${money(M.gb)})`, gb * M.gb, { dim: 'metrics' });
+          } else if (M.samples_million != null || M.datapoints_million != null) {
+            const d = datapoints();
+            const r = M.samples_million != null ? M.samples_million : M.datapoints_million;
+            add(`Metrics (${(d.dp / 1e6).toLocaleString('en-US', { maximumFractionDigits: 0 })}M datapoints × ${money(r)}/M)`, (d.dp / 1e6) * r, { dim: 'metrics' });
+            assume('metrics', d.why);
+          }
+        }
+        if (rates.rate_conflict) assume('rates', `${vdef.name}'s pricing page shows two different starting per-GB rates; we use the higher one.`);
+        if (rates.included_retention_days && usage.retention_days > rates.included_retention_days) gap('retention', `Retention over ${rates.included_retention_days} days is quote-only for ${vdef.name}`);
+        if (rates.min_mo != null && total < rates.min_mo) add(`Minimum plan (includes ${money(rates.min_mo)} of usage)`, rates.min_mo - total, { dim: 'floor' });
         break;
       }
       case 'usage_gb_samples': {
@@ -391,6 +532,9 @@ export function createAuditEngine() {
     else if (modeled && gaps.length <= 3) confidence = 'medium';
     else if (modeled) confidence = 'low';
     else confidence = 'none';
+    // RT-20261031-79 honesty rule: High only when NOTHING the buyer uses is assumed or unpriced.
+    if (confidence === 'high' && (assumptions.length || hasMaterialGap(gaps, usage))) confidence = 'medium';
+    for (const a of assumptions) gaps.push({ dimension: 'assumption', about: a.dimension, reason: 'Assumption: ' + a.reason });
 
     return {
       id: vdef.id,
@@ -402,10 +546,17 @@ export function createAuditEngine() {
       gaps,
       confidence,
       modeled,
+      assumptions,
       notes: vdef.notes || [],
       oss_self_host: vdef.oss_self_host,
       oss_label: vdef.oss_label || null
     };
+  }
+
+  /** A gap on a dimension the buyer actually uses (or retention/assumption) is material. */
+  function hasMaterialGap(gaps, usage) {
+    const used = new Set(buyerDimensions(usage));
+    return (gaps || []).some((g) => used.has(g.dimension) || g.dimension === 'retention' || g.dimension === 'assumption' || g.dimension === 'volume_proxy' || g.dimension === 'overage' || g.dimension === 'compute' || g.dimension === 'fold');
   }
 
   /**
@@ -430,6 +581,7 @@ export function createAuditEngine() {
         });
       }
     }
+    if (conf === 'high' && hasMaterialGap(model.gaps, model._usage || {})) conf = 'medium';
     model.confidence = conf;
     return model;
   }
@@ -529,7 +681,7 @@ export function createAuditEngine() {
 
     let current;
     if (currentDef) {
-      current = modelVendor(currentDef, usage, { ondemand: false });
+      current = modelVendor(currentDef, usage, { ondemand: false, conversions: rates.conversions });
       current.is_current = true;
     } else {
       current = {
@@ -584,7 +736,8 @@ export function createAuditEngine() {
     for (const id of altIds) {
       const vdef = rates.vendors[id];
       const cov = assessCoverage(vdef, usage);
-      const m = modelVendor(vdef, usage);
+      const m = modelVendor(vdef, usage, { conversions: rates.conversions });
+      m._usage = usage;
       const eff = effortFrom(vdef, usage.primary_vendor);
 
       // RT-20261031-55: a paid alternative may only compute to $0 for non-zero usage when every
@@ -621,6 +774,13 @@ export function createAuditEngine() {
       }
 
       applyConfidenceGuards(m, currentCost, cov);
+      delete m._usage;
+      // RT-20261031-78: when public list prices explain under 40% of the stated bill, the bill holds products the
+      // survey did not capture, so a saving against it cannot be High confidence for any alternative.
+      if (m.confidence === 'high' && current.model_vs_stated != null && current.model_vs_stated < 0.4) {
+        m.confidence = 'medium';
+        m.gaps.push({ dimension: 'reconcile', reason: `Public list prices for your entered usage explain only ${Math.round(current.model_vs_stated * 100)}% of your stated bill, so the rest is products we did not ask about. Savings against your bill are not High confidence.` });
+      }
       const save = currentCost > 0 && m.modeled ? currentCost - m.total : null;
       alternatives.push({
         ...m,
@@ -915,6 +1075,8 @@ export function createAuditEngine() {
       log_gb_day: ['log_gb_day', 'logs_gb_day', 'log_gb', 'logs_gb', 'gb_day', 'log_volume_gb_day'],
       metric_series: ['metric_series', 'metrics', 'series', 'active_series', 'timeseries', 'custom_metrics'],
       spans_mo: ['spans_mo', 'spans', 'traces', 'spans_per_month', 'trace_spans'],
+      trace_gb_mo: ['trace_gb_mo', 'trace_gb', 'ingested_spans_gb', 'apm_ingested_gb', 'span_gb'],
+      indexed_logs_m_mo: ['indexed_logs_m_mo', 'indexed_logs_m', 'indexed_log_events_m', 'indexed_logs_millions'],
       retention_days: ['retention_days', 'retention', 'retain_days'],
       users: ['users', 'seats', 'full_users'],
       core_users: ['core_users', 'core_seats'],
@@ -961,7 +1123,8 @@ export function createAuditEngine() {
     assessCoverage,
     estimateSelfHostInfra,
     money,
-    version: 3,
+    hasMaterialGap,
+    version: 4,
     FLOOR_FRACTION,
     MAX_TEASER_SAVE_PCT
   };
