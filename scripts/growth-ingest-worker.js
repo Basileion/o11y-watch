@@ -1,8 +1,10 @@
 /* growth-ingest Worker — events + audit unlock gate */
 const ALLOWED = {
   page_view: 1, cta_click: 1, kit_submit: 1, checkout_click: 1,
-  audit_checkout: 1, pro_checkout: 1, sponsor_checkout: 1, ab_expose: 1,
-  audit_unlock: 1, audit_unlock_check: 1
+  audit_checkout: 1, pro_checkout: 1, sponsor_checkout: 1, ab_expose: 1, calculator_use: 1,
+  audit_unlock: 1, audit_unlock_check: 1,
+  // PrintReady /check/ (and mirrors): event names, not only cta_click labels
+  check_file_loaded: 1, check_result: 1, check_sample: 1, check_error: 1
 };
 
 function cors(origin) {
@@ -51,6 +53,12 @@ function writeAe(env, site, event, path, cta, utm_source, utm_campaign, utm_medi
   return bound;
 }
 
+/** Parse JSON body whether Content-Type is application/json or text/plain (sendBeacon safelist). */
+async function parseBody(request) {
+  const text = await request.text();
+  return JSON.parse(text);
+}
+
 export default {
   async fetch(request, env) {
     const headers = cors(request.headers.get("Origin"));
@@ -59,7 +67,7 @@ export default {
       return new Response(JSON.stringify({ ok: false, error: "method" }), { status: 405, headers });
     }
     let body;
-    try { body = await request.json(); }
+    try { body = await parseBody(request); }
     catch { return new Response(JSON.stringify({ ok: false, error: "bad_json" }), { status: 400, headers }); }
 
     const event = String(body.event || "").slice(0, 40);
