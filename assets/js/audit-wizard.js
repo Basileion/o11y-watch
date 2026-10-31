@@ -162,20 +162,50 @@
     return null;
   }
 
+  // RT-20261031-84: buyer language only — never render raw internal enums.
+  const SOURCE_LABEL = {
+    stated_invoice: 'Your stated bill',
+    stated_invoice_only: 'Your stated bill',
+    modeled: 'Estimated from your usage at public list prices',
+    unavailable: 'No bill entered'
+  };
+  const KIND_LABEL = { saas: 'SaaS', self_hosted: 'Self-hosted' };
+  const DIM_LABEL = {
+    hosts: 'hosts', log_gb_day: 'log GB/day', metric_series: 'metric series', spans_mo: 'spans/month', users: 'user seats',
+    coverage: 'Pricing coverage', fold: 'Bundled line', infra: 'Infra + ops estimate', license: 'License', realism: 'Realism check',
+    reconcile: 'Model vs your bill', vendor: 'Vendor'
+  };
+  const CONF_LABEL = { high: 'High', medium: 'Medium', low: 'Low', none: 'None' };
+  function plain(map, v) { return map[v] || String(v ?? '').replace(/_/g, ' '); }
+
   function renderTeaser(report) {
     const t = report.teaser;
+    const cnt = t.options_counted || 0;
     const range = t.savings_low_mo != null
-      ? `<div class="amt grad-text">${money(t.savings_low_mo)} – ${money(t.savings_high_mo)}<span class="sm"> / mo</span></div>`
-      : `<div class="amt">Range unavailable</div>`;
-    const basis = t.basis ? `<p class="sm mut">Basis: ${esc(String(t.basis).replace(/_/g, ' '))} · High/Medium confidence only · conservative cap applied.</p>` : '';
+      ? `<div class="amt grad-text">${t.savings_low_mo === t.savings_high_mo ? money(t.savings_low_mo) : `${money(t.savings_low_mo)} – ${money(t.savings_high_mo)}`}<span class="sm"> / mo</span></div>`
+      : `<div class="amt" style="font-size:22px;line-height:1.3">${t.basis === 'no_stated_bill' ? 'Enter your monthly bill to see a savings figure' : 'No fully priced cheaper SaaS option yet for this setup'}</div>`;
+    const src = report.current.baseline_source;
+    const billLine = t.current_mo > 0
+      ? `${esc(plain(SOURCE_LABEL, src))}: <b>${money(t.current_mo)}/mo</b>.`
+      : 'No current bill entered.';
+    const basis = t.savings_low_mo != null
+      ? `<p class="sm mut">Counted: ${cnt} SaaS option${cnt === 1 ? '' : 's'} whose public list prices cover all of your usage, with high confidence, and come in below your bill. Capped at ${Math.round(((report.guardrails && report.guardrails.max_teaser_save_pct) || 0.4) * 100)}% of your bill. Self-host and cleanup ideas are not counted.</p>`
+      : `<p class="sm mut">We only show a dollar figure when a vendor's public list prices cover all of your usage with high confidence and come in below your bill.</p>`;
+    const self = t.self_host
+      ? `<p class="sm mut"><b>Self-host (not counted above):</b> about ${money(t.self_host.cost_low_mo)}–${money(t.self_host.cost_high_mo)}/mo to run, based on our assumptions, not a quote: ${esc(t.self_host.assumptions.join('; '))}. If your team's time costs more, the saving shrinks or disappears.</p>`
+      : '';
+    const lev = (t.levers || []).length
+      ? `<p class="sm mut"><b>Cleanup without migrating (not counted above):</b> ${esc(t.levers.join(', '))}. Sized in the full report as rule-of-thumb estimates.</p>`
+      : '';
     return `
       <div class="card hl teaser-card" id="teaser">
-        <div class="eyebrow">Free teaser · conservative estimates</div>
-        <h2 style="margin:8px 0 4px;font-size:22px">Top-line savings range</h2>
+        <div class="eyebrow">Free teaser · conservative estimate</div>
+        <h2 style="margin:8px 0 4px;font-size:22px">Conservative savings check</h2>
         ${range}
-        <p class="mut">Modeled current baseline: <b>${money(t.current_mo)}/mo</b> (${esc(report.current.baseline_source)}). Full report ranks fully covered alternatives, flags insufficient pricing data, self-host TCO ranges, levers, and a migration plan.</p>
-        <p class="sm mut">${esc(t.label)}</p>
+        <p class="mut">${billLine} The full report ranks every fully priced option, lists vendors with missing public prices, and covers self-host costs, cleanup levers and a migration plan.</p>
         ${basis}
+        ${self}
+        ${lev}
       </div>`;
   }
 
@@ -206,7 +236,7 @@
 
   function gapList(gaps) {
     if (!gaps || !gaps.length) return '<p class="sm mut">No gaps flagged for this row.</p>';
-    return `<ul class="sm mut">${gaps.map((g) => `<li><b>${esc(g.dimension)}</b>: ${esc(g.reason)}</li>`).join('')}</ul>`;
+    return `<ul class="sm mut">${gaps.map((g) => `<li><b>${esc(plain(DIM_LABEL, g.dimension))}</b>: ${esc(g.reason)}</li>`).join('')}</ul>`;
   }
 
   function renderFullReport(report) {
@@ -216,11 +246,11 @@
     const rankedRows = report.ranked.map((r, i) => `${i === firstMore ? `
       <tr><td colspan="5" class="sm" style="background:#fdf1f1"><b>Costs more than your current bill</b> — shown for comparison only, cheapest first. Not counted as savings.</td></tr>` : ''}
       <tr>
-        <td><b>${esc(r.name)}</b>${r.costs_more ? `<div class="sm" style="color:#a40000;font-weight:600">${esc(r.costs_more_label || 'Costs more than your current bill')}</div>` : ''}<div class="sm mut">${esc(r.kind)}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
+        <td><b>${esc(r.name)}</b>${r.costs_more ? `<div class="sm" style="color:#a40000;font-weight:600">${esc(r.costs_more_label || 'Costs more than your current bill')}</div>` : ''}<div class="sm mut">${esc(plain(KIND_LABEL, r.kind))}${r.checked ? ' · checked ' + esc(r.checked) : ''}${r.caveat ? ' · ' + esc(r.caveat) : ''}</div></td>
         <td>${money(r.monthly)}/mo${r.monthly_low != null && r.monthly_high != null && r.kind === 'self_hosted' ? ` <span class="sm mut">(${money(r.monthly_low)}–${money(r.monthly_high)})</span>` : ''}</td>
         <td>${r.savings_mo == null ? '—' : money(r.savings_mo) + '/mo'}${r.savings_pct != null ? ` <span class="sm mut">(${r.savings_pct}%)</span>` : ''}</td>
         <td><span class="pill">${esc(r.effort.label)}</span></td>
-        <td><span class="pill p-${r.confidence === 'high' ? 'yes' : r.confidence === 'medium' ? 'unknown' : 'no'}">${esc(r.confidence)}</span></td>
+        <td><span class="pill p-${r.confidence === 'high' ? 'yes' : r.confidence === 'medium' ? 'unknown' : 'no'}">${esc(plain(CONF_LABEL, r.confidence))}</span></td>
       </tr>`).join('') || `<tr><td colspan="5" class="mut">No fully covered alternatives to rank for this usage profile.</td></tr>`;
 
     const altCards = report.alternatives.map((a) => `
@@ -228,7 +258,7 @@
         <h3 style="margin:0 0 6px;font-size:16px">${esc(a.name)}</h3>
         <div class="amt" style="font-size:28px">${money(a.total)}<span class="sm">/mo est.</span></div>
         ${a.savings_mo != null && a.savings_mo < 0 && cur.baseline_mo > 0 ? `<p class="sm" style="color:#a40000;font-weight:600">Costs more than your current bill (+${money(-a.savings_mo)}/mo)</p>` : ''}
-        <p class="sm mut">Savings vs baseline: ${a.savings_mo == null ? '—' : money(a.savings_mo) + '/mo'} · Effort: ${esc(a.effort.label)} · Confidence: ${esc(a.confidence)}</p>
+        <p class="sm mut">Savings vs baseline: ${a.savings_mo == null ? '—' : money(a.savings_mo) + '/mo'} · Effort: ${esc(a.effort.label)} · Confidence: ${esc(plain(CONF_LABEL, a.confidence))}</p>
         <div class="sm">${(a.lines || []).map((l) => `<div>${esc(l.label)}: <b>${money(l.amount)}</b></div>`).join('') || '<i class="mut">No modeled lines</i>'}</div>
         ${gapList(a.gaps)}
         ${a.url ? `<p class="sm"><a href="${esc(a.url)}" rel="nofollow noopener" target="_blank">Pricing source ↗</a> · checked ${esc(a.checked)}</p>` : ''}
@@ -241,7 +271,7 @@
             <tbody>${insuff.map((x) => `
               <tr>
                 <td><b>${esc(x.name)}</b></td>
-                <td>${esc((x.missing || []).join(', ') || '—')}</td>
+                <td>${esc((x.missing || []).map((d) => plain(DIM_LABEL, d)).join(', ') || '—')}</td>
                 <td class="sm mut">${esc(x.reason)}${x.modeled_partial_total != null ? ` (partial model ${money(x.modeled_partial_total)}/mo not shown as savings)` : ''}</td>
               </tr>`).join('')}
           </tbody></table></div>
@@ -286,7 +316,7 @@
           <h3>Current cost</h3>
           <div class="card hl">
             <div class="amt">${money(cur.baseline_mo)}<span class="sm">/mo baseline</span></div>
-            <p class="sm mut">Source: ${esc(cur.baseline_source)}${cur.modeled_total != null ? ` · unit model: ${money(cur.modeled_total)}/mo (${esc(cur.name)})` : ` · ${esc(cur.name)}`}</p>
+            <p class="sm mut">${esc(plain(SOURCE_LABEL, cur.baseline_source))}${cur.modeled_total != null ? ` · our estimate from public list prices: ${money(cur.modeled_total)}/mo (${esc(cur.name)})` : ` · ${esc(cur.name)}`}</p>
             <div class="sm">${(cur.lines || []).map((l) => `<div>${esc(l.label)}: <b>${money(l.amount)}</b></div>`).join('')}</div>
             ${gapList(cur.gaps)}
             ${(cur.notes || []).map((n) => `<p class="sm mut">${esc(n)}</p>`).join('')}

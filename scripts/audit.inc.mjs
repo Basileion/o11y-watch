@@ -39,7 +39,7 @@ export default function buildAudit({
   const AUDIT_FAQ = [
     ['How does the instant audit work?', 'You answer a short survey (and optionally drop a usage CSV). A deterministic engine runs entirely in your browser against O11y Watch public pricing data. Nothing is uploaded to our servers.'],
     ['Are the numbers quotes?', 'No — they are estimates labeled with sources and check dates from our dataset. If a vendor lacks public unit rates for every dimension you use, we list them under “Insufficient public pricing data” and never show them as savings.'],
-    ['What is free vs paid?', `The top-line savings range is free. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After payment you are sent straight back to unlock the full report in this browser.`],
+    ['What is free vs paid?', `The conservative savings check is free: it shows a dollar figure only when a vendor's public list prices cover all of your usage with high confidence and come in below your bill. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After payment you are sent straight back to unlock the full report in this browser.`],
     ['How is the unlock gate secured?', 'Pre-purchase pages show only the free teaser — the full report is not in the DOM. Kit’s thank-you redirect includes an unguessable token; our server validates it and stores a proof in this browser. Anyone with the unlock link can still open the report. This is not account auth. The cost engine itself is public client-side code.'],
     ['Is my CSV uploaded?', 'No. CSV parsing happens only in your browser. We never receive the file.'],
     ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Self-host software may be $0 where stated; we always add an explicit infra+ops cost range with stated assumptions rather than implying $0 TCO.']
@@ -88,7 +88,7 @@ await import('./js/audit-wizard.js');
 
 <h2 id="price">Price</h2>
 <div class="price-row">
-<div class="card"><div class="eyebrow">Free</div><div class="amt">$0</div><p class="mut">Multi-step survey + top-line estimated savings range. Fully client-side.</p><p style="margin-top:12px"><a class="btn ghost" href="#wizard-anchor">Run free teaser</a></p></div>
+<div class="card"><div class="eyebrow">Free</div><div class="amt">$0</div><p class="mut">Multi-step survey + conservative savings check (a dollar figure only when public list prices fully cover your usage). Fully client-side.</p><p style="margin-top:12px"><a class="btn ghost" href="#wizard-anchor">Run free teaser</a></p></div>
 <div class="card hl"><div class="eyebrow">Full report unlock</div><div class="amt">$${AUDIT_PRICE}</div><p class="mut">Ranked table, alternatives, self-host options, levers, migration plan, Print/PDF. One-time.</p><p style="margin-top:12px"><a class="btn" href="#wizard-anchor">Start audit → unlock</a></p></div>
 </div>
 <p class="sm mut">Secure one-time checkout via Kit. Your full report unlocks in this browser right after payment.</p>

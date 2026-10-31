@@ -23,7 +23,7 @@ const auditCta=(ctx,headline,grow='audit-guide')=>{
   if(typeof auditCtaIn==='function'){
     return auditCtaIn(headline||'See what you’d save on Datadog / New Relic in 2 minutes',esc(ctx),grow,'../');
   }
-  return `<section class="cta" style="margin-top:28px"><div class="eyebrow">Free savings estimate · 2 minutes</div><h3 style="margin:6px 0">${esc(headline||'See what you’d save on Datadog / New Relic in 2 minutes')}</h3><p>${esc(ctx)} Free top-line range; full report $${AUDIT_PRICE}.</p><p><a class="btn" href="../audit.html" data-grow="${grow}">Start free savings estimate →</a> <a class="btn ghost" href="../subscribe.html?src=guide">Get the weekly newsletter</a></p></section>`;
+  return `<section class="cta" style="margin-top:28px"><div class="eyebrow">Free savings estimate · 2 minutes</div><h3 style="margin:6px 0">${esc(headline||'See what you’d save on Datadog / New Relic in 2 minutes')}</h3><p>${esc(ctx)} Free conservative savings check; full report $${AUDIT_PRICE}.</p><p><a class="btn" href="../audit.html" data-grow="${grow}">Start free savings estimate →</a> <a class="btn ghost" href="../subscribe.html?src=guide">Get the weekly newsletter</a></p></section>`;
 };
 const byId=id=>V.find(v=>v.id===id);
 const verified=V.filter(v=>v.verified);
@@ -428,7 +428,7 @@ ${auditCta(`Open the calculator with ${v.name} as your primary vendor context.`,
 <ol style="max-width:720px">
 <li>Click <b>Start free savings estimate</b> (runs entirely in your browser).</li>
 <li>Select ${esc(v.name)} as your primary vendor and enter hosts, GB/day, series, spans, retention and seats.</li>
-<li>Read the free top-line savings range. Unlock the full ranked report for $${AUDIT_PRICE} if you need levers and a migration plan.</li>
+<li>Read the free conservative savings check (a dollar figure only when public list prices fully cover your usage). Unlock the full ranked report for $${AUDIT_PRICE} if you need levers and a migration plan.</li>
 </ol>
 <h2>Related alternatives</h2>
 <div class="grid">${alts.map(a=>`<a class="card" href="../vendors/${a.id}.html"><h3>${esc(a.name)}</h3><p>${pill(a.free)} ${esc((a.paid_from||a.free_tier||'').slice(0,100))}</p></a>`).join('')}</div>

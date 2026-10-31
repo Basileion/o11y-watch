@@ -7,6 +7,8 @@
  * 1. Coverage: only rank a vendor when dataset rates cover every buyer dimension
  *    the vendor's model is expected to price. Partial coverage → insufficient list.
  * 2. Realism guardrails: floor-fraction + teaser cap + High/Medium/Low confidence.
+ *    Free teaser headline = fully priced, HIGH-confidence SaaS options cheaper than the stated bill only
+ *    (RT-20261031-77); self-host and levers are shown separately as assumptions.
  * 3. Self-host: software may be $0; infra+ops always estimated as an explicit range.
  */
 export function createAuditEngine() {
@@ -503,8 +505,8 @@ export function createAuditEngine() {
       infra_mid_mo: mid,
       assumptions: [
         `Compute ~$3–$8/host/mo × ${hosts} hosts`,
-        `Hot storage ~$0.02–$0.06 × (${logGbDay} GB/day × ${retention}d retention)`,
-        `Ops labor floor $500 – $${Math.max(2000, hosts * 5).toLocaleString('en-US')}/mo`
+        `Log storage ~$0.02–$0.06 per GB-day (${logGbDay} GB/day × ${retention} days kept)`,
+        `Ops labor $500–$${Math.max(2000, hosts * 5).toLocaleString('en-US')}/mo`
       ]
     };
   }
@@ -727,64 +729,55 @@ export function createAuditEngine() {
 
     const levers = applyLevers(rates, usage, currentCost);
 
-    // Teaser: High/Medium-confidence options only, then cap at MAX_TEASER_SAVE_PCT.
-    // Fall back to on-stack levers (also capped) when no credible vendor options exist.
-    const credibleSavers = ranked.filter(
-      (r) =>
-        r.savings_mo != null &&
-        r.savings_mo > 0 &&
-        (r.confidence === 'high' || r.confidence === 'medium') &&
-        r.kind === 'saas'
-    );
-    const credibleSelf = ranked.filter(
-      (r) =>
-        r.kind === 'self_hosted' &&
-        r.savings_mo != null &&
-        r.savings_mo > 0 &&
-        (r.confidence === 'high' || r.confidence === 'medium')
-    );
-
+    // Teaser (RT-20261031-77): the "conservative" headline counts ONLY fully priced SaaS options
+    // (public unit rates cover every dimension the buyer uses) with HIGH confidence that are cheaper
+    // than the buyer's own stated bill. Self-host TCO (assumption-driven ops labor + infra) and on-stack
+    // levers (rule-of-thumb %) are never folded into it; they are reported separately with their assumptions.
+    // If nothing qualifies, the teaser says so plainly instead of inventing a range.
+    const statedBaseline = currentSource === 'stated_invoice' || currentSource === 'stated_invoice_only';
     const capSave = (n) => {
       if (n == null || currentCost <= 0) return n;
       return Math.min(n, Math.round(currentCost * MAX_TEASER_SAVE_PCT));
     };
+    const conservativePool = statedBaseline && currentCost > 0
+      ? ranked.filter((r) => r.kind === 'saas' && r.confidence === 'high' && !r.costs_more && r.savings_mo != null && r.savings_mo > 0)
+      : [];
+    const vendorSaves = conservativePool.map((r) => capSave(r.savings_mo)).filter((n) => n != null && n > 0).sort((a, b) => a - b);
 
     let teaserLow = null;
     let teaserHigh = null;
     let teaserBasis = 'none';
-
-    const vendorPool = usage.priority === 'selfhost'
-      ? [...credibleSelf, ...credibleSavers]
-      : [...credibleSavers, ...credibleSelf];
-
-    const vendorSaves = vendorPool
-      .map((s) => capSave(s.savings_mo))
-      .filter((n) => n != null && n > 0)
-      .sort((a, b) => a - b);
-    const leverSaves = (levers.length && currentCost > 0)
-      ? levers.map((l) => capSave(l.estimated_save_mo)).filter((n) => n > 0).sort((a, b) => a - b)
-      : [];
-
     if (vendorSaves.length) {
       teaserLow = vendorSaves[0];
       teaserHigh = vendorSaves[vendorSaves.length - 1];
-      teaserBasis = 'credible_vendors';
-      // Blend on-stack levers so a single vendor option still yields a range, not a point.
-      if (leverSaves.length) {
-        teaserLow = Math.min(teaserLow, leverSaves[0]);
-        teaserHigh = Math.max(teaserHigh, leverSaves[leverSaves.length - 1]);
-        teaserBasis = 'credible_vendors_plus_levers';
-      }
-    } else if (leverSaves.length) {
-      teaserLow = leverSaves[0];
-      teaserHigh = leverSaves[leverSaves.length - 1];
-      teaserBasis = 'on_stack_levers';
+      teaserBasis = 'priced_saas_high_confidence';
+    } else if (!statedBaseline) {
+      teaserBasis = 'no_stated_bill';
     }
 
-    // Ensure low ≤ high after caps; collapse only if truly identical.
-    if (teaserLow != null && teaserHigh != null && teaserLow > teaserHigh) {
-      teaserLow = teaserHigh;
+    // Self-host: separate, explicitly assumption-driven estimate (never part of the conservative number).
+    const selfModeled = selfHosted.filter((s) => s.total != null);
+    let teaserSelf = null;
+    if (selfModeled.length) {
+      const infra = estimateSelfHostInfra(usage);
+      const lo = Math.min(...selfModeled.map((s) => s.total_low_mo));
+      const hi = Math.max(...selfModeled.map((s) => s.total_high_mo));
+      teaserSelf = {
+        options: selfModeled.length,
+        cost_low_mo: lo,
+        cost_high_mo: hi,
+        assumptions: infra.assumptions.concat(['Span and metric-series storage not included']),
+        label: `Self-host (${selfModeled.length} open-source stacks) is NOT in the number above: we estimate ${money(lo)}–${money(hi)}/mo to run it, an assumption, not a quote (${infra.assumptions.join('; ')}; span and metric-series storage not included). If your team's time costs more than that, the saving shrinks or disappears.`
+      };
     }
+    const teaserLevers = levers.map((l) => l.name);
+
+    const teaserCount = conservativePool.length;
+    const teaserLabel = teaserLow != null
+      ? `Conservative estimated savings ${money(teaserLow)} – ${money(teaserHigh)} / mo: ${teaserCount} SaaS option${teaserCount === 1 ? '' : 's'} fully priced from public list prices, high confidence, cheaper than your stated bill (capped at ${Math.round(MAX_TEASER_SAVE_PCT * 100)}% of your bill). Self-host and cleanup levers are not counted.`
+      : teaserBasis === 'no_stated_bill'
+        ? 'Enter your current monthly bill to see a conservative savings figure. We only compare against the bill you state.'
+        : 'No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.';
 
     const planTargets = ranked
       .filter((r) => r.confidence === 'high' || r.confidence === 'medium' || r.kind === 'self_hosted')
@@ -822,10 +815,6 @@ export function createAuditEngine() {
       if (vd) addSrc(vd);
     }
 
-    const teaserLabel = teaserLow != null
-      ? `Conservative estimated savings ${money(teaserLow)} – ${money(teaserHigh)} / mo (High/Medium confidence only; capped at ${Math.round(MAX_TEASER_SAVE_PCT * 100)}% of baseline)`
-      : 'Insufficient High/Medium-confidence public pricing coverage to estimate a savings range for this profile';
-
     return {
       generated_at: new Date().toISOString(),
       disclaimer: rates.disclaimer,
@@ -852,7 +841,10 @@ export function createAuditEngine() {
         savings_low_mo: teaserLow,
         savings_high_mo: teaserHigh,
         basis: teaserBasis,
-        label: teaserLabel
+        options_counted: teaserCount,
+        label: teaserLabel,
+        self_host: teaserSelf,
+        levers: teaserLevers
       },
       sources,
       gaps_summary: collectGaps(current, alternatives, selfHosted, insufficient)

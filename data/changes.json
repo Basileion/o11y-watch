@@ -1,6 +1,13 @@
 [
  {
   "date": "2026-10-31",
+  "vendor": "Datadog",
+  "type": "correction",
+  "summary": "O11y Watch correction: the free audit teaser called its savings range 'conservative' when it was not. For a 40-host Datadog shop (APM, 30 GB/day of logs, 200M spans, 30 seats) stating an $8,000/mo bill, it showed '$800 – $3,200 / mo'. The top of that range came from six self-hosted open-source stacks that we had all estimated at about $1,488/mo, using our own assumptions for ops labor ($500–$2,000/mo) and compute, with no allowance for span or metric storage. The bottom came from rule-of-thumb cleanup percentages. The only SaaS option fully priced from public list prices (New Relic, about $10,790/mo) costs more than that bill. The teaser's dollar figure now counts only SaaS options whose public list prices cover all of your usage, with high confidence, and that come in below the bill you state. When none qualifies, it says 'No fully priced cheaper SaaS option yet for this setup'. Self-host is shown separately as an assumption-based running cost with its assumptions listed. Cleanup levers are listed by name and are not counted. The teaser now says 'Your stated bill' instead of an internal label.",
+  "source": "https://o11y-watch.pages.dev/audit"
+ },
+ {
+  "date": "2026-10-31",
   "vendor": "Middleware",
   "type": "correction",
   "summary": "O11y Watch correction: our cost audit could show Middleware (and New Relic) at $0/mo for 20 APM hosts and 50M spans, and rank it first. Per middleware.io/pricing (re-read 2026-10-31), Middleware charges $0.3 per GB of uncompressed logs, metrics and traces, with 100 GB/month free. It publishes no per-host fee, per-span rate or bytes-per-span factor, so span counts cannot be priced. The audit now lists Middleware as insufficient data in that case instead of $0. Any paid alternative that would compute to $0 for real usage is now treated the same way unless a published free allowance covers it. The audit also ranks by savings first: an option that costs more than your current bill is always ranked below cheaper options and labelled 'costs more than your current bill'. Example: for 20 infrastructure-only hosts on a $400/mo bill, Dynatrace ($580/mo) is now labelled +$180/mo. Confidence is still shown as a secondary signal.",

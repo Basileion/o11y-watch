@@ -6,15 +6,34 @@
     "modeled_current": 2625,
     "teaser": {
       "current_mo": 8200,
-      "savings_low_mo": 820,
-      "savings_high_mo": 3280,
-      "basis": "credible_vendors_plus_levers",
-      "label": "Conservative estimated savings $820 – $3,280 / mo (High/Medium confidence only; capped at 40% of baseline)"
+      "savings_low_mo": null,
+      "savings_high_mo": null,
+      "basis": "none",
+      "options_counted": 0,
+      "label": "No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.",
+      "self_host": {
+        "options": 6,
+        "cost_low_mo": 1108,
+        "cost_high_mo": 3643,
+        "assumptions": [
+          "Compute ~$3–$8/host/mo × 180 hosts",
+          "Log storage ~$0.02–$0.06 per GB-day (75 GB/day × 45 days kept)",
+          "Ops labor $500–$2,000/mo",
+          "Span and metric-series storage not included"
+        ],
+        "label": "Self-host (6 open-source stacks) is NOT in the number above: we estimate $1,108–$3,643/mo to run it, an assumption, not a quote (Compute ~$3–$8/host/mo × 180 hosts; Log storage ~$0.02–$0.06 per GB-day (75 GB/day × 45 days kept); Ops labor $500–$2,000/mo; span and metric-series storage not included). If your team's time costs more than that, the saving shrinks or disappears."
+      },
+      "levers": [
+        "Retention reduction",
+        "Trace/span sampling",
+        "Log volume filters",
+        "Seat / user rationalization"
+      ]
     },
     "guardrails": {
       "floor_fraction": 0.3,
       "max_teaser_save_pct": 0.4,
-      "teaser_basis": "credible_vendors_plus_levers"
+      "teaser_basis": "none"
     },
     "top5": [
       {
@@ -156,15 +175,33 @@
     "modeled_current": 5146,
     "teaser": {
       "current_mo": 3100,
-      "savings_low_mo": 310,
-      "savings_high_mo": 1240,
-      "basis": "credible_vendors_plus_levers",
-      "label": "Conservative estimated savings $310 – $1,240 / mo (High/Medium confidence only; capped at 40% of baseline)"
+      "savings_low_mo": null,
+      "savings_high_mo": null,
+      "basis": "none",
+      "options_counted": 0,
+      "label": "No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.",
+      "self_host": {
+        "options": 6,
+        "cost_low_mo": 695,
+        "cost_high_mo": 2525,
+        "assumptions": [
+          "Compute ~$3–$8/host/mo × 60 hosts",
+          "Log storage ~$0.02–$0.06 per GB-day (25 GB/day × 30 days kept)",
+          "Ops labor $500–$2,000/mo",
+          "Span and metric-series storage not included"
+        ],
+        "label": "Self-host (6 open-source stacks) is NOT in the number above: we estimate $695–$2,525/mo to run it, an assumption, not a quote (Compute ~$3–$8/host/mo × 60 hosts; Log storage ~$0.02–$0.06 per GB-day (25 GB/day × 30 days kept); Ops labor $500–$2,000/mo; span and metric-series storage not included). If your team's time costs more than that, the saving shrinks or disappears."
+      },
+      "levers": [
+        "Trace/span sampling",
+        "Log volume filters",
+        "Seat / user rationalization"
+      ]
     },
     "guardrails": {
       "floor_fraction": 0.3,
       "max_teaser_save_pct": 0.4,
-      "teaser_basis": "credible_vendors_plus_levers"
+      "teaser_basis": "none"
     },
     "top5": [
       {
@@ -314,15 +351,32 @@
     "modeled_current": 1384,
     "teaser": {
       "current_mo": 1400,
-      "savings_low_mo": 140,
-      "savings_high_mo": 280,
-      "basis": "on_stack_levers",
-      "label": "Conservative estimated savings $140 – $280 / mo (High/Medium confidence only; capped at 40% of baseline)"
+      "savings_low_mo": null,
+      "savings_high_mo": null,
+      "basis": "none",
+      "options_counted": 0,
+      "label": "No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.",
+      "self_host": {
+        "options": 6,
+        "cost_low_mo": 629,
+        "cost_high_mo": 2347,
+        "assumptions": [
+          "Compute ~$3–$8/host/mo × 40 hosts",
+          "Log storage ~$0.02–$0.06 per GB-day (15 GB/day × 30 days kept)",
+          "Ops labor $500–$2,000/mo",
+          "Span and metric-series storage not included"
+        ],
+        "label": "Self-host (6 open-source stacks) is NOT in the number above: we estimate $629–$2,347/mo to run it, an assumption, not a quote (Compute ~$3–$8/host/mo × 40 hosts; Log storage ~$0.02–$0.06 per GB-day (15 GB/day × 30 days kept); Ops labor $500–$2,000/mo; span and metric-series storage not included). If your team's time costs more than that, the saving shrinks or disappears."
+      },
+      "levers": [
+        "Trace/span sampling",
+        "Seat / user rationalization"
+      ]
     },
     "guardrails": {
       "floor_fraction": 0.3,
       "max_teaser_save_pct": 0.4,
-      "teaser_basis": "on_stack_levers"
+      "teaser_basis": "none"
     },
     "top5": [
       {
