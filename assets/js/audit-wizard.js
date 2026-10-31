@@ -244,7 +244,7 @@
     const cnt = t.options_counted || 0;
     const range = t.savings_low_mo != null
       ? `<div class="amt grad-text">${t.savings_low_mo === t.savings_high_mo ? money(t.savings_low_mo) : `${money(t.savings_low_mo)} – ${money(t.savings_high_mo)}`}<span class="sm"> / mo</span></div>`
-      : `<div class="amt" style="font-size:22px;line-height:1.3">${t.basis === 'no_stated_bill' ? 'Enter your monthly bill to see a savings figure' : 'No fully priced cheaper SaaS option yet for this setup'}</div>`;
+      : `<div class="amt" style="font-size:22px;line-height:1.3">${t.basis === 'no_stated_bill' ? 'Enter your monthly bill to see a savings figure' : (t.options_below_bill ? `${t.options_below_bill.count} option${t.options_below_bill.count === 1 ? '' : 's'} priced below your bill` : 'No fully priced cheaper SaaS option yet for this setup')}</div>`;
     const src = report.current.baseline_source;
     const billLine = t.current_mo > 0
       ? `${esc(plain(SOURCE_LABEL, src))}: <b>${money(t.current_mo)}/mo</b>.`
@@ -252,11 +252,17 @@
     const basis = t.savings_low_mo != null
       ? `<p class="sm mut">Counted: ${cnt} SaaS option${cnt === 1 ? '' : 's'} whose public list prices cover all of your usage, with high confidence, and come in below your bill. Capped at ${Math.round(((report.guardrails && report.guardrails.max_teaser_save_pct) || 0.4) * 100)}% of your bill. Self-host and cleanup ideas are not counted.</p>`
       : `<p class="sm mut">We only show a dollar figure when a vendor's public list prices cover all of your usage with high confidence and come in below your bill.${report.usage && report.usage.spans_mo > 0 && !(report.usage.trace_gb_mo > 0) ? ' Your traces are a span count, so vendors that bill traces per GB are estimated (Medium at best). Add your ingested trace GB/month (Datadog: Plan &amp; Usage) to price them exactly.' : ''}</p>`;
+    const below = t.savings_low_mo == null && t.options_below_bill
+      ? `<p class="mut"><b>${esc(t.options_below_bill.label)}</b></p>`
+      : '';
+    const recon = t.reconciliation
+      ? `<p class="mut"><b>Bill check:</b> ${esc(t.reconciliation.label)}</p>`
+      : '';
     const self = t.self_host
       ? `<p class="sm mut"><b>Self-host (not counted above):</b> about ${money(t.self_host.cost_low_mo)}–${money(t.self_host.cost_high_mo)}/mo to run, based on our assumptions, not a quote: ${esc(t.self_host.assumptions.join('; '))}. If your team's time costs more, the saving shrinks or disappears.</p>`
       : '';
     const lev = (t.levers || []).length
-      ? `<p class="sm mut"><b>Cleanup without migrating (not counted above):</b> ${esc(t.levers.join(', '))}. Sized in the full report as rule-of-thumb estimates.</p>`
+      ? `<p class="sm mut"><b>Cleanup without migrating (not counted above):</b> ${esc(t.levers.join(', '))}. Sized in the full report against the modeled line each one reduces (or marked not sized).</p>`
       : '';
     return `
       <div class="card hl teaser-card" id="teaser">
@@ -264,6 +270,8 @@
         <h2 style="margin:8px 0 4px;font-size:22px">Conservative savings check</h2>
         ${range}
         <p class="mut">${billLine} The full report ranks every fully priced option, lists vendors with missing public prices, and covers self-host costs, cleanup levers and a migration plan.</p>
+        ${below}
+        ${recon}
         ${basis}
         ${self}
         ${lev}
@@ -350,7 +358,7 @@
 
     const levers = report.levers.length
       ? `<div class="tw"><table><thead><tr><th>Lever</th><th>Est. save</th><th>Notes</th></tr></thead><tbody>
-          ${report.levers.map((l) => `<tr><td><b>${esc(l.name)}</b><div class="sm mut">${esc(l.description)}</div></td><td>${money(l.estimated_save_mo)}/mo <span class="sm mut">(~${l.pct}%)</span></td><td class="sm mut">${esc(l.note)}</td></tr>`).join('')}
+          ${report.levers.map((l) => `<tr><td><b>${esc(l.name)}</b><div class="sm mut">${esc(l.description)}</div></td><td>${l.sized === false || l.estimated_save_mo == null ? '<b>Not sized</b>' : `${money(l.estimated_save_mo)}/mo`}<div class="sm mut">${esc(l.basis_label || '')}</div></td><td class="sm mut">${esc(l.note)}</td></tr>`).join('')}
         </tbody></table></div>`
       : `<p class="mut">No retention/sampling/log/seat levers triggered for this usage profile.</p>`;
 

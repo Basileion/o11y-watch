@@ -3,6 +3,13 @@
     "date": "2026-10-31",
     "vendor": "Datadog",
     "type": "correction",
+    "summary": "O11y Watch correction: our cost audit sized cleanup levers as a percentage of the stated bill, not of the line each lever reduces. For a 40-host Datadog shop stating $8,000/mo, it showed 'Log volume filters ~$2,000/mo' (25% of $8,000) while the modeled log ingestion line is $90/mo (900 GB × $0.10), and 'Trace/span sampling ~$1,600/mo' while modeled span overage is $0 (300 GB vs 6,000 GB included; APM is billed per host, which sampling does not change). Each lever is now sized against the modeled line it acts on and capped at that line: log filters ≤ log ingest + index lines, sampling and retention ≤ span overage/index lines, seats ≤ seat lines. The same case now shows log filters ~$23/mo, sampling $0/mo, and seat rationalization 'not sized' (Datadog has no modeled seat line). Savings on indexed spans or indexed log events are marked not sized until you enter them. The free teaser now also says how many options price below your bill (with confidence, no names) and how much of the bill public list prices explain ($4,230 of $8,000 in this case).",
+    "source": "https://www.datadoghq.com/pricing/list/"
+  },
+  {
+    "date": "2026-10-31",
+    "vendor": "Datadog",
+    "type": "correction",
     "summary": "O11y Watch correction: our cost audit priced a Datadog bill as infrastructure hosts only and left 7 of 8 alternatives as 'insufficient data' on a 40-host APM + logs setup. From public list prices re-read 2026-10-31, the audit now adds Datadog APM ($31 per APM host/mo annual, 150 GB ingested spans and 1M indexed spans included per host), log ingestion ($0.10/GB), custom metrics ($5 per 100 beyond 100 per Pro host) and, when you enter it, indexed log events ($1.70/M at 15-day retention). 40 hosts with APM, 30 GB/day of logs and 50k custom metrics now model at $4,230/mo before indexed logs and spans (was $600). Grafana Cloud, SigNoz, Coralogix, Uptrace and Dynatrace are now priced per signal from their own pricing pages; Middleware and Splunk stay 'insufficient data'. An option is High confidence only when nothing you use is assumed: span counts converted to GB, or series converted to datapoints, cap it at Medium. New optional fields for trace GB/month and indexed log events price those exactly.",
     "source": "https://www.datadoghq.com/pricing/list/"
   },

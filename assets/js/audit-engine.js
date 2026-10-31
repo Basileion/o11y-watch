@@ -592,8 +592,36 @@ export function createAuditEngine() {
     return { key, label: EFFORT_LABEL[EFFORT[key] ?? 2], score: EFFORT[key] ?? 2 };
   }
 
-  function applyLevers(rates, usage, currentTotal) {
+  // RT-20261031-113: every lever is sized against the MODELED cost of the line(s) it acts on, never the stated bill.
+  // log levers -> modeled log ingest/index lines; sampling -> modeled span ingest/overage/index lines (not per-host APM);
+  // retention -> modeled retention-priced (index / retained-storage) lines; seat -> seat lines; host -> host lines.
+  // Saving = pct x that line total, capped at the line. If no such line is modeled -> "not sized" (no $ figure).
+  const LEVER_SCOPE = {
+    log_filter: { label: 'log ingest + index', test: (l) => l.dim === 'logs' },
+    sampling: { label: 'span ingest/overage + index', test: (l) => l.dim === 'traces' && l.product !== 'apm' },
+    retention_cut: { label: 'retention-priced index/storage', test: (l) => l.product === 'log_index' || l.product === 'span_index' || /retain|retention|days kept/i.test(l.label || '') },
+    seat_rationalize: { label: 'seat/user', test: (l) => l.dim === 'seats' },
+    host_rightsize: { label: 'host', test: (l) => l.dim === 'hosts' }
+  };
+  const LEVER_UNMODELED = {
+    log_filter: ['indexed_logs'],
+    sampling: ['indexed_spans'],
+    retention_cut: ['indexed_logs', 'indexed_spans'],
+    seat_rationalize: [],
+    host_rightsize: ['containers']
+  };
+  const GAP_PLAIN = { indexed_spans: 'indexed spans', indexed_logs: 'indexed log events', containers: 'containers/Fargate' };
+
+  function leverScopeLines(id, lines) {
+    const sc = LEVER_SCOPE[id];
+    if (!sc) return [];
+    return (lines || []).filter((l) => l && l.amount != null && sc.test(l));
+  }
+
+  function applyLevers(rates, usage, current) {
     const out = [];
+    const lines = (current && current.modeled && Array.isArray(current.lines)) ? current.lines : [];
+    const gapDims = new Set(((current && current.gaps) || []).map((g) => g.dimension));
     for (const L of rates.levers || []) {
       let applies = false;
       if (L.id === 'retention_cut' && usage.retention_days > 30) applies = true;
@@ -601,15 +629,39 @@ export function createAuditEngine() {
       if (L.id === 'log_filter' && usage.log_gb_day > 20) applies = true;
       if (L.id === 'seat_rationalize' && usage.users > 5) applies = true;
       if (!applies) continue;
+      const sc = LEVER_SCOPE[L.id] || { label: 'matching' };
+      const hit = leverScopeLines(L.id, lines);
+      const base = Math.round(hit.reduce((a, l) => a + (Number(l.amount) || 0), 0) * 100) / 100;
       const pct = L.default_pct_save / 100;
-      const save = Math.round(currentTotal * pct);
+      const unmodeled = (LEVER_UNMODELED[L.id] || []).filter((d) => gapDims.has(d)).map((d) => GAP_PLAIN[d] || d);
+      const unNote = unmodeled.length ? ` Any saving on ${unmodeled.join(' and ')} is not sized: ${unmodeled.length === 1 ? 'it is' : 'they are'} not in the modeled cost.` : '';
+      if (!hit.length) {
+        out.push({
+          id: L.id,
+          name: L.name,
+          description: L.description,
+          pct: L.default_pct_save,
+          sized: false,
+          estimated_save_mo: null,
+          line_mo: null,
+          line_labels: [],
+          basis_label: `Not sized: no modeled ${sc.label} line for ${current && current.name ? current.name : 'your current vendor'}`,
+          note: `Not sized — we only put a $ figure on a lever when the line it reduces is modeled from public list prices.${unNote}`
+        });
+        continue;
+      }
+      const save = Math.min(Math.round(base * pct), Math.floor(base));
       out.push({
         id: L.id,
         name: L.name,
         description: L.description,
         pct: L.default_pct_save,
+        sized: true,
         estimated_save_mo: save,
-        note: 'Heuristic % of modeled current cost — not a vendor quote. Validate against your bill.'
+        line_mo: base,
+        line_labels: hit.map((l) => l.label),
+        basis_label: `~${L.default_pct_save}% of modeled ${sc.label} cost (${money(base)}/mo), capped at that line`,
+        note: `Rule-of-thumb % of the modeled ${sc.label} line, not of your total bill — not a vendor quote. Validate against your bill.${base === 0 ? ' The modeled line is $0 at your usage, so this lever saves $0 there.' : ''}${unNote}`
       });
     }
     return out;
@@ -911,7 +963,7 @@ export function createAuditEngine() {
         return sb - sa;
       });
 
-    const levers = applyLevers(rates, usage, currentCost);
+    const levers = applyLevers(rates, usage, current);
 
     // Teaser (RT-20261031-77): the "conservative" headline counts ONLY fully priced SaaS options
     // (public unit rates cover every dimension the buyer uses) with HIGH confidence that are cheaper
@@ -956,12 +1008,45 @@ export function createAuditEngine() {
     }
     const teaserLevers = levers.map((l) => l.name);
 
+    // RT-20261031-114: honest, non-leaking teaser for the "no High-confidence range" case.
+    // Count (no names) of SaaS options priced below BOTH the stated bill and like-for-like modeled current,
+    // with their confidence levels; plus a reconciliation of how much of the stated bill public list prices explain.
+    const belowPool = statedBaseline && currentCost > 0
+      ? ranked.filter((r) => r.kind === 'saas' && !r.costs_more && r.monthly != null && r.monthly < currentCost && r.savings_mo != null && r.savings_mo > 0)
+      : [];
+    const confOrder = ['high', 'medium', 'low'];
+    const belowConf = confOrder.filter((c) => belowPool.some((r) => r.confidence === c));
+    const CONF_WORD = { high: 'High', medium: 'Medium', low: 'Low' };
+    const optionsBelow = belowPool.length
+      ? { count: belowPool.length, confidence: belowConf, label: `${belowPool.length} SaaS option${belowPool.length === 1 ? '' : 's'} priced below your bill at public list prices (${belowConf.map((c) => CONF_WORD[c]).join('/')} confidence; names, reasons and gaps are in the full report).` }
+      : null;
+    let reconciliation = null;
+    if (statedBaseline && current.modeled && current.modeled_total > 0 && currentCost > 0) {
+      const explained = Math.round(current.modeled_total);
+      const gapMo = Math.round(currentCost - explained);
+      const GAP_ITEM = { indexed_spans: 'indexed spans', indexed_logs: 'indexed log events', containers: 'containers/Fargate', vendor: 'products not in our dataset' };
+      const items = [];
+      for (const g of current.gaps || []) { const w = GAP_ITEM[g.dimension]; if (w && !items.includes(w)) items.push(w); }
+      if (!items.length) items.push('add-on products not in the survey (e.g. RUM, synthetics, security)');
+      reconciliation = {
+        stated_mo: currentCost,
+        explained_mo: explained,
+        gap_mo: gapMo,
+        likely: items,
+        label: gapMo > 0
+          ? `Public list prices explain ${money(explained)} of your ${money(currentCost)}/mo bill; the ${money(gapMo)}/mo gap is likely in items we can't model from your answers: ${items.join(', ')}.`
+          : `Public list prices explain ${money(explained)}/mo, at or above your stated ${money(currentCost)}/mo bill (you may have discounts or committed-use pricing).`
+      };
+    }
+
     const teaserCount = conservativePool.length;
     const teaserLabel = teaserLow != null
       ? `Conservative estimated savings ${money(teaserLow)} – ${money(teaserHigh)} / mo: ${teaserCount} SaaS option${teaserCount === 1 ? '' : 's'} fully priced from public list prices, high confidence, cheaper than your stated bill (capped at ${Math.round(MAX_TEASER_SAVE_PCT * 100)}% of your bill). Self-host and cleanup levers are not counted.`
       : teaserBasis === 'no_stated_bill'
         ? 'Enter your current monthly bill to see a conservative savings figure. We only compare against the bill you state.'
-        : 'No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.';
+        : optionsBelow
+          ? `${optionsBelow.label} No High-confidence savings figure yet: we only show a dollar range when public list prices cover all of your usage with high confidence.`
+          : 'No fully priced cheaper SaaS option yet for this setup. We only show a dollar figure when public list prices cover all of your usage with high confidence and come in below your bill.';
 
     const planTargets = ranked
       .filter((r) => r.confidence === 'high' || r.confidence === 'medium' || r.kind === 'self_hosted')
@@ -1028,6 +1113,8 @@ export function createAuditEngine() {
         options_counted: teaserCount,
         label: teaserLabel,
         self_host: teaserSelf,
+        options_below_bill: optionsBelow,
+        reconciliation,
         levers: teaserLevers
       },
       sources,
@@ -1185,6 +1272,8 @@ export function createAuditEngine() {
     hasMaterialGap,
     toTeaserPayload,
     hasFullReportFields,
+    leverScopeLines,
+    LEVER_SCOPE,
     isTeaserPayload,
     FULL_REPORT_KEYS,
     version: 5,

@@ -277,9 +277,10 @@ W('pro-welcome.html',page('pro-welcome.html',`Welcome to O11y Watch Pro`,'Thanks
 <p style="margin-top:28px"><a class="btn" href="changes.html">See the latest changes</a> <a class="btn ghost" href="directory.html">Browse the directory</a></p>`));
 
 // ---- Observability Cost & Stack Audit (/audit) — instant client-side wizard (see EDITING.md)
+const AUDIT_ENGINE=(await import(pathToFileURL(path.join(root,'assets','js','audit-engine.js')).href+'?b='+Date.now())).default;
 const auditMeta = (await import('./audit.inc.mjs')).default({
   W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
-  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API
+  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API, AUDIT_ENGINE
 });
 console.log('audit unlock: Worker-validated ?t= only (token not in repo; see /workspace/secrets/audit-unlock-url.txt)');
 
@@ -479,3 +480,30 @@ const mig=(r.migration||[])[0];
 if(mig&&modeled>0&&mig.monthly>modeled)bad.push(`migration step 1 is ${mig.target} at ${mig.monthly} > modeled ${modeled}`);
 if(bad.length){console.error(`Like-for-like savings guard (RT-112): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
 console.log(`like-for-like savings guard: modeled Datadog ${modeled}/mo; Dynatrace ${dt?dt.monthly+'/mo costs_more='+dt.costs_more:'n/a'}; migration#1=${mig?mig.target:'none'}`)}
+// Build guard (RT-20261031-113): every sized lever must be <= the modeled cost of the line(s) it acts on (log levers <= log ingest+index,
+// sampling/retention <= span overage/index lines, seat <= seat lines, host <= host lines), and must say 'not sized' (no $) when no such line is modeled.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?lv='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const bad=[];
+const dd={vendors:['datadog'],primary_vendor:'datadog'};
+const P40={...dd,plans:'APM, infrastructure, logs',monthly_spend:8000,hosts:40,log_gb_day:30,metric_series:50000,spans_mo:2e8,users:30,retention_days:15,team_size:'21-50',priority:'balanced',compliance:['none']};
+const scen=[['40-host preset',P40],['40-host preset + trace GB',{...P40,trace_gb_mo:300}],['40-host + 90d retention + indexed logs',{...P40,retention_days:90,indexed_logs_m_mo:500,trace_gb_mo:9000}],
+['NR 60 hosts mixed',{vendors:['newrelic'],primary_vendor:'newrelic',hosts:60,log_gb_day:25,metric_series:80000,spans_mo:4e7,users:14,retention_days:60,monthly_spend:3100}],
+['Grafana 40 hosts',{vendors:['grafana'],primary_vendor:'grafana',hosts:40,log_gb_day:25,metric_series:220000,spans_mo:1.5e7,users:8,retention_days:45,monthly_spend:1400}],
+['Dynatrace 30 hosts',{vendors:['dynatrace'],primary_vendor:'dynatrace',hosts:30,log_gb_day:40,spans_mo:3e7,users:10,retention_days:60,monthly_spend:6000}],
+['Datadog 180 hosts',{...dd,hosts:180,log_gb_day:75,metric_series:400000,spans_mo:1.2e8,users:18,retention_days:45,monthly_spend:8200}],
+['unknown vendor stated only',{vendors:['other'],primary_vendor:'other',hosts:20,log_gb_day:30,spans_mo:2e7,users:9,monthly_spend:3000}]];
+const check=(r,k,sink)=>{for(const l of r.levers||[]){const lines=eng.leverScopeLines(l.id,r.current.modeled?r.current.lines:[]);const cap=lines.reduce((a,x)=>a+(Number(x.amount)||0),0);
+ if(!lines.length){if(l.estimated_save_mo!=null||l.sized!==false||!/not sized/i.test(l.basis_label||''))sink.push(`${k}: ${l.name} has no modeled line but shows ${l.estimated_save_mo} (must be 'not sized')`);continue}
+ if(l.estimated_save_mo==null||l.estimated_save_mo>cap+0.5)sink.push(`${k}: ${l.name} saves ${l.estimated_save_mo}/mo > modeled line ${cap.toFixed(2)}/mo (${lines.map(x=>x.label).join(' + ')})`);
+ if(!/of modeled .* cost/i.test(l.basis_label||'')||/of your (stated )?bill/i.test(l.basis_label||''))sink.push(`${k}: ${l.name} basis label wrong: '${l.basis_label}'`)}};
+const seen={};for(const [k,inp] of scen){const r=eng.runAudit(inp,R);check(r,k,bad);seen[k]=r.levers}
+// Negative test: a lever sized off the stated bill (the RT-113 bug: 25% x $8,000 = $2,000 vs a $90 log line) must be caught.
+const r40=eng.runAudit(P40,R);const neg=JSON.parse(JSON.stringify(r40));for(const l of neg.levers){l.estimated_save_mo=Math.round(8000*l.pct/100);l.sized=true;l.basis_label='~'+l.pct+'% of modeled current cost'}
+const negBad=[];check(neg,'NEG',negBad);if(!negBad.length)bad.push('negative test failed: guard did not flag levers sized off the $8,000 stated bill');
+// RT-114: the 40-host teaser must be useful (count + reconciliation) and carry no vendor names / sized levers.
+for(const inp of [P40,{...P40,trace_gb_mo:300}]){const r=eng.runAudit(inp,R),t=r.teaser,tp=JSON.stringify(eng.toTeaserPayload(r));
+ if(t.savings_low_mo==null&&!(t.options_below_bill&&t.options_below_bill.count>0))bad.push(`RT-114: 40-host teaser${inp.trace_gb_mo?' + trace GB':''} has no count of options below the bill`);
+ if(!t.reconciliation||!/Public list prices explain \$[\d,]+ of your \$8,000\/mo bill/.test(t.reconciliation.label))bad.push('RT-114: 40-host teaser missing reconciliation line');
+ for(const x of (r.ranked||[]).filter(x=>x.kind==='saas'))if(tp.includes(x.name))bad.push(`RT-114: teaser payload names vendor ${x.name}`)}
+if(bad.length){console.error(`Lever sizing guard (RT-113/114): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+const fmt=ls=>(ls||[]).map(l=>`${l.name.split(' ')[0]} ${l.sized?'$'+l.estimated_save_mo:'not sized'}`).join(', ');
+console.log(`lever sizing guard: ${scen.length} scenarios, every lever <= its modeled line; 40-host: ${fmt(seen['40-host preset + trace GB'])}; negative test caught ${negBad.length}; 40-host teaser: "${r40.teaser.options_below_bill?r40.teaser.options_below_bill.label.slice(0,70):'range'}…"`)}

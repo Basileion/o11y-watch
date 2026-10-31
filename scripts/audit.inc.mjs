@@ -2,7 +2,7 @@
 // Called from build.mjs. Edit questions in data/audit-form.json, rates in data/audit-rates.json.
 export default function buildAudit({
   W, P, page, BASE, SITE, esc, CONTACT, fs, path, root, out,
-  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API
+  AUDIT_CHECKOUT, AUDIT_PRICE, AUDIT_UNLOCK_API, AUDIT_ENGINE
 }) {
   const stripNotes = o => { const c = { ...o }; for (const k of Object.keys(c)) if (k.startsWith('$')) delete c[k]; return c; };
   const AUDIT_FORM = stripNotes(JSON.parse(fs.readFileSync(path.join(root, 'data/audit-form.json'), 'utf8')));
@@ -49,9 +49,30 @@ export default function buildAudit({
     ['01', 'Instant model', 'Current cost estimate from your usage + public unit rates.'],
     ['02', 'Covered alternatives', 'Only SaaS options with public rates for every dimension you use; partial coverage listed separately.'],
     ['03', 'Self-host options', 'OSS stacks where the dataset says self-host is available — software $0 plus an explicit infra+ops estimate range.'],
-    ['04', 'Savings levers', 'Retention, sampling, log filters, seat rationalization — heuristic % only.'],
+    ['04', 'Savings levers', 'Retention, sampling, log filters, seat rationalization — rule-of-thumb %, capped at the modeled line each one reduces.'],
     ['05', 'Migration plan', 'Ranked sequence with Low / Medium / High effort ratings + Print/PDF.']
   ];
+
+  // RT-20261031-114: static sample report from clearly labelled EXAMPLE inputs (run through the same engine at build time).
+  // Vendor names in the ranking are redacted; only the example's own current-cost lines and lever sizing are shown.
+  const EX_IN = { vendors: ['datadog'], primary_vendor: 'datadog', plans: 'APM, infrastructure, logs', monthly_spend: 5000, hosts: 25, log_gb_day: 25, metric_series: 20000, spans_mo: 6e7, trace_gb_mo: 60, users: 12, retention_days: 15, team_size: '11-20', priority: 'balanced', compliance: ['none'] };
+  const EX = AUDIT_ENGINE.runAudit(EX_IN, AUDIT_RATES);
+  const m$ = (n) => AUDIT_ENGINE.money(n);
+  const exRows = (EX.ranked || []).filter((r) => r.kind === 'saas').slice(0, 3);
+  const SAMPLE_REPORT = `
+<h2 id="sample-report">Sample report (example inputs)</h2>
+<p class="mut sm"><b>EXAMPLE inputs, not a customer:</b> Datadog, ${EX_IN.hosts} hosts with APM, ${EX_IN.log_gb_day} GB/day of logs, ${EX_IN.metric_series.toLocaleString('en-US')} custom metrics, ${EX_IN.trace_gb_mo} GB/mo of traces, ${EX_IN.users} users, stated bill ${m$(EX_IN.monthly_spend)}/mo. Numbers below are what our engine computes for those example inputs from public list prices in our dataset (dataset date ${esc(AUDIT_RATES.dataset_checked || '')}; each vendor's own check date is listed in the report).</p>
+<div class="card"><div class="eyebrow">What the paid report contains</div>
+<ol class="sm"><li>Modeled current cost, line by line, with the gap vs your stated bill</li><li>Ranked alternatives (fully priced first), each with confidence, effort and gaps</li><li>Vendors with insufficient public pricing (never shown as savings)</li><li>Self-host infra + ops cost range with assumptions</li><li>Cleanup levers sized against the line each one reduces</li><li>Migration plan with effort ratings + Print/PDF</li></ol></div>
+<h3 style="font-size:16px;margin-top:16px">1 · Modeled current cost (example)</h3>
+<div class="tw"><table><thead><tr><th>Line</th><th>Modeled</th></tr></thead><tbody>${(EX.current.lines || []).map((l) => `<tr><td class="sm">${esc(l.label)}</td><td>${m$(l.amount)}/mo</td></tr>`).join('')}<tr><td><b>Public list prices explain</b></td><td><b>${m$(EX.current.modeled_total)}/mo</b> of ${m$(EX_IN.monthly_spend)}</td></tr></tbody></table></div>
+<h3 style="font-size:16px;margin-top:16px">2 · Ranked alternatives (example, names redacted)</h3>
+<div class="tw"><table><thead><tr><th>#</th><th>Option</th><th>Est. cost</th><th>Confidence</th></tr></thead><tbody>${exRows.map((r, i) => `<tr><td>${i + 1}</td><td>████████ <span class="sm mut">(SaaS)</span></td><td>${m$(r.monthly)}/mo</td><td>${esc({ high: 'High', medium: 'Medium', low: 'Low' }[r.confidence] || '—')}</td></tr>`).join('')}</tbody></table></div>
+<p class="sm mut">Low confidence means public prices don't cover every dimension, or the model lands far below the stated bill; the report lists each gap.</p>
+<h3 style="font-size:16px;margin-top:16px">3 · Cleanup levers (example)</h3>
+<div class="tw"><table><thead><tr><th>Lever</th><th>Est. save</th><th>Sized against</th></tr></thead><tbody>${(EX.levers || []).map((l) => `<tr><td><b>${esc(l.name)}</b></td><td>${l.sized ? m$(l.estimated_save_mo) + '/mo' : '<b>Not sized</b>'}</td><td class="sm mut">${esc(l.basis_label)}</td></tr>`).join('')}</tbody></table></div>
+<p class="sm mut">Each lever is capped at the modeled cost of the line it reduces, never sized off your total bill. Rule-of-thumb estimates, not vendor quotes.</p>`;
+  const REFUND_LINE = `<p class="sm mut" id="refund"><b>Refunds:</b> email <a href="mailto:${CONTACT}">${CONTACT}</a>; refund requests are handled case by case, and we also honor any refund rights your local consumer law gives you. See <a href="terms.html">Terms</a>.</p>`;
 
   const boot2 = `
 <div id="unlock-banner" class="ph" hidden style="margin-top:18px"></div>
@@ -93,6 +114,8 @@ await import('./js/audit-wizard.js');
 <div class="card hl"><div class="eyebrow">Full report unlock</div><div class="amt">$${AUDIT_PRICE}</div><p class="mut">Ranked table, alternatives, self-host options, levers, migration plan, Print/PDF. One-time.</p><p style="margin-top:12px"><a class="btn" href="#wizard-anchor">Start audit → unlock</a></p></div>
 </div>
 <p class="sm mut">Secure one-time checkout via Kit. Your full report unlocks in this browser right after payment.</p>
+${REFUND_LINE}
+${SAMPLE_REPORT}
 
 <h2>FAQ</h2>
 ${AUDIT_FAQ.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
