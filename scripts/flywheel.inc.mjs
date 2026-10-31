@@ -284,7 +284,7 @@ ${alts.map(a=>`<tr><td><a href="../vendors/${a.id}.html">${esc(a.name)}</a></td>
 <li>Run the <a href="../audit.html">free audit estimate</a> with your host/GB/user counts — it uses the same rates dataset.</li>
 <li><a href="../subscribe.html?src=cut-${id}">Subscribe</a> so you hear when ${esc(v.name)} changes limits.</li>
 </ol>
-${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
+${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],...(id==='datadog'?[['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)']]:[]),[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
 ${auditCta(`Ready to quantify ${v.name} savings on your numbers?`,`See what you’d save on ${esc(v.name)} in 2 minutes`,'audit-guide-cut-'+id)}
 ${cta(`Watch ${esc(v.name)} for price moves`,'Weekly email when the pricing page changes, with the source link.','guide-cut-'+id,'Subscribe free')}
 ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
@@ -294,6 +294,165 @@ ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
     {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
   ]);
   hubLinks.push([file,`How to cut your ${v.name} bill`,`Paid from ${v.paid_from||'n/s'}; free: ${v.has_free_tier?'yes':'no'}.`]);
+}
+
+// ---- Evergreen: cut Datadog bill WITHOUT migrating (RT-20261031-81, RT-20261031-35 partial).
+// Every $ figure is computed from data/audit-rates.json (datadog.rates.products, re-read on datadoghq.com/pricing/list 2026-10-31).
+{
+  const RJ=JSON.parse(fs.readFileSync(path.join(path.dirname(out),'data','audit-rates.json'),'utf8'));
+  const DDR=(RJ.vendors||RJ).datadog||(Array.isArray(RJ.vendors)?RJ.vendors.find(x=>x.id==='datadog'):null);
+  const R=DDR.rates, PR=R.products, CHK=PR.checked||DDR.checked;
+  const ON={host:18,apm:36,idx15:2.55,idx15m2m:2.04}; // on-demand / month-to-month list (datadoghq.com/pricing/list, read 2026-10-31)
+  const usd=n=>'$'+(Math.round(n*100)/100).toLocaleString('en-US',{minimumFractionDigits:n%1?2:0,maximumFractionDigits:2});
+  // Clearly-labelled EXAMPLE inputs (invented for illustration, not customer data, not an average).
+  const EX={hosts:20,cm:6000,cmCut:1500,logGB:300,hcGB:30,idxM:400,hcM:100,apmHosts:10,spanGB:2500,spansM:30};
+  const cmAllot=EX.hosts*PR.custom_metrics_allot_per_pro_host;
+  const cmCost=c=>Math.max(0,Math.ceil((c-cmAllot)/100))*PR.custom_metrics_per_100;
+  const i15=PR.indexed_logs_m['15'], i7=PR.indexed_logs_m['7'], i3=PR.indexed_logs_m['3'], i30=PR.indexed_logs_m['30'];
+  const spanAllot=EX.apmHosts*PR.span_ingest_allot_gb_per_apm_host, spanIdxAllot=EX.apmHosts*PR.indexed_spans_allot_m_per_apm_host;
+  const before=[
+    ['Infrastructure Pro',`${EX.hosts} hosts × ${usd(R.host_mo_annual)}`,EX.hosts*R.host_mo_annual],
+    ['Custom metrics',`${EX.cm.toLocaleString()} indexed − ${cmAllot.toLocaleString()} included (${PR.custom_metrics_allot_per_pro_host}/host) = ${(EX.cm-cmAllot).toLocaleString()} × ${usd(PR.custom_metrics_per_100)}/100`,cmCost(EX.cm)],
+    ['Log ingestion',`${EX.logGB} GB × ${usd(PR.log_ingest_gb)}`,EX.logGB*PR.log_ingest_gb],
+    ['Indexed logs (15-day)',`${EX.idxM}M events × ${usd(i15)}/M`,EX.idxM*i15],
+    ['APM hosts',`${EX.apmHosts} × ${usd(PR.apm_host_mo_annual)}`,EX.apmHosts*PR.apm_host_mo_annual],
+    ['Span ingestion over allotment',`${EX.spanGB.toLocaleString()} GB − ${spanAllot.toLocaleString()} GB included = ${(EX.spanGB-spanAllot).toLocaleString()} × ${usd(PR.span_ingest_gb)}`,Math.max(0,EX.spanGB-spanAllot)*PR.span_ingest_gb],
+    ['Indexed spans over allotment (15-day)',`${EX.spansM}M − ${spanIdxAllot}M included = ${EX.spansM-spanIdxAllot}M × ${usd(PR.indexed_spans_m['15'])}/M`,Math.max(0,EX.spansM-spanIdxAllot)*PR.indexed_spans_m['15']],
+  ];
+  const keptM=EX.idxM-EX.hcM;
+  const after=[
+    ['Infrastructure Pro','unchanged',EX.hosts*R.host_mo_annual],
+    ['Custom metrics',`${(EX.cm-EX.cmCut).toLocaleString()} indexed after ${EX.cmCut.toLocaleString()} unqueried, asset-free series are excluded`,cmCost(EX.cm-EX.cmCut)],
+    ['Log ingestion',`${EX.logGB-EX.hcGB} GB after health-check lines are dropped at the Agent`,(EX.logGB-EX.hcGB)*PR.log_ingest_gb],
+    ['Indexed logs (7-day)',`${keptM}M events (health checks no longer indexed) × ${usd(i7)}/M`,keptM*i7],
+    ['APM hosts','unchanged',EX.apmHosts*PR.apm_host_mo_annual],
+    ['Span ingestion over allotment','unchanged',Math.max(0,EX.spanGB-spanAllot)*PR.span_ingest_gb],
+    ['Indexed spans over allotment (15-day)','unchanged',Math.max(0,EX.spansM-spanIdxAllot)*PR.indexed_spans_m['15']],
+  ];
+  const sum=a=>a.reduce((s,x)=>s+x[2],0), B=sum(before), A=sum(after);
+  const onDemandGap=EX.hosts*(ON.host-R.host_mo_annual)+EX.apmHosts*(ON.apm-PR.apm_host_mo_annual);
+  // Guard: the page must use the dataset's Datadog rates exactly (fails build if audit-rates.json drifts from what this copy states).
+  const expect={host:15,apm:31,log:0.1,i3:1.06,i7:1.27,i15:1.7,i30:2.5,cm:5,cmA:100,cont:1,contA:5,spanA:150,spanIA:1};
+  const got={host:R.host_mo_annual,apm:PR.apm_host_mo_annual,log:PR.log_ingest_gb,i3,i7,i15,i30,cm:PR.custom_metrics_per_100,cmA:PR.custom_metrics_allot_per_pro_host,cont:PR.container_mo,contA:PR.containers_allot_per_pro_host,spanA:PR.span_ingest_allot_gb_per_apm_host,spanIA:PR.indexed_spans_allot_m_per_apm_host};
+  for(const k in expect){if(got[k]!==expect[k]){console.error(`cut-datadog-without-migrating guard: rate ${k} is ${got[k]}, page copy expects ${expect[k]}. Re-read datadoghq.com/pricing/list and update the copy.`);process.exit(1)}}
+  if(!(A<B)){console.error('cut-datadog-without-migrating guard: example after >= before');process.exit(1)}
+
+  const file='guides/cut-datadog-bill-without-migrating.html';
+  const SRC_LIST='https://www.datadoghq.com/pricing/list/', SRC_P='https://www.datadoghq.com/pricing/';
+  const D={
+    mwl:'https://docs.datadoghq.com/metrics/metrics-without-limits/',
+    sum:'https://docs.datadoghq.com/metrics/summary/',
+    cmb:'https://docs.datadoghq.com/account_management/billing/custom_metrics/',
+    idx:'https://docs.datadoghq.com/logs/log_configuration/indexes/',
+    agent:'https://docs.datadoghq.com/agent/logs/advanced_log_collection/',
+    trace:'https://docs.datadoghq.com/tracing/trace_pipeline/',
+    bill:'https://docs.datadoghq.com/account_management/billing/',
+    cont:'https://docs.datadoghq.com/account_management/billing/containers/',
+  };
+  const L=(u,t)=>`<a href="${u}" rel="nofollow noopener">${esc(t)}</a>`;
+  const title=`Cut your Datadog bill without migrating: cleanup checklist (2026) | ${SITE}`;
+  const desc=`Unqueried custom metrics, health-check logs, indexed retention, spans, host counting and on-demand vs annual: a Datadog cleanup checklist priced from datadoghq.com list prices read ${CHK}, with how to check what is safe to remove.`;
+  const answer=`Before you migrate, clean up what you pay Datadog for but never look at. Datadog's list prices (read ${CHK}): custom metrics ${usd(PR.custom_metrics_per_100)} per 100 beyond ${PR.custom_metrics_allot_per_pro_host} per Infrastructure Pro host, log ingestion ${usd(PR.log_ingest_gb)}/GB, indexed logs ${usd(i3)}–${usd(i30)} per million events (3- to 30-day retention), APM ${usd(PR.apm_host_mo_annual)}/host, Infrastructure Pro ${usd(R.host_mo_annual)}/host billed annually (${usd(ON.host)} on-demand). Datadog's own Metrics Summary shows which metrics nobody has queried in 30, 60 or 90 days and which ones sit on a dashboard, monitor, notebook or SLO. That is how you tell what is safe to remove without breaking someone's alert.`;
+  const faq=[
+    ['How do I cut my Datadog bill without migrating?', answer],
+    ["How do I figure out what's safe to remove without breaking someone's alert?", `Use Metrics Summary in Datadog. The Query Activity facet lists metrics not queried in the past 30, 60 or 90 days, and the Related Assets facet lists metrics used on dashboards, notebooks, monitors and SLOs. Datadog's docs say a metric counts as used as long as it exists on an asset, even if nobody queries it. Start with metrics that are unqueried for 90 days and have no related assets. Prefer a Metrics without Limits tag configuration over deleting code, because you can revert it with "Allow all tags".`],
+    ['Do Datadog exclusion filters stop me paying for health-check logs?', `Partly. An index exclusion filter stops those logs being indexed (${usd(i3)}–${usd(i30)} per million events by retention), but they are still ingested (${usd(PR.log_ingest_gb)}/GB), and they still show in Live Tail, archives and log-based metrics. To avoid the ingestion charge too, drop them at the Agent with a log_processing_rules exclude_at_match rule. Datadog's own docs use a "healthcheck" pattern as the example. Logs dropped at the Agent are never sent, so you can't get them back.`],
+    ['What does Datadog charge for custom metrics?', `${usd(PR.custom_metrics_per_100)} per 100 custom metrics per month beyond the allotment (${PR.custom_metrics_allot_per_pro_host} per Infrastructure Pro host, 200 per Enterprise host, pooled across the account), billed on the monthly average of distinct series per hour. If you configure a metric with Metrics without Limits, its ingested series are also counted, at $0.10 per 100 beyond the ingested allotment (datadoghq.com/pricing/list, read ${CHK}).`],
+    ['Is my Datadog bill really higher than my AWS bill?', 'Sometimes it is, and buyers say so in public threads ("our datadog bill is literally higher than our aws hosting bill"). We have no data on how common that is, so we won\'t give you a percentage. Price your own usage line by line with the checklist below or the free audit, then decide whether a cleanup is enough or a migration is worth the work.'],
+    ['Will you tell me how much I will save?', 'Not as a percentage. We do not publish invented savings stats. The worked example below uses Datadog list prices on made-up inputs. Your own result depends on your contract and usage. The free audit prices the usage you enter against public list prices.'],
+  ];
+  const tbl=(rows,tot,label)=>`<div class="tw"><table><thead><tr><th>${label} line</th><th>Example usage × list price</th><th>$/mo</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${esc(r[0])}</td><td class="sm">${esc(r[1])}</td><td>${usd(r[2])}</td></tr>`).join('')}<tr><td><b>Total</b></td><td></td><td><b>${usd(tot)}</b></td></tr></tbody></table></div>`;
+  P(file,title,desc,`
+${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'},{href:'#',label:'Cut Datadog bill without migrating'}])}
+<div class="eyebrow">Cleanup checklist · Datadog list prices read ${esc(CHK)}</div>
+<h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">Cut your Datadog bill without migrating</h1>
+<p class="lede" style="font-size:18px;color:var(--mut);max-width:760px">If you've got <i>“custom metrics that literally nobody has queried in like 6 months”</i> and <i>“health check logs just burning through our indexed volume”</i>, start there. Migrating can wait. This checklist prices each cleanup lever with Datadog's own list prices and links the Datadog docs that show what's safe to remove.</p>
+<p><a class="btn" href="../audit.html" data-grow="audit-guide-cut-dd-nomigrate-top">Run the free savings check →</a> <a class="sm mut" href="#checklist" style="margin-left:10px">Jump to the checklist</a></p>
+<p class="lede" style="max-width:760px"><b>Answer:</b> ${esc(answer)}</p>
+${keyStats([
+  ['Custom metrics', `${usd(PR.custom_metrics_per_100)} per 100 / mo beyond ${PR.custom_metrics_allot_per_pro_host} per Infrastructure Pro host`],
+  ['Log ingestion', `${usd(PR.log_ingest_gb)} per GB`],
+  ['Indexed logs per 1M events', `${usd(i3)} (3-day) · ${usd(i7)} (7-day) · ${usd(i15)} (15-day) · ${usd(i30)} (30-day)`],
+  ['APM', `${usd(PR.apm_host_mo_annual)} per APM host (${PR.span_ingest_allot_gb_per_apm_host} GB ingested + ${PR.indexed_spans_allot_m_per_apm_host}M indexed spans included per host)`],
+  ['Infrastructure Pro', `${usd(R.host_mo_annual)} per host billed annually; ${usd(ON.host)} month-to-month or on-demand`],
+  ['Containers', `${PR.containers_allot_per_pro_host} per Pro host included; then ${usd(PR.container_mo)}/container/mo (annual) or $0.002/container-hour on-demand`],
+  ['Source', `datadoghq.com/pricing/list (Billed Annually column unless stated), read ${CHK}`],
+])}
+
+<h2 id="checklist">The cleanup checklist</h2>
+<p class="sm mut">Work down the list in order: the first steps are reversible and need no code change. Prices are Datadog list prices (Billed Annually) from ${L(SRC_LIST,'datadoghq.com/pricing/list')}, read ${esc(CHK)}. Your contract price may differ.</p>
+
+<h3>1. Custom metrics nobody has queried</h3>
+<ul>
+<li><b>What you pay:</b> ${usd(PR.custom_metrics_per_100)} per 100 custom metrics per month beyond ${PR.custom_metrics_allot_per_pro_host} per Infrastructure Pro host (200 on Enterprise). The allotment is pooled across your hosts. Billing uses the monthly average of distinct series per hour, so query count and how often you submit data points don't change it (${L(D.cmb,'Custom Metrics Billing docs')}).</li>
+<li><b>Why it grows:</b> a custom metric is a metric name <i>plus</i> each unique tag-value combination. A single high-cardinality tag like <code>user_id</code> or <code>request_id</code> multiplies the count. Histograms and distributions each emit 5 series per tag combination, and adding percentiles to a distribution doubles that.</li>
+<li><b>Find them:</b> open Metrics Summary, then use the <b>Query Activity</b> facet ("not queried in the past 30, 60, or 90 days") together with the <b>Related Assets</b> facet (${L(D.sum,'Metrics Summary docs')}). To find the tag behind a spike, use the Custom Metrics Tags Cardinality Explorer.</li>
+<li><b>Cut them reversibly:</b> with ${L(D.mwl,'Metrics without Limits')}, set an allowlist of tags (or an empty allowlist for unqueried metrics, as Datadog's docs suggest). Check the <i>Estimated New Volume</i> before you save, and confirm the drop 24 hours later on Plan &amp; Usage. Configured metrics also count toward <i>ingested</i> custom metrics at $0.10 per 100 beyond the ingested allotment.</li>
+</ul>
+
+<h3>2. Health-check logs burning indexed volume</h3>
+<ul>
+<li><b>What you pay:</b> ${usd(PR.log_ingest_gb)}/GB to ingest, then ${usd(i3)} to ${usd(i30)} per million <i>indexed</i> events depending on retention.</li>
+<li><b>Option A: index exclusion filter</b> (reversible). Excluded logs aren't indexed, but you still pay to ingest them, and they still flow to Live Tail, archives and log-based metrics. You can toggle a filter on or off and sample anywhere from 0% to 100% (${L(D.idx,'Log Indexes docs')}). The docs' own example excludes 95% of 2xx nginx access logs.</li>
+<li><b>Option B: drop at the Agent.</b> A <code>log_processing_rules</code> rule of type <code>exclude_at_match</code> stops the log from being sent at all, so you skip the ingestion charge too. Datadog's docs show a global rule named <code>exclude_healthcheck</code> (${L(D.agent,'Advanced Log Collection docs')}). Logs dropped this way are gone for good.</li>
+<li><b>Put a ceiling on it:</b> an index <b>daily quota</b> hard-limits how many events get indexed per day and fires an event when you hit the limit or a warning threshold.</li>
+</ul>
+
+<h3>3. Retention you forgot you picked</h3>
+<ul>
+<li>Indexed logs per million events: ${usd(i3)} (3-day), ${usd(i7)} (7-day), ${usd(i15)} (15-day), ${usd(i30)} (30-day). Split noisy sources into their own index with shorter retention. Datadog recommends multiple indexes when you need different retentions or quotas (${L(D.idx,'docs')}).</li>
+<li>Low-value logs you have to keep for months can go to an archive or Flex Logs. Flex Logs storage is $0.05 per million events stored per month on the list page. Check that the query trade-offs suit you first.</li>
+</ul>
+
+<h3>4. Span ingestion and retention</h3>
+<ul>
+<li>APM is ${usd(PR.apm_host_mo_annual)} per APM host. Each host includes ${PR.span_ingest_allot_gb_per_apm_host} GB of ingested spans and ${PR.indexed_spans_allot_m_per_apm_host}M indexed spans per month, pooled across APM hosts. Above that you pay ${usd(PR.span_ingest_gb)}/GB ingested and ${usd(PR.indexed_spans_m['15'])} per million indexed spans (15-day retention) (${L(SRC_P,'datadoghq.com/pricing')}).</li>
+<li>Ingestion is controlled on the Ingestion Control page. Retention filters decide which spans get indexed. The APM Estimated Usage dashboard shows where the volume comes from (${L(D.trace,'Trace Pipeline docs')}). Tighten custom retention filters before you touch sampling, so you keep error and high-latency traces.</li>
+</ul>
+
+<h3>5. How hosts and containers are counted</h3>
+<ul>
+<li>Hosts are metered hourly. The billable count is the high-water mark of the lowest 99% of hours, so the top 1% of hours is ignored. Non-reporting hosts don't count (${L(D.bill,'Billing docs')}).</li>
+<li>If you install the Agent inside every container, <b>each container is billed as a host</b>. Datadog recommends one containerized Agent per host.</li>
+<li>Containers: ${PR.containers_allot_per_pro_host} per Pro host (10 per Enterprise host) are included and averaged across your infrastructure. Pause containers and Agent containers don't count. Fargate is billed on the number of tasks or pods running at the same time (${L(D.cont,'Containers Billing docs')}).</li>
+</ul>
+
+<h3>6. Committed (annual) vs on-demand</h3>
+<ul>
+<li>List prices from the same page: Infrastructure Pro ${usd(R.host_mo_annual)} annual vs ${usd(ON.host)} month-to-month or on-demand; APM ${usd(PR.apm_host_mo_annual)} vs ${usd(ON.apm)}; 15-day indexed logs ${usd(i15)} (annual) vs ${usd(ON.idx15m2m)} (month-to-month) vs ${usd(ON.idx15)} (on-demand) per million.</li>
+<li>Usage beyond your committed quantity and allotments is metered on-demand (see the ${L(D.cont,'containers billing FAQ')} for how). Plan &amp; Usage → Subscription Details shows the contract price and on-demand price for each committed product. Commit only to your steady baseline, <i>after</i> the cleanup.</li>
+</ul>
+
+<h2 id="example">Worked example (illustration only)</h2>
+<p class="sm"><b>Example, not data:</b> the inputs below are made up to show the math. They are not from any customer and are not an average. Prices are the Datadog list prices above (annual), read ${esc(CHK)}.</p>
+<p class="sm mut">Inputs: ${EX.hosts} Infrastructure Pro hosts, ${EX.cm.toLocaleString()} indexed custom metrics, ${EX.logGB} GB/mo of logs of which ${EX.hcGB} GB are health checks, ${EX.idxM}M indexed log events/mo at 15-day retention of which ${EX.hcM}M are health checks, ${EX.apmHosts} APM hosts, ${EX.spanGB.toLocaleString()} GB ingested spans, ${EX.spansM}M indexed spans. Cleanup: exclude ${EX.cmCut.toLocaleString()} custom metrics that are unqueried for 90 days and on no asset, drop health-check logs at the Agent, and move the remaining logs to 7-day retention.</p>
+${tbl(before,B,'Before')}
+${tbl(after,A,'After cleanup')}
+<p><b>Example difference: ${usd(B-A)}/mo</b> (${usd(B)} → ${usd(A)}) on these made-up inputs, with nothing migrated. In the same example, paying on-demand list prices instead of annual for the ${EX.hosts} infra hosts and ${EX.apmHosts} APM hosts would add ${usd(onDemandGap)}/mo.</p>
+
+${auditCta('Price your own Datadog usage line by line, free, in your browser.','Check your real savings in 2 minutes','audit-guide-cut-dd-nomigrate')}
+
+<h2>What buyers ask (in their words)</h2>
+<ul>
+<li><i>“how do you even figure out what's safe to remove without breaking someone's alert?”</i>: use Related Assets (monitors, dashboards, notebooks, SLOs) plus Query Activity (30/60/90 days) in Metrics Summary, and change tag configurations rather than deleting code. See step 1.</li>
+<li><i>“health check logs just burning through our indexed volume”</i>: use an exclusion filter to stop indexing them, or an Agent <code>exclude_at_match</code> rule to stop ingesting them too. See step 2.</li>
+<li><i>“our datadog bill is literally higher than our aws hosting bill”</i>: price each line above against your own usage first, then compare alternatives on the same usage with the <a href="../audit.html">audit</a>.</li>
+</ul>
+<p class="sm mut">Quotes are from public r/devops and r/ChoosingVendors threads (2026).</p>
+
+<h2>FAQ</h2>
+${faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
+
+${related([['cut-datadog-bill.html','How to cut your Datadog bill (limits + alternatives)'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
+${cta('Get told when Datadog changes these prices','Weekly email when a pricing page changes, with the source link.','guide-cut-dd-nomigrate','Subscribe free')}
+${cite(`Datadog cleanup checklist, Datadog list prices read ${CHK}`)}
+`,'../',[
+    ORG,
+    crumbLd([{label:'Home',href:BASE+'/'},{label:'Guides',href:BASE+'/guides/'},{label:'Cut Datadog bill without migrating',href:BASE+'/guides/cut-datadog-bill-without-migrating'}]),
+    {'@context':'https://schema.org','@type':'Article',headline:'Cut your Datadog bill without migrating: cleanup checklist (2026)',description:desc,datePublished:'2026-10-31',dateModified:CHK,author:{'@id':BASE+'/#org'},publisher:{'@id':BASE+'/#org'},mainEntityOfPage:BASE+'/guides/cut-datadog-bill-without-migrating',about:{'@type':'SoftwareApplication',name:'Datadog',url:SRC_P},citation:[SRC_LIST,SRC_P,...Object.values(D)]},
+    {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
+  ]);
+  hubLinks.push([file,'Cut your Datadog bill without migrating','Cleanup checklist: unqueried custom metrics, health-check logs, retention, spans, host counting. Datadog list prices read '+CHK+'.']);
 }
 
 
@@ -436,6 +595,7 @@ ${related([
   [`${id}-pricing.html`,`${v.name} pricing (2026)`],
   [`${id}-alternatives.html`,`${v.name} alternatives (cheaper)`],
   ...(id==='datadog'||id==='newrelic'?[[`cut-${id}-bill.html`,`How to cut your ${v.name} bill`]]:[]),
+  ...(id==='datadog'?[['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)']]:[]),
   [`../vendors/${id}.html`,`${v.name} vendor page`],
   ['../audit.html','Observability Cost & Stack Audit'],
 ])}

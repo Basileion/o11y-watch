@@ -80,6 +80,7 @@ await import('./js/audit-wizard.js');
 <li>Engineering leads and SREs who own an observability budget and want a fast, sourced estimate.</li>
 <li>Teams on Datadog / New Relic / Grafana Cloud (or mix) comparing retention, seats, and overages.</li>
 <li>FinOps and founders checking whether a migration or self-host path is even in the ballpark.</li>
+<li>Datadog teams who’d rather clean up than migrate: read the <a href="guides/cut-datadog-bill-without-migrating.html" data-grow="audit-to-cleanup-guide">cleanup checklist</a> (unqueried custom metrics, health-check logs, retention, what’s safe to remove), then price what’s left here.</li>
 </ul>
 <p class="mut sm">Best fit when you know rough hosts, log GB/day, series, spans, seats, and monthly spend. Optional usage CSV stays in your browser.</p>
 
