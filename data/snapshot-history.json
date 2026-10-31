@@ -1,0 +1,449 @@
+{
+ "generated": "2026-10-31",
+ "note": "versions = git commits in which the vendor snapshot text changed; gaps = known overwritten versions",
+ "vendors": {
+  "sentry": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "datadog": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-28",
+   "gaps": []
+  },
+  "newrelic": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "grafana": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "honeycomb": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "betterstack": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "axiom": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "rollbar": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "bugsnag": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": [
+    {
+     "date": "2026-10-24",
+     "note": "A saved version was overwritten before it was committed; the earlier text is not recoverable."
+    }
+   ]
+  },
+  "honeybadger": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "raygun": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "appsignal": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "uptimerobot": {
+   "versions": 3,
+   "first": "2026-10-24",
+   "last": "2026-10-29",
+   "gaps": []
+  },
+  "checkly": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "cronitor": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "healthchecks": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "pingdom": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "statuscake": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "hyperping": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "logzio": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "papertrail": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "mezmo": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "coralogix": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "elastic": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "signoz": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "uptrace": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "dash0": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "posthog": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "logrocket": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "atatus": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-31",
+   "gaps": []
+  },
+  "site24x7": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-31",
+   "gaps": []
+  },
+  "instatus": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-31",
+   "gaps": []
+  },
+  "incidentio": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "pagerduty": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "rootly": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "langfuse": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "helicone": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "openstatus": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "glitchtip": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "splunk": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "dynatrace": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "middleware": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "last9": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "oneuptime": {
+   "versions": 3,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "sematext": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "loggly": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "sumologic": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "groundcover": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "observe": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "openobserve": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "parseable": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "graylog": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "scoutapm": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "airbrake": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "trackjs": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "bugsink": {
+   "versions": 3,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "exceptionless": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "ohdear": {
+   "versions": 3,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "updown": {
+   "versions": 3,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "statusgator": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "statuspage": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "ilert": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "squadcast": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "firehydrant": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "zenduty": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "langsmith": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "braintrust": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "arize": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "opik": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "laminar": {
+   "versions": 2,
+   "first": "2026-10-24",
+   "last": "2026-10-30",
+   "gaps": []
+  },
+  "portkey": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "wandb": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  },
+  "lunary": {
+   "versions": 1,
+   "first": "2026-10-24",
+   "last": "2026-10-24",
+   "gaps": []
+  }
+ }
+}

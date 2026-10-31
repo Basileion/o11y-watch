@@ -746,15 +746,17 @@
   "has_free_tier": false,
   "free_plan": "",
   "free_tier": "Free trial only (\"Try it free\")",
-  "paid_from": "$7/mo per host (billed $0.01/host/hour)",
-  "pricing_model": "Hourly usage rates under an annual platform commitment",
+  "paid_from": "$7/mo per host for Foundation & Discovery, basic infrastructure only (billed $0.01/host/hour); Infrastructure Monitoring $29/mo per host; Full-Stack Monitoring (incl. APM) $58/mo per 8 GiB host",
+  "pricing_model": "Hourly usage rates under an annual platform commitment (Dynatrace Platform Subscription); tiers: Foundation & Discovery, Infrastructure Monitoring, Full-Stack Monitoring",
   "card_required": "not stated",
   "oss_self_host": "No",
   "gotchas": [
    "Requires an annual commitment"
   ],
-  "checked": "2026-10-24",
-  "confidence": "verified"
+  "checked": "2026-10-31",
+  "confidence": "verified",
+  "paid_from_scope": "Foundation & Discovery: basic infrastructure monitoring, not APM",
+  "apm_paid_from": "$58/mo per 8 GiB host, Full-Stack Monitoring incl. APM"
  },
  {
   "id": "middleware",

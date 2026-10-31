@@ -1,5 +1,6 @@
 // Programmatic SEO + GEO flywheel pages for O11y Watch. Called from build.mjs.
 // Only cites fields from vendors.json / changes.json — never invents numbers.
+import {parsePrice,compareLower,UNIT_LABEL} from './units.inc.mjs';
 export default function flywheel({V, C, TAKES, changes, W, P, BASE, SITE, esc, form, cta, pill, proBox, auditCta:auditCtaIn, files, nVer, nFree, LAST, fs, path, out, AUDIT_PRICE=149}){
 const AUDIT=`${BASE}/audit.html`;
 const ORG={
@@ -85,6 +86,7 @@ for(const v of pricingVendors){
 <tr><td>Free plan</td><td>${esc(v.free_plan||(v.has_free_tier?'Free':'None'))}</td></tr>
 <tr><td>Free tier limits</td><td>${esc(v.free_tier||'—')}</td></tr>
 <tr><td>Paid from</td><td>${esc(v.paid_from||'not stated')}</td></tr>
+<tr><td>Billing unit of entry price</td><td>${esc(UNIT_LABEL[parsePrice(v.paid_from)?.unit]||'not stated')}</td></tr>${v.apm_paid_from?`\n<tr><td>APM-comparable price</td><td>${esc(v.apm_paid_from)}</td></tr>`:''}
 <tr><td>Pricing model</td><td>${esc(v.pricing_model||'not stated')}</td></tr>
 <tr><td>Card required</td><td>${esc(v.card_required||'not stated')}</td></tr>
 <tr><td>OSS / self-host</td><td>${esc(v.oss_self_host||'not stated')}</td></tr>
@@ -296,45 +298,59 @@ ${cite(`How to cut ${v.name} bill — facts as of ${v.checked}`)}
 
 
 // ---- Alternatives (cheaper) pages for high-intent vendors
+const ALT_AUDIT=[];
 const ALT_IDS=['datadog','newrelic','grafana','sentry','dynatrace','honeycomb','pagerduty','splunk','elastic','axiom','rollbar','bugsnag','uptimerobot','langfuse'];
 for(const id of ALT_IDS){
   const v=byId(id); if(!v||!v.verified) continue;
   const file=`guides/${id}-alternatives.html`;
   const peers=C[v.cat].vs.filter(x=>x.id!==id&&x.verified);
   if(peers.length<2) continue;
-  const parsePaid=s=>{
-    if(!s||s==='not stated') return null;
-    const m=String(s).replace(/,/g,'').match(/\$?\s*(\d+(?:\.\d+)?)/);
-    return m?Number(m[1]):null;
-  };
-  const vPaid=parsePaid(v.paid_from);
+  // RT-20261031-31: only compare paid_from when currency + billing unit match (per host vs per host, etc.).
+  const vP=parsePrice(v.paid_from),vUnit=vP?vP.unit:null;
   const scored=peers.map(a=>{
     let score=0;
     if(a.free==='yes') score+=100;
-    const ap=parsePaid(a.paid_from);
-    if(vPaid!=null&&ap!=null&&ap<vPaid) score+=50+(vPaid-ap);
-    else if(ap!=null&&vPaid==null) score+=10;
+    const cmp=compareLower(v,a),ap=parsePrice(a.paid_from);
+    if(cmp.lower) score+=50+(vP.amount-ap.amount);
+    else if(ap&&!vP) score+=10;
     if(a.oss_self_host&&a.oss_self_host!=='not stated'&&/self|oss|open/i.test(String(a.oss_self_host))) score+=15;
-    return {a,score,ap};
+    return {a,score,cmp,ap};
   }).sort((x,y)=>y.score-x.score||x.a.name.localeCompare(y.a.name));
-  const cheaper=scored.filter(x=>x.score>=50||x.a.free==='yes');
+  const cheaper=scored.filter(x=>x.cmp.lower||x.a.free==='yes');
   const top=cheaper.length?cheaper:scored.slice(0,8);
-  const answer=`As of ${v.checked}, ${v.name} states paid entry as ${v.paid_from||'not stated'}${v.has_free_tier?` and a free plan (${v.free_tier})`:` with no free plan (${v.free_tier||'trial / paid only'})`}. Among ${peers.length} verified ${C[v.cat].name} peers in our dataset, ${top.filter(x=>x.a.free==='yes').length} list a free plan and ${top.filter(x=>vPaid!=null&&x.ap!=null&&x.ap<vPaid).length} state a lower numeric paid_from than ${v.name}. We never invent a blended bill — compare stated fields below or run the free savings estimate.`;
+  const nLower=scored.filter(x=>x.cmp.lower).length;
+  const diffUnit=scored.filter(x=>x.cmp.reason==='unit');
+  const diffTier=scored.filter(x=>x.cmp.reason==='tier');
+  const diffSubj=scored.filter(x=>x.cmp.reason==='subjtier');
+  const n=(k,one,many)=>`${k} ${k===1?one:many}`;
+  const diffUnits=[...new Set(diffUnit.map(x=>UNIT_LABEL[x.cmp.unit]))];
+  for(const x of scored) if(x.cmp.lower&&(parsePrice(x.a.paid_from).unit!==vUnit||x.a.paid_from_scope)) throw new Error(`answer-box unit guard: ${x.a.id} counted as lower than ${v.id} across units/tiers`);
+  ALT_AUDIT.push({id,vUnit,nLower,lowerIds:scored.filter(x=>x.cmp.lower).map(x=>x.a.id)});
+  const answer=`As of ${v.checked}, ${v.name} states paid entry as ${v.paid_from||'not stated'}${v.has_free_tier?` and a free plan (${v.free_tier})`:` with no free plan (${v.free_tier||'trial / paid only'})`}. Among ${peers.length} verified ${C[v.cat].name} peers in our dataset, ${scored.filter(x=>x.a.free==='yes').length} list a free plan. ${vUnit&&vUnit!=='other'?(v.paid_from_scope?`${v.name}'s lowest entry price is a basic tier only (${v.paid_from_scope}; APM-comparable: ${v.apm_paid_from||'not stated'}), so we don't rank peers as cheaper on price${diffSubj.length?` (${n(diffSubj.length,'peer also prices','peers also price')} ${UNIT_LABEL[vUnit]})`:''}`:`${n(nLower,'states','state')} a lower entry price in the same billing unit (${UNIT_LABEL[vUnit]}) as ${v.name}`):`${v.name}'s entry price has no comparable billing unit, so we rank no peer as cheaper on price`}${diffUnit.length?`; ${n(diffUnit.length,'prices','price')} in a different billing unit (${diffUnits.join(', ')}), so ${diffUnit.length===1?'its price is':'their prices are'} not comparable here`:''}${diffTier.length?`; ${diffTier.map(x=>`${x.a.name} lists a lower entry price for a basic tier only${x.a.apm_paid_from?` (APM-comparable: ${x.a.apm_paid_from})`:''}`).join('; ')}, so ${diffTier.length>1?'they are':'it is'} not counted as cheaper`:''}. We never invent a blended bill. Compare the stated fields below or run the free savings estimate on your own usage.`;
   const faq=[
     [`What are cheaper ${v.name} alternatives?`, answer],
     [`Does ${v.name} have a free tier?`, v.has_free_tier?`Yes: ${v.free_tier}`:`No free plan stated: ${v.free_tier||'trial / paid only'}`],
-    ['How do you decide “cheaper”?', 'Only from recorded free-tier presence and stated paid_from figures in vendors.json. No invented unit costs. Use the free audit estimate for usage-based savings.'],
+    ['How do you decide “cheaper”?', 'Only from recorded free-tier presence and stated paid_from figures in vendors.json, and only when both prices use the same currency and billing unit (per host vs per host, per user vs per user). Per-GB, per-span and per-user prices are labelled “different billing unit” and never counted as cheaper than a per-host price. Basic-only entry tiers are labelled, not counted. Use the free audit estimate for usage-based savings.'],
     ['Last verified?', `${v.name}: ${v.checked} (${v.url}). Peers use their own check dates in the table.`],
   ];
-  const rows=top.slice(0,12).map(({a,ap})=>`<tr>
-<td><a href="../vendors/${a.id}.html"><b>${esc(a.name)}</b></a></td>
-<td>${pill(a.free)}</td>
-<td class="sm">${esc(a.free_tier||'—')}</td>
-<td class="sm">${esc(a.paid_from||'not stated')}</td>
-<td class="sm mut">${esc(a.checked)}</td>
-<td class="sm">${vPaid!=null&&ap!=null&&ap<vPaid?'Lower stated paid_from':a.free==='yes'?'Has free plan':'Peer'}</td>
+  const why=({a,cmp})=>{
+    if(cmp.lower) return `Lower entry price, same billing unit (${UNIT_LABEL[cmp.unit]})`;
+    const f=a.free==='yes'?'Has free plan':'Peer';
+    if(cmp.reason==='unit') return `${f} · paid price uses a different billing unit (${UNIT_LABEL[cmp.unit]}), not comparable`;
+    if(cmp.reason==='subjtier') return `${f} · ${v.name}'s entry price is a basic tier only, so not ranked on price`;
+    if(cmp.reason==='tier') return `${f} · lower entry price is a basic tier only${a.apm_paid_from?` (APM-comparable: ${a.apm_paid_from})`:''}, not counted`;
+    return f;
+  };
+  const rows=top.slice(0,12).map(x=>`<tr>
+<td><a href="../vendors/${x.a.id}.html"><b>${esc(x.a.name)}</b></a></td>
+<td>${pill(x.a.free)}</td>
+<td class="sm">${esc(x.a.free_tier||'—')}</td>
+<td class="sm">${esc(x.a.paid_from||'not stated')}</td>
+<td class="sm">${esc(x.ap?UNIT_LABEL[x.ap.unit]:'—')}</td>
+<td class="sm mut">${esc(x.a.checked)}</td>
+<td class="sm">${esc(why(x))}</td>
 </tr>`).join('');
-  P(file,`${v.name} alternatives (cheaper) 2026 — free tiers & paid entry | ${SITE}`,`Cheaper ${v.name} alternatives from verified free tiers and stated paid_from prices (checked ${v.checked}).`,`
+  P(file,`${v.name} alternatives (cheaper) 2026 — free tiers & paid entry | ${SITE}`,`Cheaper ${v.name} alternatives from verified free tiers and like-for-like entry prices (same billing unit), checked ${v.checked}.`,`
 ${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'},{href:'#',label:`${v.name} alternatives`}])}
 <div class="eyebrow">Alternatives · sourced · verified ${esc(v.checked)}</div>
 <h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">${esc(v.name)} alternatives (cheaper)</h1>
@@ -352,10 +368,11 @@ ${keyStats([
 <tr><td>Free plan</td><td>${esc(v.free_plan||(v.has_free_tier?'Free':'None'))}</td></tr>
 <tr><td>Free limits</td><td>${esc(v.free_tier||'—')}</td></tr>
 <tr><td>Paid from</td><td>${esc(v.paid_from||'not stated')}</td></tr>
+<tr><td>Billing unit of entry price</td><td>${esc(UNIT_LABEL[parsePrice(v.paid_from)?.unit]||'not stated')}</td></tr>${v.apm_paid_from?`\n<tr><td>APM-comparable price</td><td>${esc(v.apm_paid_from)}</td></tr>`:''}
 <tr><td>Pricing model</td><td>${esc(v.pricing_model||'not stated')}</td></tr>
 </tbody></table></div>
 <h2>Verified alternatives in ${esc(C[v.cat].name)}</h2>
-<div class="tw"><table><thead><tr><th>Vendor</th><th>Free?</th><th>Free limits</th><th>Paid from</th><th>Checked</th><th>Why listed</th></tr></thead><tbody>${rows}</tbody></table></div>
+<div class="tw"><table><thead><tr><th>Vendor</th><th>Free?</th><th>Free limits</th><th>Paid from</th><th>Billing unit</th><th>Checked</th><th>Why listed</th></tr></thead><tbody>${rows}</tbody></table></div>
 ${related([
   [`${id}-pricing.html`,`${v.name} pricing (2026)`],
   ...(id==='datadog'||id==='newrelic'||id==='grafana'?[[`${id}-cost-calculator.html`,`${v.name} cost calculator`]]:[]),
@@ -371,7 +388,7 @@ ${cite(`${v.name} alternatives as of ${v.checked}`)}
     crumbLd([{label:'Home',href:BASE+'/'},{label:'Guides',href:BASE+'/guides/'},{label:`${v.name} alternatives`,href:BASE+'/'+file}]),
     {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
   ]);
-  hubLinks.push([file,`${v.name} alternatives (cheaper)`,`Peers with free plans / lower stated paid_from vs ${v.paid_from||'n/s'}.`]);
+  hubLinks.push([file,`${v.name} alternatives (cheaper)`,`Peers with free plans, or a lower entry price in the same billing unit as ${v.name}.`]);
 }
 
 // ---- Cost calculator landing pages (SEO → free audit)
@@ -469,5 +486,5 @@ fs.mkdirSync(path.join(out,'api'),{recursive:true});
 W('api/vendors.csv',[csvHeader.join(','),...csvRows].join('\n'));
 W('api/changes.csv',['date','vendor','type','summary','source'].join(',')+'\n'+changes.map(c=>[c.date,c.vendor,c.type,c.summary,c.source].map(csvEscape).join(',')).join('\n'));
 
-return {org:ORG,guideCount:hubLinks.length+1,guideFiles:['guides/index.html',...hubLinks.map(x=>x[0])],striking:hubLinks.slice(0,12)};
+return {altAudit:ALT_AUDIT,org:ORG,guideCount:hubLinks.length+1,guideFiles:['guides/index.html',...hubLinks.map(x=>x[0])],striking:hubLinks.slice(0,12)};
 }

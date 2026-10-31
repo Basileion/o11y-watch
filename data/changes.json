@@ -1,6 +1,13 @@
 [
  {
   "date": "2026-10-31",
+  "vendor": "Dynatrace",
+  "type": "correction",
+  "summary": "O11y Watch correction: we listed Dynatrace's paid entry as \"$7/mo per host\" without saying that this is the Foundation & Discovery tier (basic infrastructure monitoring, not APM), and our alternatives guides counted it as cheaper than Datadog's $15/host. Per dynatrace.com/pricing (re-read 2026-10-31): Infrastructure Monitoring is $29/mo per host and Full-Stack Monitoring (incl. APM) is $58/mo per 8 GiB host, under an annual platform commitment. Alternatives guides now compare entry prices only when the billing unit matches.",
+  "source": "https://www.dynatrace.com/pricing/"
+ },
+ {
+  "date": "2026-10-31",
   "vendor": "New Relic",
   "type": "correction",
   "summary": "O11y Watch correction: we listed New Relic’s paid entry as $49 per full platform user, but $49 is the price of a core user. Full platform users cost $10 for the first user plus $99 per additional user on Standard (max 5 full users), or $349/user/mo on Pro with an annual commitment ($418.80 monthly pay-as-you-go). Data stays 100 GB/mo free, then $0.40/GB ($0.60/GB Data Plus). The vendor page, guides, API/CSV and the cost audit now use these tiers; the audit previously priced 25 full seats at $1,176/mo instead of $8,725/mo (Pro, annual).",

@@ -51,7 +51,7 @@ const og=(eyebrow,title,sub,right='',foot=`${nV} vendors · ${nVer} verified · 
 <div style="font-size:19px;color:#8b93a1;border-top:1px solid #23262f;padding-top:18px">${esc(foot)}</div></div>`;
 const diffImg=`<img src="file://${A('img/hero-diff.svg')}" width="470">`;
 render(og('Observability pricing tracker','The free tier is the product. We watch it.',`Free tiers & pricing changes for ${nV} observability tools — sourced, dated, diffed weekly.`,diffImg),A('og/home.png'));
-render(og('O11y Watch Pro · $6/mo','Same-day pricing alerts + exports',`Know within a day when a vendor moves its pricing. Full snapshot history, CSV/JSON. Cancel anytime.`,`<img src="file://${A('img/pro-visual.svg')}" width="480">`),A('og/pro.png'));
+render(og('O11y Watch Pro · $6/mo','Same-day pricing alerts + exports',`Know within about a day when a vendor moves its pricing. Saved snapshot history since 2026-10-24, CSV/JSON. Cancel anytime.`,`<img src="file://${A('img/pro-visual.svg')}" width="480">`),A('og/pro.png'));
 render(og('Sponsor · founding rates','Reach engineers choosing observability tools',`One labeled sponsor per weekly issue, plus site placement. Founding rates from $39.`),A('og/sponsor.png'));
 render(og('Compare free tiers','Side-by-side observability free tiers',`Pick any 3 of ${nV} tools: limits, gotchas, check date and source link.`),A('og/compare.png'));
 render(og('Change log',`${nCh} pricing changes logged`,`Price increases, removed free tiers and sunsets — each with a source link.`,diffImg),A('og/changes.png'));
@@ -68,5 +68,5 @@ shot(D+'/directory.html',A('img/shot-directory.png'),1280,820);
 const frame=(img,t,s)=>`<div style="${bg};width:1270px;height:760px;padding:48px 60px;display:flex;flex-direction:column;align-items:center"><div style="font-size:44px;font-weight:800;letter-spacing:-.03em">${t}</div><div style="font-size:22px;color:#b4bac6;margin:8px 0 26px">${s}</div>${img}</div>`;
 render(frame(`<img src="file://${A('img/hero-diff.svg')}" width="760">`,'Every pricing change, as a diff','UptimeRobot started testing ~18% higher prices on 2026-10-24. We caught both versions and linked the source.'),A('launch/1-pricing-diff.png'),1270,760);
 render(frame(`<img src="file://${A('img/shot-compare.png')}" width="1000" style="border-radius:14px;border:1px solid #2a2f3a;box-shadow:0 20px 60px rgba(0,0,0,.5)">`,`Compare ${nV} free tiers side by side`,'Limits, gotchas, check date and the vendor’s own pricing page — no guesses.'),A('launch/2-compare.png'),1270,760);
-render(frame(`<img src="file://${A('img/pro-visual.svg')}" width="820">`,'Pro: same-day alerts + exports','$6/mo. Within ~24h of detection, with full history as CSV/JSON. Cancel anytime.'),A('launch/3-pro.png'),1270,760);
+render(frame(`<img src="file://${A('img/pro-visual.svg')}" width="820">`,'Pro: same-day alerts + exports','$6/mo. Within ~24h of detection, with saved history as CSV/JSON. Cancel anytime.'),A('launch/3-pro.png'),1270,760);
 fs.rmSync(tmp,{recursive:true,force:true});console.log('visuals done');
