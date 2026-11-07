@@ -60,6 +60,7 @@ export default function buildAudit({
   const m$ = (n) => AUDIT_ENGINE.money(n);
   const exRows = (EX.ranked || []).filter((r) => r.kind === 'saas').slice(0, 3);
   const SAMPLE_REPORT = `
+<p class="sm" style="margin:12px 0">Prefer a public named EXAMPLE with real vendor alternatives? See the free <a href="guides/datadog-40-host-cost-worked-example.html" data-grow="audit-sample-to-40host">40-host Datadog worked example</a> (line items + ranked SaaS + levers).</p>
 <h2 id="sample-report">Sample report (example inputs)</h2>
 <p class="mut sm"><b>EXAMPLE inputs, not a customer:</b> Datadog, ${EX_IN.hosts} hosts with APM, ${EX_IN.log_gb_day} GB/day of logs, ${EX_IN.metric_series.toLocaleString('en-US')} custom metrics, ${EX_IN.trace_gb_mo} GB/mo of traces, ${EX_IN.users} users, stated bill ${m$(EX_IN.monthly_spend)}/mo. Numbers below are what our engine computes for those example inputs from public list prices in our dataset (dataset date ${esc(AUDIT_RATES.dataset_checked || '')}; each vendor's own check date is listed in the report).</p>
 <div class="card"><div class="eyebrow">What the paid report contains</div>
@@ -101,6 +102,7 @@ await import('./js/audit-wizard.js');
 <li>Engineering leads and SREs who own an observability budget and want a fast, sourced estimate.</li>
 <li>Teams on Datadog / New Relic / Grafana Cloud (or mix) comparing retention, seats, and overages.</li>
 <li>FinOps and founders checking whether a migration or self-host path is even in the ballpark.</li>
+<li>Want a public worked EXAMPLE with named line items before you pay? See the <a href="guides/datadog-40-host-cost-worked-example.html" data-grow="audit-to-40host-guide">Datadog 40-host cost worked example</a> ($4,230 modeled of an $8,000 stated bill at list prices).</li>
 <li>Datadog teams whose bill jumps when they autoscale: read <a href="guides/datadog-autoscaling-cost.html" data-grow="audit-to-autoscaling-guide">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, the hourly plan), then price your real host count here.</li>
 <li>Datadog teams who’d rather clean up than migrate: read the <a href="guides/cut-datadog-bill-without-migrating.html" data-grow="audit-to-cleanup-guide">cleanup checklist</a> (unqueried custom metrics, health-check logs, retention, what’s safe to remove), then price what’s left here.</li>
 </ul>

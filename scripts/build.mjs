@@ -202,6 +202,7 @@ P(`vendors/${v.id}.html`,`${v.name} free tier & pricing — ${SITE}`,v.verified?
 ${auditCta(`See what you’d save on ${esc(v.name)} in 2 minutes`,`Model ${esc(v.name)} against your hosts, GB and seats using the same verified rates on this page.`,'audit-vendor-'+v.id,'../')}
 ${tryCta(v)}
 ${['datadog','grafana','splunk','dynatrace'].includes(v.id)?`<p class="sm" style="margin:10px 0"><b>AI / agent meters:</b> <a href="../guides/ai-agent-observability-pricing-2026.html">AI agent observability pricing (2026)</a>: ${esc(v.name)}'s AI and agent billing next to other vendors, with effective dates and sources.</p>`:''}
+${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>40-host worked example:</b> <a href="../guides/datadog-40-host-cost-worked-example.html">Datadog 40-host cost worked example</a>: public list prices explain $4,230 of an EXAMPLE $8,000/mo bill (APM + logs + custom metrics), with named SaaS alternatives and cleanup levers.</p>`:''}
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Autoscaling?</b> <a href="../guides/datadog-autoscaling-cost.html">Why autoscaling raises your Datadog bill</a>: Datadog bills the high-water mark of the lower 99% of hourly host counts, so a repeating scale-out sets the month's host count.</p>`:''}
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Not ready to migrate?</b> <a href="../guides/cut-datadog-bill-without-migrating.html">Cut your Datadog bill without migrating</a>: a cleanup checklist for unqueried custom metrics, health-check logs and retention, priced with Datadog list prices.</p>`:''}
 <div class="two"><div><h2 style="margin-top:12px">Free tier</h2>${v.verified?`<blockquote><b>${esc(v.free_plan||(v.has_free_tier?'Free':'No free plan'))}</b><br>${esc(v.free_tier)}</blockquote>`:`<blockquote><b>Unknown.</b> We have saved a snapshot of this pricing page but haven’t verified the plan by hand yet.</blockquote>${v.snip.length?`<p class="sm mut" style="margin-top:14px">Raw lines from our page snapshot mentioning free / trial (unreviewed, may be out of context):</p><ul class="sm">${v.snip.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:''}`}
@@ -556,3 +557,35 @@ if(bad.length){console.error(`AI meters rate guard (RT-119): ${bad.length} probl
   if(bad.length){console.error(`Autoscaling guide guard (RT-121): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
   console.log(`autoscaling guide guard: printed rates == data/audit-rates.json; ${AS.EXAMPLES.length} example curves recompute (floor/ceil agree); JSON-LD ${[...types].join('+')}; linked from hub/vendor/audit/cut guides/sitemap/llms; negative test caught ${neg.length}`)}
  if(bad.length){console.error(`Autoscaling guide guard (RT-121): ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}}
+
+// Build guard (RT-20261107-23 / ACT-20261107-10): public 40-host Datadog worked example must print
+// line items + $4,230 total that recompute from audit-rates.json via the audit engine; JSON-LD Article+FAQ+Breadcrumb;
+// linked from hub / audit / vendors/datadog / sitemap / llms. Negative test must be caught.
+{const WE=await import('./worked-example.inc.mjs');const RJ=J('data/audit-rates.json');const eng=(await import(pathToFileURL(path.join(root,'assets','js','audit-engine.js')).href+'?we='+Date.now())).default;const f=path.join(out,WE.SLUG);const bad=[];
+ const X=WE.runExample(RJ,eng);const E=WE.EXPECTED;
+ if(X.modeled!==E.modeled)bad.push(`engine modeled ${X.modeled} != expected ${E.modeled}`);
+ for(const [k,want] of [['infra',E.infra],['apm',E.apm],['logs',E.logs],['metrics',E.metrics]]){const got=X[k]&&X[k].amount;if(got!==want)bad.push(`engine ${k} ${got} != expected ${want}`)}
+ if((X.infra&&X.infra.amount)!==40*RJ.vendors.datadog.rates.host_mo_annual)bad.push('infra must equal 40 × host_mo_annual');
+ if((X.apm&&X.apm.amount)!==40*RJ.vendors.datadog.rates.products.apm_host_mo_annual)bad.push('apm must equal 40 × apm_host_mo_annual');
+ if(!fs.existsSync(f))bad.push('missing '+WE.SLUG);else{const html=fs.readFileSync(f,'utf8');
+  for(const [id,want] of [['infra',E.infra],['apm',E.apm],['logs',E.logs],['metrics',E.metrics],['modeled',E.modeled]]){const m=html.match(new RegExp(`data-line="${id}" data-v="([^"]+)"`))||(id==='modeled'?html.match(/data-ex="modeled-total" data-v="([^"]+)"/):null);if(!m||Number(m[1])!==want)bad.push(`printed ${id} ${m&&m[1]} != ${want}`)}
+  const R=RJ.vendors.datadog.rates,PR=R.products;const SRCV={'dd-host-annual':R.host_mo_annual,'dd-apm-annual':PR.apm_host_mo_annual,'dd-log-ingest':PR.log_ingest_gb,'dd-custom-metrics':PR.custom_metrics_per_100};
+  for(const m of html.matchAll(/<span data-rate="([^"]+)" data-price="([^"]+)">/g)){const [,id,p]=m;if(!(id in SRCV))bad.push('unknown data-rate '+id);else if(Number(p)!==SRCV[id])bad.push(`${id}: page ${p} != data ${SRCV[id]}`)}
+  for(const a of X.saas){const m=html.match(new RegExp(`data-alt="${a.id}" data-v="([^"]+)" data-conf="([^"]+)"`));if(!m||Number(m[1])!==a.monthly||m[2]!==a.confidence)bad.push(`alt ${a.id}: printed ${m&&m.slice(1)} != ${a.monthly}/${a.confidence}`)}
+  if(!X.saas.length)bad.push('no SaaS alternatives in engine run');
+  for(const a of X.insuf){if(!html.includes(`data-insuf="${a.id}"`))bad.push(`insufficient ${a.id} not listed`)}
+  for(const l of X.levers){const m=html.match(new RegExp(`data-lever="${l.id}" data-v="([^"]+)"`));const want=l.sized?String(l.estimated_save_mo):'unsized';if(!m||m[1]!==want)bad.push(`lever ${l.id}: printed ${m&&m[1]} != ${want}`)}
+  if(!/EXAMPLE inputs, not a customer/.test(html))bad.push('page not labelled EXAMPLE inputs');
+  if(!/Why pay \$149/.test(html)&&!/why-149/.test(html))bad.push('missing Why pay $149 section');
+  if(!/datadog-autoscaling-cost/.test(html))bad.push('missing link to autoscaling guide');
+  if(!/audit(\.html)?#sample-report/.test(html))bad.push('missing link to /audit#sample-report');
+  if(!html.includes('o11y-watch.kit.com/products/observability-cost-stack-audit-instant'))bad.push('missing Kit checkout link');
+  const types=new Set();for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){try{const j=JSON.parse(m[1]);(Array.isArray(j)?j:[j]).forEach(x=>(x['@graph']||[x]).forEach(y=>types.add(y['@type'])))}catch(e){bad.push('JSON-LD parse error: '+e.message)}}
+  for(const t of ['Article','FAQPage','BreadcrumbList'])if(!types.has(t))bad.push('JSON-LD missing '+t);
+  const neg=[];const drifted=html.replace(/data-line="modeled" data-v="4230"/,'data-line="modeled" data-v="9999"').replace(/data-ex="modeled-total" data-v="4230"/,'data-ex="modeled-total" data-v="9999"');
+  {const m=drifted.match(/data-ex="modeled-total" data-v="([^"]+)"/);if(!m||Number(m[1])===E.modeled)neg.push('neg setup failed');else if(Number(m[1])!==E.modeled)neg.push('caught')}
+  if(!neg.includes('caught'))bad.push('negative test failed: guard did not flag drifted modeled total');
+  for(const [lf,needle] of [['guides/index.html','datadog-40-host-cost-worked-example'],['vendors/datadog.html','datadog-40-host-cost-worked-example'],['audit.html','datadog-40-host-cost-worked-example'],['sitemap.xml','/guides/datadog-40-host-cost-worked-example'],['llms.txt','datadog-40-host-cost-worked-example'],['llms-full.txt','datadog-40-host-cost-worked-example']]){const p=path.join(out,lf);if(!fs.existsSync(p)||!fs.readFileSync(p,'utf8').includes(needle))bad.push(`${lf} does not link the 40-host worked example`)}
+  if(bad.length){console.error(`40-host worked-example guard (RT-23): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+  console.log(`40-host worked-example guard: modeled ${E.modeled} == engine; ${X.saas.length} SaaS + ${X.insuf.length} insufficient + ${X.levers.length} levers; JSON-LD ${[...types].join('+')}; linked from hub/vendor/audit/sitemap/llms; negative test caught`)}
+ if(bad.length){console.error(`40-host worked-example guard (RT-23): ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}}
