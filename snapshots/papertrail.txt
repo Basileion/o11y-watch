@@ -1,5 +1,5 @@
 Aggregate all your logs, your own way.
-Log Observability
+Log Management
 Starts at:
 $5.00
 Per GB per month*

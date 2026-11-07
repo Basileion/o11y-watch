@@ -1,11 +1,11 @@
 Observe Pricing
 Skip to content
-Expedition. Free, virtual, Nov 3–6.
+Expedition. Free, on-demand.
 Technical tracks for practitioners, outcomes for leaders.
-Register now
+Watch now
 Observe
 Use Cases
-AI SRE Log Management Application Performance Monitoring Infrastructure Monitoring
+AI SRE Log Management Application Performance Monitoring Infrastructure Monitoring Agent Observability
 Resources
 Blog Docs
 Try Observe

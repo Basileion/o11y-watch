@@ -15,6 +15,7 @@ What's included
 100 Subscribers
 Unlimited Manual Monitors
 Active Monitors at $1/month
+First 100 Watched Tables Free
 Incident Management
 Logs, Traces and Metrics
 5 Business Day Email Support
@@ -108,6 +109,19 @@ Data Retention (in days)
 15 Days
 Retention shorter than 7 days is billed as 7 days.
 If you're looking for data retention of more than 6 months, contact [email&#160;protected] for a discount.
+Data Observability: Watched Tables
+First 100 tables free, then $1 per table a month, $0.25 above 1,000.
+Views are free, and so are the tables of a database you stop watching. A check with an alert is billed as an active monitor. Self-hosted installs pay nothing for tables.
+Every table in a connected database
+Freshness, row counts and schema changes
+No thresholds to set: each table learns its own rhythm
+Lineage from pipelines, dbt, BI tools and services
+Alerts through on-call, incidents and status pages
+Read by OneUptime, or by a probe in your network
+a month for your first 100 tables
+Tables watched
+100 Tables
+If you have more than 5,000 tables, contact [email&#160;protected] for a discount.
 AI
 Leverage AI to automatically analyze incidents, suggest resolutions, and help your team respond faster. Powered by advanced LLMs to provide intelligent insights.
 Incident analysis & insights
@@ -202,6 +216,14 @@ Container Logs
 Data Retention
 15 days
 Advanced Team Permissions
+Data Observability
+Watched Tables
+First 100 tables free, then $1 per table a month, $0.25 above 1,000
+Views
+Checks with an Alert
+Billed as active monitors
+Freshness, Row Count and Schema Watch
+Lineage from Pipelines, dbt, BI Tools and Services
 Telemetry / APM
 Metrics
 Traces
@@ -231,6 +253,7 @@ Support SLA
 Service SLA
 No SLA (best effort)
 Advanced Features
+MCP Server for AI Agents
 Billing
 Billing Period
 Payment Method
@@ -279,6 +302,10 @@ eligible for the 14-day free trial. The 14-day free trial only applies when you 
 paid account.
 How do discounts work?
 Annual billing is discounted against monthly billing &mdash; the annual price for each plan is shown in the table above. You can upgrade an existing plan to annual billing at any time. Volume discounts are available on high monitor counts, high telemetry ingest, and extended retention; contact us for a written quote.
+How is Data Observability priced?
+First 100 tables free, then $1 per table a month, $0.25 above 1,000. Views are free, and so
+are the tables of a database you stop watching. A check with an alert is billed as an active
+monitor. Self-hosted installs pay nothing for tables.
 Is there a minimum telemetry retention?
 Logs, traces, metrics, profiles and security events are
 billed for at least 7 days of retention. You can keep them for as little as a day, and they are

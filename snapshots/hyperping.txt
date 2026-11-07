@@ -208,7 +208,7 @@ Yes. Start with a 14-day free trial, or use the free plan with 20 monitors and o
 Can I speak with someone or have a demo first?
 We're here to answer all your questions. Contact us to schedule a demo and learn how Hyperping can help your team maintain uptime and communicate effectively with customers.
 Can we migrate from another provider?
-Yes, contact us and we'll do it for you.
+Yes, contact us and we'll do it for you. To see how Hyperping compares with your current tool, browse the comparison hub .
 Can we cancel at any time?
 Yes, you can cancel at any time. If you paid for a yearly plan, we'll refund any unused months.
 How are logs billed?

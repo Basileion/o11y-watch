@@ -4,7 +4,7 @@ Sign Up
 Self-Host
 GitHub 2.2K★
 Loved by Developers
-1400+ teams use Bugsink every week
+2000+ teams use Bugsink every week
 Hosted Bugsink has worked very well: low cost, easy setup , and overall, a solid European alternative to Sentry .
 Erlend Landrö
 Novion Energy Solutions
@@ -17,6 +17,8 @@ Divi Media
 More lightweight and less complicated than sentry, additional points for ARM compatibility.
 Bartosz Pijet
 RODUQ
+div:nth-child(n+7)]:hidden lg:[&>div:nth-child(n+7)]:flex">
+A few of the teams using Bugsink.
 Stacktrace First
 Why did your code fail? Your stacktrace, code and local variables will tell you.
 Drop-in for Sentry
@@ -62,7 +64,7 @@ To evaluate Bugsink by self-hosting it, spin up a throw-away instance using Dock
 Copy
 docker pull bugsink/bugsink:latest
 docker run \
--e SECRET_KEY=SVRAzMZNzduIsn18HTT8rVg6rKgQ4aJRJ43VsegeLDjGFl1MNT \
+-e SECRET_KEY=Sgxtrgjx3c8WU5RMSexMLoPa6DAZcZU9Ag5swpDLeR7tET8vx2 \
 -e CREATE_SUPERUSER=admin@example.org:admin \
 -e PORT=8000 \
 -p 8000:8000 \

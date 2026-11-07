@@ -29,16 +29,6 @@ The "Business" plan is $192 / year ($16 / month).
 The "Business Plus" plan is $768 / year ($64 / month).
 What payment methods do you accept?
 We accept Visa, Master Card, American Express, and PayPal.
-Will my credit card data be safe?
-We process payments using
-Braintree ,
-a division of PayPal. Your credit card or PayPal
-credentials are never directly handled by or
-stored on Healthchecks.io servers.
-Braintree is a validated Level 1 PCI DSS Compliant
-Service Provider. It is on Visa's Global Compliant
-Provider List and MasterCard's SDP List.
-Read more
 If I cancel my paid plan, do I get a refund?
 You can easily cancel your subscription at any time, but
 no refunds are provided for prorated periods.

@@ -4,7 +4,7 @@ No hidden tiers, no surprise bills - try it free for 14 days.
 Cloud Self Hosted
 Most Popular Cloud Professional
 Fully managed cloud, pay-as-you-go
-$0.50 /GB ingested + $0.01/GB queried · billed monthly
+$0.50 /GB ingested * Includes 30% discount for annual commitment + $0.01/GB queried
 Start 14-Day Free Trial
 Logs, Metrics, Traces, RUM, Session Replay, Error tracking
 Ingestion $0.50 per GB*

@@ -1,5 +1,54 @@
 [
   {
+    "date": "2026-11-07",
+    "vendor": "Logz.io",
+    "type": "price change (announced)",
+    "summary": "Logz.io’s pricing page (consumption pricing) now shows log ingestion “68% off”: $0.92 → $0.30, “New pricing starts Nov. 1, 2026”, and “Existing plans keep their current rate.” The subscription list price is still $0.92 per ingested GB per day with 7-day retention. Read 2026-11-07.",
+    "source": "https://logz.io/pricing/"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "PostHog",
+    "type": "plan limit cut",
+    "summary": "PostHog’s pricing page now lists “2-year data retention – up from 1 year” for pay-as-you-go plans; on 2026-10-24 it listed 7-year retention on any paid plan. Free plans stay at 1 year; longer retention (up to 3/5/7 years) is now tied to the Boost/Scale/Enterprise platform packages. Free-tier usage limits are unchanged. Read 2026-11-07.",
+    "source": "https://posthog.com/pricing"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "Datadog",
+    "type": "new SKU",
+    "summary": "Datadog’s price list adds RUM and Product Analytics add-ons: Export Pipelines at $0.10 per 1,000 sessions (billed annually; $0.15 on-demand) to send raw events to S3/GCS/Azure; RUM Managed Archive at $0.20 per 1,000 sessions (billed annually; $0.30 on-demand; 1/3/6-month storage, recoveries billed at 10x the RUM Investigate rate); and RUM Profiling at $3 per 1,000 ingested sessions (billed annually). Infrastructure Pro is unchanged at $15/host (annual). Read 2026-11-07.",
+    "source": "https://www.datadoghq.com/pricing/list/"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "OneUptime",
+    "type": "new SKU",
+    "summary": "OneUptime adds Data Observability (watched tables): first 100 tables free, then $1 per table a month, $0.25 above 1,000; views are free, checks with an alert bill as active monitors, and self-hosted installs pay nothing for tables. Read 2026-11-07.",
+    "source": "https://oneuptime.com/pricing"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "LogRocket",
+    "type": "free tier detail",
+    "summary": "LogRocket’s pricing page (“Last updated November 5, 2026”) now publishes a static price table: Free plan 1,000 sessions a month “free forever”, Core from $83/mo for 10,000 sessions, Pro (with Galileo AI) from $292/mo, Pro-only from 100,000 sessions ($717/mo), Enterprise custom from 4M+ sessions; prices are monthly equivalents on an annual plan. Our 2026-10-31 snapshot captured only the in-browser calculator, so we had listed “Free trial only” and no paid price; the record is corrected. Read 2026-11-07.",
+    "source": "https://logrocket.com/pricing"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "OpenObserve",
+    "type": "free tier detail",
+    "summary": "OpenObserve Cloud’s $0.50/GB ingest price is now marked “Includes 30% discount for annual commitment” (it was shown as “billed monthly” on 2026-10-24). Query stays $0.01/GB; no monthly-billing price is shown. Read 2026-11-07.",
+    "source": "https://openobserve.ai/pricing/"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "O11y Watch",
+    "type": "verification",
+    "summary": "Re-read all 73 vendor pricing pages on 2026-11-07 (10 overnight, 63 this morning). Stated free-tier and entry-price figures were re-confirmed in each page’s text; 6 pages had pricing changes, logged above. Every vendor page shows its own checked date, and the homepage counts how many were re-checked on the latest date.",
+    "source": "https://o11y-watch.pages.dev/about"
+  },
+  {
     "date": "2026-10-31",
     "vendor": "Datadog",
     "type": "correction",

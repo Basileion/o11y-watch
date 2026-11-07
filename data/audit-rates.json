@@ -1,13 +1,13 @@
 {
   "$schema_note": "Structured unit rates extracted ONLY from data/vendors.json paid_from / pricing_model / free_tier / oss_self_host. Null = not stated in dataset — engine must say so. Rebuild after edits.",
-  "dataset_checked": "2026-10-24",
+  "dataset_checked": "2026-11-07",
   "disclaimer": "All figures are estimates modeled from public pricing page text captured by O11y Watch. They are not quotes, invoices, or negotiated rates. Verify on each vendor's current pricing page before buying. Self-host software license may be $0 where stated; compute, storage, and ops labor are outside this dataset.",
   "vendors": {
     "datadog": {
       "id": "datadog",
       "name": "Datadog",
       "url": "https://www.datadoghq.com/pricing/list/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -84,7 +84,7 @@
       "id": "newrelic",
       "name": "New Relic",
       "url": "https://newrelic.com/pricing",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -134,7 +134,7 @@
       "id": "grafana",
       "name": "Grafana Cloud",
       "url": "https://grafana.com/pricing/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -191,7 +191,7 @@
       "id": "signoz",
       "name": "SigNoz Cloud",
       "url": "https://signoz.io/pricing/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -238,7 +238,7 @@
       "id": "uptrace",
       "name": "Uptrace",
       "url": "https://uptrace.dev/pricing",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -288,7 +288,7 @@
       "id": "coralogix",
       "name": "Coralogix",
       "url": "https://coralogix.com/pricing/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -328,7 +328,7 @@
       "id": "dash0",
       "name": "Dash0",
       "url": "https://www.dash0.com/pricing",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model"
@@ -356,7 +356,7 @@
       "id": "splunk",
       "name": "Splunk Observability Cloud",
       "url": "https://www.splunk.com/en_us/products/pricing/observability.html",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model"
@@ -385,7 +385,7 @@
       "id": "dynatrace",
       "name": "Dynatrace",
       "url": "https://www.dynatrace.com/pricing/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "apm_paid_from",
@@ -461,7 +461,7 @@
       "id": "honeycomb",
       "name": "Honeycomb",
       "url": "https://www.honeycomb.io/pricing",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -494,7 +494,7 @@
       "id": "axiom",
       "name": "Axiom",
       "url": "https://axiom.co/pricing",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -526,7 +526,7 @@
       "id": "middleware",
       "name": "Middleware",
       "url": "https://middleware.io/pricing/",
-      "checked": "2026-10-31",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -563,7 +563,7 @@
       "id": "openobserve",
       "name": "OpenObserve",
       "url": "https://openobserve.ai/pricing/",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",
@@ -579,7 +579,7 @@
       },
       "free": {},
       "notes": [
-        "Cloud: $0.50/GB ingested + $0.01/GB queried. Query volume not collected in survey — ingest only modeled; query line marked unknown."
+        "Cloud: $0.50/GB ingested (price includes a 30% discount for annual commitment, per pricing page 2026-11-07) + $0.01/GB queried. Query volume not collected in survey — ingest only modeled; query line marked unknown."
       ],
       "oss_self_host": true,
       "oss_label": "OpenObserve (AGPL-3.0)",
@@ -593,7 +593,7 @@
       "id": "observe",
       "name": "Observe",
       "url": "https://www.observeinc.com/pricing/",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model"
@@ -620,7 +620,7 @@
       "id": "groundcover",
       "name": "groundcover",
       "url": "https://www.groundcover.com/pricing",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model"
@@ -647,7 +647,7 @@
       "id": "sentry",
       "name": "Sentry",
       "url": "https://sentry.io/pricing/",
-      "checked": "2026-10-24",
+      "checked": "2026-11-07",
       "source_fields": [
         "paid_from",
         "pricing_model",

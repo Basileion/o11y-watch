@@ -124,8 +124,8 @@ headers: {
 },
 body: JSON.stringify({
 url: this.url,
-'my_name_ZVDBKGfihsqf8KH6': '',
-'valid_from': 'eyJpdiI6ImFRbmJScTNlNkh5TXFWSENlMzhHRUE9PSIsInZhbHVlIjoiUUYra1pvSnpFWmdqVnhOUUk1UHA0dz09IiwibWFjIjoiOTYwOWEwM2JiZmUyMDFmY2NjNWNiNjgwZWZjYjlmM2VkZGI4ZmU1ZWE1YTk4YWI0ZGU1NzkxMjA1Yjg1NDlkYyIsInRhZyI6IiJ9',
+'my_name_uH2WNQ9QvaWfUltc': '',
+'valid_from': 'eyJpdiI6IldhNTdNYjdNQ2pjK2VRLzkwUnFJZWc9PSIsInZhbHVlIjoiZm1NVFJEZ29WbUw4QkVxalBiR20rZz09IiwibWFjIjoiMTI3NWQyODU3ZTgyMTQ5M2Q0YzQzNWVlNGEwODhhYTlmZWEyMGFhNzI2NzQ1YTAxMWU0YWVhZWFlYmExOWQ3ZSIsInRhZyI6IiJ9',
 }),
 }).catch(() => null);
 this.loading = false;
@@ -174,41 +174,40 @@ It&#039;s very developer-friendly, plenty of customization is available and ther
 Very well-suited for developers, agencies, and businesses that prioritize performance and security.
 Sagar Nakul, Associate Director, Ascendion
 From a review rated 10/10.
-Oh Dear keeps you calm and alerts you instantly!
-The extensive checks suite makes it the central place for monitoring our applications. The dasshboard is slow sometimes when searching for a website or performing an action; it&#039;s not always clear that the website is in a &#039;loading&#039; state. On the flip side, Oh Dear has many more checks available, with a more modern look.
-Mark de Vries
-CTO, Lama Lama
-&ldquo;With Oh Dear we replaced multiple tools, gained features and a much better UX. Love the product and the team behind it.&rdquo;
-Franco Gilio
-CTO at Publica
-Highly recommended tool for site owners.
-Nothing but positive. We&#039;ve been using it for years and it has never let us down. It&#039;s straightforward to set up and gives us tons of useful info. Just the fact that it lets us know if any of our sites have a problem before my client even knows about it!
-Jim Peters
-Co-founder, Pavin&#039; The Way
-Excellent website monitoring tool.
-Excellent for website monitoring, though not as easy to use for web apps with multiple services, domains, daemons, etc. Our apps have many modules on multiple domains. This forces us to use the "pro" subscription which is not that bad, but the tracking of multiple services, daemons, schedules, on different servers behind load balancing is not easy, but we realize this is a tough requirement.
-Dave Latshaw II
-CEO, Biophy
-Simple, reliable and affordable website monitoring.
-It is very easy to setup and integrate while being flexible enough to handle different cases. Also since it covers everything from websites to APIs, from SSL certificates to response times to first load etc. it is a single solution that covers all of our external monitoring needs. Just great value for the money.
-Lukas Kahwe Smith
-CTO, Witty Works
-No more worrying if a website is down, simple as that.
-Oh Dear monitors the health of our website and notifies us when it goes down, then comes back up. We learned that my site goes down much more often than we thought, but never for more than a few minutes at a time. The notification email has an option to snooze, when there are too many events. We like the friendly tone of the messages as well. Setting things up was trivial, and we haven&#039;t had to do anything else to keep it going.
-David Foster
-CEO, TypedCMS
-Worth every penny.
-The best. Never had any issues with Oh Dear, and will continue to use them for a long time. Pricing for the sheer amount of features you get is very good. No mobile version of the dashboard is a minor flaw for us, but willing to look past it considering the use case. Reliability and broken link checking bundled into one product.
-Matt Robitaille
-Director of Development, Anchour
+&ldquo;Oh Dear is a really nice monitoring tool! Just subscribed directly after the beta invite.&rdquo;
+Lukas Kämmerling
+First ever Oh Dear Customer
 It really is an all-in-one monitoring tool.
 Oh Dear combines many monitoring features into one tool. It even allows us to track custom metrics via custom Health Checks. It would be cool though to see snoozed notifications on the dashboard so that you do not forget to "unsnooze" them after fixing the issue.
 NW
 Nils Walter Lüpke
 Co-founder, Biotaktix
-&ldquo;I think this is the first Spark application in the wild that I have joined as a paying customer. Pretty neat. 👏&rdquo;
-Taylor Otwell
-Creator of Laravel
+Full-featured site monitoring for a reasonable price.
+Excellent, thoughtfully designed product created by a great team! Oh Dear has an awesome UI, and they have continued to add more and more features over the years. One remark, their crawler does not parse JavaScript, which means that one of my sites can&#039;t be crawled by Oh Dear. Oh Dear had way more features and a far superior UI than alternatives.
+Kevin Markam
+Founder, Data School
+It’s a truly great tool that I constant recommend. We migrated from a competitor and would do it again any time.
+It has an impressive variety of checks, ensuring you really are monitoring every little detail. On top of that you can implement custom checks. It also has great alerting settings with account and site granularity and fallbacks. You can even snooze alerts. The product is constantly evolving and improving. It occasionally takes a while to load, maybe related to the amount of sites we have.
+Franco Gilio
+Co-founder, publica.la
+It&#039;s been great—I use it across multiple teams and works amazingly.
+Oh Dear offers us a simple reporting tool that has all the metrics we could ever need. It&#039;s a solid product that just keeps getting better over time.
+Ryan Scherler
+Developer, East Slope
+We’ve been using Oh Dear for a few years now and it has helped us get ahead of outages instead of hearing about it from customers.
+This has allowed us to let customers know we are on it before they can tell us. Monitoring sites helps us be proactive instead of waiting for support tickets to come in. We also monitor scheduled jobs and use the Slack integration to get notified when they are missed.
+Brandon Tanaka
+Director of Engineering, Integrated Rental Systems
+Brilliant site and error monitoring.
+We love being able to add a URL and have it instantly pull through uptime, performance, certificate checks etc. The integration into Laravel is great and the health monitoring, too. I don&#039;t use the status pages much, but I like knowing it&#039;s there for if a client asks. The downtime alerts have become invaluable, alerting me to an issue before a client spots it.
+Steve Edson
+Director, Spacestar Digital
+&ldquo;It took me 5 minutes to setup a status page for @FilmmusicDB and it just works. See for yourself: https://status.fmdb.net&rdquo;
+Marcus Stöhr
+Senior software developer
+&ldquo;Oh Dear detected an issue that our other uptime monitor did not!&rdquo;
+Casey Sprague
+Chief Technology Officer at thera-LINK
 Show more
 Read every review
 &rarr;
@@ -232,7 +231,7 @@ More answers in the full FAQ
 Start monitoring instantly
 Start a free 10-day trial with no commitment. You're all set in less than a minute.
 (No credit card needed.)
-'my_name_NaFmcZA4X3YCiLDb': '',
-'valid_from': 'eyJpdiI6IjYzVWlDb21XUUxVVjcvUzRiYjVFMkE9PSIsInZhbHVlIjoiOTByYW1zeHhKSzlWdTVYYUl6dTJaQT09IiwibWFjIjoiYWJiMjBhYzYyNzA4ODI4ZWIxNTU1NzFkOTU2ZWQyNDlmMDBjN2UzYjFhYjlkZTBlZTEwY2VjMTJmZjBlNzA5NiIsInRhZyI6IiJ9',
+'my_name_6I2wgfHmuCSV5yqG': '',
+'valid_from': 'eyJpdiI6Ikp6UG1URGV6YnVNcmE1UDQ3blpSa3c9PSIsInZhbHVlIjoiQnJramZ5ektPRk95ZXh3VjQ4MUdyZz09IiwibWFjIjoiZTU4MWJjZGVkZTU3NzgwYjMwODUzZWYyMGMwOTY2Y2Y0NTcyZGM3OTYzNmY2OTYxODFlNmRjMTllNmI1Njg1NiIsInRhZyI6IiJ9',
 Not convinced yet? Need help?
 Get in touch via support@ohdear.app .

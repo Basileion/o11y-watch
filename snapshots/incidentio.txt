@@ -54,56 +54,49 @@ Basic Basic Team Pro Enterprise Compare plans
 Get started
 Response
 Slack/Teams support
-Custom Fields
-1 3 Unlimited Unlimited
+Custom Fields 1 3 Unlimited Unlimited
 Suggestions ✨
 Scribe ✨
-Post-mortems Editor
-Basic Basic AI Native AI Native
+Post-mortems Editor Basic Basic AI Native AI Native
 Multiple post-mortem documents
 Custom Post Incident Flow
 Custom Incident Types
 Advanced Insights
 Custom Dashboards in Insights 3 Unlimited
-Response policies
-1 Unlimited
+Response policies 1 Unlimited
 Multiple streams
 Alert routing and grouping
-Schedules
-1 Schedule 2 Schedules Unlimited Unlimited
+Schedules 1 Schedule 2 Schedules Unlimited Unlimited
 Sync to Slack User Groups
 Cover requests and schedule overrides
 Shadow scheduling
 Holidays in schedules
 WhatsApp escalations
-Live call routing
-1 number 5 numbers
+Live call routing 1 number 5 numbers
 Send calls to voicemail
 Phone trees (IVR)
 Alert insights
-On-call policies
+On-call policies 1 Unlimited
 Compensation calculator
 Readiness reports
 Maintenance windows
 Heartbeats
 Investigations requires Response
-Root cause analysis
-Available as add-on Available as add-on
-Autonomous agent
-Nexus data sources
+Root cause analysis Available as add-on Available as add-on
+Autonomous agent Available as add-on Available as add-on
+Nexus data sources Available as add-on Available as add-on
 Status Pages
 Page subscribers Unlimited Unlimited Unlimited Unlimited
 Custom domain
 Public pages 1 1 1 Unlimited
-Internal pages
-Customer pages
-Unlimited
+Internal pages 1 Unlimited
+Customer pages Unlimited
 Metrics
 Sub-pages (multi-region, multi-product)
 Platform Features
-Integrations
-2 Unlimited Unlimited Unlimited
-HRIS integrations
+Workflows 1 3 Unlimited Unlimited
+Integrations 2 Unlimited Unlimited Unlimited
+HRIS integrations Unlimited
 Nexus
 Catalog Basic Types Basic Types Custom Types Custom Types
 AI agent ✨
