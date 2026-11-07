@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31",
+ "generated": "2026-11-07",
  "note": "versions = git commits in which the vendor snapshot text changed; gaps = known overwritten versions",
  "vendors": {
   "sentry": {

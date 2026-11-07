@@ -631,7 +631,7 @@
   "free_plan": "Free",
   "free_tier": "5 users; 1 on-call schedule & escalation policy; limited notifications",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$21/user/mo (annual; $25 monthly)",
   "pricing_model": "Per user; platform fees on higher tiers",
   "card_required": "not stated",
@@ -647,7 +647,7 @@
   "free_plan": null,
   "free_tier": "No free tier listed; Incident Response $20/user/mo",
   "has_free_tier": false,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$20/user/mo",
   "pricing_model": "Per user per product",
   "card_required": "not stated",
@@ -663,7 +663,7 @@
   "free_plan": "Hobby",
   "free_tier": "50k units/mo; all platform features with limits; no card",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$29/mo (100k units, +$8/100k)",
   "pricing_model": "Units-based",
   "card_required": "No",
@@ -679,7 +679,7 @@
   "free_plan": "Hobby",
   "free_tier": "10,000 free requests; 1 GB storage; 1 seat",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$79/mo",
   "pricing_model": "Tiered + per-request/storage usage",
   "card_required": "not stated",
@@ -695,7 +695,7 @@
   "free_plan": "Free Hobby plan",
   "free_tier": "1 monitor; 1 status page (3 components); 10-min min interval",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$30/mo Starter",
   "pricing_model": "Tiered plans + add-ons",
   "card_required": "not stated",
@@ -711,7 +711,7 @@
   "free_plan": "Free",
   "free_tier": "Up to 1,000 events/mo; unlimited projects",
   "has_free_tier": true,
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "paid_from": "$15/mo (100k events)",
   "pricing_model": "Tiered by events",
   "card_required": "not stated",
@@ -735,7 +735,7 @@
    "Free edition limits not stated on pricing page",
    "Prices billed annually"
   ],
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "confidence": "uncertain"
  },
  {
@@ -753,7 +753,7 @@
   "gotchas": [
    "Requires an annual commitment"
   ],
-  "checked": "2026-10-31",
+  "checked": "2026-11-07",
   "confidence": "verified",
   "paid_from_scope": "Foundation & Discovery: basic infrastructure monitoring, not APM",
   "apm_paid_from": "$58/mo per 8 GiB host, Full-Stack Monitoring incl. APM"
@@ -771,7 +771,7 @@
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [],
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "confidence": "verified"
  },
  {
@@ -789,7 +789,7 @@
   "gotchas": [
    "Free limits not stated"
   ],
-  "checked": "2026-10-24",
+  "checked": "2026-11-07",
   "confidence": "uncertain"
  },
  {
