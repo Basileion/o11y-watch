@@ -129,13 +129,14 @@ ${leversTable}
 </div>
 
 <p class="sm" style="margin-top:18px"><b>Autoscaling?</b> If your host count spikes on HPA or nightly batches, the billed host count can sit above 40. Read <a href="datadog-autoscaling-cost.html" data-grow="40host-to-autoscaling">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, hybrid hourly plan).</p>
+<p class="sm"><b>Renewing soon?</b> Read <a href="datadog-renewal-cost-audit.html" data-grow="40host-to-renewal">Before your Datadog renewal</a> (billable vs estimated usage, config-not-usage spikes, egress outside Datadog's line), then run the audit before you sign.</p>
 
 ${auditCta('Put your real host count, APM hosts, logs, custom metrics and bill into the same engine. Free teaser; full report $'+AUDIT_PRICE+'.','Price your stack in 2 minutes','audit-guide-40host')}
 
 <h2>FAQ</h2>
 ${faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
 
-${related([['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../audit.html','Observability Cost & Stack Audit'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
+${related([['datadog-renewal-cost-audit.html','Before your Datadog renewal'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../audit.html','Observability Cost & Stack Audit'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
 ${cite(`Datadog 40-host cost worked example (EXAMPLE inputs). Datadog list prices checked ${CHK}; audit dataset ${DS||'n/a'}. Engine totals from O11y Watch public audit-rates.`)}
 `,'../',[
     ORG,

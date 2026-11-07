@@ -105,7 +105,16 @@ await import('./js/audit-wizard.js');
 <li>Want a public worked EXAMPLE with named line items before you pay? See the <a href="guides/datadog-40-host-cost-worked-example.html" data-grow="audit-to-40host-guide">Datadog 40-host cost worked example</a> ($4,230 modeled of an $8,000 stated bill at list prices).</li>
 <li>Datadog teams whose bill jumps when they autoscale: read <a href="guides/datadog-autoscaling-cost.html" data-grow="audit-to-autoscaling-guide">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, the hourly plan), then enter peak hosts + containers / Fargate in the survey below.</li>
 <li>Datadog teams who’d rather clean up than migrate: read the <a href="guides/cut-datadog-bill-without-migrating.html" data-grow="audit-to-cleanup-guide">cleanup checklist</a> (unqueried custom metrics, health-check logs, retention, what’s safe to remove), then price what’s left here.</li>
+<li>Approaching a Datadog renewal: read <a href="guides/datadog-renewal-cost-audit.html" data-grow="audit-to-renewal-guide">Before your Datadog renewal</a> (billable vs estimated usage, config-not-usage spikes, egress outside Datadog’s line), then run the wizard below before you sign.</li>
 </ul>
+
+<div class="card" id="before-renewal" style="margin:18px 0;border-color:var(--acc2, #2a9d8f)">
+<div class="eyebrow">Before your Datadog renewal</div>
+<h2 style="margin:6px 0 8px;font-size:20px">Commit against a post-cleanup baseline — not last month’s peak.</h2>
+<p class="sm">Your AWS bill moves with real usage; your Datadog bill moves with telemetry configuration. Reconcile Plan &amp; Usage <b>Billable</b> (Datadog says estimated usage differs ~10–20% on average), find debug-log / unqueried-metric / health-check spikes, put cloud egress next to the Datadog line, then price what’s left here.</p>
+<p style="margin-top:12px"><a class="btn" href="#wizard-anchor" data-grow="audit-renewal-block-start">Start free renewal cost check →</a> <a class="btn ghost" href="guides/datadog-renewal-cost-audit.html" data-grow="audit-renewal-block-guide">Read the renewal guide</a> <a class="sm mut" href="#price" style="margin-left:8px">Full report $${AUDIT_PRICE}</a></p>
+</div>
+
 <p class="mut sm">Best fit when you know rough hosts (average + peak if you autoscale), containers / Fargate tasks, log GB/day, series, spans, seats, and monthly spend. Optional usage CSV stays in your browser.</p>
 
 <h2>What you get</h2>

@@ -207,6 +207,7 @@ ${['datadog','grafana','splunk','dynatrace'].includes(v.id)?`<p class="sm" style
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>40-host worked example:</b> <a href="../guides/datadog-40-host-cost-worked-example.html">Datadog 40-host cost worked example</a>: public list prices explain $4,230 of an EXAMPLE $8,000/mo bill (APM + logs + custom metrics), with named SaaS alternatives and cleanup levers.</p>`:''}
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Autoscaling?</b> <a href="../guides/datadog-autoscaling-cost.html">Why autoscaling raises your Datadog bill</a>: Datadog bills the high-water mark of the lower 99% of hourly host counts, so a repeating scale-out sets the month's host count.</p>`:''}
 ${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Not ready to migrate?</b> <a href="../guides/cut-datadog-bill-without-migrating.html">Cut your Datadog bill without migrating</a>: a cleanup checklist for unqueried custom metrics, health-check logs and retention, priced with Datadog list prices.</p>`:''}
+${v.id==='datadog'?`<p class="sm" style="margin:10px 0"><b>Renewing soon?</b> <a href="../guides/datadog-renewal-cost-audit.html">Before your Datadog renewal</a>: billable vs estimated usage, config-not-usage spikes, egress outside Datadog's line, then free /audit → $149.</p>`:''}
 <div class="two"><div><h2 style="margin-top:12px">Free tier</h2>${v.verified?`<blockquote><b>${esc(v.free_plan||(v.has_free_tier?'Free':'No free plan'))}</b><br>${esc(v.free_tier)}</blockquote>`:`<blockquote><b>Unknown.</b> We have saved a snapshot of this pricing page but haven’t verified the plan by hand yet.</blockquote>${v.snip.length?`<p class="sm mut" style="margin-top:14px">Raw lines from our page snapshot mentioning free / trial (unreviewed, may be out of context):</p><ul class="sm">${v.snip.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:''}`}
 <h2>Gotchas</h2>${v.gotchas.length?`<ul>${v.gotchas.map(g=>`<li>${esc(g)}</li>`).join('')}</ul>`:`<p class="mut">${v.verified?'None stated in the plan summary we recorded. Read the pricing page’s fine print.':'Unknown until verified.'}</p>`}
 ${cta(`Get alerted when ${esc(v.name)} changes its pricing`,`We re-check ${esc(v.name)}’s pricing page every week. The weekly email tells you when its free tier or prices move.`,'vendor-alert','Alert me',v.id)}${proBox('../',`Faster alerts + saved history for ${esc(v.name)}`,`We re-check ${esc(v.name)}’s page about once a week. Pro emails you within about a day of our check detecting a change (instead of the weekly digest) and gives you our saved snapshot history (${esc(v.name)}: ${esc(shLine(v))}) and CSV/JSON exports for all ${V.length} vendors.`)}
@@ -599,6 +600,37 @@ if(bad.length){console.error(`AI meters rate guard (RT-119): ${bad.length} probl
   if(bad.length){console.error(`Autoscaling guide guard (RT-121): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
   console.log(`autoscaling guide guard: printed rates == data/audit-rates.json; ${AS.EXAMPLES.length} example curves recompute (floor/ceil agree); JSON-LD ${[...types].join('+')}; linked from hub/vendor/audit/cut guides/sitemap/llms; negative test caught ${neg.length}`)}
  if(bad.length){console.error(`Autoscaling guide guard (RT-121): ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}}
+
+
+// Build guard (ACT-20261107-45 / RT-20261107-93): Datadog renewal guide must cite Datadog's
+// estimated-vs-billable 10-20% docs language, print rates from audit-rates.json, ship JSON-LD
+// Article+FAQ+Breadcrumb, and be linked from hub / vendor / audit (+ renewal block) / related guides / sitemap / llms.
+{const RN=await import('./renewal.inc.mjs');const RJ=J('data/audit-rates.json');const DD=RJ.vendors.datadog,R=DD.rates,PR=R.products;const f=path.join(out,RN.SLUG);const bad=[];
+ const SRCV={'dd-host-annual':R.host_mo_annual,'dd-host-ondemand':R.host_mo_ondemand,'dd-apm-annual':PR.apm_host_mo_annual,'dd-custom-metrics':PR.custom_metrics_per_100,'dd-log-ingest':PR.log_ingest_gb};
+ const EXPECT={host:15,host_od:18,apm:31,cm:5,log:0.1};const got={host:R.host_mo_annual,host_od:R.host_mo_ondemand,apm:PR.apm_host_mo_annual,cm:PR.custom_metrics_per_100,log:PR.log_ingest_gb};
+ for(const k of Object.keys(EXPECT))if(got[k]!==EXPECT[k])bad.push(`audit-rates ${k}=${got[k]} != expected ${EXPECT[k]}`);
+ if(!fs.existsSync(f))bad.push('missing '+RN.SLUG);else{const html=fs.readFileSync(f,'utf8');
+  for(const m of html.matchAll(/<span data-rate="([^"]+)" data-price="([^"]+)">/g)){const [,id,p]=m;if(!(id in SRCV))bad.push('unknown data-rate '+id);else if(Number(p)!==SRCV[id])bad.push(`${id}: page ${p} != data ${SRCV[id]}`)}
+  if(!/10-20% difference between estimated usage and billable usage/i.test(html))bad.push('missing Datadog estimated-vs-billable 10-20% quote');
+  if(!/docs\.datadoghq\.com\/account_management\/billing\/usage_metrics/.test(html))bad.push('missing Estimated Usage Metrics docs link');
+  if(!/Before your Datadog renewal/.test(html))bad.push('missing H1/title phrase');
+  if(!/telemetry configuration/.test(html))bad.push('missing config-not-usage phrase');
+  if(!/Egress costs sit entirely outside Datadog|egress sits outside/i.test(html))bad.push('missing egress-outside-Datadog point');
+  if(!/href="\.\.\/audit(\.html)?"/.test(html))bad.push('no /audit CTA');
+  if(!/forms\/10093883/.test(html))bad.push('no Kit form 10093883');
+  if(!/cut-datadog-bill-without-migrating/.test(html))bad.push('missing cross-link to cleanup guide');
+  if(!/datadog-40-host-cost-worked-example/.test(html))bad.push('missing cross-link to 40-host example');
+  if(!/datadog-autoscaling-cost/.test(html))bad.push('missing cross-link to autoscaling guide');
+  if(!/2026-11-07/.test(html))bad.push('guide not dated 2026-11-07');
+  const types=new Set();for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){try{const j=JSON.parse(m[1]);(Array.isArray(j)?j:[j]).forEach(x=>(x['@graph']||[x]).forEach(y=>types.add(y['@type'])))}catch(e){bad.push('JSON-LD parse error: '+e.message)}}
+  for(const t of ['Article','FAQPage','BreadcrumbList'])if(!types.has(t))bad.push('JSON-LD missing '+t);
+  for(const [lf,needle] of [['guides/index.html','datadog-renewal-cost-audit'],['vendors/datadog.html','datadog-renewal-cost-audit'],['audit.html','datadog-renewal-cost-audit'],['audit.html','before-renewal'],['guides/cut-datadog-bill-without-migrating.html','datadog-renewal-cost-audit'],['guides/datadog-autoscaling-cost.html','datadog-renewal-cost-audit'],['guides/datadog-40-host-cost-worked-example.html','datadog-renewal-cost-audit'],['sitemap.xml','/guides/datadog-renewal-cost-audit'],['llms.txt','datadog-renewal-cost-audit'],['llms-full.txt','datadog-renewal-cost-audit']]){const pp=path.join(out,lf);if(!fs.existsSync(pp)||!fs.readFileSync(pp,'utf8').includes(needle))bad.push(`${lf} does not link/include ${needle}`)}
+  const neg=[];const drifted=html.replace(/(data-rate="dd-host-annual" data-price=")15(")/,'$199$2');
+  for(const m of drifted.matchAll(/<span data-rate="([^"]+)" data-price="([^"]+)">/g)){const [,id,p]=m;if(id==='dd-host-annual'&&Number(p)!==SRCV[id])neg.push('caught')}
+  if(!neg.includes('caught'))bad.push('negative test failed: guard did not flag drifted host rate');
+  if(bad.length){console.error(`Renewal guide guard (RT-93): ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
+  console.log(`renewal guide guard: rates == audit-rates.json; Datadog 10-20% quote; JSON-LD ${[...types].join('+')}; linked from hub/vendor/audit/related/sitemap/llms; negative test caught`)}
+ if(bad.length){console.error(`Renewal guide guard (RT-93): ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}}
 
 // Build guard (RT-20261107-23 / ACT-20261107-10): public 40-host Datadog worked example must print
 // line items + $4,230 total that recompute from audit-rates.json via the audit engine; JSON-LD Article+FAQ+Breadcrumb;
