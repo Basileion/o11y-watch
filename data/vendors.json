@@ -58,10 +58,10 @@
   "type": "Metrics / logs / traces",
   "url": "https://grafana.com/pricing/",
   "free_plan": "Always free",
-  "free_tier": "All Grafana Cloud services with usage limits; 10k active metric series; 14-day retention",
+  "free_tier": "Always free: 10k active metric series; 50 GB logs ingested/mo; 50 GB traces & profiles ingested/mo; 3 active Grafana users; 50k frontend sessions/mo; 14-day retention (metrics/logs/traces/profiles)",
   "has_free_tier": true,
   "checked": "2026-11-07",
-  "paid_from": "$19/mo platform fee + usage",
+  "paid_from": "$19/mo platform fee (Pro) includes 10k series, 50 GB logs ingest, 3 users, then usage; e.g. metrics from $6.50 per 1k series",
   "pricing_model": "Platform fee + usage (e.g. $6.50 per 1k series)",
   "card_required": "No",
   "oss_self_host": "Yes (Grafana OSS stack)",
@@ -386,7 +386,7 @@
   "card_required": "not stated",
   "oss_self_host": "not stated",
   "gotchas": [
-   "Consumption pricing shows logs “68% off” $0.92 → $0.30, “New pricing starts Nov. 1, 2026”; existing plans keep their current rate"
+   "Consumption pricing: Distributed Tracing “68% off” $0.92 → $0.30 per ingested GB/day (10-day retention); new pricing starts Nov. 1, 2026 for new consumption plans only — existing plans keep their current rate. Log Management is unchanged at $0.92 per ingested GB/day (7-day retention). Infrastructure Monitoring “50% off” $0.40 → $0.20 per 1000 time series/day for new consumption plans from Oct. 1, 2026."
   ],
   "confidence": "verified"
  },

@@ -2,8 +2,22 @@
   {
     "date": "2026-11-07",
     "vendor": "Logz.io",
+    "type": "correction",
+    "summary": "O11y Watch correction: our 2026-11-07 change entry and Logz.io vendor gotcha misattributed the consumption “68% off” badge to log ingestion ($0.92 → $0.30). On logz.io/pricing (Consumption tab) that badge sits on Distributed Tracing ($0.92 → $0.30 per ingested GB/day, 10-day retention; new plans from Nov. 1, 2026). Log Management remains $0.92 per ingested GB/day with 7-day retention and no discount. The separate “50% off” card is Infrastructure Monitoring ($0.40 → $0.20 per 1000 time series/day, new consumption plans from Oct. 1, 2026). Feeds, APIs, /changes, /vendors/logzio and llms-full.txt are corrected. Read 2026-11-07.",
+    "source": "https://logz.io/pricing/"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "Grafana Cloud",
+    "type": "free tier detail",
+    "summary": "Grafana Cloud’s free tier on grafana.com/pricing also includes 50 GB logs ingested/mo, 50 GB traces and profiles ingested/mo, 3 active Grafana users, and 50k frontend sessions/mo (alongside the 10k active metric series and 14-day retention we already listed). Pro’s $19/mo platform fee includes the same free allowances (10k series, 50 GB logs ingest, 3 users) then pay-as-you-go. Our record only showed metrics + retention; filled from the live page 2026-11-07.",
+    "source": "https://grafana.com/pricing/"
+  },
+  {
+    "date": "2026-11-07",
+    "vendor": "Logz.io",
     "type": "price change (announced)",
-    "summary": "Logz.io’s pricing page (consumption pricing) now shows log ingestion “68% off”: $0.92 → $0.30, “New pricing starts Nov. 1, 2026”, and “Existing plans keep their current rate.” The subscription list price is still $0.92 per ingested GB per day with 7-day retention. Read 2026-11-07.",
+    "summary": "Logz.io’s consumption pricing shows Distributed Tracing “68% off”: $0.92 → $0.30 per ingested GB/day (10-day retention). “New pricing starts Nov. 1, 2026 for new consumption plans only. Existing plans keep their current rate.” Log Management is unchanged at $0.92 per ingested GB/day with 7-day retention (no discount). Read 2026-11-07.",
     "source": "https://logz.io/pricing/"
   },
   {
@@ -248,7 +262,7 @@
     "date": "2026-10-16",
     "vendor": "Logz.io",
     "type": "price change (announced)",
-    "summary": "Pricing page states: \"New Metrics pricing starts Oct. 1, 2026 for new consumption plans only. Existing plans keep their current rate.\"",
+    "summary": "Logz.io consumption pricing: Infrastructure Monitoring “50% off” $0.40 → $0.20 per 1000 time series metrics per day (18-month retention). “New Metrics pricing starts Oct. 1, 2026 for new consumption plans only. Existing plans keep their current rate.” (Dollars filled 2026-11-07 from the live pricing page; original 2026-10-16 entry quoted only the note.)",
     "source": "https://logz.io/pricing/"
   },
   {
