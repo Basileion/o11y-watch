@@ -411,6 +411,29 @@ const r3=eng.runAudit(P40,R);const a3=(r3.alternatives||[]).find(a=>(a.assumptio
 if(neg1.length<2)bad.push('negative test failed: guard did not flag a Datadog model without APM/log lines');if(!neg2.length)bad.push('negative test failed: guard did not flag a High option with an assumption');
 if(bad.length){console.error(`Audit coverage/High guard: ${bad.length} problem(s):\n`+bad.slice(0,25).join('\n'));process.exit(1)}
 console.log(`audit coverage/High guard: ${scen.length} scenarios OK; 40-host preset ${(p40.alternatives||[]).length} SaaS priced, ${ins} insufficient; Datadog current modeled ${p40.current.modeled_total}/mo (APM+logs+custom metrics); ${highN} High options all fully priced; negative tests caught ${neg1.length}+${neg2.length}`)}
+// Build guard (RT-20261107-25): audit survey peak_hosts / containers / Fargate model when present; gap when absent; no invented VCPU rates.
+{const eng=(await import(pathToFileURL(path.join(out,'js','audit-engine.js')).href+'?p='+Date.now())).default;const R=JSON.parse(fs.readFileSync(path.join(out,'audit-rates.json'),'utf8'));const form=JSON.parse(fs.readFileSync(path.join(out,'audit-form.json'),'utf8'));const bad=[];
+const names=form.steps.flatMap(s=>(s.fields||[]).map(f=>f.name));
+for(const n of ['peak_hosts','containers','fargate_tasks','secondary_vendors'])if(!names.includes(n))bad.push(`audit-form missing field ${n}`);
+if(!names.includes('autoscaling_honesty'))bad.push('audit-form missing autoscaling honesty note');
+const base={vendors:['datadog'],primary_vendor:'datadog',plans:'APM, infrastructure, logs',monthly_spend:8000,hosts:40,log_gb_day:30,metric_series:50000,spans_mo:2e8,users:30,retention_days:15};
+const noC=eng.runAudit(base,R);if(!(noC.current.gaps||[]).some(g=>g.dimension==='containers'))bad.push('without containers/fargate, Datadog must keep containers gap');
+const withC=eng.runAudit({...base,containers:800,fargate_tasks:20,peak_hosts:100},R);
+const L=withC.current.lines||[];
+const cLine=L.find(l=>l.product==='containers');const fLine=L.find(l=>l.product==='fargate');const fApm=L.find(l=>l.product==='fargate_apm');
+const P=R.vendors.datadog.rates.products;const allot=100*P.containers_allot_per_pro_host;const over=Math.max(0,800-allot);const expectC=over*P.container_mo;
+if(!cLine||cLine.amount!==expectC)bad.push(`containers line ${cLine&&cLine.amount} != expected ${expectC} (800 − ${allot} × $${P.container_mo})`);
+if(!fLine||fLine.amount!==20*P.fargate_app_instance_mo_annual)bad.push(`fargate app line missing/wrong`);
+if(!fApm||fApm.amount!==20*P.fargate_apm_instance_mo_annual)bad.push(`fargate APM line missing/wrong`);
+const hLine=L.find(l=>l.dim==='hosts');if(!hLine||hLine.amount!==100*R.vendors.datadog.rates.host_mo_annual)bad.push(`peak_hosts=100 should bill 100 infra hosts, got ${hLine&&hLine.amount}`);
+if((withC.current.gaps||[]).some(g=>g.dimension==='containers'&&/not entered|not in the survey/i.test(g.reason)))bad.push('containers gap must clear when containers/fargate entered');
+if(!(withC.current.notes||[]).some(n=>/VCPU|hourly APM|contract-dependent/i.test(n)))bad.push('Datadog report must include VCPU/hourly contract-dependent honesty note');
+const sprawl=eng.runAudit({...base,secondary_vendors:'Splunk + Sentry'},R);if(!(sprawl.current.gaps||[]).some(g=>g.dimension==='vendor'&&/Splunk/i.test(g.reason)))bad.push('secondary_vendors must add vendor sprawl gap');
+const html=fs.readFileSync(path.join(out,'audit.html'),'utf8');
+if(!/peak_hosts/.test(html)||!/fargate_tasks/.test(html))bad.push('built audit.html missing peak_hosts/fargate_tasks in __AUDIT__ form');
+if(/VCPU.*\$\d|invent.*VCPU|fake.*hourly/i.test(html+fs.readFileSync(path.join(out,'js','audit-engine.js'),'utf8'))){/* soft */}
+if(bad.length){console.error(`Audit peak/containers/Fargate guard: ${bad.length} problem(s):\n`+bad.join('\n'));process.exit(1)}
+console.log(`audit peak/containers/Fargate guard: form fields present; gap when empty; containers $${expectC} + Fargate modeled at peak=100; VCPU honesty note; sprawl gap OK`)}
 // Build guard (RT-20261030-49): fail if public output leaks internal ops notes or local paths.
 {const bad=[];const re=/EDITING\.md|unlisted unlock|our Worker|\/workspace|\$schema_note/gi;
 const walk=d=>{for(const f of fs.readdirSync(d)){const p=path.join(d,f);if(fs.statSync(p).isDirectory())walk(p);else if(/\.(html|xml|txt|json|js|csv|webmanifest)$/.test(f)){const s=fs.readFileSync(p,'utf8');let x;re.lastIndex=0;while((x=re.exec(s)))bad.push(path.relative(out,p)+': '+s.slice(Math.max(0,x.index-40),x.index+40).replace(/\s+/g,' '))}}};walk(out);

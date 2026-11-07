@@ -61,6 +61,10 @@ export function createAuditEngine() {
       plans: String(raw.plans || ''),
       monthly_spend: num(raw.monthly_spend),
       hosts: num(raw.hosts),
+      peak_hosts: num(raw.peak_hosts),
+      containers: num(raw.containers),
+      fargate_tasks: num(raw.fargate_tasks),
+      secondary_vendors: String(raw.secondary_vendors || ''),
       host_mem_gib: num(raw.host_mem_gib, 0),
       log_gb_day: num(raw.log_gb_day),
       log_gb_mo: num(raw.log_gb_day) * 30,
@@ -229,7 +233,13 @@ export function createAuditEngine() {
     // RT-20261031-78: a free tier that is a separate plan (Datadog Free = up to 5 Basic hosts, 1-day retention)
     // is never deducted from paid hosts.
     const freeHosts = vdef.free && vdef.free.hosts && !vdef.free.separate_plan ? vdef.free.hosts : 0;
-    const billHosts = Math.max(0, usage.hosts - freeHosts);
+    // RT-20261107-25: Datadog bills near the high-water mark (lower 99% of hourly counts). When the
+    // buyer gives peak_hosts, use max(hosts, peak_hosts) for Datadog host lines; other vendors keep average.
+    const avgHosts = usage.hosts;
+    const peakHosts = usage.peak_hosts > 0 ? usage.peak_hosts : 0;
+    const usePeak = vdef.model === 'per_host_plus_products' && peakHosts > avgHosts;
+    const hostCount = usePeak ? peakHosts : avgHosts;
+    const billHosts = Math.max(0, hostCount - freeHosts);
 
     function add(label, amount, meta) {
       if (amount == null || !Number.isFinite(amount)) return;
@@ -279,8 +289,8 @@ export function createAuditEngine() {
         }
         // RT-20261031-78: full Datadog bill from the public list (APM, span ingest, logs, indexed logs, custom metrics).
         const apm = needsApm(usage);
-        const apmHosts = apm ? usage.hosts : 0;
-        if (apm && usage.hosts > 0) {
+        const apmHosts = apm ? hostCount : 0;
+        if (apm && hostCount > 0) {
           const au = opts.ondemand ? P.apm_host_mo_ondemand : P.apm_host_mo_annual;
           add(`APM (${apmHosts} APM hosts × ${money(au)}/mo; assumes every host runs APM)`, apmHosts * au, { dim: 'traces', product: 'apm' });
           const tg = traceGb();
@@ -304,11 +314,32 @@ export function createAuditEngine() {
           }
         }
         if (usage.metric_series >= MATERIAL.metric_series) {
-          const incl = usage.hosts * P.custom_metrics_allot_per_pro_host;
+          const incl = hostCount * P.custom_metrics_allot_per_pro_host;
           const over = Math.max(0, usage.metric_series - incl);
           add(`Custom metrics (${usage.metric_series.toLocaleString('en-US')} − ${incl.toLocaleString('en-US')} included = ${over.toLocaleString('en-US')} × ${money(P.custom_metrics_per_100)}/100)`, (over / 100) * P.custom_metrics_per_100, { dim: 'metrics', product: 'custom_metrics' });
         }
-        gap('containers', `Containers/Fargate are not in the survey: Container Monitoring is ${money(P.container_mo)}/container/mo beyond ${P.containers_allot_per_pro_host} per Pro host; Fargate tasks are billed separately.`);
+        // RT-20261107-25: model containers / Fargate when the survey provides them; otherwise keep the gap.
+        if (usage.containers > 0 && P.container_mo != null) {
+          const allot = billHosts * (P.containers_allot_per_pro_host || 0);
+          const over = Math.max(0, usage.containers - allot);
+          add(`Container Monitoring (${usage.containers.toLocaleString('en-US')} containers − ${allot.toLocaleString('en-US')} included (${P.containers_allot_per_pro_host} per Pro host × ${billHosts}) = ${over.toLocaleString('en-US')} × ${money(P.container_mo)}/mo)`, over * P.container_mo, { dim: 'containers', product: 'containers' });
+        }
+        if (usage.fargate_tasks > 0) {
+          const fApp = opts.ondemand ? P.fargate_app_instance_mo_ondemand : P.fargate_app_instance_mo_annual;
+          if (fApp != null) add(`Fargate app monitoring (${usage.fargate_tasks.toLocaleString('en-US')} tasks × ${money(fApp)}/mo)`, usage.fargate_tasks * fApp, { dim: 'containers', product: 'fargate' });
+          if (apm) {
+            const fApm = opts.ondemand ? P.fargate_apm_instance_mo_ondemand : P.fargate_apm_instance_mo_annual;
+            if (fApm != null) add(`Fargate APM (${usage.fargate_tasks.toLocaleString('en-US')} tasks × ${money(fApm)}/mo)`, usage.fargate_tasks * fApm, { dim: 'containers', product: 'fargate_apm' });
+          }
+        }
+        if (!(usage.containers > 0) && !(usage.fargate_tasks > 0)) {
+          gap('containers', `Containers/Fargate not entered: Container Monitoring is ${money(P.container_mo)}/container/mo beyond ${P.containers_allot_per_pro_host} per Pro host; Fargate tasks are billed separately at public list rates.`);
+        }
+        if (usePeak) {
+          assume('hosts', `Datadog bills the high-water mark of the lower 99% of hourly host counts (docs.datadoghq.com). Using peak hosts (${peakHosts}) instead of average (${avgHosts}) for Infrastructure/APM host lines.`);
+        } else if (peakHosts > 0 && peakHosts <= avgHosts) {
+          assume('hosts', `Peak hosts (${peakHosts}) ≤ average (${avgHosts}); billed at average. Datadog’s high-water mark would only raise the bill if peak exceeds average.`);
+        }
         break;
       }
       case 'per_host': {
@@ -735,6 +766,12 @@ export function createAuditEngine() {
     if (currentDef) {
       current = modelVendor(currentDef, usage, { ondemand: false, conversions: rates.conversions });
       current.is_current = true;
+      // RT-20261107-25: VCPU / hourly APM are contract-dependent — honesty note, not a priced line.
+      if (currentDef.id === 'datadog') {
+        current.notes = (current.notes || []).concat([
+          'Datadog VCPU-based infrastructure pricing and hourly APM plans are contract-dependent. This model uses published per-host, per-container, and per-Fargate-task list rates only — we do not invent VCPU or hourly APM figures. Ask Datadog for your contract rates if those apply.'
+        ]);
+      }
     } else {
       current = {
         id: usage.primary_vendor || 'unknown',
@@ -748,6 +785,22 @@ export function createAuditEngine() {
         is_current: true,
         checked: rates.dataset_checked
       };
+    }
+
+    // RT-20261107-25: tool sprawl — note secondary vendors without inventing their list prices.
+    if (usage.secondary_vendors && String(usage.secondary_vendors).trim()) {
+      current.gaps.push({
+        dimension: 'vendor',
+        reason: `Other tools on the bill noted (“${String(usage.secondary_vendors).trim()}”). Sprawl is common; we do not invent list prices for secondary tools. Re-run with each as primary, or treat their spend as part of the gap vs your stated bill.`
+      });
+    } else if (Array.isArray(usage.vendors) && usage.vendors.length > 1) {
+      const others = usage.vendors.filter((v) => v && v !== usage.primary_vendor);
+      if (others.length) {
+        current.gaps.push({
+          dimension: 'vendor',
+          reason: `Multiple vendors selected (${others.join(', ')} besides ${usage.primary_vendor}). Only the primary vendor is modeled from public list prices; others contribute to bill sprawl and are not invented here.`
+        });
+      }
     }
 
     const stated = usage.monthly_spend;
@@ -1178,7 +1231,10 @@ export function createAuditEngine() {
     headers.forEach((h, i) => { map[h] = row[i]; });
 
     const aliases = {
-      hosts: ['hosts', 'host', 'host_count', 'containers', 'nodes'],
+      hosts: ['hosts', 'host', 'host_count', 'nodes'],
+      peak_hosts: ['peak_hosts', 'peak_host', 'peak_host_count', 'max_hosts', 'host_peak'],
+      containers: ['containers', 'container_count', 'pods', 'pod_count'],
+      fargate_tasks: ['fargate_tasks', 'fargate', 'fargate_task_count', 'serverless_tasks'],
       host_mem_gib: ['host_mem_gib', 'host_memory_gib', 'host_memory_gb', 'mem_gib', 'memory_gib'],
       log_gb_day: ['log_gb_day', 'logs_gb_day', 'log_gb', 'logs_gb', 'gb_day', 'log_volume_gb_day'],
       metric_series: ['metric_series', 'metrics', 'series', 'active_series', 'timeseries', 'custom_metrics'],
@@ -1217,7 +1273,7 @@ export function createAuditEngine() {
         }
       }
     }
-    if (!matched.length) return { error: 'No recognized columns. Use headers like hosts, log_gb_day, metric_series, spans_mo, retention_days, users, monthly_spend.' };
+    if (!matched.length) return { error: 'No recognized columns. Use headers like hosts, peak_hosts, containers, fargate_tasks, log_gb_day, metric_series, spans_mo, retention_days, users, monthly_spend.' };
     return { overrides, matched };
   }
 
@@ -1276,7 +1332,7 @@ export function createAuditEngine() {
     LEVER_SCOPE,
     isTeaserPayload,
     FULL_REPORT_KEYS,
-    version: 5,
+    version: 6,
     FLOOR_FRACTION,
     MAX_TEASER_SAVE_PCT
   };

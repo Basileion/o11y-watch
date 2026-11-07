@@ -157,6 +157,9 @@
     const val = values[f.name];
     const req = f.required ? ' required' : '';
     const hint = f.hint ? `<span class="hint">${esc(f.hint)}</span>` : '';
+    if (f.type === 'note') {
+      return `<div class="fg note-fg" data-field="${esc(f.name)}"><p class="sm mut" style="margin:0;padding:10px 12px;border:1px solid var(--bd,#2a3140);border-radius:8px;background:rgba(255,255,255,0.03);line-height:1.45">${esc(f.text || f.label || '')}</p></div>`;
+    }
     if (f.type === 'checkbox-group') {
       const opts = (f.options || []).map((o, i) => {
         const v = typeof o === 'string' ? o : o.value;
@@ -192,6 +195,7 @@
   function readStep(stepEl, step) {
     const data = {};
     for (const f of step.fields || []) {
+      if (f.type === 'note') continue;
       if (f.type === 'checkbox-group') {
         data[f.name] = $all(`input[name="${f.name}"]:checked`, stepEl).map((x) => x.value);
       } else if (f.type === 'file') {
@@ -206,6 +210,7 @@
 
   function validateStep(step, data) {
     for (const f of step.fields || []) {
+      if (f.type === 'note') continue;
       if (!f.required) continue;
       const v = data[f.name];
       if (f.type === 'checkbox-group') {
@@ -234,7 +239,7 @@
     logs: 'logs', metrics: 'metrics', traces: 'traces', seats: 'user seats', platform: 'platform fee', floor: 'plan minimum',
     trace_gb_mo: 'trace GB/month', indexed_logs_m_mo: 'indexed log events',
     indexed_spans: 'Indexed spans', indexed_logs: 'Indexed log events', containers: 'Containers / Fargate', assumption: 'Assumption',
-    rates: 'Published rate', retention: 'Retention'
+    rates: 'Published rate', retention: 'Retention', peak_hosts: 'Peak hosts', fargate_tasks: 'Fargate tasks', secondary_vendors: 'Other tools'
   };
   const CONF_LABEL = { high: 'High', medium: 'Medium', low: 'Low', none: 'None' };
   function plain(map, v) { return map[v] || String(v ?? '').replace(/_/g, ' '); }

@@ -1,16 +1,16 @@
 {
-  "$schema_note": "Editable multi-step survey for the instant Observability Cost & Stack Audit. Rebuild with: npm run build. See EDITING.md. No FormSubmit — runs entirely client-side.",
+  "$schema_note": "Editable multi-step survey for the instant Observability Cost & Stack Audit. Rebuild with: npm run build. See EDITING.md. No FormSubmit \u2014 runs entirely client-side.",
   "formId": "o11y-cost-audit-wizard",
-  "version": 2,
+  "version": 3,
   "mode": "client-wizard",
   "title": "Instant Observability Cost & Stack Audit",
-  "subtitle": "Answer a few questions. Estimates run in your browser against O11y Watch public pricing data — nothing is uploaded.",
+  "subtitle": "Answer a few questions. Estimates run in your browser against O11y Watch public pricing data \u2014 nothing is uploaded.",
   "submitLabel": "Run my audit",
   "csv": {
     "enabled": true,
     "optional": true,
     "accept": ".csv,text/csv",
-    "hint": "Optional. Parsed only in your browser — never uploaded. Recognizes columns like hosts, log_gb, logs_gb_day, metrics, series, spans, retention, users, spend.",
+    "hint": "Optional. Parsed only in your browser \u2014 never uploaded. Recognizes columns like hosts, peak_hosts, containers, fargate_tasks, log_gb, logs_gb_day, metrics, series, spans, retention, users, spend.",
     "maxBytes": 2097152
   },
   "steps": [
@@ -24,7 +24,7 @@
           "label": "Current observability vendors",
           "type": "checkbox-group",
           "required": true,
-          "hint": "Select all that apply. Primary vendor should be the one driving most of the bill.",
+          "hint": "Select all that apply (sprawl is common: Datadog + Splunk + Sentry). Primary vendor should be the one driving most of the bill \u2014 we model that one from public list prices.",
           "options": [
             {
               "value": "datadog",
@@ -92,7 +92,7 @@
           "options": [
             {
               "value": "",
-              "label": "Select…"
+              "label": "Select\u2026"
             },
             {
               "value": "datadog",
@@ -146,6 +146,14 @@
           "type": "text",
           "required": false,
           "placeholder": "e.g. Datadog Pro + APM; New Relic Standard; Grafana Cloud Pro"
+        },
+        {
+          "name": "secondary_vendors",
+          "label": "Other tools on the same bill (optional)",
+          "type": "text",
+          "required": false,
+          "placeholder": "e.g. Splunk logs, Sentry errors, PagerDuty",
+          "hint": "We note tool sprawl in the report. We do not invent list prices for secondary tools \u2014 re-run the audit with each as primary, or keep them as a gap vs your stated bill."
         }
       ]
     },
@@ -166,22 +174,59 @@
         },
         {
           "name": "hosts",
-          "label": "Hosts / containers (or host-equivalents)",
+          "label": "Average / typical hosts (or host-equivalents)",
           "type": "number",
           "required": true,
           "min": 0,
           "step": 1,
-          "placeholder": "120"
+          "placeholder": "120",
+          "hint": "Steady-state or average count. For Datadog autoscaling bills, also enter peak hosts below \u2014 Datadog bills near the high-water mark, not the average."
+        },
+        {
+          "name": "peak_hosts",
+          "label": "Peak hosts in the last month (not average)",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "100",
+          "hint": "Highest concurrent hosts (e.g. HPA spike). Datadog\u2019s public docs bill the high-water mark of the lower 99% of hours \u2014 we use peak when you give it."
         },
         {
           "name": "host_mem_gib",
-          "label": "Typical host memory (GiB) — optional",
+          "label": "Typical host memory (GiB) \u2014 optional",
           "type": "number",
           "required": false,
           "min": 0,
           "step": 1,
           "placeholder": "8",
           "hint": "Some vendors (e.g. Dynatrace Full-Stack) bill per memory-GiB. Blank = 8 GiB."
+        },
+        {
+          "name": "containers",
+          "label": "Containers / pods monitored (avg concurrent)",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "200",
+          "hint": "Beyond host Agents. Datadog Container Monitoring: public list $1/container/mo beyond 5 per Infrastructure Pro host."
+        },
+        {
+          "name": "fargate_tasks",
+          "label": "Fargate / serverless tasks (avg concurrent)",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "step": 1,
+          "placeholder": "0",
+          "hint": "AWS Fargate (or similar) tasks/pods Datadog monitors. Public list: Serverless App Monitoring from $3/task/mo annual; APM from $6/task/mo annual."
+        },
+        {
+          "name": "autoscaling_honesty",
+          "label": "",
+          "type": "note",
+          "text": "Honesty: Datadog VCPU-based infrastructure pricing and hourly APM plans are contract-dependent. We model published per-host, per-container, and per-Fargate-task list rates only \u2014 we do not invent VCPU or hourly APM figures. Ask Datadog for your contract rates if those apply."
         },
         {
           "name": "log_gb_day",
@@ -212,23 +257,23 @@
         },
         {
           "name": "trace_gb_mo",
-          "label": "Ingested trace volume (GB / month) — optional",
+          "label": "Ingested trace volume (GB / month) \u2014 optional",
           "type": "number",
           "required": false,
           "min": 0,
           "step": 1,
           "placeholder": "300",
-          "hint": "Datadog: Plan & Usage → APM ingested spans (GB). Lets us price GB-billed vendors exactly instead of estimating from span count."
+          "hint": "Datadog: Plan & Usage \u2192 APM ingested spans (GB). Lets us price GB-billed vendors exactly instead of estimating from span count."
         },
         {
           "name": "indexed_logs_m_mo",
-          "label": "Indexed log events (millions / month) — optional",
+          "label": "Indexed log events (millions / month) \u2014 optional",
           "type": "number",
           "required": false,
           "min": 0,
           "step": 1,
           "placeholder": "500",
-          "hint": "Datadog: Plan & Usage → Indexed logs. Prices Datadog's per-million indexed-log line exactly."
+          "hint": "Datadog: Plan & Usage \u2192 Indexed logs. Prices Datadog's per-million indexed-log line exactly."
         },
         {
           "name": "retention_days",
@@ -265,23 +310,23 @@
           "options": [
             {
               "value": "",
-              "label": "Select…"
+              "label": "Select\u2026"
             },
             {
               "value": "1-5",
-              "label": "1 – 5"
+              "label": "1 \u2013 5"
             },
             {
               "value": "6-20",
-              "label": "6 – 20"
+              "label": "6 \u2013 20"
             },
             {
               "value": "21-50",
-              "label": "21 – 50"
+              "label": "21 \u2013 50"
             },
             {
               "value": "51-200",
-              "label": "51 – 200"
+              "label": "51 \u2013 200"
             },
             {
               "value": "200+",
@@ -304,7 +349,7 @@
           "options": [
             {
               "value": "",
-              "label": "Select…"
+              "label": "Select\u2026"
             },
             {
               "value": "cost",
@@ -394,7 +439,7 @@
           "type": "textarea",
           "required": false,
           "rows": 3,
-          "placeholder": "Must keep X; cannot self-host; renews in 60 days…"
+          "placeholder": "Must keep X; cannot self-host; renews in 60 days\u2026"
         },
         {
           "name": "usage_csv",

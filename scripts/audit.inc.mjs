@@ -42,7 +42,7 @@ export default function buildAudit({
     ['What is free vs paid?', `The conservative savings check is free: it shows a dollar figure only when a vendor's public list prices cover all of your usage with high confidence and come in below your bill. The full ranked report, levers, migration plan, and Print/PDF view unlock for $${AUDIT_PRICE} via Kit. After payment you are sent straight back to unlock the full report in this browser.`],
     ['How is the unlock gate secured?', 'Pre-purchase pages show only the free teaser — the full report is not in the DOM or browser storage (sessionStorage/localStorage hold teaser data only until unlock). Kit’s thank-you redirect includes an unguessable token; our server validates it and stores a proof in this browser. Anyone with the unlock link can still open the report. This is not account auth. The cost engine itself is public client-side code.'],
     ['Is my CSV uploaded?', 'No. CSV parsing happens only in your browser. We never receive the file.'],
-    ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Self-host software may be $0 where stated; we always add an explicit infra+ops cost range with stated assumptions rather than implying $0 TCO.']
+    ['What is not included?', 'Implementation, negotiated enterprise discounts, on-call coverage, or multi-cloud FinOps programs. Datadog VCPU-based infrastructure and hourly APM plans are contract-dependent — we model published per-host / per-container / per-Fargate-task list rates only. Self-host software may be $0 where stated; we always add an explicit infra+ops cost range with stated assumptions rather than implying $0 TCO.']
   ];
 
   const AUDIT_GET = [
@@ -103,10 +103,10 @@ await import('./js/audit-wizard.js');
 <li>Teams on Datadog / New Relic / Grafana Cloud (or mix) comparing retention, seats, and overages.</li>
 <li>FinOps and founders checking whether a migration or self-host path is even in the ballpark.</li>
 <li>Want a public worked EXAMPLE with named line items before you pay? See the <a href="guides/datadog-40-host-cost-worked-example.html" data-grow="audit-to-40host-guide">Datadog 40-host cost worked example</a> ($4,230 modeled of an $8,000 stated bill at list prices).</li>
-<li>Datadog teams whose bill jumps when they autoscale: read <a href="guides/datadog-autoscaling-cost.html" data-grow="audit-to-autoscaling-guide">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, the hourly plan), then price your real host count here.</li>
+<li>Datadog teams whose bill jumps when they autoscale: read <a href="guides/datadog-autoscaling-cost.html" data-grow="audit-to-autoscaling-guide">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, the hourly plan), then enter peak hosts + containers / Fargate in the survey below.</li>
 <li>Datadog teams who’d rather clean up than migrate: read the <a href="guides/cut-datadog-bill-without-migrating.html" data-grow="audit-to-cleanup-guide">cleanup checklist</a> (unqueried custom metrics, health-check logs, retention, what’s safe to remove), then price what’s left here.</li>
 </ul>
-<p class="mut sm">Best fit when you know rough hosts, log GB/day, series, spans, seats, and monthly spend. Optional usage CSV stays in your browser.</p>
+<p class="mut sm">Best fit when you know rough hosts (average + peak if you autoscale), containers / Fargate tasks, log GB/day, series, spans, seats, and monthly spend. Optional usage CSV stays in your browser.</p>
 
 <h2>What you get</h2>
 <div class="deliv">${AUDIT_GET.map(([n, t, d]) => `<div class="card"><b>${n}</b><h3 style="margin:6px 0 4px;font-size:16px">${esc(t)}</h3><p>${esc(d)}</p></div>`).join('')}</div>
