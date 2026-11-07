@@ -9,9 +9,9 @@
    "gaps": []
   },
   "datadog": {
-   "versions": 2,
+   "versions": 3,
    "first": "2026-10-24",
-   "last": "2026-10-28",
+   "last": "2026-11-07",
    "gaps": []
   },
   "newrelic": {
@@ -98,9 +98,9 @@
    "gaps": []
   },
   "healthchecks": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "pingdom": {
@@ -116,27 +116,27 @@
    "gaps": []
   },
   "hyperping": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "logzio": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "papertrail": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "mezmo": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "coralogix": {
@@ -170,15 +170,15 @@
    "gaps": []
   },
   "posthog": {
-   "versions": 2,
+   "versions": 3,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "logrocket": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "atatus": {
@@ -194,15 +194,15 @@
    "gaps": []
   },
   "instatus": {
-   "versions": 2,
+   "versions": 3,
    "first": "2026-10-24",
-   "last": "2026-10-31",
+   "last": "2026-11-07",
    "gaps": []
   },
   "incidentio": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "pagerduty": {
@@ -266,9 +266,9 @@
    "gaps": []
   },
   "oneuptime": {
-   "versions": 3,
+   "versions": 4,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "sematext": {
@@ -296,15 +296,15 @@
    "gaps": []
   },
   "observe": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "openobserve": {
-   "versions": 1,
+   "versions": 2,
    "first": "2026-10-24",
-   "last": "2026-10-24",
+   "last": "2026-11-07",
    "gaps": []
   },
   "parseable": {
@@ -338,9 +338,9 @@
    "gaps": []
   },
   "bugsink": {
-   "versions": 3,
+   "versions": 4,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "exceptionless": {
@@ -350,15 +350,15 @@
    "gaps": []
   },
   "ohdear": {
-   "versions": 3,
+   "versions": 4,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "updown": {
-   "versions": 3,
+   "versions": 4,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "statusgator": {
@@ -374,9 +374,9 @@
    "gaps": []
   },
   "ilert": {
-   "versions": 2,
+   "versions": 3,
    "first": "2026-10-24",
-   "last": "2026-10-30",
+   "last": "2026-11-07",
    "gaps": []
   },
   "squadcast": {
