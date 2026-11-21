@@ -117,7 +117,7 @@ ${auditCta('Put your real host count, APM hosts, logs and bill into the audit. I
 <li><b>Name the rule in one sentence:</b> “On the high-water-mark plan, Datadog bills our infrastructure and APM hosts on the highest host count we hold for more than about 1% of the month’s hours.”</li>
 <li><b>Price the gap:</b> (billed hosts − average hosts) × your per-host rate for Infra + APM. That is the cost of the peak.</li>
 <li><b>Give two options with owners:</b> the hybrid monthly/hourly plan (ask your Datadog rep for the hourly rate), and engineering changes (one Agent per node, Fargate for bursty jobs, integration filters).</li>
-<li><b>Show the whole stack:</b> Datadog plus anything else you pay for, next to your cloud bill. The <a href="../audit.html" data-grow="audit-guide-dd-autoscaling-leadership">audit</a> report is built to hand over.</li>
+<li><b>Show the whole stack:</b> Datadog plus anything else you pay for, next to your cloud bill. A line-item stack comparison is easier to hand over.</li>
 </ol>
 
 <h2 id="alternatives">How other vendors bill the same peak</h2>
@@ -126,7 +126,7 @@ ${auditCta('Put your real host count, APM hosts, logs and bill into the audit. I
 <tr><td><b>Datadog</b> APM</td><td class="sm" data-l="Billing">Per APM host per month, high-water mark of the lower 99% of hours</td><td data-l="Example" data-ex="alt-dd" data-v="${A.ddApm}">${W.billed} hosts × ${usd(PR.apm_host_mo_annual)} = <b>${usd(A.ddApm)}</b></td></tr>
 <tr><td><b>Grafana Cloud</b> Application Observability</td><td class="sm" data-l="Billing">Per host-hour (${rate('grafana-host-hour',A.grafanaHostHour,'$'+A.grafanaHostHour)}/host-hour = ${usd(RJ.vendors.grafana.rates.apm_host_mo)}/host/mo); no host fee for infrastructure metrics, which bill per active series</td><td data-l="Example" data-ex="alt-grafana" data-v="${Math.round(A.grafanaApm*100)/100}">${n(W.hostHours)} host-hours × $${A.grafanaHostHour} = <b>${usd(A.grafanaApm)}</b></td></tr>
 <tr><td><b>Dynatrace</b> Full-Stack</td><td class="sm" data-l="Billing">${rate('dynatrace-gib-hour',A.dynatraceGibHour,'$'+A.dynatraceGibHour)} per memory-GiB-hour (${usd(RJ.vendors.dynatrace.rates.host_tiers.fullstack.mo)}/mo per 8 GiB host), drawn from an annual commit</td><td data-l="Example" data-ex="alt-dynatrace" data-v="${Math.round(A.dynatrace*100)/100}">${n(W.hostHours)} host-hours × ${A.gib} GiB (example size) × $${A.dynatraceGibHour} = <b>${usd(A.dynatrace)}</b></td></tr>
-<tr><td><b>SigNoz</b> Cloud</td><td class="sm" data-l="Billing">“No host-based pricing”: logs and traces ${rate('signoz-gb',RJ.vendors.signoz.rates.log_gb)}/GB, Teams from ${usd(RJ.vendors.signoz.rates.min_mo)}/mo</td><td data-l="Example">Depends on GB, not host count. Price it in the <a href="../audit.html">audit</a></td></tr>
+<tr><td><b>SigNoz</b> Cloud</td><td class="sm" data-l="Billing">“No host-based pricing”: logs and traces ${rate('signoz-gb',RJ.vendors.signoz.rates.log_gb)}/GB, Teams from ${usd(RJ.vendors.signoz.rates.min_mo)}/mo</td><td data-l="Example">Depends on GB, not host count. Price it from public per-GB rates, not host count</td></tr>
 </tbody></table></div>
 <p class="sm mut">Hourly billing charges the peak only for the hours it runs. These products differ in features, retention and included data, so price them on your full usage before deciding.</p>
 

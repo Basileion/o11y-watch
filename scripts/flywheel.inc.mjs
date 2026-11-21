@@ -23,12 +23,8 @@ const crumbLd=(parts)=>({'@context':'https://schema.org','@type':'BreadcrumbList
 const cite=(label)=>`<div class="box" style="margin-top:18px"><h3 style="margin-top:0">Cite this</h3><p class="sm mut">Copy for AI tools, writers and procurement docs. Attribution requested under CC BY 4.0.</p><pre style="white-space:pre-wrap;font-size:12px">${esc(`Data: ${label}. Source: ${SITE} (${BASE}). License: CC BY 4.0. Please attribute "${SITE}" with a link to ${BASE}/.`)}</pre></div>`;
 const keyStats=(items)=>`<div class="box" style="margin:18px 0"><div class="eyebrow">Key stats</div><ul style="margin:10px 0 0;padding-left:18px">${items.map(([k,v])=>`<li><b>${esc(k)}:</b> ${esc(v)}</li>`).join('')}</ul></div>`;
 const related=(links)=>`<h2>Related</h2><ul>${links.map(([h,l])=>`<li><a href="${h}">${esc(l)}</a></li>`).join('')}</ul>`;
-const auditCta=(ctx,headline,grow='audit-guide')=>{
-  if(typeof auditCtaIn==='function'){
-    return auditCtaIn(headline||'See what you’d save on Datadog / New Relic in 2 minutes',esc(ctx),grow,'../');
-  }
-  return `<section class="cta" style="margin-top:28px"><div class="eyebrow">Free savings estimate · 2 minutes</div><h3 style="margin:6px 0">${esc(headline||'See what you’d save on Datadog / New Relic in 2 minutes')}</h3><p>${esc(ctx)} Free conservative savings check; full report $${AUDIT_PRICE}.</p><p><a class="btn" href="../audit.html" data-grow="${grow}">Start free savings estimate →</a> <a class="btn ghost" href="../subscribe.html?src=guide">Get the weekly newsletter</a></p></section>`;
-};
+const auditCta=(ctx,headline,grow='audit-guide')=>'';
+
 const byId=id=>V.find(v=>v.id===id);
 const verified=V.filter(v=>v.verified);
 
@@ -285,7 +281,7 @@ ${alts.map(a=>`<tr><td><a href="../vendors/${a.id}.html">${esc(a.name)}</a></td>
 <ol style="max-width:720px">
 <li>Confirm you are still inside the free limits above before buying seats or hosts.</li>
 <li>Compare paid_from against alternatives with a free plan in the same category.</li>
-<li>Run the <a href="../audit.html">free audit estimate</a> with your host/GB/user counts — it uses the same rates dataset.</li>
+<li>Check the stated fields above against your own host, GB and user counts — they come from the same rates dataset.</li>
 <li><a href="../subscribe.html?src=cut-${id}">Subscribe</a> so you hear when ${esc(v.name)} changes limits.</li>
 </ol>
 ${related([[`${id}-pricing.html`,`${v.name} pricing (2026)`],...(id==='datadog'?[['datadog-renewal-cost-audit.html','Before your Datadog renewal'],['datadog-40-host-cost-worked-example.html','Datadog 40-host cost worked example'],['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill (99th-percentile hosts)']]:[]),[`../vendors/${id}.html`,`${v.name} vendor page`],['index.html','All guides']])}
@@ -371,7 +367,7 @@ ${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'}
 <div class="eyebrow">Cleanup checklist · Datadog list prices read ${esc(CHK)}</div>
 <h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">Cut your Datadog bill without migrating</h1>
 <p class="lede" style="font-size:18px;color:var(--mut);max-width:760px">If you've got <i>“custom metrics that literally nobody has queried in like 6 months”</i> and <i>“health check logs just burning through our indexed volume”</i>, start there. Migrating can wait. This checklist prices each cleanup lever with Datadog's own list prices and links the Datadog docs that show what's safe to remove.</p>
-<p><a class="btn" href="../audit.html" data-grow="audit-guide-cut-dd-nomigrate-top">Run the free savings check →</a> <a class="sm mut" href="#checklist" style="margin-left:10px">Jump to the checklist</a></p>
+<p><a class="sm mut" href="#checklist">Jump to the checklist</a></p>
 <p class="lede" style="max-width:760px"><b>Answer:</b> ${esc(answer)}</p>
 ${keyStats([
   ['Custom metrics', `${usd(PR.custom_metrics_per_100)} per 100 / mo beyond ${PR.custom_metrics_allot_per_pro_host} per Infrastructure Pro host`],
@@ -440,7 +436,7 @@ ${auditCta('Price your own Datadog usage line by line, free, in your browser.','
 <ul>
 <li><i>“how do you even figure out what's safe to remove without breaking someone's alert?”</i>: use Related Assets (monitors, dashboards, notebooks, SLOs) plus Query Activity (30/60/90 days) in Metrics Summary, and change tag configurations rather than deleting code. See step 1.</li>
 <li><i>“health check logs just burning through our indexed volume”</i>: use an exclusion filter to stop indexing them, or an Agent <code>exclude_at_match</code> rule to stop ingesting them too. See step 2.</li>
-<li><i>“our datadog bill is literally higher than our aws hosting bill”</i>: price each line above against your own usage first, then compare alternatives on the same usage with the <a href="../audit.html">audit</a>.</li>
+<li><i>“our datadog bill is literally higher than our aws hosting bill”</i>: price each line above against your own usage first, then compare alternatives on the same usage.</li>
 </ul>
 <p class="sm mut">Quotes are from public r/devops and r/ChoosingVendors threads (2026).</p>
 
@@ -559,15 +555,15 @@ for(const id of ['datadog','newrelic','grafana']){
   const v=byId(id); if(!v||!v.verified) continue;
   const file=`guides/${id}-cost-calculator.html`;
   const alts=C[v.cat].vs.filter(x=>x.id!==id&&x.verified).slice(0,6);
-  const answer=`The ${v.name} cost calculator on O11y Watch is the free Observability Cost & Stack Audit: enter hosts, log GB/day, metric series, spans, retention and seats; it models spend from public rates in our dataset (checked ${v.checked}). ${v.name} paid_from is recorded as ${v.paid_from||'not stated'}; pricing model: ${v.pricing_model||'not stated'}. Free teaser shows a savings range; full report is $${AUDIT_PRICE}.`;
+  const answer=`As of ${v.checked}, ${v.name} paid_from is recorded as ${v.paid_from||'not stated'}; pricing model: ${v.pricing_model||'not stated'}. The figures below are copied from the vendor’s pricing page and can be compared with verified peers in the same category. Gaps are labeled, never invented.`;
   const faq=[
-    [`Is there a free ${v.name} cost calculator?`, `Yes — start the free savings estimate at ${AUDIT}. It runs in your browser against O11y Watch rates.`],
+    [`Is there a free ${v.name} cost calculator?`, `This page lists the stated ${v.name} rates from our dataset (checked ${v.checked}) so you can model spend against the vendor’s published numbers. Gaps are labeled, never invented.`],
     [`What ${v.name} price does it use?`, `Stated fields from ${v.url} checked ${v.checked}: paid_from ${v.paid_from||'not stated'}; model ${v.pricing_model||'not stated'}. Gaps are labeled, never invented.`],
     ['Is this a quote?', 'No. Estimates only. Verify on the vendor pricing page before buying.'],
   ];
-  P(file,`${v.name} cost calculator (2026) — free savings estimate | ${SITE}`,`Free ${v.name} cost calculator: model spend from your usage and O11y Watch public rates (checked ${v.checked}).`,`
+  P(file,`${v.name} cost calculator (2026) | ${SITE}`,`${v.name} stated rates from the O11y Watch dataset (checked ${v.checked}), for modeling spend against published numbers.`,`
 ${crumbs([{href:'../index.html',label:'Home'},{href:'index.html',label:'Guides'},{href:'#',label:`${v.name} cost calculator`}])}
-<div class="eyebrow">Cost calculator · free estimate · verified rates ${esc(v.checked)}</div>
+<div class="eyebrow">Cost calculator · verified rates ${esc(v.checked)}</div>
 <h1 style="font-size:clamp(28px,4vw,44px);margin-top:8px">${esc(v.name)} cost calculator</h1>
 <p class="lede" style="font-size:18px;color:var(--mut);max-width:760px"><b>Answer:</b> ${esc(answer)}</p>
 ${keyStats([
@@ -576,7 +572,6 @@ ${keyStats([
   ['Free tier', v.has_free_tier?v.free_tier:'None stated'],
   ['Last verified', v.checked],
   ['Source', v.url],
-  ['Full report', '$'+AUDIT_PRICE],
 ])}
 ${auditCta(`Open the calculator with ${v.name} as your primary vendor context.`, `See what you’d save on ${esc(v.name)} in 2 minutes`, 'audit-calc-'+id)}
 <h2>What the dataset knows about ${esc(v.name)}</h2>
@@ -589,9 +584,9 @@ ${auditCta(`Open the calculator with ${v.name} as your primary vendor context.`,
 </tbody></table></div>
 <h2>How to use it</h2>
 <ol style="max-width:720px">
-<li>Click <b>Start free savings estimate</b> (runs entirely in your browser).</li>
-<li>Select ${esc(v.name)} as your primary vendor and enter hosts, GB/day, series, spans, retention and seats.</li>
-<li>Read the free conservative savings check (a dollar figure only when public list prices fully cover your usage). Unlock the full ranked report for $${AUDIT_PRICE} if you need levers and a migration plan.</li>
+<li>Read the stated ${esc(v.name)} fields below (paid_from, model, free limits) and confirm the check date.</li>
+<li>Compare verified peers in the same category on the alternatives page, using the same billing unit.</li>
+<li>Verify any figure on the vendor’s own pricing page before buying.</li>
 </ol>
 <h2>Related alternatives</h2>
 <div class="grid">${alts.map(a=>`<a class="card" href="../vendors/${a.id}.html"><h3>${esc(a.name)}</h3><p>${pill(a.free)} ${esc((a.paid_from||a.free_tier||'').slice(0,100))}</p></a>`).join('')}</div>
@@ -601,7 +596,6 @@ ${related([
   ...(id==='datadog'||id==='newrelic'?[[`cut-${id}-bill.html`,`How to cut your ${v.name} bill`]]:[]),
   ...(id==='datadog'?[['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating (cleanup checklist)']]:[]),
   [`../vendors/${id}.html`,`${v.name} vendor page`],
-  ['../audit.html','Observability Cost & Stack Audit'],
 ])}
 ${cta(`Alert me when ${esc(v.name)} pricing changes`,'Weekly email with the source link.','guide-calc-'+id,'Subscribe free')}
 ${cite(`${v.name} cost calculator context as of ${v.checked}`)}
@@ -611,7 +605,7 @@ ${cite(`${v.name} cost calculator context as of ${v.checked}`)}
     {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))},
     {'@context':'https://schema.org','@type':'WebApplication',name:`${v.name} cost calculator`,url:BASE+'/'+file,applicationCategory:'BusinessApplication',offers:{'@type':'Offer',price:'0',priceCurrency:'USD'}}
   ]);
-  hubLinks.push([file,`${v.name} cost calculator`,`Free usage-based estimate → /audit (rates checked ${v.checked}).`]);
+  hubLinks.push([file,`${v.name} cost calculator`,`Stated rates from the dataset (checked ${v.checked}).`]);
 }
 
 // ---- AI / agent observability meters guide (RT-20261031-119): rates from data/ai-meters.json, guarded in build.mjs

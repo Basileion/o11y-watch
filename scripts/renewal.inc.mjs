@@ -105,7 +105,6 @@ ${auditCta('Enter your post-cleanup hosts, log GB/day, custom metrics, spans and
 <li><b>$${AUDIT_PRICE} unlock:</b> ranked alternatives, levers capped at modeled lines, migration plan, Print/PDF — built for a renewal handoff.</li>
 <li><b>Honest limits:</b> list prices, not your contract; vendors without public rates are listed separately, never as savings.</li>
 </ol>
-<p style="margin-top:12px"><a class="btn" href="../audit.html#wizard-anchor" data-grow="renewal-to-audit">Start free savings estimate →</a> <a class="btn ghost" href="../audit.html#price" data-grow="renewal-to-price">See $${AUDIT_PRICE} unlock</a></p>
 </div>
 
 ${cta('Get told if Datadog changes list prices before your renewal','Weekly email when an observability pricing page changes, with the source link.','guide-dd-renewal','Subscribe free')}
@@ -113,7 +112,7 @@ ${cta('Get told if Datadog changes list prices before your renewal','Weekly emai
 <h2>FAQ</h2>
 ${faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
 
-${related([['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['datadog-40-host-cost-worked-example.html','Datadog 40-host cost worked example'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../audit.html','Observability Cost & Stack Audit'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
+${related([['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['datadog-40-host-cost-worked-example.html','Datadog 40-host cost worked example'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
 ${cite(`Datadog renewal cost-audit checklist. Datadog Estimated Usage Metrics + Plan & Usage docs; list prices checked ${CHK} (dataset ${DS||'n/a'}).`)}
 `,'../',[
     ORG,

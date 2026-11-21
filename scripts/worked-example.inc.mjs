@@ -110,33 +110,22 @@ ${linesTable}
 <p class="sm">Same engine run, real vendor names. Confidence reflects coverage: High means public rates cover every dimension you use; Medium/Low means folds, assumptions, or a large gap vs the stated bill. Ranked by estimated $/mo.</p>
 ${altsTable}
 ${insufBlock}
-<p class="sm mut">These are list-price estimates on EXAMPLE inputs, not quotes and not a feature comparison. Re-price on <a href="../audit.html" data-grow="audit-guide-40host-alts">your numbers</a> before deciding.</p>
+<p class="sm mut">These are list-price estimates on EXAMPLE inputs, not quotes and not a feature comparison. Re-price on your own numbers before deciding.</p>
 
 <h2 id="levers">3 · Cleanup levers (capped at modeled lines)</h2>
-<p class="sm">Same rules as <a href="../audit.html">/audit</a>: each lever is a rule-of-thumb % of the modeled line it reduces, never of the $8,000 stated bill. If the matching line is $0 or missing, the lever is marked Not sized.</p>
+<p class="sm">Same rules as the public rates dataset: each lever is a rule-of-thumb % of the modeled line it reduces, never of the $8,000 stated bill. If the matching line is $0 or missing, the lever is marked Not sized.</p>
 ${leversTable}
 <p class="sm mut">Custom metrics are the biggest modeled line here (${money(EXPECTED.metrics)}/mo) but the engine has no dedicated metrics-cleanup lever yet. For a Datadog-side checklist (unqueried series, Metrics without Limits), see <a href="cut-datadog-bill-without-migrating.html">Cut your Datadog bill without migrating</a>.</p>
 
-<h2 id="why-149">4 · Why pay $${AUDIT_PRICE}?</h2>
-<div class="card">
-<ul>
-<li><b>This free page</b> is a citable worked EXAMPLE with fixed inputs, so rivals that already show line-item math no longer beat us on transparency for the audit offer.</li>
-<li><b>The free /audit teaser</b> runs on <em>your</em> hosts, GB, series and seats, and only shows a dollar figure when a high-confidence SaaS option lands below your bill.</li>
-<li><b>The $${AUDIT_PRICE} full report</b> unlocks your ranked alternatives (real names), levers capped at modeled lines, a migration plan with effort ratings, and Print/PDF — the handoff for a budget review.</li>
-<li><b>Refunds:</b> case by case (and any rights your local consumer law gives you). See <a href="../audit.html#refund">/audit#refund</a>.</li>
-</ul>
-<p style="margin-top:12px"><a class="btn" href="../audit.html#sample-report" data-grow="40host-to-sample">See the sample report →</a> <a class="btn ghost" href="../audit.html#wizard-anchor" data-grow="40host-to-audit">Run free estimate on your numbers</a> <a class="btn ghost" href="${esc(AUDIT_CHECKOUT)}" rel="noopener" data-grow="40host-to-kit">Unlock full report · $${AUDIT_PRICE}</a></p>
-</div>
-
 <p class="sm" style="margin-top:18px"><b>Autoscaling?</b> If your host count spikes on HPA or nightly batches, the billed host count can sit above 40. Read <a href="datadog-autoscaling-cost.html" data-grow="40host-to-autoscaling">why autoscaling raises your Datadog bill</a> (99th-percentile host billing, containers, Fargate, hybrid hourly plan).</p>
-<p class="sm"><b>Renewing soon?</b> Read <a href="datadog-renewal-cost-audit.html" data-grow="40host-to-renewal">Before your Datadog renewal</a> (billable vs estimated usage, config-not-usage spikes, egress outside Datadog's line), then run the audit before you sign.</p>
+<p class="sm"><b>Renewing soon?</b> Read <a href="datadog-renewal-cost-audit.html" data-grow="40host-to-renewal">Before your Datadog renewal</a> (billable vs estimated usage, config-not-usage spikes, egress outside Datadog's line).</p>
 
 ${auditCta('Put your real host count, APM hosts, logs, custom metrics and bill into the same engine. Free teaser; full report $'+AUDIT_PRICE+'.','Price your stack in 2 minutes','audit-guide-40host')}
 
 <h2>FAQ</h2>
 ${faq.map(([q,a])=>`<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}
 
-${related([['datadog-renewal-cost-audit.html','Before your Datadog renewal'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../audit.html','Observability Cost & Stack Audit'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
+${related([['datadog-renewal-cost-audit.html','Before your Datadog renewal'],['datadog-autoscaling-cost.html','Why autoscaling raises your Datadog bill'],['cut-datadog-bill-without-migrating.html','Cut your Datadog bill without migrating'],['cut-datadog-bill.html','How to cut your Datadog bill'],['datadog-cost-calculator.html','Datadog cost calculator'],['datadog-pricing.html','Datadog pricing (2026)'],['datadog-alternatives.html','Datadog alternatives (cheaper)'],['../vendors/datadog.html','Datadog vendor page'],['index.html','All guides']])}
 ${cite(`Datadog 40-host cost worked example (EXAMPLE inputs). Datadog list prices checked ${CHK}; audit dataset ${DS||'n/a'}. Engine totals from O11y Watch public audit-rates.`)}
 `,'../',[
     ORG,
