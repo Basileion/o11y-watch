@@ -10,6 +10,11 @@
  */
 (function () {
   var cfg = window.__GROW__ || {};
+  // 404.html is served for unknown paths; do not fire page_view (crawler-trap inflation).
+  if (cfg.skip || cfg.page === "404") return;
+  try {
+    if (document.documentElement.getAttribute("data-page") === "404") return;
+  } catch (e) {}
   var SITE = cfg.site || location.hostname;
   var ENDPOINT = cfg.endpoint || "https://growth-ingest.basileion-ops.workers.dev";
   var L = null;
